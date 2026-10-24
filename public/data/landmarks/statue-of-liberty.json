@@ -1,0 +1,133 @@
+{
+  "id": "statue-of-liberty",
+  "city": "new-york",
+  "name": "Statue of Liberty",
+  "localName": "Liberty Enlightening the World",
+  "lat": 40.68925,
+  "lon": -74.0445,
+  "summary": "A copper statue given by the people of France. It became a symbol of freedom and the first sight of America for millions of immigrants arriving by sea.",
+  "hero": { "file": "Front view of Statue of Liberty (cropped).jpg", "alt": "The Statue of Liberty holding her torch" },
+  "eras": [
+    {
+      "year": 1876,
+      "label": "1876",
+      "title": "An arm before a statue",
+      "text": "The statue was meant to celebrate the centenary of American independence, but money ran short. So in 1876 sculptor Frédéric-Auguste Bartholdi sent only the right arm and torch to the Centennial Exhibition in Philadelphia. Visitors paid to climb up to the balcony, which helped raise funds. The arm then stood in Madison Square Park in New York for several years.",
+      "image": { "file": "Colossal hand and torch Liberty (18653718993).jpg", "alt": "The statue's arm and torch on display in 1876" }
+    },
+    {
+      "year": 1878,
+      "label": "1878",
+      "title": "A head in Paris",
+      "text": "Two years later, the statue's head went on show at the World's Fair in Paris. Visitors could climb inside it, and people paid to see it in order to support the project.",
+      "image": { "file": "Head of the Statue of Liberty on display in Paris.jpg", "alt": "The head of the Statue of Liberty on display in Paris" }
+    },
+    {
+      "year": 1882,
+      "label": "1882",
+      "title": "Built in a Paris workshop",
+      "text": "Craftsmen hammered thin copper sheets, about as thick as two coins, over wooden moulds. Gustave Eiffel, who would later build his tower, designed the iron skeleton inside that lets the thin skin move in the wind. The statue was finished in Paris in 1884, then taken apart into about 350 pieces and shipped to New York in 214 crates.",
+      "image": { "file": "Workmen constructing the Statue of Liberty in Bartholdi's Parisian warehouse workshop; first model; left hand; and quarter-size head-; Winter 1882? LCCN97502750.jpg", "alt": "Workers building the statue in Bartholdi's Paris workshop" }
+    },
+    {
+      "year": 1886,
+      "label": "1886",
+      "title": "Unveiling day",
+      "text": "France paid for the statue and Americans paid for the pedestal, helped by a newspaper campaign that Joseph Pulitzer led. On 28 October 1886 President Grover Cleveland dedicated the statue in front of a harbour full of boats. Manhattan celebrated with its first ticker-tape parade.",
+      "image": { "file": "EdwardMoran-UnveilingTheStatueofLiberty1886Large.jpg", "alt": "Edward Moran's painting of the statue's unveiling in 1886" }
+    },
+    {
+      "year": 1903,
+      "label": "1892–1954",
+      "title": "Mother of Exiles",
+      "text": "From 1892 to 1954, about twelve million immigrants passed through nearby Ellis Island, and for many the statue was their first sight of America. In 1903 a plaque with Emma Lazarus's poem \"The New Colossus\" was placed in the pedestal. Over these years the brown copper slowly turned green.",
+      "image": { "file": "Immigrants Approaching Statue of Liberty.jpg", "alt": "Immigrants on a ship looking at the Statue of Liberty" }
+    },
+    {
+      "year": 1986,
+      "label": "1986",
+      "title": "A centennial makeover",
+      "text": "Between 1984 and 1986, scaffolding wrapped the statue for a huge restoration. The rusting iron frame was replaced with stainless steel and a new torch was covered in gold leaf. The statue reopened on 4 July 1986 for its 100th birthday.",
+      "image": { "file": "Statue of Liberty restoration project.jpg", "alt": "The Statue of Liberty covered in scaffolding during restoration" }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Liberty Enlightening the World",
+      "text": "The statue has been a UNESCO World Heritage Site since 1984. The original 1886 torch is now displayed in the Statue of Liberty Museum on the island, which opened in 2019.",
+      "image": { "file": "Front view of Statue of Liberty (cropped).jpg", "alt": "The Statue of Liberty today" }
+    }
+  ],
+  "story": [
+    {
+      "id": "gift",
+      "type": "history",
+      "title": "A gift between two republics",
+      "image": { "file": "Statue of Liberty copper construction circa 1880.jpg", "alt": "Copper pieces of the statue under construction around 1880" },
+      "narration": "The idea is said to have begun at a dinner party in France in 1865. The scholar Édouard de Laboulaye, an admirer of American democracy and a fierce opponent of slavery, proposed a monument to friendship between the two nations. The young sculptor Frédéric-Auguste Bartholdi took up the idea. France would pay for the statue and America for its pedestal. When the pedestal fund stalled, the publisher Joseph Pulitzer promised to print the name of every donor in his newspaper. Over 120,000 people gave money, most of them less than a dollar."
+    },
+    {
+      "id": "new-colossus",
+      "type": "culture",
+      "title": "\"Give me your tired, your poor\"",
+      "image": { "file": "Ellis Island 3.jpg", "alt": "The Ellis Island immigration building" },
+      "narration": "In 1883, the poet Emma Lazarus wrote a sonnet to help raise money for the pedestal. She imagined the statue not as a symbol of conquest, but as a Mother of Exiles, saying to the old world: Give me your tired, your poor, your huddled masses yearning to breathe free. For the millions who later sailed past on their way to Ellis Island, those words became the statue's meaning. Today the poem is displayed in the Statue of Liberty Museum."
+    },
+    {
+      "id": "symbols",
+      "type": "legend",
+      "title": "Whose face is it?",
+      "image": { "file": "Bartholdi souvenir - a sketch of the colossal statue presented by France to the United States (1886) (14595662189).jpg", "alt": "Souvenir sketch of the Statue of Liberty, 1886" },
+      "narration": "A popular story says that Bartholdi modelled Liberty's calm, serious face on his own mother, Charlotte. No one has ever proved it. Many other details carry meaning. Her tablet is inscribed with the date of American independence, July 4th, 1776, in Roman numerals. A broken chain and shackle lie at her feet, almost hidden from view, a sign of freedom from oppression and slavery. The seven rays of her crown are often said to represent the seven seas and seven continents."
+    },
+    {
+      "id": "green",
+      "type": "history",
+      "title": "Why the statue is green",
+      "image": { "file": "Statue of Liberty -- Liberty Island New York Harbor (NY) April 2016 (26714239775).jpg", "alt": "The green Statue of Liberty on Liberty Island" },
+      "narration": "When she was unveiled, Liberty was the shiny brown of a new penny. Rain, salty sea air and time slowly oxidised the copper and formed a green layer called patina. By the early 1900s the change was complete. At one point officials considered painting her, but they discovered that the patina actually protects the metal underneath. So the green stayed, and it became part of her identity."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://www.nps.gov/stli/",
+    "price": "Entry to the island is free, but you pay for the ferry. Statue City Cruises is the only official operator. Pedestal and crown access must be reserved, and crown tickets sell out months ahead.",
+    "hours": {
+      "seasons": [
+        { "label": "All year", "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "days": { "daily": [["09:30", "17:00"]] } }
+      ],
+      "closedDates": ["12-25"],
+      "notes": "Approximate. Opening hours follow the ferry timetable. The island is also closed on Thanksgiving Day (fourth Thursday of November)."
+    },
+    "etiquette": {
+      "do": [
+        "Buy tickets only from the official Statue City Cruises website or ticket office.",
+        "Arrive early. There is airport-style security screening before you board.",
+        "Reserve crown tickets months ahead. The narrow stair has 162 steps.",
+        "Allow a full day if you also want to visit Ellis Island. The same ferry stops there."
+      ],
+      "dont": [
+        "Buy from street sellers near Battery Park. Many sell boat trips that only sail past the statue.",
+        "Bring large bags. Lockers are required for the pedestal and crown.",
+        "Take food or drink into the pedestal or crown.",
+        "Fly a drone. The area is restricted."
+      ]
+    },
+    "tips": [
+      { "category": "food", "title": "Eat before or on the island", "text": "Grab a bagel or a slice of pizza in Lower Manhattan before the ferry. On the island, the Crown Café offers simple meals with harbour views." },
+      { "category": "transport", "title": "Getting there", "text": "Take the subway to South Ferry (line 1), Bowling Green (4/5) or Whitehall St (R/W), then walk through Battery Park to the ferry. From New Jersey, ferries leave Liberty State Park." },
+      { "category": "sights", "title": "Free view", "text": "Short on time? The free Staten Island Ferry passes close to the statue on its 25-minute crossing." }
+    ],
+    "pois": [
+      { "name": "Liberty Island ferry dock", "category": "entrance", "lat": 40.6906, "lon": -74.0466, "note": "Ferries arrive here from Manhattan and New Jersey." },
+      { "name": "Statue of Liberty Museum", "category": "sights", "lat": 40.6904, "lon": -74.0458, "note": "Home of the original torch." },
+      { "name": "Crown Café", "category": "food", "lat": 40.6899, "lon": -74.0463, "note": "Café on Liberty Island." },
+      { "name": "Battery Park ferry (Castle Clinton tickets)", "category": "transport", "lat": 40.7034, "lon": -74.0168, "note": "Official ferry departure point in Manhattan." },
+      { "name": "Liberty State Park ferry (New Jersey)", "category": "transport", "lat": 40.7066, "lon": -74.0379, "note": "Quieter departure point." },
+      { "name": "South Ferry / Whitehall subway", "category": "transport", "lat": 40.7017, "lon": -74.0132, "note": "Lines 1, R, W." },
+      { "name": "Ellis Island Immigration Museum", "category": "sights", "lat": 40.6995, "lon": -74.0396, "note": "Included in your ferry ticket." },
+      { "name": "Staten Island Ferry", "category": "sights", "lat": 40.7013, "lon": -74.0128, "note": "Free crossing with statue views." },
+      { "name": "Restrooms near the museum", "category": "services", "lat": 40.6902, "lon": -74.0452, "note": "Plus water fountains." }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+}

@@ -1,0 +1,300 @@
+{
+  "id": "ho-chi-minh-mausoleum",
+  "city": "hanoi",
+  "name": "Ho Chi Minh Mausoleum",
+  "localName": "Lăng Chủ tịch Hồ Chí Minh",
+  "lat": 21.03676,
+  "lon": 105.83466,
+  "summary": "The resting place of Vietnam's founding president, on Ba Đình Square where he declared independence in 1945. Vietnamese people come here as a national pilgrimage, and visitors follow strict rules of respect.",
+  "hero": {
+    "file": "Lăng Bác - NKS.jpg",
+    "alt": "The grey granite Ho Chi Minh Mausoleum on Ba Đình Square"
+  },
+  "eras": [
+    {
+      "year": 1945,
+      "label": "1945",
+      "title": "Independence is declared",
+      "text": "On 2 September 1945 a huge crowd gathered on this square, then a colonial roundabout. Ho Chi Minh read the Declaration of Independence of the Democratic Republic of Vietnam. The square was later named Ba Đình, after an uprising against French rule in the 1880s.",
+      "image": {
+        "file": "Ba Dinh Square September 2nd, 1945.jpg",
+        "alt": "The speakers' stage on Ba Đình Square, 2 September 1945"
+      }
+    },
+    {
+      "year": 1954,
+      "label": "1954–1969",
+      "title": "A modest president",
+      "text": "After 1954, Ho Chi Minh refused to live in the grand palace the French Governor-General had built next to the square. He lived first in a small house and, from 1958, in a simple wooden stilt house in the palace gardens. You can still visit it today. He died on 2 September 1969, aged 79.",
+      "image": {
+        "file": "Ho Chi Minh 1946.jpg",
+        "alt": "Portrait of Ho Chi Minh in 1946"
+      }
+    },
+    {
+      "year": 1975,
+      "label": "1975",
+      "title": "The mausoleum opens",
+      "text": "His will asked for cremation, but the country's leaders decided to preserve his body so that future generations could pay their respects. Building began on 2 September 1973 with Soviet help, using stone and timber from across Vietnam. The mausoleum opened on 29 August 1975. Its gardens hold plants brought from every region of the country.",
+      "image": {
+        "file": "The Ho Chi Minh Mausoleum (12052708565).jpg",
+        "alt": "The grey granite mausoleum with honour guards at its door"
+      }
+    },
+    {
+      "year": 2013,
+      "label": "2013",
+      "title": "A nation's farewell",
+      "text": "The square is still where Vietnam gathers for its biggest moments. In October 2013 flags flew at half-mast here for the state funeral of General Võ Nguyên Giáp, the commander who stood beside Ho Chi Minh on that day in 1945.",
+      "image": {
+        "file": "Flag flown half-staff at the Ho Chi Minh Mausoleum for Vo Nguyen Giap's funeral.jpg",
+        "alt": "Flag at half-mast in front of the mausoleum in 2013"
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Today",
+      "title": "Guarded day and night",
+      "text": "An honour guard watches over the mausoleum around the clock. Each morning the national flag is raised on Ba Đình Square in a short ceremony, and each evening it is lowered again. Both ceremonies are free to watch from the square.",
+      "image": {
+        "file": "Honour guards at Ho Chi Minh Mausoleum, Hanoi, 20240123 1133 3240.jpg",
+        "alt": "Honour guards in white uniforms at the mausoleum"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "declaration",
+      "type": "history",
+      "title": "Ba Đình, 2 September 1945",
+      "image": {
+        "file": "Président Ho-chi-Minh lit la Proclamation-d'indépendance sur la place Ba-dinh le 2nd Sep 1945.jpg",
+        "alt": "Ho Chi Minh reading the Proclamation of Independence on Ba Đình Square"
+      },
+      "narration": "On the second of September 1945, a slim man in a khaki jacket stepped up to a wooden stage on this square. Ho Chi Minh began his Declaration of Independence with words borrowed from the United States: all men are created equal, with the right to life, liberty and the pursuit of happiness. He then quoted the French Declaration of the Rights of Man. He used his opponents' own ideals to argue for Vietnam's freedom. Independence Day, the second of September, is still Vietnam's national day."
+    },
+    {
+      "id": "uncle-ho",
+      "type": "culture",
+      "title": "Why people call him \"Uncle Hồ\"",
+      "image": {
+        "file": "Guards of the Ho Chi Minh Mausoleum.jpg",
+        "alt": "Guards standing at attention at the mausoleum"
+      },
+      "narration": "Many Vietnamese people call Ho Chi Minh Bác Hồ, Uncle Hồ. The name is warm and personal, the way you would speak of a respected older relative. That is why a visit here feels more like a pilgrimage than sightseeing. Families travel from distant provinces, schoolchildren come in uniform, and veterans wear their medals. Visitors walk past in silence, in two slow lines, hands at their sides. When you follow the dress code and the rules, you are showing respect to the people around you as well as to the place."
+    },
+    {
+      "id": "wish",
+      "type": "history",
+      "title": "A wish, and a decision",
+      "image": {
+        "file": "Hanoi Vietnam Mausoleum-of-Ho-Chi-Minh-02.jpg",
+        "alt": "Honour guards marching past the mausoleum wall while a street sweeper works"
+      },
+      "narration": "In his final testament, Ho Chi Minh asked to be cremated. He wanted his ashes divided between the north, the centre and the south of the country, and buried on hilltops where people could plant trees. After his death in 1969, with the country still at war, the leadership made a different choice. Following the example of Lenin in Moscow, they decided to preserve his body for the nation. Each year the mausoleum closes for a period of maintenance, so check the dates before you plan your visit."
+    },
+    {
+      "id": "one-pillar",
+      "type": "legend",
+      "title": "The dream behind the One Pillar Pagoda",
+      "image": {
+        "file": "One Pillar Pagoda.jpg",
+        "alt": "The One Pillar Pagoda rising from a lotus pond"
+      },
+      "narration": "A few steps from the mausoleum stands one of Vietnam's most beloved temples. Legend says that King Lý Thái Tông, who had no son, dreamed that the Goddess of Mercy, Quan Âm, sat on a lotus flower and handed him a baby boy. Soon afterwards he married a young woman who gave him a son. In thanks, in 1049, he built a small pagoda on a single stone pillar in a pond, shaped like a lotus rising from the water. The pagoda you see today was rebuilt after it was destroyed in 1954, but many people still come here to pray for children and good health."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://www.bqllang.gov.vn/",
+    "price": "Free. Leave your bags and cameras at the deposit counter before you join the queue.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "Summer (April–October)",
+          "months": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "days": {
+            "tue": [
+              [
+                "07:30",
+                "10:30"
+              ]
+            ],
+            "wed": [
+              [
+                "07:30",
+                "10:30"
+              ]
+            ],
+            "thu": [
+              [
+                "07:30",
+                "10:30"
+              ]
+            ],
+            "sat": [
+              [
+                "07:30",
+                "11:00"
+              ]
+            ],
+            "sun": [
+              [
+                "07:30",
+                "11:00"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "Winter (November–March)",
+          "months": [
+            11,
+            12,
+            1,
+            2,
+            3
+          ],
+          "days": {
+            "tue": [
+              [
+                "08:00",
+                "11:00"
+              ]
+            ],
+            "wed": [
+              [
+                "08:00",
+                "11:00"
+              ]
+            ],
+            "thu": [
+              [
+                "08:00",
+                "11:00"
+              ]
+            ],
+            "sat": [
+              [
+                "08:00",
+                "11:30"
+              ]
+            ],
+            "sun": [
+              [
+                "08:00",
+                "11:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Closed on Mondays and Fridays. These are entry times for the morning queue. The mausoleum also closes for about two months each year for maintenance, usually from mid-June to mid-August, and the dates change every year."
+    },
+    "etiquette": {
+      "do": [
+        "Wear clothes that cover your shoulders and knees. No shorts, short skirts or sleeveless tops.",
+        "Take off hats and sunglasses before you go in.",
+        "Walk slowly in two lines and keep moving.",
+        "Keep your hands out of your pockets and your arms at your sides.",
+        "Stay completely silent inside the hall."
+      ],
+      "dont": [
+        "Take photos or videos inside. Phones and cameras must be handed in first.",
+        "Talk, laugh or point inside the mausoleum.",
+        "Eat, drink, smoke or chew gum anywhere in the complex.",
+        "Stop or linger in front of the body.",
+        "Walk on the grass of Ba Đình Square or touch the guards."
+      ]
+    },
+    "tips": [
+      {
+        "category": "transport",
+        "title": "Arrive early",
+        "text": "Queues build quickly, especially at weekends and on holidays. Take a taxi or Grab to Hùng Vương Street and aim to arrive before opening time."
+      },
+      {
+        "category": "sights",
+        "title": "Follow the one-way route",
+        "text": "After the mausoleum, the route continues past the Presidential Palace, Ho Chi Minh's stilt house, the One Pillar Pagoda and the Ho Chi Minh Museum. Allow two to three hours."
+      },
+      {
+        "category": "food",
+        "title": "Eat like a Hanoian",
+        "text": "Afterwards, head to the Old Quarter, about 2 km east, for phở, bún chả, or an egg coffee (cà phê trứng)."
+      },
+      {
+        "category": "sights",
+        "title": "Flag ceremonies",
+        "text": "The national flag is raised on Ba Đình Square early each morning and lowered in the evening. Both ceremonies are free to watch."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Visitor entrance & bag deposit",
+        "category": "entrance",
+        "lat": 21.0355,
+        "lon": 105.8343,
+        "note": "Approximate. Security staff will direct you to the queue."
+      },
+      {
+        "name": "Ba Đình Square",
+        "category": "sights",
+        "lat": 21.0369,
+        "lon": 105.8358,
+        "note": "Where independence was declared in 1945."
+      },
+      {
+        "name": "One Pillar Pagoda",
+        "category": "sights",
+        "lat": 21.0359,
+        "lon": 105.8336,
+        "note": "Built in 1049, rebuilt in 1955."
+      },
+      {
+        "name": "Presidential Palace & stilt house",
+        "category": "sights",
+        "lat": 21.0398,
+        "lon": 105.8333,
+        "note": "Ho Chi Minh's simple home."
+      },
+      {
+        "name": "Ho Chi Minh Museum",
+        "category": "services",
+        "lat": 21.0353,
+        "lon": 105.8327,
+        "note": "Toilets and drinks nearby."
+      },
+      {
+        "name": "Taxi / Grab drop-off (Hùng Vương St.)",
+        "category": "transport",
+        "lat": 21.0362,
+        "lon": 105.8352,
+        "note": "Most convenient drop-off point."
+      },
+      {
+        "name": "Old Quarter street food",
+        "category": "food",
+        "lat": 21.0341,
+        "lon": 105.8508,
+        "note": "About 2 km east. Phở, bún chả, egg coffee."
+      },
+      {
+        "name": "Temple of Literature",
+        "category": "sights",
+        "lat": 21.0285,
+        "lon": 105.8355,
+        "note": "About 1 km south. Founded in 1070."
+      }
+    ]
+  },
+  "credits": "Opening times are approximate prototype data. Always check the official website before visiting."
+}

@@ -1,0 +1,250 @@
+{
+  "id": "kinkaku-ji",
+  "city": "kyoto",
+  "name": "Kinkaku-ji (Golden Pavilion)",
+  "localName": "金閣寺 · Rokuon-ji",
+  "lat": 35.03937,
+  "lon": 135.72924,
+  "summary": "A Zen temple whose upper two floors are covered in gold leaf and reflected in a mirror-like pond. It was rebuilt after a young monk burned it down in 1950.",
+  "hero": {
+    "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
+    "alt": "The Golden Pavilion reflected in its pond"
+  },
+  "eras": [
+    {
+      "year": 1397,
+      "label": "1397",
+      "title": "A shogun's retreat",
+      "text": "Ashikaga Yoshimitsu, the third Ashikaga shogun and the most powerful man in Japan, bought this hillside estate in 1397 and built a luxurious retirement villa here. The golden pavilion stood at its centre, a statement of wealth and refined taste.",
+      "image": {
+        "file": "Yoshimitsu Ashikaga.jpg",
+        "alt": "Portrait of the shogun Ashikaga Yoshimitsu"
+      }
+    },
+    {
+      "year": 1408,
+      "label": "1408",
+      "title": "From villa to Zen temple",
+      "text": "Yoshimitsu died in 1408. As he had wished, the villa became a Zen temple of the Rinzai school, Rokuon-ji, the \"Deer Garden Temple\". During the Ōnin War (1467–1477) most of Kyoto burned, but the pavilion survived.",
+      "image": {
+        "file": "Kyoto Rokuon-ji Kinkaku-ji a17.jpg",
+        "alt": "The golden pavilion and its phoenix framed by snowy pine branches"
+      }
+    },
+    {
+      "year": 1885,
+      "label": "c. 1890",
+      "title": "Seen by the world",
+      "text": "When Japan opened to the world in the Meiji era, photographers such as Kusakabe Kimbei sold hand-coloured prints of Kyoto's temples to foreign visitors. By then much of the pavilion's gold leaf had worn away, leaving mostly dark wood.",
+      "image": {
+        "file": "Kusakabe Kimbei 1337 Kinkakuji.JPG",
+        "alt": "Meiji-era photograph of Kinkaku-ji by Kusakabe Kimbei"
+      }
+    },
+    {
+      "year": 1950,
+      "label": "1950",
+      "title": "Fire",
+      "text": "In the early hours of 2 July 1950, a 22-year-old trainee monk set fire to the pavilion. The 550-year-old building burned to the ground, along with a statue of Yoshimitsu inside. The monk was found on the hillside behind the temple. The crime shocked Japan.",
+      "image": {
+        "file": "Burned Kinkaku.jpg",
+        "alt": "The burned remains of Kinkaku-ji in 1950"
+      }
+    },
+    {
+      "year": 1955,
+      "label": "1955",
+      "title": "Reborn in gold",
+      "text": "A faithful copy was finished in 1955, based on detailed records of the original. This time the upper floors were fully covered in gold leaf. In 1987 the gold was renewed with thicker leaf, and in 2003 the cypress-bark roof was replaced.",
+      "image": {
+        "file": "Kinkakuji (Golden Pavilion), Kyoto, Japan - 34036736784.jpg",
+        "alt": "The rebuilt golden pavilion"
+      }
+    },
+    {
+      "year": 1994,
+      "label": "1994",
+      "title": "World Heritage",
+      "text": "In 1994 Kinkaku-ji became part of the UNESCO World Heritage Site \"Historic Monuments of Ancient Kyoto\". On the rare days when snow falls, the gold against white is one of the most famous sights in Japan.",
+      "image": {
+        "file": "Kyōko-chi Pond at Kinkaku-ji Frozen on January 1, 2011.jpg",
+        "alt": "Kinkaku-ji in snow with the pond frozen, 1 January 2011"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The mirror pond",
+      "text": "Today visitors follow a set path around the Kyōko-chi, the \"mirror pond\". On a still day the pavilion appears twice, once in the air and once in the water.",
+      "image": {
+        "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
+        "alt": "Kinkaku-ji reflected in the pond today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "three-floors",
+      "type": "culture",
+      "title": "Three floors, three worlds",
+      "image": {
+        "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
+        "alt": "The Golden Pavilion"
+      },
+      "narration": "Look closely and you will see that each floor of the pavilion is built in a different style. The ground floor, left in natural wood, follows the palace style of the imperial court. The second floor follows the style of samurai houses. The top floor is built like a Zen Buddhist hall. Together they show Yoshimitsu's world: a shogun who combined the elegance of the court, the power of the warrior class and the spirit of Zen. On the roof stands a golden phoenix, the bird of good fortune."
+    },
+    {
+      "id": "mirror-pond",
+      "type": "culture",
+      "title": "A garden that borrows the mountains",
+      "image": {
+        "file": "Kyoto Rokuon-ji Kinkaku-ji c14.jpg",
+        "alt": "Kinkaku-ji reflected in the mirror pond on a snowy day"
+      },
+      "narration": "The garden is a stroll garden, designed to be walked through slowly, revealing new views at every turn. Its pond, the Kyōko-chi, or mirror pond, has small islands topped with pines. Some are said to represent the lands of the world, others the crane and the tortoise, symbols of long life. Behind it all rise the forested hills of northern Kyoto. Japanese garden makers call this technique shakkei, borrowed scenery, using the landscape beyond the walls as part of the design."
+    },
+    {
+      "id": "mishima",
+      "type": "history",
+      "title": "The fire and the novel",
+      "image": {
+        "file": "Kawabata Ryūshi - Kinkakuji-Temple on Fire.jpg",
+        "alt": "Kawabata Ryūshi's painting of Kinkaku-ji on fire"
+      },
+      "narration": "Why would a monk destroy the most beautiful building he knew? In 1956 the writer Yukio Mishima turned the true story of the 1950 fire into a novel, The Temple of the Golden Pavilion. In the book, a lonely young monk becomes obsessed with the temple's beauty until he feels he can only be free if it no longer exists. The novel became one of the most famous works of modern Japanese literature, and it made the Golden Pavilion a symbol of beauty that is both perfect and fragile."
+    },
+    {
+      "id": "land-boat-pine",
+      "type": "legend",
+      "title": "The pine shaped like a boat",
+      "image": {
+        "file": "Kyoto Rokuon-ji Kinkaku-ji c18.jpg",
+        "alt": "Pines in the garden of Kinkaku-ji dusted with snow"
+      },
+      "narration": "Near the abbot's quarters grows one of the three most famous pines in Kyoto, the Rikushū-no-matsu, or Land Boat Pine. Its branches have been trained for centuries into the shape of a sailing ship. Legend says it began as a tiny bonsai that Yoshimitsu himself looked after and later planted in the ground. Look out too for your entrance ticket. It is not an ordinary ticket but an ofuda, a paper charm for good fortune and safety at home. Many visitors keep it."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://www.shokoku-ji.jp/en/kinkakuji/",
+    "price": "There is a small entrance fee, paid at the gate. Cash is the safest way to pay. Your ticket is a paper good-luck charm (ofuda), so keep it.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "09:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Open every day. You cannot go inside the pavilion. Visitors view it from the garden path."
+    },
+    "etiquette": {
+      "do": [
+        "Follow the one-way path. It is designed to show the views in order.",
+        "Speak quietly. This is a working Zen temple.",
+        "Stay on the path and keep off the moss.",
+        "Take your rubbish with you. There are very few bins in Japan."
+      ],
+      "dont": [
+        "Eat or drink while walking around the garden.",
+        "Throw coins into the pond or at statues, except at the marked offering spots.",
+        "Block the main viewpoint for a long photo session. Take your shot and move on.",
+        "Fly drones or use large tripods."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Matcha in the garden",
+        "text": "A small tea spot near the end of the path serves matcha with a sweet, sometimes decorated with gold leaf. Nearby Ryōan-ji is known for yudōfu (simmered tofu)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "City buses 101, 102, 204 and 205 stop at Kinkakuji-michi or Kinkakuji-mae, about 40 minutes from Kyoto Station. IC cards such as ICOCA work on buses."
+      },
+      {
+        "category": "sights",
+        "title": "Go early, or late",
+        "text": "Arrive at 9:00 or in the last hour before closing for thinner crowds. Then walk the Kinukake-no-michi road to Ryōan-ji's famous rock garden."
+      },
+      {
+        "category": "sights",
+        "title": "Best seasons",
+        "text": "Autumn colour (November) and the rare days of snow in winter are spectacular, but expect crowds."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Main gate & ticket office",
+        "category": "entrance",
+        "lat": 35.0389,
+        "lon": 135.7308,
+        "note": "Buy your ofuda ticket here."
+      },
+      {
+        "name": "Mirror pond viewpoint",
+        "category": "sights",
+        "lat": 35.0391,
+        "lon": 135.7297,
+        "note": "The classic view across the pond."
+      },
+      {
+        "name": "Kinkakuji-michi bus stop",
+        "category": "transport",
+        "lat": 35.0368,
+        "lon": 135.7333,
+        "note": "Buses 12, 59, 204, 205."
+      },
+      {
+        "name": "Kinkakuji-mae bus stop",
+        "category": "transport",
+        "lat": 35.0397,
+        "lon": 135.7318,
+        "note": "Buses 101, 102."
+      },
+      {
+        "name": "Tea garden",
+        "category": "food",
+        "lat": 35.0402,
+        "lon": 135.7289,
+        "note": "Matcha and a sweet near the end of the path."
+      },
+      {
+        "name": "Toilets near the exit",
+        "category": "services",
+        "lat": 35.0398,
+        "lon": 135.7304,
+        "note": "Also souvenir and charm stalls."
+      },
+      {
+        "name": "Ryōan-ji rock garden",
+        "category": "sights",
+        "lat": 35.0345,
+        "lon": 135.7182,
+        "note": "About 20 minutes' walk west."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+}

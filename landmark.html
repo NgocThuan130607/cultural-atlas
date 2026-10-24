@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%230b57d0%22/%3E%3Cpath d=%22M1 8h14M8 1c3 3 3 11 0 14M8 1c-3 3-3 11 0 14%22 stroke=%22%23fff%22 fill=%22none%22/%3E%3C/svg%3E" />
+  <title>Atlas of Stories</title>
+  <script>
+    // Apply the saved or system colour theme before the page paints.
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("atlas-theme"); } catch (e) {}
+      if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-bs-theme", t);
+    })();
+  </script>
+</head>
+<body>
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 btn btn-light z-3" href="#main">Skip to content</a>
+  <header class="appbar">
+    <a class="icon-btn" id="back-btn" href="./index.html" aria-label="Back to the globe"><span class="ms">arrow_back</span></a>
+    <a class="brand" href="./index.html"><span class="ms">travel_explore</span><span class="d-none d-sm-inline">Atlas of Stories</span></a>
+    <span class="spacer"></span>
+    <div class="dropdown">
+      <button class="btn-m btn-text" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="ms">location_city</span>Cities<span class="ms">arrow_drop_down</span></button>
+      <ul class="dropdown-menu dropdown-menu-end" id="nav-cities"></ul>
+    </div>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme"><span class="ms">dark_mode</span></button>
+  </header>
+  <main id="main" class="split">
+    <div class="panel" id="panel">
+      <div class="p-5 text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading…</span></div></div>
+    </div>
+    <div class="viewport" id="viewport"></div>
+  </main>
+  <script type="module" src="/src/js/pages/landmark.js"></script>
+</body>
+</html>

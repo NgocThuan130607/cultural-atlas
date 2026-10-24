@@ -1,0 +1,136 @@
+{
+  "id": "pyramids-of-giza",
+  "city": "cairo",
+  "name": "Pyramids of Giza",
+  "localName": "أهرامات الجيزة",
+  "lat": 29.9792,
+  "lon": 31.1342,
+  "summary": "The last surviving Wonder of the Ancient World: three royal pyramids and the Great Sphinx, built about 4,500 years ago at the desert's edge, west of the Nile.",
+  "hero": { "file": "Pyramids of the Giza Necropolis.jpg", "alt": "The three pyramids of Giza in the desert" },
+  "eras": [
+    {
+      "year": -2560,
+      "label": "c. 2560 BCE",
+      "title": "The Great Pyramid is finished",
+      "text": "Pharaoh Khufu's pyramid took around twenty years to build, from roughly 2.3 million stone blocks. When new it stood about 146 metres tall and was covered in polished white limestone that shone in the sun. It remained the tallest human-made structure on Earth for nearly 4,000 years.",
+      "image": { "file": "Great Pyramid of Giza - Pyramid of Khufu.jpg", "alt": "The Great Pyramid of Khufu" }
+    },
+    {
+      "year": -2500,
+      "label": "c. 2500 BCE",
+      "title": "Khafre and the Sphinx",
+      "text": "Khufu's son Khafre built the second pyramid. It looks taller because it stands on higher ground, and it still has some of its smooth casing near the top. The Great Sphinx, a lion with a king's head carved from the bedrock, is usually credited to Khafre. A third, smaller pyramid was built for Menkaure.",
+      "image": { "file": "Sphinx with the third pyramid.jpg", "alt": "The Great Sphinx with a pyramid behind it" }
+    },
+    {
+      "year": 1798,
+      "label": "1798",
+      "title": "Napoleon's scholars",
+      "text": "By the Middle Ages much of the white casing had been carried off to build Cairo, after an earthquake in 1303 loosened it. When Napoleon invaded Egypt in 1798, he brought scholars with him. Their huge book, the Description de l'Égypte, gave Europe its first detailed pictures of the monuments.",
+      "image": { "file": "Pyramides de Memphis. Vue générale des pyramides, prise du sud-est (NYPL b14212718-1268175).jpg", "alt": "Engraving of the pyramids from the Description de l'Égypte" }
+    },
+    {
+      "year": 1839,
+      "label": "1839",
+      "title": "Buried in sand",
+      "text": "Travelling artists like the Scottish painter David Roberts drew the Sphinx buried up to its shoulders in drifting sand. Their prints made Egypt a dream destination for European travellers.",
+      "image": { "file": "The Great Sphinx, Pyramids of Gizeh-1839) by David Roberts, RA.jpg", "alt": "David Roberts painting of the Sphinx half-buried in sand, 1839" }
+    },
+    {
+      "year": 1858,
+      "label": "1858",
+      "title": "The camera arrives",
+      "text": "Photographers such as Francis Frith hauled heavy glass-plate cameras across the desert. For the first time, people who would never travel to Egypt could see the pyramids as they really were.",
+      "image": { "file": "Francis Frith - Pyramids Of El-Geezeh (From The Southwest) - Google Art Project.jpg", "alt": "Francis Frith photograph of the Giza pyramids, 1858" }
+    },
+    {
+      "year": 1954,
+      "label": "1954",
+      "title": "Khufu's boat",
+      "text": "In 1954 archaeologist Kamal el-Mallakh opened a sealed pit beside the Great Pyramid. Inside lay a full-size cedar boat, about 43 metres long, taken apart into more than 1,200 pieces. It took years to reassemble. The boat now stands in the Grand Egyptian Museum nearby.",
+      "image": { "file": "Barque Solaire4.JPG", "alt": "The reassembled cedar boat of Khufu" }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A World Heritage site",
+      "text": "Since 1979 the pyramids have been a UNESCO World Heritage Site, as part of \"Memphis and its Necropolis\". Archaeologists are still making discoveries here, from workers' tombs to hidden spaces inside the Great Pyramid.",
+      "image": { "file": "Pyramids of the Giza Necropolis.jpg", "alt": "The Giza pyramids today" }
+    }
+  ],
+  "story": [
+    {
+      "id": "builders",
+      "type": "history",
+      "title": "Who really built the pyramids?",
+      "image": { "file": "Giza, Pyramids, Pictures, F. Bonfils, photo 5 of 27 - Archivio fotografico Museo Egizio, Turin INV01 007.jpg", "alt": "19th-century photograph of the Giza pyramids" },
+      "narration": "Films often show slaves dragging stones under the whip, but archaeology tells a different story. South of the pyramids, researchers found a town where workers lived, with bakeries, breweries and the bones of thousands of cattle and sheep that fed them. Nearby are the workers' own tombs, built with honour next to their kings. Teams left graffiti with proud names like Friends of Khufu. Most were skilled Egyptian labourers working in rotating crews, and many were farmers who came during the Nile flood, when their fields were under water."
+    },
+    {
+      "id": "dream-stele",
+      "type": "legend",
+      "title": "The prince who dreamed of the Sphinx",
+      "image": { "file": "Giza, Sphynx and funerary temple of Khafre, 19th century pictures, 1875-1877, photo 8 of 9 - Archivio fotografico Museo Egizio, Turin INV01 011.jpg", "alt": "The Sphinx photographed in the 1870s" },
+      "narration": "Around 3,400 years ago, a young prince named Thutmose went hunting near Giza. Tired in the midday heat, he lay down in the shadow of the Sphinx, which was buried up to its neck in sand. In a dream, the Sphinx spoke to him. If you clear away this sand, it promised, I will make you king of Egypt. Thutmose cleared the sand, and he became Pharaoh Thutmose the Fourth. He recorded the story on a large granite slab, the Dream Stele, which still stands between the Sphinx's paws."
+    },
+    {
+      "id": "eternity",
+      "type": "culture",
+      "title": "Houses of eternity",
+      "image": { "file": "The Great Pyramid and the Sphinx.jpg", "alt": "The Great Pyramid and the Sphinx" },
+      "narration": "To the ancient Egyptians, a pyramid was not just a tomb. It was a machine for eternal life. Its shape may echo the rays of the sun spreading down to earth, a path the king's spirit could climb to join the sun god Ra. The sides of the Great Pyramid face north, south, east and west with remarkable precision. Temples beside each pyramid were staffed by priests who brought offerings for centuries, so that the king's spirit, his ka, would never go hungry."
+    },
+    {
+      "id": "wonder",
+      "type": "history",
+      "title": "The last Wonder standing",
+      "image": { "file": "De pyramiden van Gizeh The Pyramids of El Geezeh (titel op object), RP-F-F80272.jpg", "alt": "Old photograph of the Giza pyramids" },
+      "narration": "Greek writers listed seven wonders of the world. The Hanging Gardens, the Colossus of Rhodes and the Lighthouse of Alexandria have all vanished. Only the Great Pyramid, already the oldest of the seven, still stands. The Greek historian Herodotus visited about 2,500 years ago, when the pyramids were already 2,000 years old, and wrote down the tales the local priests told him. Before the Battle of the Pyramids in 1798, Napoleon is said to have told his soldiers that forty centuries were looking down on them."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://egymonuments.gov.eg/",
+    "price": "One ticket covers the plateau. Going inside the Great Pyramid or the other pyramids costs extra. Bring a bank card, as many Egyptian sites now prefer cashless payment.",
+    "hours": {
+      "seasons": [
+        { "label": "All year", "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "days": { "daily": [["08:00", "17:00"]] } }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Hours can change in summer and during Ramadan. A sound-and-light show runs most evenings near the Sphinx."
+    },
+    "etiquette": {
+      "do": [
+        "Wear light, loose clothes that cover your shoulders and knees, plus a hat and sunscreen.",
+        "Agree the full price, including the ride back, before any camel, horse or carriage ride.",
+        "Carry small notes for tips (baksheesh) in return for small services.",
+        "Say \"La, shukran\" (no, thank you) politely but firmly and keep walking if you're not interested."
+      ],
+      "dont": [
+        "Climb the pyramids. It's forbidden and dangerous.",
+        "Touch, scratch or take away any stones or carvings.",
+        "Fly a drone. Drones are banned without a special permit.",
+        "Hand your camera to someone who offers to take a photo, unless you're happy to pay them.",
+        "Hire animals that look sick or mistreated."
+      ]
+    },
+    "tips": [
+      { "category": "food", "title": "Taste Cairo", "text": "Try koshari (rice, lentils, pasta and spicy tomato sauce) or ta'ameya, Egyptian falafel made from fava beans. Rooftop restaurants in Nazlet El-Semman look straight at the Sphinx." },
+      { "category": "transport", "title": "Getting there", "text": "A taxi or ride-hailing car from central Cairo takes 45–60 minutes, depending on traffic. Ask to be dropped at the main gate or the Sphinx gate." },
+      { "category": "sights", "title": "Beat the heat", "text": "Arrive at opening time for cooler air, softer light and fewer crowds. Walk to the panorama point for a view of all the pyramids at once." },
+      { "category": "sights", "title": "Grand Egyptian Museum", "text": "The new museum, about 2 km away, holds the treasures of Tutankhamun and Khufu's boat. Plan half a day." }
+    ],
+    "pois": [
+      { "name": "Main gate (Al-Haram Road)", "category": "entrance", "lat": 29.9875, "lon": 31.1335, "note": "Main ticket office near the Great Pyramid." },
+      { "name": "Sphinx gate", "category": "entrance", "lat": 29.9754, "lon": 31.1415, "note": "Entrance on the village side, close to the Sphinx." },
+      { "name": "Great Sphinx", "category": "sights", "lat": 29.9753, "lon": 31.1376, "note": "Carved from the bedrock, c. 2500 BCE." },
+      { "name": "Pyramid of Khafre", "category": "sights", "lat": 29.9761, "lon": 31.1308, "note": "Still has some of its original casing near the top." },
+      { "name": "Pyramid of Menkaure", "category": "sights", "lat": 29.9725, "lon": 31.1283, "note": "The smallest of the three main pyramids." },
+      { "name": "Panorama viewpoint", "category": "sights", "lat": 29.972, "lon": 31.1247, "note": "View of all the pyramids at once." },
+      { "name": "Grand Egyptian Museum", "category": "sights", "lat": 29.9945, "lon": 31.1186, "note": "Tutankhamun's treasures and Khufu's boat." },
+      { "name": "Restaurants in Nazlet El-Semman", "category": "food", "lat": 29.9772, "lon": 31.1432, "note": "Rooftop views of the Sphinx." },
+      { "name": "Visitor centre", "category": "services", "lat": 29.9866, "lon": 31.1326, "note": "Toilets, water and information." },
+      { "name": "Taxi drop-off (main gate)", "category": "transport", "lat": 29.988, "lon": 31.134, "note": "Arrange your return ride in advance." }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+}

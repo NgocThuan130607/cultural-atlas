@@ -1,0 +1,70 @@
+{
+  "cities": [
+    {
+      "id": "hanoi",
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "lat": 21.0285,
+      "lon": 105.8542,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "A thousand-year capital of lakes, temples and street food",
+      "landmarks": ["ho-chi-minh-mausoleum"]
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "country": "France",
+      "continent": "Europe",
+      "lat": 48.8566,
+      "lon": 2.3522,
+      "timezone": "Europe/Paris",
+      "tagline": "The City of Light, built along the Seine",
+      "landmarks": ["eiffel-tower"]
+    },
+    {
+      "id": "cairo",
+      "name": "Cairo",
+      "country": "Egypt",
+      "continent": "Africa",
+      "lat": 30.0444,
+      "lon": 31.2357,
+      "timezone": "Africa/Cairo",
+      "tagline": "The city of a thousand minarets, on the banks of the Nile",
+      "landmarks": ["pyramids-of-giza"]
+    },
+    {
+      "id": "kyoto",
+      "name": "Kyoto",
+      "country": "Japan",
+      "continent": "Asia",
+      "lat": 35.0116,
+      "lon": 135.7681,
+      "timezone": "Asia/Tokyo",
+      "tagline": "Japan's imperial capital for more than a thousand years",
+      "landmarks": ["kinkaku-ji"]
+    },
+    {
+      "id": "rome",
+      "name": "Rome",
+      "country": "Italy",
+      "continent": "Europe",
+      "lat": 41.9028,
+      "lon": 12.4964,
+      "timezone": "Europe/Rome",
+      "tagline": "The Eternal City, layered with three thousand years of history",
+      "landmarks": ["colosseum"]
+    },
+    {
+      "id": "new-york",
+      "name": "New York",
+      "country": "United States",
+      "continent": "North America",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "timezone": "America/New_York",
+      "tagline": "A harbour city of immigrants and skyscrapers",
+      "landmarks": ["statue-of-liberty"]
+    }
+  ]
+}

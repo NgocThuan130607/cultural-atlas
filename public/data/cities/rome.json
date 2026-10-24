@@ -1,0 +1,40 @@
+{
+  "id": "rome",
+  "hero": { "file": "Trevi Fountain, Rome, Italy 2 - May 2007.jpg", "alt": "The Trevi Fountain in Rome" },
+  "facts": {
+    "languages": "Italian",
+    "currency": "Euro (EUR)",
+    "bestTime": "April–June and September–October",
+    "founded": "753 BCE, according to legend"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Rome grew up beside the River Tiber, on and around its famous seven hills, about 25 km from the sea. The Vatican City, the world's smallest independent country, sits entirely inside the city. Summers are hot and dry, and the winters are mild."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Legend says Romulus founded Rome in 753 BCE. It became the centre of a Republic, then of an Empire that stretched from Britain to Egypt. For centuries afterwards it was the city of the popes, and since 1871 it has been the capital of a united Italy. Ancient ruins, medieval churches and Baroque squares stand side by side."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Romans live in the piazza. They drink an espresso standing at the bar, take an evening stroll (the passeggiata) and meet friends for aperitivo before dinner. Hundreds of free public drinking fountains, called nasoni or \"big noses\", still carry cool water across the city."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees to enter churches, including St Peter's Basilica.",
+    "Don't sit on the Spanish Steps or wade into fountains. Both can get you fined.",
+    "An espresso drunk standing at the bar costs less than one served at a table.",
+    "Validate your bus or tram ticket when you board."
+  ],
+  "planned": [
+    {
+      "name": "Pantheon",
+      "localName": "Pantheon",
+      "blurb": "A Roman temple rebuilt by Emperor Hadrian around 125 CE. Its concrete dome is still the largest unreinforced one in the world."
+    }
+  ]
+}

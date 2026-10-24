@@ -1,0 +1,279 @@
+{
+  "id": "eiffel-tower",
+  "city": "paris",
+  "name": "Eiffel Tower",
+  "localName": "La tour Eiffel",
+  "lat": 48.85826,
+  "lon": 2.29452,
+  "summary": "A 330-metre iron tower built for the 1889 World's Fair. Many Paris artists hated it at first. Today it is the city's best-loved symbol.",
+  "hero": {
+    "file": "Tour Eiffel Wikimedia Commons (cropped).jpg",
+    "alt": "The Eiffel Tower against a blue sky"
+  },
+  "eras": [
+    {
+      "year": 1887,
+      "label": "1887",
+      "title": "The legs rise",
+      "text": "Work began on 28 January 1887. By autumn the four iron legs were climbing out of their stone foundations, leaning inwards like the arches of a bridge. Engineers Maurice Koechlin and Émile Nouguier, working for Gustave Eiffel's company, designed every one of its 18,000 parts on paper first.",
+      "image": {
+        "file": "Eiffel Tower 1887-10-08.jpg",
+        "alt": "The four legs of the Eiffel Tower under construction in October 1887",
+        "focus": "center 92%"
+      }
+    },
+    {
+      "year": 1888,
+      "label": "1888",
+      "title": "Climbing through the sky",
+      "text": "In 1888 the legs were joined by the first platform and the tower kept climbing. About 2.5 million rivets held it together. Workers heated each rivet red-hot and hammered it into place by hand, high above the Champ de Mars.",
+      "image": {
+        "file": "Eiffel Tower 1888-12-26.jpg",
+        "alt": "The Eiffel Tower half-built in December 1888",
+        "focus": "center 80%"
+      }
+    },
+    {
+      "year": 1889,
+      "label": "1889",
+      "title": "The tallest structure on Earth",
+      "text": "The tower was inaugurated on 31 March 1889 and became the gateway to the Exposition Universelle, the fair marking the centenary of the French Revolution. At 300 metres it was the tallest structure in the world, a title it held until the Chrysler Building in 1930. Almost two million people climbed it during the fair.",
+      "image": {
+        "file": "Eiffel Tower and Exposition Universelle at night, Paris, 1889.jpg",
+        "alt": "The Eiffel Tower lit up at night during the 1889 World's Fair"
+      }
+    },
+    {
+      "year": 1909,
+      "label": "1909",
+      "title": "Saved by radio",
+      "text": "Eiffel's permit lasted only 20 years, and the tower could have been taken down in 1909. To save it, Eiffel promoted scientific uses such as weather measurements, air-resistance experiments and, above all, wireless telegraphy. The army's radio station at the top made the tower too useful to demolish.",
+      "image": {
+        "file": "Antenne TSF tour Eiffel nuit 1914.jpg",
+        "alt": "Radio antenna wires stretching from the Eiffel Tower at night, 1914"
+      }
+    },
+    {
+      "year": 1944,
+      "label": "1944",
+      "title": "The flag returns",
+      "text": "During the German occupation from 1940, the lift cables were cut and the tower was closed to Parisians. On 25 August 1944, the day Paris was liberated, the French tricolour flew from the top again.",
+      "image": {
+        "file": "American soldiers watch as the Tricolor flies from the Eiffel Tower again.jpg",
+        "alt": "American soldiers looking at the French flag on the Eiffel Tower in 1944"
+      }
+    },
+    {
+      "year": 1985,
+      "label": "1985",
+      "title": "Dressed in light",
+      "text": "On New Year's Eve 1985, lighting designer Pierre Bideau replaced the floodlights with golden lamps placed inside the structure, so the tower glows from within. In 2000, 20,000 sparkling bulbs were added. They twinkle for five minutes at the start of every hour after dark.",
+      "image": {
+        "file": "Eiffel Tower Sparkling vew from the Metro (5987339110).jpg",
+        "alt": "The Eiffel Tower sparkling at night"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Paris's best-loved symbol",
+      "text": "Today the tower is 330 metres tall with its antennas and welcomes millions of visitors a year. It is repainted by hand roughly every seven years, using around 60 tonnes of paint.",
+      "image": {
+        "file": "Tour Eiffel Wikimedia Commons (cropped).jpg",
+        "alt": "The Eiffel Tower today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "nobody-wanted",
+      "type": "history",
+      "title": "The tower nobody wanted",
+      "image": {
+        "file": "Carl Larsson - The Eiffel Tower under construction 1888.jpg",
+        "alt": "Painting of the Eiffel Tower under construction by Carl Larsson, 1888"
+      },
+      "narration": "In February 1887, just weeks after building began, a group of famous artists and writers published an angry letter in a Paris newspaper. They called the planned tower useless and monstrous, a black factory chimney looming over the most beautiful city in the world. Among them were the composer Charles Gounod, the architect of the Paris Opera, Charles Garnier, and the writer Guy de Maupassant. A story often told says that Maupassant later ate lunch in the tower's restaurant every day, because it was the only place in Paris where he could not see the tower. Gustave Eiffel replied calmly that engineering could be beautiful too. History proved him right."
+    },
+    {
+      "id": "apartment",
+      "type": "history",
+      "title": "Gustave Eiffel's apartment in the sky",
+      "image": {
+        "file": "View of Exposition Universelle from Eiffel Tower, Paris, 1889.jpg",
+        "alt": "View over the 1889 World's Fair from the Eiffel Tower"
+      },
+      "narration": "Near the top of the tower, Gustave Eiffel kept a small private apartment for himself. It had wallpaper, wooden furniture and even a piano. He used it to welcome scientists and famous guests. In September 1889 the American inventor Thomas Edison visited, and gave Eiffel one of his new phonographs. Many wealthy Parisians offered large sums to rent the apartment for a night, but Eiffel refused them all. You can still look into the restored rooms today, where wax figures show Eiffel and Edison deep in conversation."
+    },
+    {
+      "id": "sold-twice",
+      "type": "legend",
+      "title": "The man who sold the Eiffel Tower",
+      "image": {
+        "file": "Eiffel Tower 1888-12-26.jpg",
+        "alt": "The Eiffel Tower under construction"
+      },
+      "narration": "In 1925, a newspaper story said the tower was rusting and expensive to repair. A con man named Victor Lustig read it and saw an opportunity. Posing as a government official, he invited scrap-metal dealers to a secret meeting in a smart hotel and told them the city had decided to sell the tower for scrap. One dealer paid him a large sum, and a bribe on top. Lustig fled with the money. The dealer was too embarrassed to go to the police. According to the legend, Lustig came back and tried the same trick a second time."
+    },
+    {
+      "id": "icon",
+      "type": "culture",
+      "title": "From eyesore to Iron Lady",
+      "image": {
+        "file": "Eiffel Tower Sparkling vew from the Metro (5987339110).jpg",
+        "alt": "The Eiffel Tower sparkling at night"
+      },
+      "narration": "Parisians call the tower la Dame de fer, the Iron Lady. Painters such as Robert Delaunay and Georges Seurat put it in their work, and it appears in countless films, songs and souvenirs. The tower also reflects the mood of the nation. It has been lit in the colours of other countries' flags to show friendship, and darkened at moments of mourning. A tip for photographers: taking pictures of the night lights for yourself is fine, but the lighting design is protected by copyright, so publishing night photos for commercial use needs permission."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://www.toureiffel.paris/en",
+    "price": "Ticket prices depend on how high you go and whether you take the stairs or the lift. Book a timed slot online to skip the ticket queue.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "Most of the year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "09:30",
+                "23:45"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "Summer (July–August)",
+          "months": [
+            7,
+            8
+          ],
+          "days": {
+            "daily": [
+              [
+                "09:00",
+                "00:45"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Access to the top closes earlier than the tower itself. Check the official website before you go."
+    },
+    "etiquette": {
+      "do": [
+        "Book a timed ticket online, especially in summer and at weekends.",
+        "Travel light. There is airport-style security and large luggage isn't allowed.",
+        "Keep your bag closed and in front of you. Pickpockets work the crowds.",
+        "Say \"Bonjour\" to staff before you ask a question."
+      ],
+      "dont": [
+        "Buy tickets or \"skip-the-line\" passes from street sellers.",
+        "Sign petitions held out by strangers. It's a common scam.",
+        "Bring glass bottles, knives or large bags through security.",
+        "Fly a drone. Drones are banned over central Paris."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Picnic like a Parisian",
+        "text": "Buy a baguette, cheese and fruit on Rue Cler, a market street about 10 minutes' walk east, and eat on the lawns of the Champ de Mars."
+      },
+      {
+        "category": "food",
+        "title": "Dine in the tower",
+        "text": "There are buffets on the first and second floors. For a special occasion, book the brasserie on the first floor or Le Jules Verne on the second."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Take Métro line 6 to Bir-Hakeim or RER C to Champ de Mars – Tour Eiffel. For the classic view, start at Trocadéro (lines 6 and 9) and walk across the Pont d'Iéna."
+      },
+      {
+        "category": "sights",
+        "title": "Catch the sparkle",
+        "text": "After dark the tower sparkles for five minutes at the start of every hour. Trocadéro and Pont de Bir-Hakeim are the best places to watch."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Security entrances",
+        "category": "entrance",
+        "lat": 48.8578,
+        "lon": 2.2951,
+        "note": "Entrances around the base of the tower. Follow the signs for your ticket type."
+      },
+      {
+        "name": "Bir-Hakeim Métro (line 6)",
+        "category": "transport",
+        "lat": 48.8539,
+        "lon": 2.2893,
+        "note": "About 10 minutes' walk."
+      },
+      {
+        "name": "Champ de Mars – Tour Eiffel (RER C)",
+        "category": "transport",
+        "lat": 48.8559,
+        "lon": 2.2894,
+        "note": "About 5 minutes' walk along the Seine."
+      },
+      {
+        "name": "Trocadéro Métro (lines 6 & 9)",
+        "category": "transport",
+        "lat": 48.8631,
+        "lon": 2.2873,
+        "note": "Start here for the classic view."
+      },
+      {
+        "name": "Trocadéro esplanade",
+        "category": "sights",
+        "lat": 48.8619,
+        "lon": 2.2884,
+        "note": "Postcard viewpoint across the Seine."
+      },
+      {
+        "name": "Pont de Bir-Hakeim",
+        "category": "sights",
+        "lat": 48.8556,
+        "lon": 2.2876,
+        "note": "Two-level iron bridge with great night views."
+      },
+      {
+        "name": "Champ de Mars lawns",
+        "category": "food",
+        "lat": 48.8556,
+        "lon": 2.2986,
+        "note": "Picnic spot facing the tower."
+      },
+      {
+        "name": "Rue Cler market street",
+        "category": "food",
+        "lat": 48.8566,
+        "lon": 2.3063,
+        "note": "Bakeries, cheese shops and fruit stalls."
+      },
+      {
+        "name": "Public toilets (Champ de Mars)",
+        "category": "services",
+        "lat": 48.8566,
+        "lon": 2.2975,
+        "note": "Self-cleaning public toilets around the park."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+}

@@ -1,0 +1,297 @@
+{
+  "id": "colosseum",
+  "city": "rome",
+  "name": "Colosseum",
+  "localName": "Colosseo · Amphitheatrum Flavium",
+  "lat": 41.8902,
+  "lon": 12.4922,
+  "summary": "The largest amphitheatre of the Roman world, where around 50,000 spectators watched gladiators and wild-animal hunts. It later became a fortress, a quarry and a Christian shrine.",
+  "hero": {
+    "file": "Colosseo 2020.jpg",
+    "alt": "The Colosseum in Rome"
+  },
+  "eras": [
+    {
+      "year": 80,
+      "label": "80 CE",
+      "title": "One hundred days of games",
+      "text": "Emperor Vespasian began the amphitheatre around 70–72 CE, on the site of a private lake in Nero's palace gardens. His son Titus opened it in 80 CE with 100 days of games. Entry was free. Seats were arranged by rank, with senators at the front and women and the poor at the top. The painting shown here is a 19th-century imagining of a fight.",
+      "image": {
+        "file": "Jean-Leon Gerome Pollice Verso.jpg",
+        "alt": "Jean-Léon Gérôme's 1872 painting of gladiators in the Colosseum"
+      }
+    },
+    {
+      "year": 90,
+      "label": "c. 90 CE",
+      "title": "The world underground",
+      "text": "Emperor Domitian added the hypogeum, a maze of tunnels, cages and lifts beneath the arena floor. Animals and scenery could rise suddenly through trapdoors in front of the crowd. Today the floor is gone, and you can look straight down into this hidden world.",
+      "image": {
+        "file": "Colosseum hypogeum.JPG",
+        "alt": "The underground tunnels of the Colosseum"
+      }
+    },
+    {
+      "year": 1349,
+      "label": "1349",
+      "title": "Earthquake and quarry",
+      "text": "The last recorded games took place in the 6th century. Over the centuries the building housed workshops, homes and even a noble family's fortress. A great earthquake in 1349 brought down the outer wall on the south side. Its fallen stone was carted away to build palaces and churches across Rome.",
+      "image": {
+        "file": "Giovanni Battista Piranesi - Views of Rome- The Colosseum - 1922.225 - Cleveland Museum of Art.jpg",
+        "alt": "Piranesi's 18th-century etching of the ruined Colosseum"
+      }
+    },
+    {
+      "year": 1749,
+      "label": "1749",
+      "title": "A place of martyrs",
+      "text": "In 1749 Pope Benedict XIV declared the Colosseum a sacred place in memory of early Christian martyrs, and this finally stopped the stone robbing. Stations of the Cross were set up around the arena. Historians now doubt that many Christians actually died here.",
+      "image": {
+        "file": "Cole Thomas Interior of the Colosseum Rome 1832.jpg",
+        "alt": "Thomas Cole's 1832 painting of the Colosseum interior with a cross"
+      }
+    },
+    {
+      "year": 1850,
+      "label": "c. 1850",
+      "title": "A garden of ruins",
+      "text": "In the 1800s, travellers on the Grand Tour came to see the Colosseum by moonlight. Brick buttresses were added to stop the broken walls collapsing. In 1855 a botanist counted more than 400 species of wild plants growing among the stones.",
+      "image": {
+        "file": "Colosseum 19th century.jpg",
+        "alt": "Painting of the ruined Colosseum beside the Arch of Constantine"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Icon of Rome",
+      "text": "Cleaned in a restoration that ended in 2016, the travertine glows honey-coloured again. The Colosseum is part of the UNESCO World Heritage Site of Rome's historic centre and is one of the most visited monuments in the world.",
+      "image": {
+        "file": "Colosseo 2020.jpg",
+        "alt": "The Colosseum today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "bread-circuses",
+      "type": "history",
+      "title": "Bread and circuses",
+      "image": {
+        "file": "Colosseum Interior 1 (15005911295).jpg",
+        "alt": "Inside the Colosseum"
+      },
+      "narration": "The Roman poet Juvenal complained that the people wanted only two things: bread and circuses. Emperors gave both. A day at the Colosseum was free, a gift from the emperor that showed off his power and generosity. Spectators passed through numbered arches, still visible above the entrances today, to their places. On hot days, sailors from the Roman navy stretched huge canvas awnings over the seats to give shade. Morning shows featured exotic animals from across the empire, and gladiators fought in the afternoon."
+    },
+    {
+      "id": "while-stands",
+      "type": "legend",
+      "title": "While the Colosseum stands",
+      "image": {
+        "file": "Jodocus Sebastiaen van den Abeele - View of the Colosseum in Rome.jpg",
+        "alt": "Painting of the Colosseum in Rome"
+      },
+      "narration": "The Romans called it the Flavian Amphitheatre, after the family of emperors who built it. The name Colosseum probably came later, from the Colossus, a giant bronze statue of Nero that once stood nearby. In the Middle Ages, pilgrims repeated a prophecy linked to the English monk Bede. While the Colosseum stands, Rome shall stand. When the Colosseum falls, Rome shall fall. And when Rome falls, the world will fall with it. Battered by earthquakes and stone thieves, the building has never quite fallen."
+    },
+    {
+      "id": "gladiators",
+      "type": "history",
+      "title": "The life of a gladiator",
+      "image": {
+        "file": "Jean-Leon Gerome Pollice Verso (cropped).jpg",
+        "alt": "Detail of Gérôme's painting Pollice Verso"
+      },
+      "narration": "Most gladiators were slaves or prisoners of war, but some free men volunteered for the fame and the prize money. They trained in schools such as the Ludus Magnus, whose ruins you can still see beside the Colosseum. Gladiators were expensive to train, so not every fight ended in death. A defeated fighter could be spared if the crowd and the emperor wished it. The famous thumbs-down gesture comes largely from this 1872 painting by Jean-Léon Gérôme. What Roman crowds actually did with their thumbs is still debated."
+    },
+    {
+      "id": "light",
+      "type": "culture",
+      "title": "From arena to symbol of life",
+      "image": {
+        "file": "Franz Ludwig Catel - Parti af Colosseum i måneskin.jpg",
+        "alt": "Painting of the Colosseum by moonlight"
+      },
+      "narration": "Today the Colosseum carries new meanings. Every Good Friday, the Pope leads the Way of the Cross here by torchlight, a tradition that draws crowds from around the world. And since the year 2000, the monument has been lit up in gold each time a country abolishes the death penalty. A place once famous for violent death now stands as a symbol for the value of human life."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://colosseo.it/en/",
+    "price": "Timed tickets usually include the Roman Forum and Palatine Hill. Book online with your name, because tickets are personal and you may be asked for ID. The underground and arena floor need special tickets.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "Winter (Nov–Feb)",
+          "months": [
+            11,
+            12,
+            1,
+            2
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:30",
+                "16:30"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "March",
+          "months": [
+            3
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:30",
+                "17:30"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "Summer (Apr–Aug)",
+          "months": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:30",
+                "19:15"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "September",
+          "months": [
+            9
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:30",
+                "19:00"
+              ]
+            ]
+          }
+        },
+        {
+          "label": "October",
+          "months": [
+            10
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:30",
+                "18:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [
+        "12-25",
+        "01-01"
+      ],
+      "notes": "Approximate. Closing time follows sunset, and the last entry is one hour before closing. Closed on 25 December and 1 January."
+    },
+    "etiquette": {
+      "do": [
+        "Book a timed ticket online well in advance, especially in spring and summer.",
+        "Carry a refillable bottle and fill it at the free \"nasoni\" drinking fountains.",
+        "Wear comfortable shoes. The ancient stone is uneven and there are many stairs.",
+        "Cover your shoulders and knees if you plan to visit nearby churches."
+      ],
+      "dont": [
+        "Carve or scratch anything on the walls. Tourists have been heavily fined for this.",
+        "Pay costumed \"gladiators\" for photos without agreeing a price first.",
+        "Buy \"skip-the-line\" tickets from street touts.",
+        "Bring large backpacks or suitcases. Security will turn them away."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Eat in Monti",
+        "text": "Skip the tourist menus right by the monument and walk ten minutes to the Monti district for carbonara, cacio e pepe or supplì (fried rice balls)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Metro line B stops at Colosseo, directly opposite the monument. Tram 3 and several buses also stop nearby."
+      },
+      {
+        "category": "sights",
+        "title": "Golden hour",
+        "text": "Late afternoon light turns the travertine gold. For the best photos of the outside, walk up to the Colle Oppio park or Via Nicola Salvi."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Entrance & security",
+        "category": "entrance",
+        "lat": 41.8898,
+        "lon": 12.4913,
+        "note": "Near the Arch of Constantine. Approximate."
+      },
+      {
+        "name": "Colosseo Metro (line B)",
+        "category": "transport",
+        "lat": 41.8912,
+        "lon": 12.4927,
+        "note": "Right across the road."
+      },
+      {
+        "name": "Arch of Constantine",
+        "category": "sights",
+        "lat": 41.8898,
+        "lon": 12.4906,
+        "note": "A triumphal arch from 315 CE."
+      },
+      {
+        "name": "Roman Forum entrance",
+        "category": "entrance",
+        "lat": 41.8928,
+        "lon": 12.4869,
+        "note": "Included in the combined ticket."
+      },
+      {
+        "name": "Ludus Magnus",
+        "category": "sights",
+        "lat": 41.8896,
+        "lon": 12.4948,
+        "note": "Ruins of the main gladiator school."
+      },
+      {
+        "name": "Colle Oppio viewpoint",
+        "category": "sights",
+        "lat": 41.8918,
+        "lon": 12.4944,
+        "note": "Elevated view of the Colosseum."
+      },
+      {
+        "name": "Monti trattorie",
+        "category": "food",
+        "lat": 41.895,
+        "lon": 12.4921,
+        "note": "Local restaurants, 10 minutes' walk."
+      },
+      {
+        "name": "Nasone drinking fountain",
+        "category": "services",
+        "lat": 41.8906,
+        "lon": 12.4932,
+        "note": "Free drinking water."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+}

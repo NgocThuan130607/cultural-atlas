@@ -1,0 +1,40 @@
+{
+  "id": "cairo",
+  "hero": { "file": "Cairo From Tower (cropped).jpg", "alt": "Cairo's skyline along the Nile, seen from the Cairo Tower" },
+  "facts": {
+    "languages": "Arabic (Egyptian Arabic)",
+    "currency": "Egyptian pound (EGP)",
+    "bestTime": "October–April",
+    "founded": "969 CE, as al-Qāhira"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Cairo lies on the Nile, just south of where the river fans out into its delta. Greater Cairo is one of the largest urban areas in Africa and the Arab world. The climate is desert: hot, sunny and almost rainless. The Giza pyramids stand where the green river valley meets the Western Desert."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "People have lived here for thousands of years. Ancient Memphis, Egypt's first capital, lies a little to the south. The Fatimid dynasty founded al-Qāhira, \"the Victorious\", in 969 CE, next to the older town of Fustat. Medieval Cairo grew into a great centre of Islamic learning and trade, and its historic core is now a UNESCO World Heritage Site."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Cairo is loud, warm and sociable. Neighbourhood coffeehouses (ahwa) stay busy late into the night, the Khan el-Khalili bazaar has traded since the 14th century, and the call to prayer rings out from hundreds of minarets five times a day. Egyptians are known for their humour and their hospitality towards guests."
+    }
+  ],
+  "etiquette": [
+    "Dress modestly. Women should bring a scarf to cover their hair in mosques.",
+    "Use your right hand to eat, and to give or receive things.",
+    "During Ramadan, don't eat, drink or smoke in public during daylight hours.",
+    "Bargaining is expected in markets. Keep it friendly and smile."
+  ],
+  "planned": [
+    {
+      "name": "Khan el-Khalili",
+      "localName": "خان الخليلي",
+      "blurb": "A bazaar of narrow lanes, lanterns and spice stalls, founded in 1382."
+    }
+  ]
+}

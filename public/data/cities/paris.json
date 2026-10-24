@@ -1,0 +1,40 @@
+{
+  "id": "paris",
+  "hero": { "file": "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2).jpg", "alt": "Paris rooftops with the Eiffel Tower in the distance" },
+  "facts": {
+    "languages": "French",
+    "currency": "Euro (EUR)",
+    "bestTime": "April–June and September–October",
+    "founded": "3rd century BCE, by the Parisii tribe"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The Seine flows through Paris from east to west and splits it into the Right Bank (Rive Droite) and the Left Bank (Rive Gauche). The city began on an island in the river, the Île de la Cité. Its twenty districts, the arrondissements, are numbered in a clockwise spiral from the centre, like a snail's shell."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "A Celtic tribe called the Parisii settled here, and the Romans built the town of Lutetia on the same spot. In the Middle Ages Paris grew into one of Europe's largest cities. Between 1853 and 1870 Baron Haussmann rebuilt much of it, cutting the wide boulevards lined with cream-coloured stone buildings that visitors still see today."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Parisian life centres on cafés, bakeries and markets. Lingering over one coffee for an hour is normal. The city is home to some of the world's great museums, such as the Louvre and the Musée d'Orsay, and to a long tradition of painters, writers and fashion."
+    }
+  ],
+  "etiquette": [
+    "Say \"Bonjour\" when you walk into a shop or café, before asking for anything.",
+    "Keep your voice low in restaurants and on the Métro.",
+    "Service is included in the bill. Rounding up or leaving a little change is a kind gesture, not an obligation.",
+    "Wait to be seated in restaurants. In cafés you can usually choose your own table."
+  ],
+  "planned": [
+    {
+      "name": "Notre-Dame de Paris",
+      "localName": "Cathédrale Notre-Dame",
+      "blurb": "A Gothic cathedral begun in 1163. It reopened in December 2024 after the fire of 2019."
+    }
+  ]
+}

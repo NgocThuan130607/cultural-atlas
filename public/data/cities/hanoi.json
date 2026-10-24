@@ -1,0 +1,40 @@
+{
+  "id": "hanoi",
+  "hero": { "file": "Hanoi skyline with Ba Vi Mountain.jpg", "alt": "Hanoi's skyline with Ba Vì mountain on the horizon" },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "October–December and March–April",
+    "founded": "1010, as Thăng Long"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Hanoi sits on the Red River Delta in northern Vietnam. Its name, Hà Nội, means \"inside the rivers\". The city is dotted with lakes, from tiny ponds to the wide West Lake, and Hoàn Kiếm Lake marks the heart of the old town. Unlike the south of the country, Hanoi has four seasons: hot, rainy summers and cool, misty winters."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Emperor Lý Thái Tổ founded the city in 1010 as Thăng Long, \"Ascending Dragon\", after a legend of a dragon rising from the river. It was the royal capital for most of the next eight centuries, the capital of French Indochina from 1902, and the capital of independent Vietnam after 1945. In 2010 the city celebrated its thousandth birthday."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "In the Old Quarter, streets still carry the names of the guilds that once worked there, such as Silk Street and Silver Street. Life happens on the pavement: people eat phở and bún chả on low plastic stools and sip egg coffee, a Hanoi invention. Water puppetry (múa rối nước), first performed in the flooded rice fields of the delta, is still staged by Hoàn Kiếm Lake."
+    }
+  ],
+  "etiquette": [
+    "Cover shoulders and knees at temples, pagodas and the Mausoleum.",
+    "Take your shoes off where you see others doing so, for example in homes and some shrines.",
+    "Use both hands to give or receive something, especially from an older person.",
+    "To cross the street, walk slowly and steadily. Motorbikes will flow around you."
+  ],
+  "planned": [
+    {
+      "name": "Temple of Literature",
+      "localName": "Văn Miếu – Quốc Tử Giám",
+      "blurb": "A temple to Confucius founded in 1070, and the site of Vietnam's first national university."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "new-york",
+  "hero": { "file": "View of Empire State Building from Rockefeller Center New York City dllu (cropped).jpg", "alt": "Manhattan skyline with the Empire State Building" },
+  "facts": {
+    "languages": "English, plus hundreds of other languages spoken at home",
+    "currency": "US dollar (USD)",
+    "bestTime": "April–June and September–November",
+    "founded": "1624, as the Dutch colony of New Amsterdam"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "New York City has five boroughs spread across islands and the mainland around one of the world's great natural harbours, where the Hudson River meets the Atlantic. Manhattan's street grid, planned in 1811, makes it easy to find your way: avenues run north–south and numbered streets run east–west."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "This was the homeland of the Lenape people. The Dutch founded New Amsterdam here in the 1620s, and the English renamed it New York in 1664. The city was briefly the first capital of the United States. Between 1892 and 1954 about twelve million immigrants passed through nearby Ellis Island, and the city still carries their languages and foods."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Every neighbourhood feels like a different town, from Chinatown to Harlem to Little Italy. New York is a capital of theatre, music, art and food, and its bagels and thin-crust pizza are local institutions. The subway runs all day and all night."
+    }
+  ],
+  "etiquette": [
+    "Tip about 18–20% in restaurants and bars. Staff rely on tips.",
+    "Walk briskly, keep to the right and don't stop in the middle of the pavement.",
+    "On the subway, let people get off before you get on.",
+    "Prices shown usually don't include sales tax. It's added at the till."
+  ],
+  "planned": [
+    {
+      "name": "Brooklyn Bridge",
+      "localName": "Brooklyn Bridge",
+      "blurb": "A granite-towered suspension bridge, opened in 1883. You can walk across it for views of the Manhattan skyline."
+    }
+  ]
+}

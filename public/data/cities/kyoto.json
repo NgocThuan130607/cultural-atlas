@@ -1,0 +1,40 @@
+{
+  "id": "kyoto",
+  "hero": { "file": "Kyoto, Japan (49667780482).jpg", "alt": "Traditional wooden houses and a pagoda in Kyoto" },
+  "facts": {
+    "languages": "Japanese",
+    "currency": "Japanese yen (JPY)",
+    "bestTime": "Late March–April (cherry blossom) and November (autumn leaves)",
+    "founded": "794 CE, as Heian-kyō"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Kyoto lies in a basin with mountains on three sides and the Kamo River running through it. The city was laid out on a grid copied from the Chinese capital Chang'an, and many streets still follow that plan. Summers are hot and humid, winters are cold, and the seasons are celebrated in food, festivals and gardens."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Emperor Kanmu founded Heian-kyō, the \"capital of peace and tranquillity\", in 794. It remained the home of the imperial court for over a thousand years, until the emperor moved to Tokyo after 1868. In 1945 Kyoto was taken off the list of atomic-bomb targets, partly because of its cultural value. Many of its temples survive today."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Kyoto has well over a thousand Buddhist temples and Shinto shrines. It is the home of the tea ceremony, kaiseki cuisine and the geiko (geisha) and maiko of districts such as Gion. Traditional crafts such as textiles, ceramics and lacquerware are still made here by families who have practised them for generations."
+    }
+  ],
+  "etiquette": [
+    "Don't stop, touch or photograph geiko and maiko without permission. Some streets in Gion ban photography.",
+    "Try not to eat while walking. Finish your snack near the stall where you bought it.",
+    "Keep your voice low on buses and trains, and set your phone to silent.",
+    "Take your shoes off where you see a step up or a row of slippers."
+  ],
+  "planned": [
+    {
+      "name": "Fushimi Inari Taisha",
+      "localName": "伏見稲荷大社",
+      "blurb": "A shrine to Inari, the deity of rice, with thousands of vermilion torii gates winding up a forested mountain."
+    }
+  ]
+}
