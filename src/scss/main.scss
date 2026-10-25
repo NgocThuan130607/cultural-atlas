@@ -266,7 +266,13 @@ a { color: var(--primary); }
   .readout { white-space: nowrap; }
 }
 
-.globe-fallback { position: fixed; inset: 0; display: grid; place-items: center; color: #c4c7c5; padding: 2rem; text-align: center; background: #131314; }
+.globe-fallback {
+  position: fixed; inset: 0; display: grid; place-items: center; color: #c4c7c5; text-align: center; background: #131314;
+  // Centre the message in the space beside the card (desktop) or above the bottom sheet (phone).
+  padding: 2rem 2rem 2rem calc(var(--panel-w) + 2rem);
+  .ms { font-size: 2.5rem; }
+  @media (max-width: 767.98px) { padding: 5rem 1.5rem 60dvh; }
+}
 
 @media (max-width: 767.98px) {
   .earth-top { right: 12px; width: auto; }

@@ -30,6 +30,8 @@ const CLOSE_UP_LEVEL = 11; // globe tile level where Esri's detailed imagery tak
 // ---------------------------------------------------------------------------
 function createViewer() {
   if (ionToken) Ion.defaultAccessToken = ionToken;
+  // Phones and tablets have little graphics memory: skip MSAA and cap the pixel density there.
+  const touch = matchMedia('(pointer: coarse)').matches;
   const viewer = new Viewer('globe', {
     baseLayer: false, // added below
     baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
@@ -37,11 +39,13 @@ function createViewer() {
     infoBox: false, selectionIndicator: false,
     creditContainer: $('#cesium-credits'),
     useBrowserRecommendedResolution: false, // render at the screen's real pixel density (sharper on HiDPI)
-    msaaSamples: 4,
+    msaaSamples: touch ? 1 : 4,
+    showRenderLoopErrors: false, // we show our own friendlier message
   });
+  viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 2) / (window.devicePixelRatio || 1);
   const { scene } = viewer;
   const globe = scene.globe;
-  globe.maximumScreenSpaceError = 1; // load sharper tiles than the default (2)
+  globe.maximumScreenSpaceError = touch ? 1.5 : 1; // load sharper tiles than the default (2)
   globe.tileCacheSize = 1000;
   globe.baseColor = Color.fromCssColorString('#0b1a2e');
   globe.showGroundAtmosphere = false; // the ground haze washes out the imagery; the sky glow around the globe stays
@@ -53,37 +57,46 @@ function createViewer() {
   return viewer;
 }
 
+/** Rejects if `promise` takes longer than `ms`, so a blocked server can't stall the globe. */
+const withTimeout = (promise, ms) => Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))]);
+
 async function addImageryAndTerrain(viewer) {
   const layers = viewer.imageryLayers;
+
+  // Base layer that always works: the Natural Earth texture shipped with Cesium (served from this site).
+  // If a network blocks the online imagery, this still shows, so the globe never turns blank.
+  try {
+    layers.add(new ImageryLayer(await TileMapServiceImageryProvider.fromUrl(buildModuleUrl('Assets/Textures/NaturalEarthII'))));
+  } catch { /* the online layers below may still work */ }
+
+  if (ionToken) {
+    layers.add(ImageryLayer.fromWorldImagery());
+  } else {
+    // Far away: Sentinel-2 cloudless, a true-colour satellite mosaic that stays crisp at whole-globe scale
+    // (Esri's small-scale imagery is a soft, relief-shaded composite).
+    // Close up: Esri World Imagery (sub-metre detail in cities). The layers hand over at CLOSE_UP_LEVEL.
+    const esri = await withTimeout(ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/World_Imagery/MapServer`), 10_000).catch(() => null);
+    const s2 = new UrlTemplateImageryProvider({
+      url: EOX_S2, maximumLevel: 14,
+      credit: new Credit('<a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by EOX IT Services GmbH (contains modified Copernicus Sentinel data 2021)', true),
+    });
+    layers.add(new ImageryLayer(s2, esri ? { maximumTerrainLevel: CLOSE_UP_LEVEL - 1 } : {}));
+    if (esri) layers.add(new ImageryLayer(esri, { minimumTerrainLevel: CLOSE_UP_LEVEL }));
+  }
+
+  // Borders and place names, only once zoomed in a little (like Google Earth, the whole-globe view stays clean).
   let labels = null;
   try {
-    if (ionToken) {
-      layers.add(ImageryLayer.fromWorldImagery());
-    } else {
-      // Far away: Sentinel-2 cloudless, a true-colour satellite mosaic that stays crisp at whole-globe scale
-      // (Esri's small-scale imagery is a soft, relief-shaded composite).
-      // Close up: Esri World Imagery (sub-metre detail in cities). The layers hand over at CLOSE_UP_LEVEL.
-      const s2 = new UrlTemplateImageryProvider({
-        url: EOX_S2, maximumLevel: 14,
-        credit: new Credit('<a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by EOX IT Services GmbH (contains modified Copernicus Sentinel data 2021)', true),
-      });
-      layers.add(new ImageryLayer(s2, { maximumTerrainLevel: CLOSE_UP_LEVEL - 1 }));
-      layers.add(new ImageryLayer(await ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/World_Imagery/MapServer`), { minimumTerrainLevel: CLOSE_UP_LEVEL }));
-    }
-    // Borders and place names, only once zoomed in a little (like Google Earth, the whole-globe view stays clean).
-    labels = new ImageryLayer(await ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/Reference/World_Boundaries_and_Places/MapServer`), { minimumTerrainLevel: 4 });
+    labels = new ImageryLayer(await withTimeout(ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/Reference/World_Boundaries_and_Places/MapServer`), 10_000), { minimumTerrainLevel: 4 });
     layers.add(labels);
-  } catch {
-    // Offline or blocked: fall back to the low-resolution Natural Earth texture bundled with Cesium.
-    layers.add(new ImageryLayer(await TileMapServiceImageryProvider.fromUrl(buildModuleUrl('Assets/Textures/NaturalEarthII'))));
-  }
+  } catch { /* labels are optional */ }
 
   // 3D terrain: Cesium World Terrain with an ion token, otherwise Esri's public elevation service.
   try {
     if (ionToken) viewer.scene.setTerrain(Terrain.fromWorldTerrain());
-    else viewer.terrainProvider = await ArcGISTiledElevationTerrainProvider.fromUrl(
-      'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer');
-  } catch { /* flat globe is fine */ }
+    else viewer.terrainProvider = await withTimeout(ArcGISTiledElevationTerrainProvider.fromUrl(
+      'https://elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/Terrain3D/ImageServer'), 10_000);
+  } catch { /* a flat globe is fine */ }
 
   // Optional: Google Photorealistic 3D Tiles (real 3D buildings) when a Google Maps key or ion token is set.
   if (googleKey || ionToken) {
@@ -183,10 +196,12 @@ async function main() {
     viewer = createViewer();
   } catch (err) {
     console.error(err);
-    $('#globe').innerHTML = `<div class="globe-fallback"><div>${icon('public_off')}
-      <p class="mt-3">The 3D globe couldn't start on this device (WebGL may be turned off).<br>You can still choose a place from the list.</p></div></div>`;
+    globeMessage('no-webgl');
     return;
   }
+  // If the graphics card resets or runs out of memory (common on phones), say so instead of going black.
+  viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); globeMessage('lost'); });
+  viewer.scene.renderError.addEventListener((_, err) => { console.error(err); globeMessage('lost'); });
   if (import.meta.env.DEV) { // lets dev tools and tests inspect the globe
     window.__viewer = viewer;
     import('cesium').then((m) => { window.__Cesium = m; });
@@ -491,6 +506,32 @@ async function main() {
         <span><strong>${esc(lm.name)}</strong><small>${esc(cityById.get(lm.city).name)}</small></span>
       </button>`).join('');
   }
+}
+
+// ---------------------------------------------------------------------------
+// Message shown in place of the globe when it can't run
+// ---------------------------------------------------------------------------
+function globeMessage(kind) {
+  if ($('.globe-fallback')) return;
+  const el = document.createElement('div');
+  el.className = 'globe-fallback';
+  el.setAttribute('role', 'alert');
+  el.innerHTML = kind === 'lost' ? `
+    <div>${icon('public_off')}
+      <p class="mt-3 mb-3">The 3D globe stopped because the device's graphics ran out of memory.</p>
+      <button type="button" class="btn-m btn-filled" onclick="location.reload()">${icon('refresh')}Reload the globe</button>
+      <p class="t-body-s mt-3 mb-0">You can still choose a place from the list.</p>
+    </div>` : `
+    <div style="max-width:30rem">${icon('public_off')}
+      <p class="mt-3">The 3D globe needs <strong>WebGL</strong>, which is turned off or not supported in this browser.</p>
+      <p class="t-body-s text-start">To fix it:<br>
+        • Chrome / Edge: Settings → System → turn on <em>"Use graphics acceleration when available"</em>, then restart the browser.<br>
+        • Firefox: Settings → General → Performance → allow hardware acceleration.<br>
+        • Or update the browser, or try another one.<br>
+        <a href="https://get.webgl.org" target="_blank" rel="noopener" style="color:#a8c7fa">Check whether WebGL works</a></p>
+      <p class="t-body-s mb-0">You can still choose a place from the list.</p>
+    </div>`;
+  document.body.append(el);
 }
 
 // ---------------------------------------------------------------------------
