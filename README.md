@@ -16,7 +16,7 @@ Hanoi (Ho Chi Minh Mausoleum), Paris (Eiffel Tower), Cairo (Pyramids of Giza), K
 | Build tool | Vite (multi-page: `index.html`, `city.html`, `landmark.html`) |
 | UI | Bootstrap 5 compiled from Sass with Material 3–style tokens, Roboto Flex, Material Symbols (only the icons in use are downloaded) |
 | Language | Plain JavaScript (ES modules), HTML5, CSS |
-| 3D globe | CesiumJS: Esri World Imagery, Esri 3D terrain, and a borders/labels layer, with no key needed. It renders at full screen resolution with anti-aliasing. Optional Cesium ion token or Google Maps key adds photorealistic 3D buildings. |
+| 3D globe | CesiumJS, no key needed. Far away it shows Sentinel-2 cloudless imagery by EOX (true colour, CC BY-NC-SA 4.0, so non-commercial use only); close up it switches to Esri World Imagery. Esri 3D terrain and a borders/labels layer are added on top. It renders at full screen resolution with MSAA. An optional Cesium ion token or Google Maps key adds photorealistic 3D buildings. |
 | Maps | Leaflet with Esri tiles: street map (light/dark) and satellite with labels |
 | Narration | Each chapter's own audio/video file, or the browser's built-in text-to-speech |
 | Data | Static JSON in `public/data/` (no backend) |

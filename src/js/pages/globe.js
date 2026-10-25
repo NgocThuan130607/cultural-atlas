@@ -5,6 +5,7 @@
 import '../cesium-base.js'; // must run before Cesium loads its workers and assets
 import {
   Viewer, Ion, ImageryLayer, ArcGisMapServerImageryProvider, TileMapServiceImageryProvider,
+  UrlTemplateImageryProvider, Credit,
   ArcGISTiledElevationTerrainProvider, createGooglePhotorealistic3DTileset, buildModuleUrl, Terrain,
   Cartesian3, Cartesian2, Color, LabelStyle, VerticalOrigin, HorizontalOrigin, NearFarScalar,
   DistanceDisplayCondition, HeightReference, ScreenSpaceEventHandler, ScreenSpaceEventType,
@@ -21,6 +22,8 @@ const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
 const googleKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const ESRI = 'https://services.arcgisonline.com/ArcGIS/rest/services';
 const HOME = { lon: 62, lat: 24, height: 22_500_000 };
+const EOX_S2 = 'https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2021_3857/default/g/{z}/{y}/{x}.jpg';
+const CLOSE_UP_LEVEL = 11; // globe tile level where Esri's detailed imagery takes over from Sentinel-2
 
 // ---------------------------------------------------------------------------
 // Viewer
@@ -38,13 +41,13 @@ function createViewer() {
   });
   const { scene } = viewer;
   const globe = scene.globe;
-  globe.maximumScreenSpaceError = 1.5; // load more detailed tiles than the default (2)
+  globe.maximumScreenSpaceError = 1; // load sharper tiles than the default (2)
   globe.tileCacheSize = 1000;
   globe.baseColor = Color.fromCssColorString('#0b1a2e');
-  globe.showGroundAtmosphere = true;
+  globe.showGroundAtmosphere = false; // the ground haze washes out the imagery; the sky glow around the globe stays
   globe.depthTestAgainstTerrain = false;
   scene.fog.enabled = true;
-  scene.postProcessStages.fxaa.enabled = true;
+  scene.postProcessStages.fxaa.enabled = false; // MSAA already smooths edges; FXAA would blur the imagery
   scene.screenSpaceCameraController.minimumZoomDistance = 250;
   viewer.camera.setView({ destination: Cartesian3.fromDegrees(HOME.lon, HOME.lat, HOME.height * 1.6) });
   return viewer;
@@ -57,7 +60,15 @@ async function addImageryAndTerrain(viewer) {
     if (ionToken) {
       layers.add(ImageryLayer.fromWorldImagery());
     } else {
-      layers.add(new ImageryLayer(await ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/World_Imagery/MapServer`)));
+      // Far away: Sentinel-2 cloudless, a true-colour satellite mosaic that stays crisp at whole-globe scale
+      // (Esri's small-scale imagery is a soft, relief-shaded composite).
+      // Close up: Esri World Imagery (sub-metre detail in cities). The layers hand over at CLOSE_UP_LEVEL.
+      const s2 = new UrlTemplateImageryProvider({
+        url: EOX_S2, maximumLevel: 14,
+        credit: new Credit('<a href="https://s2maps.eu" target="_blank" rel="noopener">Sentinel-2 cloudless</a> by EOX IT Services GmbH (contains modified Copernicus Sentinel data 2021)', true),
+      });
+      layers.add(new ImageryLayer(s2, { maximumTerrainLevel: CLOSE_UP_LEVEL - 1 }));
+      layers.add(new ImageryLayer(await ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/World_Imagery/MapServer`), { minimumTerrainLevel: CLOSE_UP_LEVEL }));
     }
     // Borders and place names, only once zoomed in a little (like Google Earth, the whole-globe view stays clean).
     labels = new ImageryLayer(await ArcGisMapServerImageryProvider.fromUrl(`${ESRI}/Reference/World_Boundaries_and_Places/MapServer`), { minimumTerrainLevel: 4 });
@@ -175,6 +186,10 @@ async function main() {
     $('#globe').innerHTML = `<div class="globe-fallback"><div>${icon('public_off')}
       <p class="mt-3">The 3D globe couldn't start on this device (WebGL may be turned off).<br>You can still choose a place from the list.</p></div></div>`;
     return;
+  }
+  if (import.meta.env.DEV) { // lets dev tools and tests inspect the globe
+    window.__viewer = viewer;
+    import('cesium').then((m) => { window.__Cesium = m; });
   }
   const labelsLayerPromise = addImageryAndTerrain(viewer);
   await document.fonts?.load(LABEL_FONT).catch(() => {});
