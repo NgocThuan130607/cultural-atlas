@@ -215,17 +215,90 @@ async function main() {
   renderIntro();
   renderVoyager();
 
-  let viewer;
+  const reduced = prefersReducedMotion();
+
+  // `nav` moves the view: the 3D globe when WebGL works, otherwise a 2D satellite map.
+  // Everything else (card, search, landmark strip, buttons) works the same with either.
+  let nav = null;
+  let viewer = null;
+  let startError = null;
   try {
     viewer = createViewer();
   } catch (err) {
     console.error(err);
-    globeMessage('start', err);
-    return;
+    startError = err;
   }
-  // If the graphics card resets or runs out of memory (common on phones), say so instead of going black.
-  viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); globeMessage('lost'); });
-  viewer.scene.renderError.addEventListener((_, err) => { console.error(err); globeMessage('render', err); });
+  nav = viewer ? await startGlobe(viewer) : await startFlatMap('start', startError);
+
+  // ----- Selection (updates card, view and URL hash) -----
+  function selectCity(id, { fly = true } = {}) {
+    const c = cityById.get(id);
+    if (!c) return;
+    renderCity(c);
+    if (fly) nav.city(c);
+    history.replaceState(null, '', `#${id}`);
+  }
+  function selectLandmark(id, { fly = true } = {}) {
+    const lm = lmById.get(id);
+    if (!lm) return;
+    renderLandmark(lm);
+    if (fly) nav.landmark(lm);
+    history.replaceState(null, '', `#${id}`);
+  }
+  function goIntro() {
+    renderIntro();
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  // ----- Knowledge card events -----
+  kcard.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-action]');
+    if (!t) return;
+    const { action, id } = t.dataset;
+    if (action === 'city') selectCity(id);
+    if (action === 'landmark') selectLandmark(id);
+    if (action === 'intro') { goIntro(); nav.home(); }
+    if (action === 'close') kcard.classList.add('collapsed');
+    if (action === 'refly') { const c = cityById.get(id); if (c) nav.city(c); }
+  });
+  $('#voyager').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-landmark]');
+    if (b) selectLandmark(b.dataset.landmark);
+  });
+
+  // ----- Buttons shared by both views -----
+  $('#home-btn').addEventListener('click', () => { goIntro(); nav.home(); });
+  $('#zoom-in').addEventListener('click', () => nav.zoomIn());
+  $('#zoom-out').addEventListener('click', () => nav.zoomOut());
+  $('#layers-btn').addEventListener('click', (e) => {
+    const on = nav.toggleLabels?.();
+    if (on !== undefined) e.currentTarget.setAttribute('aria-pressed', on);
+  });
+
+  // ----- Search -----
+  initSearch({ cities, landmarks, selectCity, selectLandmark });
+
+  // ----- Deep link (#paris, #eiffel-tower) -----
+  const hash = decodeURIComponent(location.hash.slice(1));
+  const delay = reduced || !viewer ? 0 : 1800;
+  if (cityById.has(hash)) setTimeout(() => selectCity(hash), delay);
+  else if (lmById.has(hash)) setTimeout(() => selectLandmark(hash), delay);
+
+  // -------------------------------------------------------------------------
+  // 3D globe (CesiumJS)
+  // -------------------------------------------------------------------------
+  async function startGlobe(viewer) {
+  // If the graphics stop working later (driver error, phone out of memory), switch to the 2D map.
+  let failed = false;
+  const fail = async (kind, err) => {
+    if (failed) return;
+    failed = true;
+    console.error(err ?? kind);
+    $('#globe').style.visibility = 'hidden';
+    nav = await startFlatMap(kind, err);
+  };
+  viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); fail('lost'); });
+  viewer.scene.renderError.addEventListener((_, err) => fail('render', err));
   if (import.meta.env.DEV) { // lets dev tools and tests inspect the globe
     window.__viewer = viewer;
     import('cesium').then((m) => { window.__Cesium = m; });
@@ -236,7 +309,6 @@ async function main() {
   const { camera, scene } = viewer;
 
   // Opening move: ease in from deep space, then spin slowly until the user takes over.
-  const reduced = prefersReducedMotion();
   let spinning = !reduced;
   const stopSpin = () => { spinning = false; };
   camera.flyTo({ destination: Cartesian3.fromDegrees(HOME.lon, HOME.lat, HOME.height), duration: reduced ? 0 : 2.2, complete: composeHome });
@@ -309,47 +381,9 @@ async function main() {
     requestAnimationFrame(step);
   }
 
-  // ----- Selection (updates card, camera and URL hash) -----
-  function selectCity(id, { fly = true } = {}) {
-    const c = cityById.get(id);
-    if (!c) return;
-    renderCity(c);
-    if (fly) flyTo(c.lon, c.lat, 24_000, -42);
-    history.replaceState(null, '', `#${id}`);
-  }
-  function selectLandmark(id, { fly = true } = {}) {
-    const lm = lmById.get(id);
-    if (!lm) return;
-    renderLandmark(lm);
-    if (fly) flyTo(lm.lon, lm.lat, 1_600, -28, 15);
-    history.replaceState(null, '', `#${id}`);
-  }
-  function goIntro() {
-    renderIntro();
-    history.replaceState(null, '', location.pathname + location.search);
-  }
-
-  // ----- Knowledge card events -----
-  kcard.addEventListener('click', (e) => {
-    const t = e.target.closest('[data-action]');
-    if (!t) return;
-    const { action, id } = t.dataset;
-    if (action === 'city') selectCity(id);
-    if (action === 'landmark') selectLandmark(id);
-    if (action === 'intro') { goIntro(); flyHome(); }
-    if (action === 'close') kcard.classList.add('collapsed');
-    if (action === 'refly') { const c = cityById.get(id); if (c) flyTo(c.lon, c.lat, 24_000, -42); }
-  });
-  $('#voyager').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-landmark]');
-    if (b) selectLandmark(b.dataset.landmark);
-  });
-
-  // ----- Controls -----
-  $('#home-btn').addEventListener('click', () => { goIntro(); flyHome(); });
-  $('#zoom-in').addEventListener('click', () => { stopSpin(); camera.zoomIn(camera.positionCartographic.height * 0.45); });
-  $('#zoom-out').addEventListener('click', () => { stopSpin(); camera.zoomOut(camera.positionCartographic.height * 0.8); });
+  // ----- Globe-only controls -----
   $('#compass').addEventListener('click', () => {
+    if (failed) return;
     const center = screenCenter();
     if (!center) return camera.setView({ orientation: { heading: 0, pitch: camera.pitch, roll: 0 } });
     camera.flyToBoundingSphere(new BoundingSphere(center, 1), {
@@ -357,6 +391,7 @@ async function main() {
     });
   });
   $('#tilt-btn').addEventListener('click', () => {
+    if (failed) return;
     stopSpin();
     const center = screenCenter();
     if (!center) return;
@@ -366,13 +401,8 @@ async function main() {
       duration: 1,
     });
   });
-  labelsLayerPromise.then((layer) => {
-    $('#layers-btn').addEventListener('click', (e) => {
-      if (!layer) return;
-      layer.show = !layer.show;
-      e.currentTarget.setAttribute('aria-pressed', layer.show);
-    });
-  });
+  let labelsLayer = null;
+  labelsLayerPromise.then((layer) => { labelsLayer = layer; });
 
   function screenCenter() {
     const c = new Cartesian2(scene.canvas.clientWidth / 2, scene.canvas.clientHeight / 2);
@@ -410,13 +440,76 @@ async function main() {
   camera.changed.addEventListener(() => updateReadout());
   updateReadout();
 
-  // ----- Search -----
-  initSearch({ cities, landmarks, selectCity, selectLandmark });
+  return {
+    city: (c) => flyTo(c.lon, c.lat, 24_000, -42),
+    landmark: (lm) => flyTo(lm.lon, lm.lat, 1_600, -28, 15),
+    home: flyHome,
+    zoomIn: () => { stopSpin(); camera.zoomIn(camera.positionCartographic.height * 0.45); },
+    zoomOut: () => { stopSpin(); camera.zoomOut(camera.positionCartographic.height * 0.8); },
+    toggleLabels: () => {
+      if (!labelsLayer) return undefined;
+      labelsLayer.show = !labelsLayer.show;
+      return labelsLayer.show;
+    },
+  };
+  } // end startGlobe
 
-  // ----- Deep link (#paris, #eiffel-tower) -----
-  const hash = decodeURIComponent(location.hash.slice(1));
-  if (cityById.has(hash)) setTimeout(() => selectCity(hash), reduced ? 0 : 1800);
-  else if (lmById.has(hash)) setTimeout(() => selectLandmark(hash), reduced ? 0 : 1800);
+  // -------------------------------------------------------------------------
+  // 2D fallback: a satellite map (Leaflet, no WebGL needed) with the same pins and behaviour
+  // -------------------------------------------------------------------------
+  async function startFlatMap(kind, err) {
+    const { createMap, landmarkMarker, L } = await import('../map.js');
+    document.body.classList.add('flat-mode');
+    const holder = document.createElement('div');
+    holder.id = 'flat-map';
+    holder.setAttribute('aria-label', '2D satellite map. Use the search box or the place list to choose a city.');
+    document.body.prepend(holder);
+    const map = createMap(holder, { lat: 25, lon: 40, zoom: 3, minZoom: 2, style: 'satellite', zoomButtons: false });
+
+    // City dots with names, like on the globe.
+    for (const c of cities) {
+      L.marker([c.lat, c.lon], {
+        title: c.name, alt: c.name, riseOnHover: true, keyboard: true,
+        icon: L.divIcon({ className: '', html: `<span class="flat-city"><i></i>${esc(c.name)}</span>`, iconSize: [0, 0], iconAnchor: [9, 9] }),
+      }).on('click', () => selectCity(c.id)).addTo(map);
+    }
+    // Landmark pins appear once zoomed in to city level.
+    const pins = L.layerGroup(landmarks.map((lm) => landmarkMarker(lm.lat, lm.lon, lm.name)
+      .bindTooltip(esc(lm.name), { permanent: true, direction: 'right', offset: [12, -26], className: 'flat-label' })
+      .on('click', () => selectLandmark(lm.id))));
+    const syncPins = () => { if (map.getZoom() >= 9) pins.addTo(map); else pins.remove(); };
+    map.on('zoomend', syncPins);
+    syncPins();
+
+    // Status bar: cursor position and zoom level.
+    const readout = $('#readout');
+    map.on('mousemove', (e) => { readout.textContent = `${formatCoords(e.latlng.lat, e.latlng.wrap().lng, 4)}   Zoom ${map.getZoom()}`; });
+
+    showFlatNotice(kind, err);
+
+    // Frame a place in the space left free by the card (left) and the landmark strip (bottom).
+    const frame = (lat, lon, radiusM) => {
+      const desktop = matchMedia('(min-width: 768px)').matches;
+      const cardOpen = !kcard.classList.contains('collapsed');
+      const left = desktop && cardOpen ? kcard.offsetWidth + 24 : 0;
+      const bottom = desktop ? $('#voyager').offsetHeight + 56 : (cardOpen ? kcard.offsetHeight : 0);
+      map.flyToBounds(L.latLng(lat, lon).toBounds(radiusM * 2), {
+        paddingTopLeft: [left + 16, 80], paddingBottomRight: [72, bottom + 16], animate: !reduced, duration: 1.4,
+      });
+    };
+    const flat = {
+      city: (c) => frame(c.lat, c.lon, 12_000),
+      landmark: (lm) => frame(lm.lat, lm.lon, 700),
+      home: () => map.flyTo([25, 40], 3, { animate: !reduced }),
+      zoomIn: () => map.zoomIn(),
+      zoomOut: () => map.zoomOut(),
+    };
+    // If the globe failed mid-visit, keep showing the place the visitor had selected.
+    const current = decodeURIComponent(location.hash.slice(1));
+    if (cityById.has(current)) flat.city(cityById.get(current));
+    else if (lmById.has(current)) flat.landmark(lmById.get(current));
+    return flat;
+  }
 
   // -------------------------------------------------------------------------
   // Card renderers
@@ -557,31 +650,31 @@ function graphicsInfo() {
 }
 
 /**
- * Shown in place of the globe when it can't run. `kind`: 'start' (failed to start),
- * 'render' (failed while drawing) or 'lost' (graphics reset / out of memory).
+ * Small card explaining why the 2D map is shown instead of the 3D globe, how to get 3D back,
+ * and copyable technical details. `kind`: 'start' (couldn't start), 'render' (failed while
+ * drawing) or 'lost' (graphics reset or ran out of memory).
  */
-function globeMessage(kind, err) {
-  if ($('.globe-fallback')) return;
+function showFlatNotice(kind, err) {
+  if ($('.flat-notice')) return;
   const gfx = graphicsInfo();
   const noWebgl = gfx.webgl === 'none' || gfx.webgl === 'error';
-  const reload = `<button type="button" class="btn-m btn-filled" onclick="location.reload()">${icon('refresh')}Reload the globe</button>`;
-  const fixWebgl = `
-    <p class="t-body-s text-start">To fix it:<br>
-      • Chrome / Edge: Settings → System → turn on <em>"Use graphics acceleration when available"</em>, then restart the browser.<br>
-      • Firefox: Settings → General → Performance → allow hardware acceleration.<br>
-      • Or update the browser, or try another one.<br>
-      <a href="https://get.webgl.org" target="_blank" rel="noopener" style="color:#a8c7fa">Check whether WebGL works</a></p>`;
-  const fixDriver = `
-    <p class="t-body-s text-start">This usually means the graphics driver or browser is too old for the 3D engine. To fix it:<br>
-      • Update the browser (latest Chrome or Edge works best).<br>
-      • Update the graphics driver: Windows Update → Advanced options → Optional updates, or the Intel / AMD / NVIDIA website.<br>
-      • Or open the page on another computer or phone.</p>`;
+  const mac = /Macintosh|Mac OS X/.test(navigator.userAgent);
 
-  let body;
-  if (kind === 'lost') body = `<p class="mt-3 mb-3">The 3D globe stopped because the device's graphics ran out of memory.</p>${reload}`;
-  else if (noWebgl) body = `<p class="mt-3">The 3D globe needs <strong>WebGL</strong>, which is turned off or not supported in this browser.</p>${fixWebgl}`;
-  else body = `<p class="mt-3">The 3D globe couldn't ${kind === 'render' ? 'draw' : 'start'} with this device's graphics, although WebGL is on.</p>${fixDriver}${reload}`;
-
+  const title = kind === 'lost' ? 'The 3D globe stopped: the graphics ran out of memory'
+    : noWebgl ? '3D isn’t available in this browser'
+      : 'The 3D globe can’t run on this device’s graphics';
+  const steps = noWebgl ? [
+    'Chrome / Edge: Settings → System (and performance) → turn on <em>"Use graphics acceleration when available"</em>.',
+    mac ? 'Then quit the browser completely with <strong>⌘ Cmd + Q</strong> and open it again. Closing the window isn’t enough on a Mac.'
+      : 'Then close every browser window and open it again.',
+    mac ? 'Or open this page in <strong>Safari</strong>, which has its own 3D support.' : 'Or try another browser (Chrome, Edge, Firefox).',
+    'Check: <a href="https://get.webgl.org" target="_blank" rel="noopener">get.webgl.org</a> should show a spinning cube.',
+  ] : [
+    'Update the browser to the latest version.',
+    mac ? 'Update macOS (System Settings → General → Software Update).'
+      : 'Update the graphics driver (Windows Update → Advanced options → Optional updates).',
+    kind === 'start' ? 'Or try another browser.' : 'Or reload the page.',
+  ];
   const details = [
     `Problem: ${kind}`,
     `Error: ${err ? String(err.message ?? err).split('\n')[0].slice(0, 300) : '-'}`,
@@ -590,19 +683,36 @@ function globeMessage(kind, err) {
     `Browser: ${navigator.userAgent}`,
   ].filter(Boolean).join('\n');
 
-  const el = document.createElement('div');
-  el.className = 'globe-fallback';
-  el.setAttribute('role', 'alert');
+  const el = document.createElement('aside');
+  el.className = 'flat-notice floating';
+  el.setAttribute('role', 'status');
   el.innerHTML = `
-    <div style="max-width:32rem">${icon('public_off')}
-      ${body}
-      <p class="t-body-s mt-3 mb-2">You can still choose a place from the list.</p>
-      <details class="t-body-s text-start">
-        <summary style="cursor:pointer">Technical details</summary>
-        <pre style="white-space:pre-wrap;font-size:.75rem;background:#1e1f20;padding:.75rem;border-radius:8px;margin:.5rem 0">${esc(details)}</pre>
+    <div class="d-flex align-items-start gap-2">
+      ${icon('info', 'flat-notice-icon')}
+      <div class="flex-grow-1">
+        <p class="t-title-s mb-0">${title}</p>
+        <p class="t-body-s muted mb-2">Showing a 2D satellite map instead. Everything else works the same.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="btn-m btn-tonal" data-toggle aria-expanded="false">${icon('help')}How to get 3D</button>
+          ${kind === 'start' ? '' : `<button type="button" class="btn-m btn-text" onclick="location.reload()">${icon('refresh')}Reload</button>`}
+        </div>
+      </div>
+      <button type="button" class="icon-btn" data-close aria-label="Hide this message">${icon('close')}</button>
+    </div>
+    <div class="flat-notice-more" hidden>
+      <ol class="t-body-s mt-3 mb-2 ps-3">${steps.map((s) => `<li>${s}</li>`).join('')}</ol>
+      <details class="t-body-s">
+        <summary>Technical details</summary>
+        <pre>${esc(details)}</pre>
         <button type="button" class="btn-m btn-outlined" data-copy>${icon('content_copy')}Copy details</button>
       </details>
     </div>`;
+  const more = el.querySelector('.flat-notice-more');
+  el.querySelector('[data-toggle]').addEventListener('click', (e) => {
+    more.hidden = !more.hidden;
+    e.currentTarget.setAttribute('aria-expanded', !more.hidden);
+  });
+  el.querySelector('[data-close]').addEventListener('click', () => el.remove());
   const copyBtn = el.querySelector('[data-copy]');
   copyBtn.addEventListener('click', () => {
     navigator.clipboard?.writeText(details).then(() => { copyBtn.lastChild.textContent = 'Copied'; }).catch(() => {});

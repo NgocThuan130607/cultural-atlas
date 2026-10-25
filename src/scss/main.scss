@@ -266,12 +266,34 @@ a { color: var(--primary); }
   .readout { white-space: nowrap; }
 }
 
-.globe-fallback {
-  position: fixed; inset: 0; display: grid; place-items: center; color: #c4c7c5; text-align: center; background: #131314;
-  // Centre the message in the space beside the card (desktop) or above the bottom sheet (phone).
-  padding: 2rem 2rem 2rem calc(var(--panel-w) + 2rem);
-  .ms { font-size: 2.5rem; }
-  @media (max-width: 767.98px) { padding: 5rem 1.5rem 60dvh; }
+// ----- 2D fallback map (used when WebGL / the 3D globe can't run) -----
+#flat-map { position: fixed; inset: 0; z-index: 0; background: #0b1a2e; }
+.flat-mode #globe { display: none; }
+.flat-mode #compass, .flat-mode #tilt-btn, .flat-mode #layers-btn { display: none; }
+.flat-mode .leaflet-top.leaflet-right { top: 60px; } // below the theme button
+.flat-mode .leaflet-bottom.leaflet-right { bottom: 32px; } // above the status bar
+.flat-city {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; cursor: pointer;
+  color: #fff; font: 500 15px/1 "Roboto Flex", Roboto, sans-serif;
+  text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 6px rgba(0, 0, 0, .8);
+  i { width: 18px; height: 18px; border-radius: 50%; background: #1a73e8; border: 3.5px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .5); flex: none; }
+  &:hover i { background: #d93025; }
+}
+.leaflet-tooltip.flat-label {
+  background: none; border: 0; box-shadow: none; padding: 0; color: #fff;
+  font: 500 14px "Roboto Flex", Roboto, sans-serif; text-shadow: 0 0 3px #000, 0 0 3px #000;
+  &::before { display: none; }
+}
+.flat-notice {
+  position: fixed; z-index: 28; top: 12px; left: calc(var(--panel-w) + 24px); width: min(440px, calc(100vw - var(--panel-w) - 96px));
+  border-radius: var(--radius-l); padding: .875rem .75rem .875rem 1rem;
+  .flat-notice-icon { color: var(--primary); margin-top: 2px; }
+  .btn-m { height: 34px; font-size: .8125rem; }
+  ol li { margin-bottom: .25rem; }
+  a { color: var(--primary); text-decoration: underline; }
+  summary { cursor: pointer; font-weight: 500; }
+  pre { white-space: pre-wrap; font-size: .75rem; background: var(--surface-1); color: var(--on-surface); padding: .75rem; border-radius: var(--radius-s); margin: .5rem 0; max-height: 9rem; overflow: auto; }
+  @media (max-width: 767.98px) { top: 68px; left: 12px; right: 12px; width: auto; }
 }
 
 @media (max-width: 767.98px) {

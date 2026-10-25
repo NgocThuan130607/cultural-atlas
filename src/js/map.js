@@ -33,10 +33,11 @@ function satelliteLayer() {
 /**
  * Creates a map. `style` is 'satellite' or 'street'.
  * A small Map / Satellite switch is added in the top-right corner.
+ * Pass `zoomButtons: false` when the page provides its own zoom buttons.
  */
-export function createMap(el, { lat, lon, zoom = 15, style = 'street' }) {
-  const map = L.map(el, { center: [lat, lon], zoom, zoomControl: false, scrollWheelZoom: true });
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
+export function createMap(el, { lat, lon, zoom = 15, style = 'street', zoomButtons = true, minZoom = 0 }) {
+  const map = L.map(el, { center: [lat, lon], zoom, minZoom, zoomControl: false, scrollWheelZoom: true, worldCopyJump: true });
+  if (zoomButtons) L.control.zoom({ position: 'bottomright' }).addTo(map);
 
   let current = style;
   let layer = (style === 'satellite' ? satelliteLayer() : streetLayer()).addTo(map);
