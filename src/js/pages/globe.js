@@ -28,21 +28,45 @@ const CLOSE_UP_LEVEL = 11; // globe tile level where Esri's detailed imagery tak
 // ---------------------------------------------------------------------------
 // Viewer
 // ---------------------------------------------------------------------------
+/**
+ * Starts Cesium. Some graphics drivers fail with the high-quality settings, so it tries
+ * progressively safer setups: full quality → no MSAA at normal resolution → WebGL 1.
+ * Throws the last error if every attempt fails.
+ */
 function createViewer() {
   if (ionToken) Ion.defaultAccessToken = ionToken;
   // Phones and tablets have little graphics memory: skip MSAA and cap the pixel density there.
   const touch = matchMedia('(pointer: coarse)').matches;
-  const viewer = new Viewer('globe', {
-    baseLayer: false, // added below
-    baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
-    navigationHelpButton: false, animation: false, timeline: false, fullscreenButton: false,
-    infoBox: false, selectionIndicator: false,
-    creditContainer: $('#cesium-credits'),
-    useBrowserRecommendedResolution: false, // render at the screen's real pixel density (sharper on HiDPI)
-    msaaSamples: touch ? 1 : 4,
-    showRenderLoopErrors: false, // we show our own friendlier message
-  });
-  viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 2) / (window.devicePixelRatio || 1);
+  const attempts = [
+    { msaaSamples: touch ? 1 : 4, useBrowserRecommendedResolution: false },
+    { msaaSamples: 1, useBrowserRecommendedResolution: true },
+    { msaaSamples: 1, useBrowserRecommendedResolution: true, contextOptions: { requestWebgl1: true } },
+  ];
+  let viewer = null;
+  let lastError = null;
+  for (const [i, opts] of attempts.entries()) {
+    try {
+      $('#globe').innerHTML = ''; // clear anything a failed attempt left behind
+      viewer = new Viewer('globe', {
+        baseLayer: false, // added later
+        baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
+        navigationHelpButton: false, animation: false, timeline: false, fullscreenButton: false,
+        infoBox: false, selectionIndicator: false,
+        creditContainer: $('#cesium-credits'),
+        showRenderLoopErrors: false, // we show our own friendlier message
+        ...opts,
+      });
+      if (i > 0) console.warn(`Globe started in safe mode ${i}`, lastError);
+      break;
+    } catch (err) {
+      lastError = err;
+      console.warn(`Globe start attempt ${i + 1} failed:`, err);
+    }
+  }
+  if (!viewer) throw lastError;
+  if (!viewer.useBrowserRecommendedResolution) {
+    viewer.resolutionScale = Math.min(window.devicePixelRatio || 1, 2) / (window.devicePixelRatio || 1);
+  }
   const { scene } = viewer;
   const globe = scene.globe;
   globe.maximumScreenSpaceError = touch ? 1.5 : 1; // load sharper tiles than the default (2)
@@ -196,12 +220,12 @@ async function main() {
     viewer = createViewer();
   } catch (err) {
     console.error(err);
-    globeMessage('no-webgl');
+    globeMessage('start', err);
     return;
   }
   // If the graphics card resets or runs out of memory (common on phones), say so instead of going black.
   viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); globeMessage('lost'); });
-  viewer.scene.renderError.addEventListener((_, err) => { console.error(err); globeMessage('lost'); });
+  viewer.scene.renderError.addEventListener((_, err) => { console.error(err); globeMessage('render', err); });
   if (import.meta.env.DEV) { // lets dev tools and tests inspect the globe
     window.__viewer = viewer;
     import('cesium').then((m) => { window.__Cesium = m; });
@@ -511,26 +535,78 @@ async function main() {
 // ---------------------------------------------------------------------------
 // Message shown in place of the globe when it can't run
 // ---------------------------------------------------------------------------
-function globeMessage(kind) {
+/** What this browser's graphics can do, checked on a throwaway canvas. */
+function graphicsInfo() {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl2 = canvas.getContext('webgl2');
+    const gl = gl2 || canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return { webgl: 'none' };
+    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+    const info = {
+      webgl: gl2 ? 'WebGL 2' : 'WebGL 1',
+      gpu: dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER),
+      instancing: gl2 || gl.getExtension('ANGLE_instanced_arrays') ? 'yes' : 'no',
+      vertexTextures: gl.getParameter(gl.MAX_VERTEX_TEXTURE_IMAGE_UNITS),
+    };
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return info;
+  } catch (err) {
+    return { webgl: 'error', error: String(err) };
+  }
+}
+
+/**
+ * Shown in place of the globe when it can't run. `kind`: 'start' (failed to start),
+ * 'render' (failed while drawing) or 'lost' (graphics reset / out of memory).
+ */
+function globeMessage(kind, err) {
   if ($('.globe-fallback')) return;
+  const gfx = graphicsInfo();
+  const noWebgl = gfx.webgl === 'none' || gfx.webgl === 'error';
+  const reload = `<button type="button" class="btn-m btn-filled" onclick="location.reload()">${icon('refresh')}Reload the globe</button>`;
+  const fixWebgl = `
+    <p class="t-body-s text-start">To fix it:<br>
+      • Chrome / Edge: Settings → System → turn on <em>"Use graphics acceleration when available"</em>, then restart the browser.<br>
+      • Firefox: Settings → General → Performance → allow hardware acceleration.<br>
+      • Or update the browser, or try another one.<br>
+      <a href="https://get.webgl.org" target="_blank" rel="noopener" style="color:#a8c7fa">Check whether WebGL works</a></p>`;
+  const fixDriver = `
+    <p class="t-body-s text-start">This usually means the graphics driver or browser is too old for the 3D engine. To fix it:<br>
+      • Update the browser (latest Chrome or Edge works best).<br>
+      • Update the graphics driver: Windows Update → Advanced options → Optional updates, or the Intel / AMD / NVIDIA website.<br>
+      • Or open the page on another computer or phone.</p>`;
+
+  let body;
+  if (kind === 'lost') body = `<p class="mt-3 mb-3">The 3D globe stopped because the device's graphics ran out of memory.</p>${reload}`;
+  else if (noWebgl) body = `<p class="mt-3">The 3D globe needs <strong>WebGL</strong>, which is turned off or not supported in this browser.</p>${fixWebgl}`;
+  else body = `<p class="mt-3">The 3D globe couldn't ${kind === 'render' ? 'draw' : 'start'} with this device's graphics, although WebGL is on.</p>${fixDriver}${reload}`;
+
+  const details = [
+    `Problem: ${kind}`,
+    `Error: ${err ? String(err.message ?? err).split('\n')[0].slice(0, 300) : '-'}`,
+    `Graphics: ${gfx.webgl}${gfx.gpu ? `, ${gfx.gpu}` : ''}`,
+    gfx.instancing ? `Instancing: ${gfx.instancing}, vertex textures: ${gfx.vertexTextures}` : '',
+    `Browser: ${navigator.userAgent}`,
+  ].filter(Boolean).join('\n');
+
   const el = document.createElement('div');
   el.className = 'globe-fallback';
   el.setAttribute('role', 'alert');
-  el.innerHTML = kind === 'lost' ? `
-    <div>${icon('public_off')}
-      <p class="mt-3 mb-3">The 3D globe stopped because the device's graphics ran out of memory.</p>
-      <button type="button" class="btn-m btn-filled" onclick="location.reload()">${icon('refresh')}Reload the globe</button>
-      <p class="t-body-s mt-3 mb-0">You can still choose a place from the list.</p>
-    </div>` : `
-    <div style="max-width:30rem">${icon('public_off')}
-      <p class="mt-3">The 3D globe needs <strong>WebGL</strong>, which is turned off or not supported in this browser.</p>
-      <p class="t-body-s text-start">To fix it:<br>
-        • Chrome / Edge: Settings → System → turn on <em>"Use graphics acceleration when available"</em>, then restart the browser.<br>
-        • Firefox: Settings → General → Performance → allow hardware acceleration.<br>
-        • Or update the browser, or try another one.<br>
-        <a href="https://get.webgl.org" target="_blank" rel="noopener" style="color:#a8c7fa">Check whether WebGL works</a></p>
-      <p class="t-body-s mb-0">You can still choose a place from the list.</p>
+  el.innerHTML = `
+    <div style="max-width:32rem">${icon('public_off')}
+      ${body}
+      <p class="t-body-s mt-3 mb-2">You can still choose a place from the list.</p>
+      <details class="t-body-s text-start">
+        <summary style="cursor:pointer">Technical details</summary>
+        <pre style="white-space:pre-wrap;font-size:.75rem;background:#1e1f20;padding:.75rem;border-radius:8px;margin:.5rem 0">${esc(details)}</pre>
+        <button type="button" class="btn-m btn-outlined" data-copy>${icon('content_copy')}Copy details</button>
+      </details>
     </div>`;
+  const copyBtn = el.querySelector('[data-copy]');
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard?.writeText(details).then(() => { copyBtn.lastChild.textContent = 'Copied'; }).catch(() => {});
+  });
   document.body.append(el);
 }
 
