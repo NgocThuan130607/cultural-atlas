@@ -1,24 +1,35 @@
 # Atlas of Stories
 
-An interactive cultural guide for travellers. Start on a 3D globe, pick a city, then explore a landmark in three ways:
+An interactive cultural guide for travellers. Start on a 3D globe, pick a city, then explore a landmark in three ways, each on its own page:
 
-- **Time travel**: drag a slider through the landmark's eras and watch historical photos fade into modern ones, or compare two eras side by side.
-- **Story mode**: short narrated chapters on history, legends and culture, with a highlighted transcript.
-- **Visitor guide**: opening hours with a live "Open now" badge (in the landmark's own time zone), etiquette dos and don'ts, local tips, and a filterable map.
+- **Time travel** (`timetravel.html`): drag a slider through the landmark's eras and watch historical photos fade into modern ones, or compare two eras side by side.
+- **Stories** (`stories.html`): short narrated chapters on history, legends and culture, with a highlighted transcript.
+- **Visit** (`visit.html`): opening hours with a live "Open now" badge (in the landmark's own time zone), etiquette dos and don'ts, local tips, and a filterable map.
+
+## Pages
+
+| Page | What it is |
+|---|---|
+| `index.html` | Home: the 3D globe, with search, the World / Vietnam atlases and "Through time" |
+| `city.html?id=hanoi` | City or province guide with a satellite map of its landmarks |
+| `timetravel.html?id=eiffel-tower` | Landmark: Time travel (`&era=2` opens a given era) |
+| `stories.html?id=eiffel-tower` | Landmark: narrated stories |
+| `visit.html?id=eiffel-tower` | Landmark: visitor guide |
+| `landmark.html` | Redirect that keeps older links (`landmark.html?id=…#story`) working |
 
 The globe has two atlases, switched with the **World / Vietnam** buttons:
 
 - **World:** six cities, each with one fully built landmark. They are Hanoi (Ho Chi Minh Mausoleum), Paris (Eiffel Tower), Cairo (Pyramids of Giza), Kyoto (Kinkaku-ji), Rome (Colosseum) and New York (Statue of Liberty).
-- **Vietnam:** all 34 provinces and centrally run cities on the administrative map that took effect on 1 July 2025. Each has a province page, a flagship landmark with Time travel, Stories and Visit tabs, and a timeline for "Through time". Provinces merged in 2025 can also be found by their former names, e.g. "Hà Giang" finds Tuyên Quang.
+- **Vietnam:** all 34 provinces and centrally run cities on the administrative map that took effect on 1 July 2025. Each has a province page, a flagship landmark with Time travel, Stories and Visit pages, and a timeline for "Through time". Provinces merged in 2025 can also be found by their former names, e.g. "Hà Giang" finds Tuyên Quang.
 
 ## Tech stack
 
 | Part | Choice |
 |---|---|
-| Build tool | Vite (multi-page: `index.html`, `city.html`, `landmark.html`) |
+| Build tool | Vite. Each page is built as a classic script so the site opens straight from disk (see below) |
 | UI | Bootstrap 5 compiled from Sass with Material 3–style tokens, Roboto Flex, Material Symbols (only the icons in use are downloaded) |
 | Language | Plain JavaScript (ES modules), HTML5, CSS |
-| 3D globe | CesiumJS, no key needed. Far away it shows Sentinel-2 cloudless imagery by EOX (true colour, CC BY-NC-SA 4.0, so non-commercial use only); close up it switches to Esri World Imagery. Esri 3D terrain and a borders/labels layer are added on top. It renders at full screen resolution with MSAA. An optional Cesium ion token or Google Maps key adds photorealistic 3D buildings. |
+| 3D globe | CesiumJS, no key needed. Its images and star map load from the jsDelivr CDN. Far away it shows Sentinel-2 cloudless imagery by EOX (true colour, CC BY-NC-SA 4.0, so non-commercial use only); close up it switches to Esri World Imagery. Esri 3D terrain and a borders/labels layer are added on top. It renders at full screen resolution with MSAA. An optional Cesium ion token or Google Maps key adds photorealistic 3D buildings. |
 | Maps | Leaflet with Esri tiles: street map (light/dark) and satellite with labels |
 | Narration | Each chapter's own audio/video file, or the browser's built-in text-to-speech |
 | Data | Static JSON in `public/data/` (no backend) |
@@ -33,10 +44,16 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # production build in dist/
 npm run preview    # serve the production build
+npm run package    # check + build, then copy to submission/website/ (plus readable source)
 ```
 
-`dist/` is a static site, so it can be hosted on GitHub Pages, Netlify or any web server. Paths are relative, so it also works from a sub-folder.
-It must be served over `http(s)://`. Opening `index.html` straight from disk won't work, because browsers block the data files and Cesium's workers.
+`dist/` is a static site. It works on GitHub Pages or any web server, and also **straight from disk: double-click `dist/index.html`**. An internet connection is still needed for map tiles, fonts and photos.
+
+Browsers block three things on pages opened from disk (`file://`), so the build avoids them:
+
+- **Module scripts.** Each page is built separately as a classic script with `defer` (`scripts/build.mjs`).
+- **`fetch()` of the JSON files.** `scripts/bundle-data.mjs` packs every file in `public/data` into one plain script, `data/atlas-data.js`, and `getJSON` reads from it first.
+- **Web Workers loaded from files or other sites.** Cesium's own prebuilt bundle of all its workers is embedded in the page, and Cesium's `TaskProcessor` is patched at build time to start each worker with that code inside it. See `cesiumEmbeddedWorkers` in `vite.config.js`.
 
 ## Deploy
 
@@ -70,22 +87,26 @@ Museums tell the story of one place through time. This feature tells history *ac
 - Press **Through time** (top right). A world timeline bar replaces the landmark strip.
 - Drag the slider from 2600 BCE to today. The scale is stretched so recent centuries get more room. Or press ▶ for a guided tour of the **key moments**: the globe turns to where history is happening.
 - Each city gets a floating card with what was going on there. Cities with something happening that very year (within 5 years) have pulsing red pins.
-- The side card lists every city for that year, with each landmark's state: either "its story begins in …", or a link that opens the landmark's Time travel tab at the matching era (`landmark.html?id=eiffel-tower#time&era=2`).
+- The side card lists every city for that year, with each landmark's state: either "its story begins in …", or a link that opens the landmark's Time travel page at the matching era (`timetravel.html?id=eiffel-tower&era=2`).
 - Share a year with `index.html#year=1889`. It also works on the 2D map used on devices without WebGL.
 
 ## Project structure
 
 ```
-index.html, city.html, landmark.html   page shells
+index.html, city.html,                 page shells (the five page types)
+timetravel.html, stories.html, visit.html
 src/
   scss/main.scss          Bootstrap theme + all custom styles
   js/common.js            data loading, image credits, theme switch, navbar
-  js/cesium-base.js       tells Cesium where its static files live
+  js/cesium-base.js       Cesium setup: embedded workers, CDN base URL, WebGL 1 fix
   js/hours.js             opening-hours / "Open now" logic (time-zone aware)
   js/map.js               Leaflet helpers and map categories
   js/world-year.js        "Through time": year scale, per-year snapshot, world timeline bar
-  js/pages/               globe.js, city.js, landmark.js (one per page)
-  js/landmark/            timeline.js, story.js, guide.js (one per tab)
+  js/pages/               globe.js, city.js, timetravel.js, stories.js, visit.js (one per page)
+  js/landmark/            shell.js (shared landmark header + page switcher),
+                          timeline.js, story.js, guide.js (the three landmark views)
+public/
+  landmark.html           redirect for older landmark links
 public/data/
   cities.json             list of cities shown on the globe
   cities/<id>.json        city intro, facts, etiquette, "coming soon" landmarks, timeline
@@ -93,9 +114,13 @@ public/data/
   vietnam-moments.json    key moments, periods and year scale for the Vietnam timeline
   landmarks/<id>.json     eras, story chapters, visitor guide
   media.json              generated: image URLs + credits (don't edit by hand)
+  atlas-data.js           generated: all the JSON above in one script (not in git)
 scripts/
   resolve-media.mjs       npm run media: looks up images on Wikimedia Commons
   check-data.mjs          npm run check: validates all the data files
+  bundle-data.mjs         npm run data: builds public/data/atlas-data.js
+  build.mjs               npm run build: builds each page as a classic script
+  package.mjs             npm run package: copies the build + source to submission/website/
 ```
 
 ## Adding a new city
@@ -150,8 +175,9 @@ The new city will appear on the globe, in the Cities menu and in the city list.
 - **The time slider steps through eras, not years.** Eras are spaced evenly so that a 4,500-year history (Giza) and a 140-year one (Statue of Liberty) are equally easy to explore. While you drag, neighbouring images cross-fade. On release, the slider snaps to the nearest era.
 - **Opening hours are always calculated in the landmark's time zone**, so a visitor browsing from anywhere sees the correct status.
 - **Content and code are separate.** Every landmark uses the same template, filled from JSON, so the JSON could later come from a CMS or an API without changing the pages.
+- **Prototype notes.** Where the prototype differs from the planned product (recorded narration, more landmarks per city), a dashed "Prototype note" box says so.
 - **One layout for every page:** a content panel next to a large viewport (satellite map, era photos, story media or visitor map), as in Google Earth. On phones the viewport sits on top and the panel scrolls below.
-- **Accessibility:** skip link, keyboard-operable slider (arrows, Home and End), keyboard search with arrow keys, arrow-key tabs, labelled controls, live region for era changes, transcripts for all narration, reduced-motion support, and light and dark themes.
+- **Accessibility:** skip link, keyboard-operable slider (arrows, Home and End), keyboard search with arrow keys, labelled controls, live region for era changes, transcripts for all narration, reduced-motion support, and light and dark themes.
 
 ## Content disclaimer
 

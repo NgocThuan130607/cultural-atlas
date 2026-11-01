@@ -2,3 +2,6 @@ node_modules/
 dist/
 .env
 .env.local
+public/data/atlas-data.js
+submission/
+docs/

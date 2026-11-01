@@ -3,7 +3,7 @@
 // the panel shows the transcript, highlighting the sentence being read.
 // Narration uses a chapter's own "audio", "video" or "youtube" when the data provides one,
 // otherwise the browser's built-in text-to-speech, one sentence at a time.
-import { $, $$, esc, icon, imageSrc, creditHTML } from '../common.js';
+import { $, $$, esc, icon, imageSrc, creditHTML, protoNote } from '../common.js';
 
 const TYPE_LABEL = { history: 'History', legend: 'Legend', culture: 'Culture' };
 const tts = 'speechSynthesis' in window ? window.speechSynthesis : null;
@@ -24,6 +24,7 @@ export function initStory(pane, layer, { lm, media }) {
     <div class="panel-section" id="story-head"></div>
     <div class="panel-section pt-0">
       <p class="t-body-s muted" id="story-note" hidden></p>
+      ${chapters.some((c) => !c.audio && !c.video && !c.youtube) ? protoNote('narration is read aloud by your browser’s built-in voice (text-to-speech). The full version would use recorded narration by local guides and historians; the player already supports audio and video files.') : ''}
       <div class="transcript" id="story-transcript" aria-label="Transcript"></div>
       <p class="t-body-s muted mt-3 mb-0" id="story-credit"></p>
     </div>

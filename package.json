@@ -4,11 +4,14 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npm run data && vite",
+    "build": "npm run data && node scripts/build.mjs",
     "preview": "vite preview",
+    "data": "node scripts/bundle-data.mjs",
     "media": "node scripts/resolve-media.mjs",
-    "check": "node scripts/check-data.mjs"
+    "check": "node scripts/check-data.mjs",
+    "package": "npm run check && npm run build && node scripts/package.mjs",
+    "sources": "node scripts/image-sources.mjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
@@ -17,7 +20,6 @@
   },
   "devDependencies": {
     "sass-embedded": "^1.106.1",
-    "vite": "^8.3.5",
-    "vite-plugin-static-copy": "^4.1.1"
+    "vite": "^8.3.5"
   }
 }

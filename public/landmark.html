@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atlas of Stories</title>
+  <script>
+    // Older links pointed to landmark.html?id=…#time|story|guide. Send them to the matching page.
+    (function () {
+      var parts = location.hash.slice(1).split('&');
+      var pages = { time: 'timetravel.html', story: 'stories.html', guide: 'visit.html' };
+      var q = new URLSearchParams(location.search);
+      var era = new URLSearchParams(parts.slice(1).join('&')).get('era');
+      if (era !== null) q.set('era', era);
+      location.replace((pages[parts[0]] || 'timetravel.html') + '?' + q.toString());
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="timetravel.html">Continue to the landmark</a></p>
+</body>
+</html>

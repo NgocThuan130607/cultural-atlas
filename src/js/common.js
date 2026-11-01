@@ -17,8 +17,12 @@ export const icon = (name, cls = '') => `<span class="ms ${cls}" aria-hidden="tr
 
 // ---------- Data loading ----------
 // All content lives as static JSON in /public/data, so adding a city never needs code changes.
+// The built site also gets every file in one plain script (data/atlas-data.js, made by scripts/bundle-data.mjs),
+// because browsers block fetch() when the site is opened straight from disk.
 const cache = new Map();
 export function getJSON(path) {
+  const bundled = window.ATLAS_DATA?.[path];
+  if (bundled && !cache.has(path)) cache.set(path, Promise.resolve(bundled));
   if (!cache.has(path)) {
     cache.set(path, fetch(`data/${path}`).then((r) => {
       if (!r.ok) throw new Error(`Could not load ${path} (${r.status})`);
@@ -34,6 +38,21 @@ export const collectionsOf = (city) => city.collections ?? ['world'];
 export const loadCity = (id) => getJSON(`cities/${id}.json`);
 export const loadLandmark = (id) => getJSON(`landmarks/${id}.json`);
 export const loadMedia = () => getJSON('media.json').catch(() => ({}));
+
+// ---------- Landmark pages ----------
+/** The three landmark pages, in the order shown in the page switcher. */
+export const LANDMARK_PAGES = [
+  { id: 'time', file: 'timetravel.html', label: 'Time travel', icon: 'history' },
+  { id: 'story', file: 'stories.html', label: 'Stories', icon: 'headphones' },
+  { id: 'guide', file: 'visit.html', label: 'Visit', icon: 'directions_walk' },
+];
+
+/** URL of one landmark page, e.g. landmarkUrl('eiffel-tower', 'time', { era: 2 }). */
+export function landmarkUrl(id, page = 'time', extra = {}) {
+  const { file } = LANDMARK_PAGES.find((p) => p.id === page) ?? LANDMARK_PAGES[0];
+  const q = new URLSearchParams({ id, ...extra });
+  return `${file}?${q}`;
+}
 
 // ---------- Images & credits ----------
 // An image reference is either { file: "<Wikimedia Commons file>" } or { src: "local/path.jpg", credit: "..." }.
@@ -105,6 +124,13 @@ async function initNav() {
     menu.innerHTML = '<li><span class="dropdown-item-text">Could not load cities</span></li>';
   }
 }
+
+/**
+ * A small "Prototype note": marks where this prototype differs from the planned full product,
+ * so no feature looks finished when it isn't.
+ */
+export const protoNote = (text, cls = '') =>
+  `<p class="proto-note ${cls}">${icon('construction')}<span><strong>Prototype note:</strong> ${esc(text)}</span></p>`;
 
 export function showError(message) {
   const panel = $('#panel');

@@ -71,7 +71,7 @@ export function initGuide(pane, layer, { lm, city }) {
   refresh();
   setInterval(refresh, 60_000);
 
-  // The map is created the first time the tab is shown (Leaflet needs a visible container).
+  // The map is created when the page is shown (Leaflet needs a visible container).
   let map = null;
   const markers = [];
   function buildMap() {

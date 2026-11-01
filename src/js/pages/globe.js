@@ -15,7 +15,7 @@ import {
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import {
   $, $$, esc, icon, getJSON, loadCities, loadCollections, collectionsOf, loadCity, loadLandmark, loadMedia,
-  imageSrc, creditHTML, localTime, formatCoords, prefersReducedMotion,
+  imageSrc, creditHTML, localTime, formatCoords, prefersReducedMotion, landmarkUrl,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
@@ -483,7 +483,7 @@ async function main() {
               </span>
             </button>
             ${s.landmarks.map(({ lm, state, era, index }) => (state === 'era' ? `
-              <a class="world-lm" href="landmark.html?id=${encodeURIComponent(lm.id)}#time&amp;era=${index}">
+              <a class="world-lm" href="${esc(landmarkUrl(lm.id, 'time', { era: index }))}">
                 ${icon('history')}<span><strong>${esc(lm.name)}</strong> · ${esc(era.label)}: ${esc(era.title)}</span>${icon('arrow_forward')}
               </a>` : `
               <span class="world-lm future">${icon('hourglass_empty')}<span><strong>${esc(lm.name)}</strong> · its story begins in ${esc(era.label)}</span></span>`)).join('')}
@@ -1071,7 +1071,7 @@ async function main() {
   function renderLandmark(lm) {
     const c = cityById.get(lm.city);
     const s = statusOf(lm);
-    const url = `landmark.html?id=${encodeURIComponent(lm.id)}`;
+    const url = (page) => landmarkUrl(lm.id, page);
     show(`
       ${heroBlock(lm.hero, { back: `data-action="city" data-id="${esc(c.id)}"`, backLabel: `Back to ${c.name}` })}
       <div class="kcard-body">
@@ -1084,12 +1084,12 @@ async function main() {
         </div>
         <p class="mt-3 mb-0">${esc(lm.summary)}</p>
         <div class="kcard-actions">
-          <a class="btn-m btn-filled" href="${url}">${icon('arrow_forward')}Explore</a>
+          <a class="btn-m btn-filled" href="${url('time')}">${icon('arrow_forward')}Explore</a>
         </div>
         <div class="kcard-actions mt-2">
-          <a class="chip" href="${url}#time">${icon('history')}Time travel</a>
-          <a class="chip" href="${url}#story">${icon('headphones')}Stories</a>
-          <a class="chip" href="${url}#guide">${icon('directions_walk')}Visit</a>
+          <a class="chip" href="${url('time')}">${icon('history')}Time travel</a>
+          <a class="chip" href="${url('story')}">${icon('headphones')}Stories</a>
+          <a class="chip" href="${url('guide')}">${icon('directions_walk')}Visit</a>
         </div>
       </div>`);
   }

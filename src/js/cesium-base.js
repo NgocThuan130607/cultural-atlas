@@ -1,7 +1,11 @@
 // Runs before Cesium loads.
 
-// Tells Cesium where its static Workers/Assets/Widgets folders are (copied by vite.config.js).
-window.CESIUM_BASE_URL = new URL('cesium/', document.baseURI).href;
+// Cesium's workers are embedded in the page, so the globe also runs when the site is opened from disk (see vite.config.js).
+import 'virtual:cesium-workers';
+
+// Tells Cesium where its Assets and Widgets folders are: the jsDelivr CDN, for the same Cesium version as
+// package.json (set in vite.config.js), so the site doesn't have to ship them.
+window.CESIUM_BASE_URL = __CESIUM_BASE_URL__;
 
 // WebGL 1 fix. Since CesiumJS 1.140 the billboard and label shaders declare `flat in` / `flat out` varyings.
 // On devices without WebGL 2 (older GPUs, or GPUs whose WebGL 2 is blocked by the browser) Cesium converts

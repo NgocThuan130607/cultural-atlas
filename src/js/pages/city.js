@@ -1,7 +1,7 @@
 // City page: a content panel (left) beside a satellite map of the city's landmarks (right).
 import {
   $, $$, esc, icon, param, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
-  creditsBlock, localTime, formatCoords, showError,
+  creditsBlock, localTime, formatCoords, showError, landmarkUrl, protoNote,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createMap, landmarkMarker, L } from '../map.js';
@@ -43,7 +43,7 @@ async function main() {
       <h2 id="lm-title" class="px-4 mb-1">Landmarks</h2>
       <ul class="place-list">
         ${landmarks.map((lm) => { const s = openStatus(lm.guide.hours, city.timezone); return `
-          <li><a class="place-row px-4" href="landmark.html?id=${encodeURIComponent(lm.id)}" data-lm="${esc(lm.id)}">
+          <li><a class="place-row px-4" href="${landmarkUrl(lm.id)}" data-lm="${esc(lm.id)}">
             <img class="thumb" src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
             <span class="grow"><span class="t-title-s">${esc(lm.name)}</span>
               <span class="sub">${esc(lm.localName ?? '')}</span>
@@ -56,6 +56,7 @@ async function main() {
             <span class="grow"><span class="t-title-s">${esc(p.name)}</span><span class="sub">Coming soon · ${esc(p.blurb)}</span></span>
           </div></li>`).join('')}
       </ul>
+      ${detail.planned?.length ? protoNote('only one landmark per place is built in this prototype. The landmarks marked "Coming soon" would get the same Time travel, Stories and Visit pages in the full version.', 'mx-4 mt-2') : ''}
     </section>
 
     ${detail.sections.map(section).join('')}
@@ -85,7 +86,7 @@ async function main() {
   const markers = new Map();
   for (const lm of landmarks) {
     const m = landmarkMarker(lm.lat, lm.lon, lm.name)
-      .bindPopup(`<strong>${esc(lm.name)}</strong><br><a href="landmark.html?id=${encodeURIComponent(lm.id)}">Explore</a>`)
+      .bindPopup(`<strong>${esc(lm.name)}</strong><br><a href="${landmarkUrl(lm.id)}">Explore</a>`)
       .addTo(map);
     markers.set(lm.id, m);
   }
