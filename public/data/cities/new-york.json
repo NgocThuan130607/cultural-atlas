@@ -1,6 +1,9 @@
 {
   "id": "new-york",
-  "hero": { "file": "View of Empire State Building from Rockefeller Center New York City dllu (cropped).jpg", "alt": "Manhattan skyline with the Empire State Building" },
+  "hero": {
+    "file": "View of Empire State Building from Rockefeller Center New York City dllu (cropped).jpg",
+    "alt": "Manhattan skyline with the Empire State Building"
+  },
   "facts": {
     "languages": "English, plus hundreds of other languages spoken at home",
     "currency": "US dollar (USD)",
@@ -35,6 +38,77 @@
       "name": "Brooklyn Bridge",
       "localName": "Brooklyn Bridge",
       "blurb": "A granite-towered suspension bridge, opened in 1883. You can walk across it for views of the Manhattan skyline."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -2600,
+      "approx": true,
+      "text": "Ancestors of the Lenape people fish and hunt along the rivers and shores of the great harbour."
+    },
+    {
+      "year": 1524,
+      "text": "Explorer Giovanni da Verrazzano sails into the harbour, the first known European visitor."
+    },
+    {
+      "year": 1626,
+      "text": "The Dutch colony of New Amsterdam grows on the southern tip of Manhattan."
+    },
+    {
+      "year": 1664,
+      "text": "The English take the colony and rename it New York."
+    },
+    {
+      "year": 1789,
+      "text": "George Washington is sworn in as the first US president at Federal Hall on Wall Street."
+    },
+    {
+      "year": 1825,
+      "text": "The Erie Canal opens, linking New York's harbour to the Great Lakes, and the city booms."
+    },
+    {
+      "year": 1870,
+      "text": "Work begins on the Brooklyn Bridge."
+    },
+    {
+      "year": 1886,
+      "text": "The Statue of Liberty is unveiled in New York Harbor.",
+      "landmark": "statue-of-liberty",
+      "era": 3
+    },
+    {
+      "year": 1892,
+      "text": "Ellis Island opens. About twelve million immigrants will pass through it.",
+      "landmark": "statue-of-liberty",
+      "era": 4
+    },
+    {
+      "year": 1931,
+      "text": "The Empire State Building opens and becomes the world's tallest building."
+    },
+    {
+      "year": 1945,
+      "text": "Crowds fill Times Square to celebrate the end of the Second World War."
+    },
+    {
+      "year": 1975,
+      "text": "New York faces a severe financial crisis and nearly runs out of money."
+    },
+    {
+      "year": 1986,
+      "text": "The restored Statue of Liberty celebrates its 100th birthday.",
+      "landmark": "statue-of-liberty",
+      "era": 5
+    },
+    {
+      "year": 2001,
+      "text": "On 11 September terrorist attacks destroy the World Trade Center."
+    },
+    {
+      "year": 2026,
+      "text": "A city of more than eight million people, where hundreds of languages are spoken.",
+      "landmark": "statue-of-liberty",
+      "era": 6
     }
   ]
 }

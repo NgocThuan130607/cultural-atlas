@@ -33,6 +33,7 @@
   <aside class="kcard floating" id="kcard" aria-live="polite"></aside>
 
   <div class="earth-topright">
+    <button class="btn-m year-btn" id="year-btn" type="button" aria-pressed="false" title="See what was happening everywhere in the same year"><span class="ms">history_toggle_off</span>Through time</button>
     <button class="icon-btn solo" id="layers-btn" type="button" aria-pressed="true" aria-label="Show borders and place names" title="Borders and labels"><span class="ms">layers</span></button>
     <button class="icon-btn solo" id="theme-toggle" type="button" aria-label="Switch colour theme"><span class="ms">dark_mode</span></button>
   </div>
@@ -48,6 +49,10 @@
   </div>
 
   <nav class="voyager" id="voyager" aria-label="Featured landmarks"></nav>
+
+  <!-- "The world in one year" -->
+  <div class="year-cards" id="year-cards"></div>
+  <section class="worldbar floating" id="worldbar" aria-label="World timeline" hidden></section>
 
   <footer class="earth-status">
     <div class="credits" id="cesium-credits"></div>

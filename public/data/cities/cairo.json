@@ -1,6 +1,9 @@
 {
   "id": "cairo",
-  "hero": { "file": "Cairo From Tower (cropped).jpg", "alt": "Cairo's skyline along the Nile, seen from the Cairo Tower" },
+  "hero": {
+    "file": "Cairo From Tower (cropped).jpg",
+    "alt": "Cairo's skyline along the Nile, seen from the Cairo Tower"
+  },
   "facts": {
     "languages": "Arabic (Egyptian Arabic)",
     "currency": "Egyptian pound (EGP)",
@@ -35,6 +38,82 @@
       "name": "Khan el-Khalili",
       "localName": "خان الخليلي",
       "blurb": "A bazaar of narrow lanes, lanterns and spice stalls, founded in 1382."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -2560,
+      "approx": true,
+      "text": "Pharaoh Khufu's Great Pyramid is completed at Giza, near Egypt's royal city of Memphis.",
+      "landmark": "pyramids-of-giza",
+      "era": 0
+    },
+    {
+      "year": -2500,
+      "approx": true,
+      "text": "Khafre builds the second pyramid, and the Great Sphinx is carved from the rock.",
+      "landmark": "pyramids-of-giza",
+      "era": 1
+    },
+    {
+      "year": -332,
+      "text": "Alexander the Great conquers Egypt. Greek-speaking kings, the Ptolemies, will rule for three centuries."
+    },
+    {
+      "year": -30,
+      "text": "Egypt becomes a province of Rome. A Roman fortress, Babylon, guards the Nile crossing here."
+    },
+    {
+      "year": 641,
+      "text": "Arab armies conquer Egypt and found the city of Fustat beside the Roman fortress."
+    },
+    {
+      "year": 969,
+      "text": "The Fatimid dynasty founds al-Qāhira, \"the Victorious\": Cairo."
+    },
+    {
+      "year": 1176,
+      "text": "Saladin begins building the great Citadel on the Muqattam hills."
+    },
+    {
+      "year": 1382,
+      "text": "The Khan el-Khalili bazaar is founded in the heart of the medieval city."
+    },
+    {
+      "year": 1517,
+      "text": "The Ottoman Empire conquers Egypt, and Cairo becomes a provincial capital."
+    },
+    {
+      "year": 1798,
+      "text": "Napoleon's army and scholars arrive and survey the pyramids.",
+      "landmark": "pyramids-of-giza",
+      "era": 2
+    },
+    {
+      "year": 1863,
+      "text": "Khedive Ismail comes to power and begins to rebuild Cairo with Parisian-style boulevards."
+    },
+    {
+      "year": 1869,
+      "text": "The Suez Canal opens, and Cairo celebrates with grand festivities."
+    },
+    {
+      "year": 1945,
+      "text": "The Arab League is founded in Cairo."
+    },
+    {
+      "year": 1970,
+      "text": "Millions fill the streets of Cairo for the funeral of President Nasser."
+    },
+    {
+      "year": 1987,
+      "text": "The first line of the Cairo Metro opens, the first in Africa."
+    },
+    {
+      "year": 2026,
+      "text": "Greater Cairo is home to over twenty million people, and the new Grand Egyptian Museum stands near the pyramids.",
+      "landmark": "pyramids-of-giza",
+      "era": 6
     }
   ]
 }

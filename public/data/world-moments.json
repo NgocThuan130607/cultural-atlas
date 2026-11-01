@@ -1,0 +1,23 @@
+{
+  "range": { "from": -2600, "to": 2026 },
+  "periods": [
+    { "label": "Ancient", "from": -2600, "to": 500 },
+    { "label": "Medieval", "from": 500, "to": 1500 },
+    { "label": "Early modern", "from": 1500, "to": 1800 },
+    { "label": "Modern", "from": 1800, "to": 2026 }
+  ],
+  "moments": [
+    { "year": -2560, "title": "The age of the pyramids", "focusCity": "cairo" },
+    { "year": 80, "title": "Rome opens its great arena", "focusCity": "rome" },
+    { "year": 794, "title": "A new capital for Japan", "focusCity": "kyoto" },
+    { "year": 1010, "title": "The Ascending Dragon", "focusCity": "hanoi" },
+    { "year": 1397, "title": "A golden retreat", "focusCity": "kyoto" },
+    { "year": 1789, "title": "A year of revolutions", "focusCity": "paris" },
+    { "year": 1868, "title": "Old worlds give way", "focusCity": "kyoto" },
+    { "year": 1889, "title": "The age of iron", "focusCity": "paris" },
+    { "year": 1945, "title": "The end of a world war", "focusCity": "hanoi" },
+    { "year": 1975, "title": "New beginnings", "focusCity": "hanoi" },
+    { "year": 2000, "title": "A new millennium", "focusCity": "kyoto" },
+    { "year": 2026, "label": "Today", "title": "The world today", "focusCity": null }
+  ]
+}

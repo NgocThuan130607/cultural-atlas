@@ -1,6 +1,9 @@
 {
   "id": "rome",
-  "hero": { "file": "Trevi Fountain, Rome, Italy 2 - May 2007.jpg", "alt": "The Trevi Fountain in Rome" },
+  "hero": {
+    "file": "Trevi Fountain, Rome, Italy 2 - May 2007.jpg",
+    "alt": "The Trevi Fountain in Rome"
+  },
   "facts": {
     "languages": "Italian",
     "currency": "Euro (EUR)",
@@ -35,6 +38,79 @@
       "name": "Pantheon",
       "localName": "Pantheon",
       "blurb": "A Roman temple rebuilt by Emperor Hadrian around 125 CE. Its concrete dome is still the largest unreinforced one in the world."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -753,
+      "approx": true,
+      "text": "According to legend, Romulus founds Rome on the Palatine Hill."
+    },
+    {
+      "year": -509,
+      "approx": true,
+      "text": "The Romans expel their last king and found a Republic."
+    },
+    {
+      "year": -44,
+      "text": "Julius Caesar is assassinated on the Ides of March."
+    },
+    {
+      "year": 80,
+      "text": "Emperor Titus opens the Colosseum with 100 days of games.",
+      "landmark": "colosseum",
+      "era": 0
+    },
+    {
+      "year": 125,
+      "approx": true,
+      "text": "Emperor Hadrian rebuilds the Pantheon with its great concrete dome."
+    },
+    {
+      "year": 410,
+      "text": "The Visigoths sack Rome, a shock felt across the ancient world."
+    },
+    {
+      "year": 800,
+      "text": "On Christmas Day, Charlemagne is crowned emperor in St Peter's Basilica."
+    },
+    {
+      "year": 1349,
+      "text": "A great earthquake brings down part of the Colosseum.",
+      "landmark": "colosseum",
+      "era": 2
+    },
+    {
+      "year": 1506,
+      "text": "Work begins on the new St Peter's Basilica; two years later Michelangelo starts the Sistine Chapel ceiling."
+    },
+    {
+      "year": 1749,
+      "text": "Pope Benedict XIV declares the Colosseum a sacred place, ending the stone robbing.",
+      "landmark": "colosseum",
+      "era": 3
+    },
+    {
+      "year": 1871,
+      "text": "Rome becomes the capital of a united Italy."
+    },
+    {
+      "year": 1944,
+      "text": "Allied troops liberate Rome on 4 June."
+    },
+    {
+      "year": 1960,
+      "text": "Rome hosts the Olympic Games."
+    },
+    {
+      "year": 2000,
+      "text": "The Great Jubilee brings millions of pilgrims to Rome."
+    },
+    {
+      "year": 2026,
+      "text": "Ancient ruins, medieval churches and modern life share the same streets.",
+      "landmark": "colosseum",
+      "era": 5
     }
   ]
 }

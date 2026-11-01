@@ -10,13 +10,15 @@ import {
   Cartesian3, Cartesian2, Color, LabelStyle, VerticalOrigin, HorizontalOrigin, NearFarScalar,
   DistanceDisplayCondition, HeightReference, ScreenSpaceEventHandler, ScreenSpaceEventType,
   BoundingSphere, HeadingPitchRange, Math as CMath, Cartographic, defined,
+  SceneTransforms, CallbackProperty,
 } from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import {
-  $, $$, esc, icon, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
+  $, $$, esc, icon, getJSON, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
   localTime, formatCoords, prefersReducedMotion,
 } from '../common.js';
 import { openStatus } from '../hours.js';
+import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
 
 const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
 const googleKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -210,12 +212,14 @@ async function main() {
   const cityById = new Map(cities.map((c) => [c.id, c]));
   const lmById = new Map(landmarks.map((l) => [l.id, l]));
   const statusOf = (lm) => openStatus(lm.guide.hours, cityById.get(lm.city).timezone);
+  const world = await getJSON('world-moments.json').catch(() => null);
 
   const kcard = $('#kcard');
   renderIntro();
   renderVoyager();
 
   const reduced = prefersReducedMotion();
+  let yearMode = false; // "The world in one year" mode (see below)
 
   // `nav` moves the view: the 3D globe when WebGL works, otherwise a 2D satellite map.
   // Everything else (card, search, landmark strip, buttons) works the same with either.
@@ -234,6 +238,7 @@ async function main() {
   function selectCity(id, { fly = true } = {}) {
     const c = cityById.get(id);
     if (!c) return;
+    if (yearMode) exitYearMode({ quiet: true });
     renderCity(c);
     if (fly) nav.city(c);
     history.replaceState(null, '', `#${id}`);
@@ -241,6 +246,7 @@ async function main() {
   function selectLandmark(id, { fly = true } = {}) {
     const lm = lmById.get(id);
     if (!lm) return;
+    if (yearMode) exitYearMode({ quiet: true });
     renderLandmark(lm);
     if (fly) nav.landmark(lm);
     history.replaceState(null, '', `#${id}`);
@@ -260,6 +266,8 @@ async function main() {
     if (action === 'intro') { goIntro(); nav.home(); }
     if (action === 'close') kcard.classList.add('collapsed');
     if (action === 'refly') { const c = cityById.get(id); if (c) nav.city(c); }
+    if (action === 'year-city') focusYearCity(id);
+    if (action === 'exit-year') exitYearMode();
   });
   $('#voyager').addEventListener('click', (e) => {
     const b = e.target.closest('[data-landmark]');
@@ -267,7 +275,7 @@ async function main() {
   });
 
   // ----- Buttons shared by both views -----
-  $('#home-btn').addEventListener('click', () => { goIntro(); nav.home(); });
+  $('#home-btn').addEventListener('click', () => { if (yearMode) exitYearMode({ quiet: true }); goIntro(); nav.home(); });
   $('#zoom-in').addEventListener('click', () => nav.zoomIn());
   $('#zoom-out').addEventListener('click', () => nav.zoomOut());
   $('#layers-btn').addEventListener('click', (e) => {
@@ -281,8 +289,203 @@ async function main() {
   // ----- Deep link (#paris, #eiffel-tower) -----
   const hash = decodeURIComponent(location.hash.slice(1));
   const delay = reduced || !viewer ? 0 : 1800;
+  const yearLink = /^year=(-?\d+)$/.exec(hash);
   if (cityById.has(hash)) setTimeout(() => selectCity(hash), delay);
   else if (lmById.has(hash)) setTimeout(() => selectLandmark(hash), delay);
+  else if (yearLink && world) setTimeout(() => enterYearMode(Number(yearLink[1])), delay);
+
+  // -------------------------------------------------------------------------
+  // "The world in one year": one timeline for the whole globe
+  // -------------------------------------------------------------------------
+  const yearBtn = $('#year-btn');
+  const barEl = $('#worldbar');
+  const cardsEl = $('#year-cards');
+  let bar = null;
+  let snap = [];
+  let cardKey = '';
+  let unbindView = null;
+  if (!world) yearBtn.hidden = true;
+  yearBtn.addEventListener('click', () => (yearMode ? exitYearMode() : enterYearMode()));
+
+  function enterYearMode(year) {
+    if (!world) return;
+    yearMode = true;
+    document.body.classList.add('year-mode');
+    yearBtn.setAttribute('aria-pressed', 'true');
+    barEl.hidden = false;
+    bar ??= createWorldBar(barEl, { ...world, onChange: onYear, onExit: () => exitYearMode() });
+    nav.setCityLabels?.(false);
+    bindView();
+    const start = Number.isFinite(year) ? year : (world.moments.find((m) => m.year === 1889)?.year ?? world.range.to);
+    bar.setYear(start, { animate: !Number.isFinite(year) });
+    barEl.querySelector('#wb-range')?.focus({ preventScroll: true });
+  }
+
+  function exitYearMode({ quiet = false } = {}) {
+    if (!yearMode) return;
+    yearMode = false;
+    bar?.stop();
+    document.body.classList.remove('year-mode');
+    yearBtn.setAttribute('aria-pressed', 'false');
+    barEl.hidden = true;
+    cardsEl.innerHTML = '';
+    cardKey = '';
+    unbindView?.(); unbindView = null;
+    nav.setPulse?.(new Set());
+    nav.setCityLabels?.(true);
+    if (!quiet) { renderIntro(); history.replaceState(null, '', location.pathname + location.search); nav.home(); }
+  }
+
+  /** Called by the world bar while dragging (final=false) and when a year is settled. */
+  function onYear(year, { final, moment }) {
+    snap = snapshot(year, cities, cityDetails, lmById);
+    renderWorldCard(year, moment);
+    renderYearCards();
+    nav.setPulse?.(new Set(snap.filter((s) => s.isEvent).map((s) => s.city.id)));
+    if (!final) return;
+    history.replaceState(null, '', `#year=${year}`);
+    // Moments turn the globe towards the place where history is happening.
+    if (moment) {
+      const focus = moment.focusCity && cityById.get(moment.focusCity);
+      if (focus) nav.look(focus); else nav.home();
+    }
+  }
+
+  function focusYearCity(id) {
+    const c = cityById.get(id);
+    if (!c) return;
+    bar?.stop();
+    nav.look(c);
+    $$('.world-row', kcard).forEach((r) => r.classList.toggle('focused', r.dataset.city === id));
+  }
+
+  /** Re-attaches the floating cards to whichever view is active (the globe can switch to 2D at any time). */
+  function bindView() {
+    unbindView?.();
+    unbindView = nav.onViewChange?.(layoutYearCards) ?? null;
+    layoutYearCards();
+  }
+
+  const entryImage = (s) => {
+    if (s.entry?.image) return imageSrc(s.entry.image, media);
+    if (s.entry?.landmark) {
+      const lm = lmById.get(s.entry.landmark);
+      const era = lm?.eras[s.entry.era];
+      if (era) return imageSrc(era.image, media);
+    }
+    return imageSrc(cityDetails[s.city.id]?.hero, media);
+  };
+
+  // ----- Left card: "The world in 1889" -----
+  function renderWorldCard(year, moment) {
+    const key = `${year}|${snap.map((s) => `${s.entry?.year}:${s.landmarks.map((l) => l.state + l.index).join(',')}`).join(';')}|${moment?.title ?? ''}`;
+    const heading = $('[data-world-year]', kcard);
+    if (heading && kcard.dataset.view === 'world') {
+      heading.textContent = formatYear(year, year < -1000);
+      $('[data-world-sub]', kcard).textContent = moment?.title ?? periodOf(year, world.periods).label;
+      if (kcard.dataset.key === key.slice(key.indexOf('|'))) return; // same content, only the year changed
+    }
+    const rows = [...snap].sort((a, b) => Number(b.isEvent) - Number(a.isEvent));
+    show(`
+      <div class="intro-head">
+        <div class="d-flex justify-content-between align-items-start gap-2">
+          <div>
+            <p class="t-label muted mb-1">${icon('history_toggle_off')} Through time</p>
+            <h2 class="t-headline mb-0">The world in <span data-world-year>${esc(formatYear(year, year < -1000))}</span></h2>
+          </div>
+          <button class="icon-btn" type="button" data-action="exit-year" aria-label="Leave the world timeline">${icon('close')}</button>
+        </div>
+        <p class="t-body-s muted mt-1 mb-0" data-world-sub>${esc(moment?.title ?? periodOf(year, world.periods).label)}</p>
+      </div>
+      <hr class="divider">
+      <ul class="place-list world-list">
+        ${rows.map((s) => `
+          <li class="world-row ${s.isEvent ? 'is-event' : ''} ${s.entry ? '' : 'is-empty'}" data-city="${esc(s.city.id)}">
+            <button class="place-row" type="button" data-action="year-city" data-id="${esc(s.city.id)}">
+              <img class="thumb" src="${esc(entryImage(s))}" alt="" loading="lazy">
+              <span class="grow">
+                <span class="t-title-s">${esc(s.city.name)}${s.isEvent ? ' <span class="now-badge">This year</span>' : ''}</span>
+                <span class="world-text">${s.entry ? esc(s.entry.text) : 'No record in the atlas for this time yet.'}</span>
+                ${s.entry ? `<span class="sub">${s.isEvent ? '' : 'Since '}${esc(formatYear(s.entry.year, s.entry.approx))}</span>` : ''}
+              </span>
+            </button>
+            ${s.landmarks.map(({ lm, state, era, index }) => (state === 'era' ? `
+              <a class="world-lm" href="landmark.html?id=${encodeURIComponent(lm.id)}#time&amp;era=${index}">
+                ${icon('history')}<span><strong>${esc(lm.name)}</strong> · ${esc(era.label)}: ${esc(era.title)}</span>${icon('arrow_forward')}
+              </a>` : `
+              <span class="world-lm future">${icon('hourglass_empty')}<span><strong>${esc(lm.name)}</strong> · its story begins in ${esc(era.label)}</span></span>`)).join('')}
+          </li>`).join('')}
+      </ul>`);
+    kcard.dataset.view = 'world';
+    kcard.dataset.key = key.slice(key.indexOf('|'));
+  }
+
+  // ----- Floating cards beside each city on the globe / map -----
+  function renderYearCards() {
+    const key = snap.map((s) => `${s.city.id}:${s.entry?.year}:${s.isEvent}`).join(';');
+    if (key === cardKey) return;
+    const old = new Map($$('.ycard', cardsEl).map((el) => [el.dataset.city, el.dataset.entry]));
+    cardKey = key;
+    cardsEl.innerHTML = `<svg class="ycard-lines" aria-hidden="true"></svg>${snap.filter((s) => s.entry).map((s) => `
+      <button type="button" class="ycard ${s.isEvent ? 'is-event' : ''} ${old.get(s.city.id) && old.get(s.city.id) !== String(s.entry.year) ? 'swap' : ''}"
+        data-city="${esc(s.city.id)}" data-entry="${s.entry.year}" tabindex="-1">
+        <img src="${esc(entryImage(s))}" alt="">
+        <span><strong>${esc(s.city.name)}</strong><small>${esc(s.entry.text)}</small></span>
+      </button>`).join('')}`;
+    layoutYearCards();
+  }
+
+  cardsEl.addEventListener('click', (e) => {
+    const c = e.target.closest('.ycard');
+    if (c) focusYearCity(c.dataset.city);
+  });
+
+  /**
+   * Places each card next to its city. Cards are hidden when the city is on the far side of the
+   * Earth or under the side card / timeline bar, flipped to the left near the right edge,
+   * and nudged apart when they would overlap.
+   */
+  function layoutYearCards() {
+    if (!yearMode || !nav.project) return;
+    const els = $$('.ycard', cardsEl);
+    // The part of the screen not covered by the side card, the controls or the timeline bar.
+    const desktop = innerWidth >= 768;
+    const cardBox = !kcard.classList.contains('collapsed') ? kcard.getBoundingClientRect() : null;
+    const safe = {
+      left: desktop && cardBox ? cardBox.right + 8 : 8,
+      right: innerWidth - (desktop ? 64 : 8),
+      top: desktop ? 8 : 64,
+      bottom: (barEl.hidden ? innerHeight : barEl.getBoundingClientRect().top) - 8,
+    };
+    const placed = [];
+    const items = els.map((el) => {
+      const c = cityById.get(el.dataset.city);
+      return { el, p: nav.project(c.lat, c.lon) };
+    }).filter(({ el, p }) => {
+      const show = p.visible && p.x > safe.left && p.x < safe.right && p.y > safe.top && p.y < safe.bottom;
+      el.hidden = !show;
+      return show;
+    }).sort((a, b) => a.p.y - b.p.y);
+    let lines = '';
+    for (const { el, p } of items) {
+      const w = el.offsetWidth;
+      const h = el.offsetHeight;
+      // Prefer the right of the pin, flip left near the edge, and always stay on screen.
+      let left = p.x + 18 + w > safe.right ? p.x - 18 - w : p.x + 18;
+      left = Math.min(Math.max(left, safe.left), safe.right - w);
+      let top = Math.min(Math.max(p.y - h / 2, safe.top), safe.bottom - h);
+      for (const r of placed) {
+        const overlapX = left < r.left + r.w && left + w > r.left;
+        if (overlapX && top < r.top + r.h + 6 && top + h > r.top - 6) top = r.top + r.h + 6;
+      }
+      placed.push({ left, top, w, h });
+      el.style.transform = `translate(${Math.round(left)}px, ${Math.round(top)}px)`;
+      const edge = left > p.x ? left : left + w; // the card side facing the pin
+      if (Math.abs(top + h / 2 - p.y) > 4) lines += `<line x1="${p.x}" y1="${p.y}" x2="${edge}" y2="${top + h / 2}"/>`;
+    }
+    const svg = $('.ycard-lines', cardsEl);
+    if (svg) svg.innerHTML = lines;
+  }
 
   // -------------------------------------------------------------------------
   // 3D globe (CesiumJS)
@@ -296,6 +499,7 @@ async function main() {
     console.error(err ?? kind);
     $('#globe').style.visibility = 'hidden';
     nav = await startFlatMap(kind, err);
+    if (yearMode) { nav.setCityLabels?.(false); bindView(); onYear(bar.year, { final: false }); }
   };
   viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); fail('lost'); });
   viewer.scene.renderError.addEventListener((_, err) => fail('render', err));
@@ -333,7 +537,7 @@ async function main() {
     const id = pickId(c.position);
     if (!id) return;
     const [type, key] = id.split(':');
-    if (type === 'city') selectCity(key); else selectLandmark(key);
+    if (type === 'city') { if (yearMode) focusYearCity(key); else selectCity(key); } else selectLandmark(key);
   }, ScreenSpaceEventType.LEFT_CLICK);
 
   // ----- Camera moves -----
@@ -451,6 +655,48 @@ async function main() {
       labelsLayer.show = !labelsLayer.show;
       return labelsLayer.show;
     },
+    // ----- Used by the world timeline -----
+    /** Turns the whole globe to face a city, keeping the rest of the world in view. */
+    look: (c) => {
+      stopSpin();
+      camera.cancelFlight();
+      camera.flyTo({
+        destination: Cartesian3.fromDegrees(c.lon, c.lat, 9_000_000),
+        orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO, roll: 0 },
+        duration: reduced ? 0 : 2.2, complete: composeHome,
+      });
+    },
+    /** Screen position of a place; `visible` is false when it is on the far side of the Earth. */
+    project: (lat, lon) => {
+      const p = Cartesian3.fromDegrees(lon, lat);
+      const toCamera = Cartesian3.subtract(camera.positionWC, p, new Cartesian3());
+      const facing = Cartesian3.dot(toCamera, Cartesian3.normalize(p, new Cartesian3())) > 0;
+      const win = facing ? SceneTransforms.worldToWindowCoordinates(scene, p) : null;
+      return win ? { x: win.x, y: win.y, visible: true } : { visible: false };
+    },
+    /** Calls `cb` after every frame; returns a function that stops it. */
+    onViewChange: (cb) => scene.postRender.addEventListener(cb),
+    /** Makes the given cities' pins red and gently pulsing. */
+    setPulse: (() => {
+      let last = '';
+      return (ids) => {
+        const key = [...ids].sort().join(',');
+        if (key === last) return;
+        last = key;
+        const t0 = performance.now();
+        for (const c of cities) {
+          const e = viewer.entities.getById(`city:${c.id}`);
+          if (!e) continue;
+          const on = ids.has(c.id);
+          e.billboard.image = cityPin(on);
+          e.billboard.scale = !on ? 1 : reduced ? 1.35
+            : new CallbackProperty(() => 1.25 + 0.2 * Math.sin((performance.now() - t0) / 280), false);
+        }
+      };
+    })(),
+    setCityLabels: (on) => {
+      for (const c of cities) { const e = viewer.entities.getById(`city:${c.id}`); if (e) e.label.show = on; }
+    },
   };
   } // end startGlobe
 
@@ -467,11 +713,13 @@ async function main() {
     const map = createMap(holder, { lat: 25, lon: 40, zoom: 3, minZoom: 2, style: 'satellite', zoomButtons: false });
 
     // City dots with names, like on the globe.
+    const cityMarkers = new Map();
     for (const c of cities) {
-      L.marker([c.lat, c.lon], {
+      const m = L.marker([c.lat, c.lon], {
         title: c.name, alt: c.name, riseOnHover: true, keyboard: true,
-        icon: L.divIcon({ className: '', html: `<span class="flat-city"><i></i>${esc(c.name)}</span>`, iconSize: [0, 0], iconAnchor: [9, 9] }),
-      }).on('click', () => selectCity(c.id)).addTo(map);
+        icon: L.divIcon({ className: '', html: `<span class="flat-city"><i></i><span>${esc(c.name)}</span></span>`, iconSize: [0, 0], iconAnchor: [9, 9] }),
+      }).on('click', () => (yearMode ? focusYearCity(c.id) : selectCity(c.id))).addTo(map);
+      cityMarkers.set(c.id, m);
     }
     // Landmark pins appear once zoomed in to city level.
     const pins = L.layerGroup(landmarks.map((lm) => landmarkMarker(lm.lat, lm.lon, lm.name)
@@ -503,6 +751,16 @@ async function main() {
       home: () => map.flyTo([25, 40], 3, { animate: !reduced }),
       zoomIn: () => map.zoomIn(),
       zoomOut: () => map.zoomOut(),
+      // ----- Used by the world timeline -----
+      look: (c) => map.flyTo([c.lat, c.lon], 4, { animate: !reduced }),
+      project: (lat, lon) => {
+        const p = map.latLngToContainerPoint([lat, lon]);
+        const size = map.getSize();
+        return { x: p.x, y: p.y, visible: p.x > -40 && p.y > -40 && p.x < size.x + 40 && p.y < size.y + 40 };
+      },
+      onViewChange: (cb) => { map.on('move zoom resize', cb); return () => map.off('move zoom resize', cb); },
+      setPulse: (ids) => cityMarkers.forEach((m, id) => m.getElement()?.querySelector('.flat-city')?.classList.toggle('pulse', ids.has(id))),
+      setCityLabels: (on) => document.body.classList.toggle('hide-city-names', !on),
     };
     // If the globe failed mid-visit, keep showing the place the visitor had selected.
     const current = decodeURIComponent(location.hash.slice(1));

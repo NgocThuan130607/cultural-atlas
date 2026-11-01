@@ -1,6 +1,9 @@
 {
   "id": "kyoto",
-  "hero": { "file": "Kyoto, Japan (49667780482).jpg", "alt": "Traditional wooden houses and a pagoda in Kyoto" },
+  "hero": {
+    "file": "Kyoto, Japan (49667780482).jpg",
+    "alt": "Traditional wooden houses and a pagoda in Kyoto"
+  },
   "facts": {
     "languages": "Japanese",
     "currency": "Japanese yen (JPY)",
@@ -35,6 +38,83 @@
       "name": "Fushimi Inari Taisha",
       "localName": "伏見稲荷大社",
       "blurb": "A shrine to Inari, the deity of rice, with thousands of vermilion torii gates winding up a forested mountain."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -2600,
+      "approx": true,
+      "text": "Jōmon-period hunter-gatherers live in the wooded hills around the basin."
+    },
+    {
+      "year": -300,
+      "approx": true,
+      "text": "Yayoi-period farmers bring wet-rice farming to western Japan."
+    },
+    {
+      "year": 603,
+      "text": "The Hata clan founds Kōryū-ji, now the oldest temple in Kyoto."
+    },
+    {
+      "year": 794,
+      "text": "Emperor Kanmu founds Heian-kyō, the \"capital of peace and tranquillity\", on a grid modelled on Chang'an."
+    },
+    {
+      "year": 1000,
+      "approx": true,
+      "text": "At the Heian court, Murasaki Shikibu is writing The Tale of Genji."
+    },
+    {
+      "year": 1397,
+      "text": "The shogun Ashikaga Yoshimitsu builds his golden retreat at Kitayama.",
+      "landmark": "kinkaku-ji",
+      "era": 0
+    },
+    {
+      "year": 1467,
+      "text": "The Ōnin War begins, and ten years of fighting leave much of Kyoto in ruins."
+    },
+    {
+      "year": 1603,
+      "text": "The Tokugawa shoguns take power and build Nijō Castle in Kyoto."
+    },
+    {
+      "year": 1788,
+      "text": "The Great Tenmei Fire sweeps through Kyoto and destroys much of the city."
+    },
+    {
+      "year": 1868,
+      "text": "The Meiji Restoration begins. The next year the emperor moves to Tokyo, ending over a thousand years as the capital."
+    },
+    {
+      "year": 1890,
+      "text": "The Lake Biwa Canal opens, bringing water and, soon, hydroelectric power to the city."
+    },
+    {
+      "year": 1945,
+      "text": "Kyoto is taken off the atomic-bomb target list and comes through the war largely intact."
+    },
+    {
+      "year": 1950,
+      "text": "A young monk burns down the Golden Pavilion.",
+      "landmark": "kinkaku-ji",
+      "era": 3
+    },
+    {
+      "year": 1994,
+      "text": "Kyoto's historic temples and shrines become a UNESCO World Heritage Site.",
+      "landmark": "kinkaku-ji",
+      "era": 5
+    },
+    {
+      "year": 1997,
+      "text": "The Kyoto Protocol on climate change is signed here."
+    },
+    {
+      "year": 2026,
+      "text": "A city of temples, gardens and crafts, visited by millions every year.",
+      "landmark": "kinkaku-ji",
+      "era": 6
     }
   ]
 }

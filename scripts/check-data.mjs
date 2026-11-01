@@ -44,6 +44,23 @@ for (const c of cities) {
   if (!d.sections?.length) err(w, 'needs at least one section');
   for (const k of ['languages', 'currency', 'bestTime', 'founded']) if (!d.facts?.[k]) err(w, `facts.${k} missing`);
 
+  // City timeline used by "The world in one year".
+  if (!d.timeline?.length) warn.push(`${w}: no timeline, so it will be empty in the world timeline`);
+  for (const [i, e] of (d.timeline ?? []).entries()) {
+    const tw = `${w} timeline ${i + 1}`;
+    if (typeof e.year !== 'number') err(tw, '"year" must be a number (negative for BCE)');
+    if (i && e.year < d.timeline[i - 1].year) err(tw, 'timeline entries must be in chronological order');
+    if (!e.text) err(tw, 'missing "text"');
+    if (e.image) checkImage(tw, e.image);
+    if (e.landmark) {
+      if (!(c.landmarks ?? []).includes(e.landmark)) err(tw, `landmark "${e.landmark}" is not one of this city's landmarks`);
+      else if (await exists(`landmarks/${e.landmark}.json`)) {
+        const lm = await read(`landmarks/${e.landmark}.json`);
+        if (!Number.isInteger(e.era) || !lm.eras?.[e.era]) err(tw, `"era" must be an index into ${e.landmark}'s eras (0–${(lm.eras?.length ?? 1) - 1})`);
+      }
+    }
+  }
+
   for (const lid of c.landmarks ?? []) {
     const lw = `landmark "${lid}"`;
     if (!(await exists(`landmarks/${lid}.json`))) { err(lw, `missing file landmarks/${lid}.json`); continue; }
@@ -86,6 +103,21 @@ for (const c of cities) {
     });
   }
 }
+
+// Moments and periods for "The world in one year".
+if (await exists('world-moments.json')) {
+  const wm = await read('world-moments.json');
+  const { from, to } = wm.range ?? {};
+  if (typeof from !== 'number' || typeof to !== 'number' || from >= to) err('world-moments.json', '"range" needs numeric from < to');
+  wm.moments?.forEach((m, i) => {
+    const mw = `world-moments.json moment ${i + 1}`;
+    if (typeof m.year !== 'number' || m.year < from || m.year > to) err(mw, '"year" must be a number inside "range"');
+    if (i && m.year <= wm.moments[i - 1].year) err(mw, 'moments must be in increasing year order');
+    if (!m.title) err(mw, 'missing "title"');
+    if (m.focusCity && !ids.has(m.focusCity)) err(mw, `focusCity "${m.focusCity}" is not in cities.json`);
+  });
+  if (!wm.periods?.length) err('world-moments.json', 'needs at least one period');
+} else warn.push('world-moments.json missing: the "Through time" button will be hidden');
 
 warn.forEach((w) => console.warn('warning  ' + w));
 if (errors.length) {

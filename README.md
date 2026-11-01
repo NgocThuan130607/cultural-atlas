@@ -61,6 +61,16 @@ The design follows Google Earth: a search box, a knowledge card on the left, map
 Clicking a city or landmark (on the globe, in the list, in search or in the strip) flies the camera there and opens its card. The card links to the full city guide or landmark page.
 You can link straight to a place with `index.html#kyoto` or `index.html#colosseum`. The back arrow on the city page uses this to return to the same spot.
 
+## The world in one year ("Through time")
+
+Museums tell the story of one place through time. This feature tells history *across* places: pick a year and the whole globe shows what each city was like at that moment. For example, in 1889 the Eiffel Tower has just opened, Kyoto is in the Meiji era and Hanoi is under French rule.
+
+- Press **Through time** (top right). A world timeline bar replaces the landmark strip.
+- Drag the slider from 2600 BCE to today. The scale is stretched so recent centuries get more room. Or press ▶ for a guided tour of the **key moments**: the globe turns to where history is happening.
+- Each city gets a floating card with what was going on there. Cities with something happening that very year (within 5 years) have pulsing red pins.
+- The side card lists every city for that year, with each landmark's state: either "its story begins in …", or a link that opens the landmark's Time travel tab at the matching era (`landmark.html?id=eiffel-tower#time&era=2`).
+- Share a year with `index.html#year=1889`. It also works on the 2D map used on devices without WebGL.
+
 ## Project structure
 
 ```
@@ -71,11 +81,13 @@ src/
   js/cesium-base.js       tells Cesium where its static files live
   js/hours.js             opening-hours / "Open now" logic (time-zone aware)
   js/map.js               Leaflet helpers and map categories
+  js/world-year.js        "Through time": year scale, per-year snapshot, world timeline bar
   js/pages/               globe.js, city.js, landmark.js (one per page)
   js/landmark/            timeline.js, story.js, guide.js (one per tab)
 public/data/
   cities.json             list of cities shown on the globe
-  cities/<id>.json        city intro, facts, etiquette, "coming soon" landmarks
+  cities/<id>.json        city intro, facts, etiquette, "coming soon" landmarks, timeline
+  world-moments.json      key moments and periods for the world timeline
   landmarks/<id>.json     eras, story chapters, visitor guide
   media.json              generated: image URLs + credits (don't edit by hand)
 scripts/
@@ -96,6 +108,12 @@ No code changes are needed.
    `timezone` must be an IANA name. It drives the local clock and the "Open now" badge.
 
 2. **Create `public/data/cities/istanbul.json`.** Copy an existing city file and change `hero`, `facts`, `sections`, `etiquette` and, optionally, `planned`.
+   Also give it a `timeline` for the world timeline. Use about 10–15 entries in year order:
+   ```json
+   { "year": 1453, "text": "Ottoman Sultan Mehmed II takes Constantinople." },
+   { "year": 537, "text": "Hagia Sophia is completed.", "landmark": "hagia-sophia", "era": 0 }
+   ```
+   `year` is negative for BCE, and `"approx": true` shows it as "c. …". `landmark` + `era` (an index into that landmark's `eras`) link the entry to the landmark's Time travel. An optional `image` uses the same format as elsewhere.
 
 3. **Create `public/data/landmarks/hagia-sophia.json`.** Copy an existing landmark and edit it. The key fields:
 

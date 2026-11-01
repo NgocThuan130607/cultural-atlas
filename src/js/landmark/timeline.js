@@ -4,7 +4,7 @@
 // era images cross-fade; when you let go, the slider snaps to the nearest era.
 import { $, $$, esc, icon, imageSrc, creditHTML, prefersReducedMotion } from '../common.js';
 
-export function initTimeline(pane, layer, { lm, media }) {
+export function initTimeline(pane, layer, { lm, media, initialEra = 0 }) {
   const eras = lm.eras;
   const last = eras.length - 1;
   const src = (i) => imageSrc(eras[i].image, media);
@@ -185,6 +185,8 @@ export function initTimeline(pane, layer, { lm, media }) {
   q('#cmp-range').addEventListener('input', (e) => q('#compare').style.setProperty('--pos', `${e.target.value}%`));
   q('#compare-toggle').addEventListener('click', () => setCompare(!compareOn));
 
-  render(0);
+  const start = Number.isInteger(initialEra) ? Math.min(Math.max(initialEra, 0), last) : 0;
+  range.value = start;
+  render(start);
   return { onHide: stopPlay };
 }

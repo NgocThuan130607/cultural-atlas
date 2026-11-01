@@ -51,7 +51,10 @@ async function main() {
 
   $('#viewport').innerHTML = TABS.map((t, i) => `<div class="viewport-layer" id="vp-${t.id}" ${i ? 'hidden' : ''}></div>`).join('');
 
-  const ctx = { lm, city, media };
+  // Hash like "#time&era=2" opens a tab, optionally at a given era (used by the world timeline).
+  const [initial, ...hashParams] = location.hash.slice(1).split('&');
+  const params = new URLSearchParams(hashParams.join('&'));
+  const ctx = { lm, city, media, initialEra: params.has('era') ? Number(params.get('era')) : 0 };
   const tabs = {
     time: initTimeline($('#pane-time'), $('#vp-time'), ctx),
     story: initStory($('#pane-story'), $('#vp-story'), ctx),
@@ -89,7 +92,6 @@ async function main() {
     tablist.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
 
-  const initial = location.hash.slice(1);
   if (tabs[initial]) select(initial);
 
   setInterval(() => { $('#lm-time').textContent = localTime(city.timezone); }, 30_000);

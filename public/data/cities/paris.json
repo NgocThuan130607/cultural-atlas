@@ -1,6 +1,9 @@
 {
   "id": "paris",
-  "hero": { "file": "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2).jpg", "alt": "Paris rooftops with the Eiffel Tower in the distance" },
+  "hero": {
+    "file": "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2).jpg",
+    "alt": "Paris rooftops with the Eiffel Tower in the distance"
+  },
   "facts": {
     "languages": "French",
     "currency": "Euro (EUR)",
@@ -35,6 +38,76 @@
       "name": "Notre-Dame de Paris",
       "localName": "Cathédrale Notre-Dame",
       "blurb": "A Gothic cathedral begun in 1163. It reopened in December 2024 after the fire of 2019."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -4500,
+      "approx": true,
+      "text": "Neolithic people paddle dugout canoes on the Seine; some were found buried at Bercy in 1991."
+    },
+    {
+      "year": -250,
+      "approx": true,
+      "text": "A Celtic tribe, the Parisii, settles on the islands of the Seine."
+    },
+    {
+      "year": -52,
+      "text": "Roman legions conquer the area and build the town of Lutetia."
+    },
+    {
+      "year": 1,
+      "approx": true,
+      "text": "Lutetia is a Gallo-Roman town with a forum, baths and an amphitheatre on the Left Bank."
+    },
+    {
+      "year": 508,
+      "approx": true,
+      "text": "Clovis, king of the Franks, makes Paris his capital."
+    },
+    {
+      "year": 845,
+      "text": "Viking raiders sail up the Seine and besiege Paris."
+    },
+    {
+      "year": 1163,
+      "text": "Work begins on the Gothic cathedral of Notre-Dame."
+    },
+    {
+      "year": 1789,
+      "text": "On 14 July crowds storm the Bastille, and the French Revolution begins."
+    },
+    {
+      "year": 1853,
+      "text": "Baron Haussmann starts rebuilding Paris with wide boulevards and cream-stone buildings."
+    },
+    {
+      "year": 1889,
+      "text": "The Eiffel Tower opens as the gateway to the World's Fair.",
+      "landmark": "eiffel-tower",
+      "era": 2
+    },
+    {
+      "year": 1944,
+      "text": "Paris is liberated on 25 August, and the tricolour flies from the Eiffel Tower again.",
+      "landmark": "eiffel-tower",
+      "era": 4
+    },
+    {
+      "year": 1973,
+      "text": "The Tour Montparnasse is finished, and the city soon bans new skyscrapers in its centre."
+    },
+    {
+      "year": 2000,
+      "text": "The Eiffel Tower starts to sparkle for five minutes every hour after dark.",
+      "landmark": "eiffel-tower",
+      "era": 5
+    },
+    {
+      "year": 2024,
+      "text": "Paris hosts the Olympic Games, and Notre-Dame reopens after the 2019 fire.",
+      "landmark": "eiffel-tower",
+      "era": 6
     }
   ]
 }

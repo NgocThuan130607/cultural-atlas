@@ -1,6 +1,9 @@
 {
   "id": "hanoi",
-  "hero": { "file": "Hanoi skyline with Ba Vi Mountain.jpg", "alt": "Hanoi's skyline with Ba Vì mountain on the horizon" },
+  "hero": {
+    "file": "Hanoi skyline with Ba Vi Mountain.jpg",
+    "alt": "Hanoi's skyline with Ba Vì mountain on the horizon"
+  },
   "facts": {
     "languages": "Vietnamese",
     "currency": "Vietnamese đồng (VND)",
@@ -35,6 +38,80 @@
       "name": "Temple of Literature",
       "localName": "Văn Miếu – Quốc Tử Giám",
       "blurb": "A temple to Confucius founded in 1070, and the site of Vietnam's first national university."
+    }
+  ],
+  "timeline": [
+    {
+      "year": -2600,
+      "approx": true,
+      "text": "Long before any city, rice-farming communities are settling the fertile Red River Delta."
+    },
+    {
+      "year": -257,
+      "approx": true,
+      "text": "King An Dương Vương builds the spiral citadel of Cổ Loa, just north of today's Hanoi."
+    },
+    {
+      "year": 40,
+      "text": "The Trưng Sisters lead an uprising against Han Chinese rule. The delta stays under Chinese rule for centuries afterwards."
+    },
+    {
+      "year": 679,
+      "text": "Under the Tang dynasty the area becomes the seat of the Protectorate of Annan."
+    },
+    {
+      "year": 1010,
+      "text": "Emperor Lý Thái Tổ moves his capital here and names it Thăng Long, \"Ascending Dragon\"."
+    },
+    {
+      "year": 1070,
+      "text": "The Temple of Literature is founded to honour Confucius; it later becomes Vietnam's first national university."
+    },
+    {
+      "year": 1397,
+      "text": "Hồ Quý Ly moves the court south to the new stone citadel of Tây Đô, and Thăng Long becomes Đông Đô, the \"Eastern Capital\"."
+    },
+    {
+      "year": 1789,
+      "text": "At Lunar New Year, Emperor Quang Trung defeats a Qing army at Ngọc Hồi–Đống Đa and retakes Thăng Long."
+    },
+    {
+      "year": 1831,
+      "text": "Emperor Minh Mạng renames the city Hà Nội, \"inside the rivers\"."
+    },
+    {
+      "year": 1883,
+      "text": "France makes northern Vietnam (Tonkin) a protectorate. Hanoi soon gains French boulevards and villas."
+    },
+    {
+      "year": 1902,
+      "text": "Hanoi becomes the capital of French Indochina, and the long Doumer (Long Biên) Bridge opens across the Red River."
+    },
+    {
+      "year": 1945,
+      "text": "On 2 September Ho Chi Minh declares independence on Ba Đình Square.",
+      "landmark": "ho-chi-minh-mausoleum",
+      "era": 0
+    },
+    {
+      "year": 1975,
+      "text": "The Ho Chi Minh Mausoleum opens, and the war ends with the country reunified that spring.",
+      "landmark": "ho-chi-minh-mausoleum",
+      "era": 2
+    },
+    {
+      "year": 1986,
+      "text": "The Đổi Mới reforms open the economy, and Hanoi begins to grow fast."
+    },
+    {
+      "year": 2010,
+      "text": "Hanoi celebrates the thousandth anniversary of Thăng Long."
+    },
+    {
+      "year": 2024,
+      "text": "A busy capital of more than eight million people, still full of lakes, temples and street food.",
+      "landmark": "ho-chi-minh-mausoleum",
+      "era": 4
     }
   ]
 }
