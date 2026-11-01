@@ -27,7 +27,7 @@ export function zonedParts(timeZone, date = new Date()) {
   };
 }
 
-export const seasonFor = (hours, month) => hours.seasons.find((s) => s.months.includes(month)) ?? null;
+export const seasonFor = (hours, month) => (hours.seasons ?? []).find((s) => s.months.includes(month)) ?? null;
 
 function isClosedDate(hours, p) {
   const key = `${String(p.month).padStart(2, '0')}-${String(p.day).padStart(2, '0')}`;
@@ -53,6 +53,8 @@ export function intervalsFor(hours, p) {
  * 'closing' means it closes within the next hour.
  */
 export function openStatus(hours, timeZone, now = new Date()) {
+  // Outdoor places with no gate (a bay, a mountain pass) use { "open24h": true } instead of seasons.
+  if (hours.open24h) return { state: 'open', text: 'Open 24 hours' };
   const today = zonedParts(timeZone, now);
   const m = today.minutes;
 

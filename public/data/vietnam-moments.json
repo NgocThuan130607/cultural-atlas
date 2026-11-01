@@ -1,0 +1,155 @@
+{
+  "range": {
+    "from": -700,
+    "to": 2026,
+    "anchors": [
+      [
+        -700,
+        0
+      ],
+      [
+        0,
+        0.1
+      ],
+      [
+        938,
+        0.22
+      ],
+      [
+        1400,
+        0.36
+      ],
+      [
+        1800,
+        0.52
+      ],
+      [
+        1900,
+        0.64
+      ],
+      [
+        1945,
+        0.72
+      ],
+      [
+        1975,
+        0.84
+      ],
+      [
+        2026,
+        1
+      ]
+    ]
+  },
+  "periods": [
+    {
+      "label": "Early kingdoms",
+      "from": -700,
+      "to": -111
+    },
+    {
+      "label": "Chinese rule",
+      "from": -111,
+      "to": 938
+    },
+    {
+      "label": "Dynasties",
+      "from": 938,
+      "to": 1858
+    },
+    {
+      "label": "French era",
+      "from": 1858,
+      "to": 1945
+    },
+    {
+      "label": "Wars",
+      "from": 1945,
+      "to": 1975
+    },
+    {
+      "label": "Modern",
+      "from": 1975,
+      "to": 2026
+    }
+  ],
+  "moments": [
+    {
+      "year": -500,
+      "label": "c. 500 BCE",
+      "title": "The age of the Đông Sơn bronze drums",
+      "focusCity": "phu-tho"
+    },
+    {
+      "year": 40,
+      "title": "The Trưng Sisters rise",
+      "focusCity": "hanoi"
+    },
+    {
+      "year": 938,
+      "title": "Victory on the Bạch Đằng River",
+      "focusCity": "hai-phong"
+    },
+    {
+      "year": 1010,
+      "title": "Thăng Long becomes the capital",
+      "focusCity": "hanoi"
+    },
+    {
+      "year": 1288,
+      "title": "The Mongol fleets are defeated",
+      "focusCity": "quang-ninh"
+    },
+    {
+      "year": 1428,
+      "title": "Lê Lợi frees the country",
+      "focusCity": "thanh-hoa"
+    },
+    {
+      "year": 1789,
+      "title": "Quang Trung's lightning campaign",
+      "focusCity": "gia-lai"
+    },
+    {
+      "year": 1802,
+      "title": "The Nguyễn make Huế their capital",
+      "focusCity": "hue"
+    },
+    {
+      "year": 1858,
+      "title": "French warships arrive",
+      "focusCity": "da-nang"
+    },
+    {
+      "year": 1945,
+      "title": "Independence is declared",
+      "focusCity": "hanoi"
+    },
+    {
+      "year": 1954,
+      "title": "Điện Biên Phủ and the 17th parallel",
+      "focusCity": "dien-bien"
+    },
+    {
+      "year": 1975,
+      "title": "The country is reunified",
+      "focusCity": "ho-chi-minh-city"
+    },
+    {
+      "year": 1986,
+      "title": "Đổi Mới opens the economy",
+      "focusCity": "ho-chi-minh-city"
+    },
+    {
+      "year": 2025,
+      "title": "A new map of 34 provinces",
+      "focusCity": null
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Vietnam today",
+      "focusCity": null
+    }
+  ]
+}

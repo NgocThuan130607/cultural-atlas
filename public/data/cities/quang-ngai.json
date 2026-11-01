@@ -1,0 +1,76 @@
+{
+  "id": "quang-ngai",
+  "hero": {
+    "file": "Kontum wooden catholic church.jpg",
+    "alt": "The wooden cathedral of Kon Tum"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Hrê, Cor, Ba Na, Xơ Đăng and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "March–August",
+    "founded": "Merged with Kon Tum in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Quảng Ngãi runs from the coast, with its fishing ports and the volcanic island of Lý Sơn, up into the Central Highlands. The former Kon Tum province includes the Ngọc Linh mountains, home of a rare wild ginseng, and the upper Sê San River."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The Iron Age Sa Huỳnh culture is named after a site on this coast. From the 17th century, sailors from Lý Sơn served in the Hoàng Sa flotilla, which travelled to the Paracel Islands. On 16 March 1968, American soldiers massacred hundreds of villagers at Sơn Mỹ (My Lai). In 2009 Vietnam's first oil refinery opened at Dung Quất."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Ba Na and Xơ Đăng peoples of Kon Tum live in villages around tall communal houses (nhà rông), and their gong music is part of UNESCO-listed Central Highlands culture. Quảng Ngãi is known for malt candy (mạch nha) and for Lý Sơn garlic."
+    }
+  ],
+  "etiquette": [
+    "Ask before photographing people and communal houses.",
+    "Dress modestly at temples and memorials.",
+    "Respect the quiet at the Sơn Mỹ memorial.",
+    "Take your rubbish back from the island beaches."
+  ],
+  "timeline": [
+    {
+      "year": -500,
+      "approx": true,
+      "text": "The Iron Age Sa Huỳnh culture, named after a site in Quảng Ngãi, flourishes along the coast."
+    },
+    {
+      "year": 1700,
+      "approx": true,
+      "text": "Sailors from Lý Sơn serve in the Hoàng Sa flotilla of the Nguyễn lords.",
+      "landmark": "ly-son-island",
+      "era": 1
+    },
+    {
+      "year": 1836,
+      "text": "Emperor Minh Mạng sends a mission to the Paracel Islands to place markers."
+    },
+    {
+      "year": 1913,
+      "text": "Work begins on the wooden cathedral of Kon Tum."
+    },
+    {
+      "year": 1968,
+      "text": "American soldiers massacre hundreds of villagers at Sơn Mỹ (My Lai) on 16 March."
+    },
+    {
+      "year": 2009,
+      "text": "The Dung Quất refinery, Vietnam's first, starts production."
+    },
+    {
+      "year": 2025,
+      "text": "Quảng Ngãi and Kon Tum merge."
+    },
+    {
+      "year": 2026,
+      "text": "Garlic fields cover the volcanic island of Lý Sơn.",
+      "landmark": "ly-son-island",
+      "era": 3
+    }
+  ]
+}

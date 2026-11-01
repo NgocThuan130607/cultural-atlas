@@ -1,0 +1,202 @@
+{
+  "id": "quang-trung-museum",
+  "city": "gia-lai",
+  "name": "Quang Trung Museum",
+  "localName": "Bảo tàng Quang Trung",
+  "lat": 13.9206,
+  "lon": 108.9208,
+  "summary": "A museum on the site of the Tây Sơn brothers' home. It tells the story of the peasant rebellion that toppled two ruling houses and defeated two foreign armies.",
+  "hero": {
+    "file": "Tượng đài Quang Trung tại Bảo tàng Quang Trung.JPG",
+    "alt": "Statue of Quang Trung at the museum"
+  },
+  "eras": [
+    {
+      "year": 1771,
+      "label": "1771",
+      "title": "The Tây Sơn rising",
+      "text": "Three brothers from Tây Sơn, Nguyễn Nhạc, Nguyễn Huệ and Nguyễn Lữ, rose against the corrupt rule of the southern lords, with the promise of taking from the rich to give to the poor.",
+      "image": {
+        "file": "Nhac Brothers.JPG",
+        "alt": "The three Tây Sơn brothers"
+      }
+    },
+    {
+      "year": 1785,
+      "label": "1785",
+      "title": "Victory on the Mekong",
+      "text": "When the Nguyễn heir Nguyễn Ánh asked Siam for help, Nguyễn Huệ ambushed the Siamese fleet at Rạch Gầm–Xoài Mút on the Mekong and destroyed it.",
+      "image": {
+        "file": "Tàu chiến tây Sơn.jpg",
+        "alt": "A model of a Tây Sơn warship"
+      }
+    },
+    {
+      "year": 1789,
+      "label": "1789",
+      "title": "Spring victory",
+      "text": "In late 1788, Nguyễn Huệ proclaimed himself Emperor Quang Trung and marched north against a Qing army that had occupied Thăng Long. He attacked during Tết, and on the fifth day of the new year entered the capital in triumph.",
+      "image": {
+        "file": "Súng thần công thời Tây Sơn.jpg",
+        "alt": "A Tây Sơn cannon"
+      }
+    },
+    {
+      "year": 1802,
+      "label": "1802",
+      "title": "The end of the Tây Sơn",
+      "text": "Quang Trung died suddenly in 1792. Ten years later, Nguyễn Ánh defeated his successors and founded the Nguyễn dynasty.",
+      "image": {
+        "file": "Bia mộ tổ.jpg",
+        "alt": "The tomb stele of the Tây Sơn ancestors"
+      }
+    },
+    {
+      "year": 1978,
+      "label": "1978",
+      "title": "A museum on the old home",
+      "text": "A museum was built on the site of the brothers' home. An old tamarind tree and a well from their time are said to still stand there.",
+      "image": {
+        "file": "Bảo Tàng Quang Trung.JPG",
+        "alt": "The Quang Trung Museum"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Drums and martial arts",
+      "text": "Visitors can watch performances of Tây Sơn war drums and Bình Định martial arts in the museum grounds.",
+      "image": {
+        "file": "Tượng đài Quang Trung tại Bảo tàng Quang Trung.JPG",
+        "alt": "Statue of Quang Trung"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "brothers",
+      "type": "history",
+      "title": "Three brothers from Tây Sơn",
+      "image": {
+        "file": "Nhac Brothers.JPG",
+        "alt": "The three Tây Sơn brothers"
+      },
+      "narration": "In the 18th century Vietnam was divided between the Trịnh lords in the north and the Nguyễn lords in the south, and peasants suffered from taxes and famine. In 1771 three brothers from the hamlet of Tây Sơn gathered followers in the hills. Their army grew rapidly. Within fifteen years they had overthrown the Nguyễn in the south and the Trịnh in the north. The middle brother, Nguyễn Huệ, proved one of the greatest military commanders in Vietnamese history."
+    },
+    {
+      "id": "march",
+      "type": "legend",
+      "title": "The march to Thăng Long",
+      "image": {
+        "file": "Súng thần công thời Tây Sơn.jpg",
+        "alt": "A Tây Sơn cannon"
+      },
+      "narration": "When a Qing army of tens of thousands occupied Thăng Long in late 1788, Quang Trung marched north with astonishing speed. A popular story says his soldiers moved in groups of three: two carried the third in a hammock, so that one could always rest, and they marched day and night. He celebrated Tết early with his troops and promised they would celebrate properly in the capital. On the fifth day of the new year of 1789, after the battle of Ngọc Hồi–Đống Đa, he rode into Thăng Long, his gown reportedly blackened by gunpowder."
+    },
+    {
+      "id": "drums",
+      "type": "culture",
+      "title": "Drums and martial arts",
+      "image": {
+        "file": "Trống trận thời Tây Sơn.jpg",
+        "alt": "Tây Sơn war drums"
+      },
+      "narration": "The Tây Sơn army is remembered for its war drums, played in sets with powerful, rolling rhythms that signalled attacks and lifted morale. Today, troupes in Bình Định perform the drums at festivals. The province is also famous for its martial arts, practised with bare hands, swords and sticks. A local saying claims that in Bình Định even the girls can fight. Martial arts schools still train children in the villages around the museum."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small entry ticket. Drum and martial-arts shows on some days.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Ask at the gate when the next drum or martial-arts show is.",
+        "Visit the old tamarind tree and well.",
+        "Dress modestly in the temple to the Tây Sơn brothers.",
+        "Combine the visit with the Cham towers around Quy Nhơn."
+      ],
+      "dont": [
+        "Touch the exhibits.",
+        "Climb on the statues."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Bánh xèo with shrimp, bún chả cá (fish-cake noodles) in Quy Nhơn, and Bàu Đá rice wine."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 45 km from Quy Nhơn by road."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Twin Towers (Tháp Đôi) in Quy Nhơn, and the highlands of Pleiku further west."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Quang Trung Museum",
+        "category": "entrance",
+        "lat": 13.9206,
+        "lon": 108.9208,
+        "note": "Main gate."
+      },
+      {
+        "name": "Phú Phong town",
+        "category": "food",
+        "lat": 13.92,
+        "lon": 108.915,
+        "note": "Local restaurants. Approximate."
+      },
+      {
+        "name": "Twin Towers, Quy Nhơn",
+        "category": "sights",
+        "lat": 13.784,
+        "lon": 109.214,
+        "note": "Cham towers. Approximate."
+      },
+      {
+        "name": "Quy Nhơn",
+        "category": "transport",
+        "lat": 13.7765,
+        "lon": 109.2237,
+        "note": "Airport, trains and buses."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

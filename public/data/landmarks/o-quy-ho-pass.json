@@ -1,0 +1,163 @@
+{
+  "id": "o-quy-ho-pass",
+  "city": "lai-chau",
+  "name": "Ô Quy Hồ Pass",
+  "localName": "Đèo Ô Quy Hồ",
+  "lat": 22.3533,
+  "lon": 103.7644,
+  "summary": "One of Vietnam's 'four great passes'. The road climbs to about 2,000 m across the Hoàng Liên Sơn range between Lai Châu and Sa Pa, often above a sea of cloud.",
+  "hero": {
+    "file": "O Quy Ho pass.jpg",
+    "alt": "The road over the Ô Quy Hồ Pass"
+  },
+  "eras": [
+    {
+      "year": 1900,
+      "label": "Early 1900s",
+      "title": "A mountain trail",
+      "text": "Before the modern road, traders and travellers crossed the Hoàng Liên Sơn range on foot and with pack horses, along steep trails through cold, misty forest.",
+      "image": {
+        "file": "Đèo Ô Quy Hồ 1.JPG",
+        "alt": "Mountain slopes on the pass"
+      }
+    },
+    {
+      "year": 2004,
+      "label": "2004",
+      "title": "A road to a new capital",
+      "text": "When the new province of Lai Châu was created in 2004, the road over the pass became an important link between its capital and the railway at Lào Cai.",
+      "image": {
+        "file": "Đèo Ô Quy Hồ 2.JPG",
+        "alt": "The winding road across the pass"
+      }
+    },
+    {
+      "year": 2015,
+      "label": "2010s",
+      "title": "Tea and travellers",
+      "text": "Tea gardens spread over the lower slopes, and the pass became a favourite ride for motorbike travellers and photographers chasing clouds.",
+      "image": {
+        "file": "Đồi chè Ô Quý Hồ.jpg",
+        "alt": "Tea plantations on the slopes of the pass"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Above the clouds",
+      "text": "From the top of the pass at Trạm Tôn, about 2,000 m up, the road falls away in long loops. On many mornings the valleys below are filled with cloud.",
+      "image": {
+        "file": "Sunset on O Quy Ho pass.jpg",
+        "alt": "Sunset on the Ô Quy Hồ Pass"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "four-passes",
+      "type": "culture",
+      "title": "The four great passes",
+      "image": {
+        "file": "O Quy Ho pass.jpg",
+        "alt": "The road over the pass"
+      },
+      "narration": "Vietnamese travellers speak of the 'four great passes' of the northern mountains: Mã Pì Lèng in Hà Giang, Khau Phạ in Yên Bái, Pha Đin between Sơn La and Điện Biên, and Ô Quy Hồ here. Ô Quy Hồ is the longest of them, winding for around 50 kilometres. At the top, the weather on the two sides can be completely different: sun on the Lai Châu side, thick fog towards Sa Pa."
+    },
+    {
+      "id": "name",
+      "type": "legend",
+      "title": "A name from the mountains",
+      "image": {
+        "file": "Sunset on O Quy Ho pass.jpg",
+        "alt": "Sunset on the pass"
+      },
+      "narration": "Nobody agrees on where the name Ô Quy Hồ comes from. One popular story links it to the call of a mountain bird heard in the mist, which sounds like the words of the name. Local people also simply call the summit Trạm Tôn, after an old way station. Whatever its origin, the name has become a symbol of the wild north-west for a generation of Vietnamese travellers."
+    },
+    {
+      "id": "small-peoples",
+      "type": "culture",
+      "title": "The smallest peoples",
+      "image": {
+        "file": "Laichautown.jpg",
+        "alt": "Lai Châu town"
+      },
+      "narration": "Lai Châu is home to several of Vietnam's 54 officially recognised ethnic groups. Some, such as the Si La and Mảng, number only a few thousand people. They live in remote valleys near the borders with China and Laos, and keep their own languages, dress and ceremonies. Visitors who travel beyond the main road may be welcomed into their villages, but should go with a local guide who speaks the language."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free. A public road.",
+    "hours": {
+      "open24h": true,
+      "notes": "A public road, always open. Avoid driving it at night or in heavy fog."
+    },
+    "etiquette": {
+      "do": [
+        "Ask before you photograph people, especially older villagers and children.",
+        "Hire an experienced local driver or ride slowly: the passes are steep, narrow and often foggy.",
+        "Bring warm layers. Nights in the highlands are cold, and winter can bring frost.",
+        "Stop at the summit for the view, and buy hot drinks or corn from the stalls."
+      ],
+      "dont": [
+        "Give money or sweets to children. It encourages them to miss school and beg.",
+        "Enter a home or touch its altar without being invited.",
+        "Overtake on blind bends."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Roadside food",
+        "text": "Grilled corn, sweet potatoes and eggs at the summit stalls. In Lai Châu, try Thái grilled fish (cá nướng pa pỉnh tộp)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Most people ride over the pass from Sa Pa (about 1 hour to the top) or on the way between Sa Pa and Lai Châu city."
+      },
+      {
+        "category": "sights",
+        "title": "On the way",
+        "text": "The Silver Waterfall (Thác Bạc) and the Love Waterfall are just off the road on the Sa Pa side."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Ô Quy Hồ summit (Trạm Tôn)",
+        "category": "sights",
+        "lat": 22.3533,
+        "lon": 103.7644,
+        "note": "Top of the pass, about 2,000 m."
+      },
+      {
+        "name": "Silver Waterfall",
+        "category": "sights",
+        "lat": 22.3475,
+        "lon": 103.7795,
+        "note": "Roadside waterfall. Approximate."
+      },
+      {
+        "name": "Tea hills of Tam Đường",
+        "category": "food",
+        "lat": 22.37,
+        "lon": 103.62,
+        "note": "Tea gardens. Approximate."
+      },
+      {
+        "name": "Lai Châu city",
+        "category": "transport",
+        "lat": 22.3964,
+        "lon": 103.4582,
+        "note": "Provincial capital. Buses."
+      },
+      {
+        "name": "Sa Pa town",
+        "category": "transport",
+        "lat": 22.3364,
+        "lon": 103.8438,
+        "note": "Nearest tourist town."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

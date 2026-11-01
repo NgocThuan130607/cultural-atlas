@@ -1,0 +1,88 @@
+{
+  "id": "thanh-hoa",
+  "hero": {
+    "file": "Hòn Trống mái..jpg",
+    "alt": "The Trống Mái rocks on the coast of Sầm Sơn"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Mường and Thái in the hills",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "April–June for the beaches; autumn for the countryside",
+    "founded": "A province since 1831"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Thanh Hóa is the largest province of the north-central coast. The Mã and Chu rivers flow from the mountains on the Laos border across a wide plain to the sea, where Sầm Sơn is one of the country's oldest beach resorts."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The Bronze Age Đông Sơn culture takes its name from a village here, where archaeologists found bronze drums in the 1920s. In 248 CE Lady Triệu led an uprising against Chinese rule. In 1397 Hồ Quý Ly built a stone citadel here, and in 1418 Lê Lợi launched his war of independence from Lam Sơn. The Nguyễn and Trịnh families who later ruled Vietnam also came from Thanh Hóa."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Thanh Hóa is known for nem chua (fermented pork rolls), for its dialect, and for the Mường and Thái villages of its western hills. People here are proud that so many of Vietnam's kings came from their province."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk quietly, and let worshippers go first.",
+    "Bargain gently for nem chua and souvenirs at the roadside stalls."
+  ],
+  "timeline": [
+    {
+      "year": -500,
+      "approx": true,
+      "text": "The Bronze Age Đông Sơn culture flourishes along the Mã River."
+    },
+    {
+      "year": 248,
+      "text": "Lady Triệu leads an uprising against Chinese rule."
+    },
+    {
+      "year": 1397,
+      "text": "Hồ Quý Ly builds the stone citadel of Tây Đô in just a few months.",
+      "landmark": "ho-citadel",
+      "era": 0
+    },
+    {
+      "year": 1400,
+      "text": "Hồ Quý Ly takes the throne and founds the Hồ dynasty.",
+      "landmark": "ho-citadel",
+      "era": 1
+    },
+    {
+      "year": 1407,
+      "text": "The Ming conquer the country and capture the Hồ rulers.",
+      "landmark": "ho-citadel",
+      "era": 2
+    },
+    {
+      "year": 1418,
+      "text": "Lê Lợi raises the Lam Sơn uprising in the hills of Thanh Hóa."
+    },
+    {
+      "year": 1924,
+      "text": "Excavations at Đông Sơn village reveal bronze drums that give a whole culture its name."
+    },
+    {
+      "year": 1965,
+      "text": "The Hàm Rồng bridge withstands repeated air raids."
+    },
+    {
+      "year": 2011,
+      "text": "UNESCO lists the Citadel of the Hồ Dynasty.",
+      "landmark": "ho-citadel",
+      "era": 3
+    },
+    {
+      "year": 2026,
+      "text": "Rice fields surround the old stone gates.",
+      "landmark": "ho-citadel",
+      "era": 4
+    }
+  ]
+}

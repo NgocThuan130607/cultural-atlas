@@ -1,0 +1,62 @@
+{
+  "id": "lai-chau",
+  "hero": {
+    "file": "Laichautown.jpg",
+    "alt": "Lai Châu town in the mountains"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Thái, Hmong, Dao, Hà Nhì and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "September–November and March–April",
+    "founded": "Today's province was created in 2004 from the old Lai Châu"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Lai Châu is one of Vietnam's most mountainous provinces. The Hoàng Liên Sơn range rises along its eastern edge, and the Đà River cuts through deep valleys in the west. The Ô Quy Hồ Pass, one of the highest roads in the country, crosses the range towards Sa Pa."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The upland valleys were long ruled by Thái lords. The French created a province here in 1909. In 2004 the old province was divided: its southern part became Điện Biên, and the new Lai Châu got a newly built capital in the Tam Đường valley. Large hydropower dams on the Đà River have since changed the landscape."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Many peoples live here, including the Thái, Hmong, Dao and Hà Nhì, as well as some of the smallest ethnic groups in Vietnam, such as the Si La and Mảng. Tea is grown on the high slopes around Tam Đường."
+    }
+  ],
+  "etiquette": [
+    "Ask before photographing people and homes.",
+    "Greet village elders first when you arrive somewhere.",
+    "Dress warmly. Passes can be near freezing in winter.",
+    "Buy produce from local sellers along the road."
+  ],
+  "timeline": [
+    {
+      "year": 1909,
+      "text": "The French create Lai Châu province from the Thái lands of the north-west."
+    },
+    {
+      "year": 1954,
+      "text": "After Điện Biên Phủ, the whole north-west comes under the Democratic Republic of Vietnam."
+    },
+    {
+      "year": 2004,
+      "text": "The old province is split; the new Lai Châu gets a brand-new capital at Tam Đường.",
+      "landmark": "o-quy-ho-pass",
+      "era": 1
+    },
+    {
+      "year": 2016,
+      "text": "The Lai Châu hydropower plant on the Đà River is completed."
+    },
+    {
+      "year": 2026,
+      "text": "Travellers cross the Ô Quy Hồ Pass between Lai Châu and Sa Pa.",
+      "landmark": "o-quy-ho-pass",
+      "era": 3
+    }
+  ]
+}

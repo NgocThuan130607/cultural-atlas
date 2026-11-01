@@ -1,0 +1,183 @@
+{
+  "id": "buon-don",
+  "city": "dak-lak",
+  "name": "Buôn Đôn",
+  "localName": "Buôn Đôn",
+  "lat": 12.8828,
+  "lon": 107.7896,
+  "summary": "A village on the Serepok River, once famous for catching and training wild elephants. Today it is a place to learn about M'nông and Lao culture and the elephants of the Yok Đôn forest.",
+  "hero": {
+    "file": "Srepok Ban Don.JPG",
+    "alt": "The Serepok River at Buôn Đôn"
+  },
+  "eras": [
+    {
+      "year": 1900,
+      "label": "c. 1900",
+      "title": "The elephant hunters",
+      "text": "Buôn Đôn grew as a trading village where M'nông, Lao and Ê Đê people met. Its hunters were famous for catching wild elephants and training them to carry loads and work in the forest.",
+      "image": {
+        "file": "DKoehl Buon Don elephant hunter cemetry 2011.jpg",
+        "alt": "The cemetery of the elephant hunters"
+      }
+    },
+    {
+      "year": 1991,
+      "label": "1990s",
+      "title": "A national park",
+      "text": "The dry forest of Yok Đôn, next to the village, became a national park to protect its wild elephants, deer and birds. Catching wild elephants is now forbidden.",
+      "image": {
+        "file": "Yokdon01.JPG",
+        "alt": "Forest in Yok Đôn National Park"
+      }
+    },
+    {
+      "year": 2020,
+      "label": "2020s",
+      "title": "Watching, not riding",
+      "text": "Elephant rides were long a tourist attraction here. In recent years local projects have moved towards letting visitors watch elephants walk, bathe and feed freely.",
+      "image": {
+        "file": "Voi ở Bản Đôn.jpg",
+        "alt": "Elephants at Buôn Đôn"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Bridges over the Serepok",
+      "text": "Bamboo suspension bridges cross the river between islands of old trees, and visitors stay in stilt houses to try highland food and hear the gongs.",
+      "image": {
+        "file": "Srepok Ban Don.JPG",
+        "alt": "The Serepok River"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "khunjunob",
+      "type": "legend",
+      "title": "The king of the elephant hunters",
+      "image": {
+        "file": "DKoehl Buon Don elephant hunter cemetry 2011.jpg",
+        "alt": "The cemetery"
+      },
+      "narration": "The most famous man in Buôn Đôn's history was Y Thu Knul, known as Khunjunob. Born in the 19th century, he is said to have caught hundreds of wild elephants in his long life. Stories say he caught a rare white elephant and gave it to the King of Siam, who honoured him with the title Khunjunob, 'king of elephant hunters'. His tomb stands in the village cemetery, where the graves of hunters are decorated with carved wooden figures."
+    },
+    {
+      "id": "blessing",
+      "type": "culture",
+      "title": "Blessing the elephants",
+      "image": {
+        "file": "DKoehl Buon Don Mnong elephant blessing ceremony 2012.jpg",
+        "alt": "A M'nông elephant blessing ceremony"
+      },
+      "narration": "For the M'nông, an elephant is part of the family. When a new elephant was captured, or before a long journey, the owners held a ceremony to ask the spirits to keep it healthy. A shaman offered rice wine, a chicken or a pig, and spoke to the elephant and the spirits together. The ceremony is still held today, and visitors are sometimes invited to watch. It shows the bond between people and the great animals of the forest."
+    },
+    {
+      "id": "coffee",
+      "type": "culture",
+      "title": "Coffee of the highlands",
+      "image": {
+        "file": "Lak Lake.jpg",
+        "alt": "Lắk Lake"
+      },
+      "narration": "The French brought coffee to the Central Highlands in the early 20th century, and the red basalt soil around Buôn Ma Thuột proved perfect for it. Most of what grows here is robusta: strong and bitter. Vietnamese drink it dripped slowly through a small metal filter, the phin, often with sweetened condensed milk, hot or over ice. In February and March the coffee trees flower white, and the air smells of jasmine."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Ticket for the tourist area and bamboo bridges; small extra fees for some activities.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Watch elephants from a distance.",
+        "Wear shoes with grip on the bamboo bridges.",
+        "Visit Khunjunob's tomb in the village.",
+        "Try highland food in a stilt house."
+      ],
+      "dont": [
+        "Ride elephants or feed them sugar.",
+        "Swim in the Serepok; currents are strong.",
+        "Run on the bamboo bridges."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Highland food",
+        "text": "Grilled chicken, bamboo-tube rice and rice wine; and of course Buôn Ma Thuột coffee."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 45 km from Buôn Ma Thuột, which has an airport."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Dray Nur and Dray Sáp waterfalls on the Serepok, and the coffee museum in Buôn Ma Thuột."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Buôn Đôn tourist area",
+        "category": "entrance",
+        "lat": 12.8828,
+        "lon": 107.7896,
+        "note": "Bamboo bridges."
+      },
+      {
+        "name": "Khunjunob's tomb",
+        "category": "sights",
+        "lat": 12.885,
+        "lon": 107.785,
+        "note": "Approximate."
+      },
+      {
+        "name": "Yok Đôn National Park",
+        "category": "sights",
+        "lat": 12.8038,
+        "lon": 107.671,
+        "note": "Park headquarters."
+      },
+      {
+        "name": "Buôn Ma Thuột",
+        "category": "transport",
+        "lat": 12.6667,
+        "lon": 108.0378,
+        "note": "Airport and buses."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

@@ -1,0 +1,200 @@
+{
+  "id": "dien-bien-phu-battlefield",
+  "city": "dien-bien",
+  "name": "Điện Biên Phủ Battlefield",
+  "localName": "Di tích Chiến trường Điện Biên Phủ",
+  "lat": 21.3836,
+  "lon": 103.0218,
+  "summary": "The valley where Vietnamese forces besieged and defeated the French army in 1954, ending French rule in Indochina. Hills, bunkers and a museum keep the story.",
+  "hero": {
+    "file": "Victory in Battle of Dien Bien Phu.jpg",
+    "alt": "Soldiers raise the flag over the French command bunker in 1954"
+  },
+  "eras": [
+    {
+      "year": 1953,
+      "label": "Nov 1953",
+      "title": "Paratroopers in the valley",
+      "text": "In November 1953, French paratroopers landed in the remote valley. They built a fortified camp with an airstrip and strongpoints on the surrounding hills, hoping to draw the Việt Minh into a pitched battle.",
+      "image": {
+        "file": "French M24s atr Dien Bien Phu.jpg",
+        "alt": "French tanks at Điện Biên Phủ"
+      }
+    },
+    {
+      "year": 1954,
+      "label": "March 1954",
+      "title": "The siege begins",
+      "text": "On 13 March 1954, Vietnamese artillery, hauled over the mountains by hand, opened fire on the strongpoint of Him Lam. Tens of thousands of porters carried food and ammunition to the front on foot and by bicycle.",
+      "image": {
+        "file": "Dân công dân tộc vận chuyển hàng ra mặt trận.jpg",
+        "alt": "Porters carrying supplies to the front"
+      }
+    },
+    {
+      "year": 1954,
+      "label": "7 May 1954",
+      "title": "Victory",
+      "text": "After 56 days of fighting, Vietnamese soldiers reached the command bunker of General de Castries on 7 May and raised their flag. The French garrison surrendered, and the peace talks in Geneva soon ended the war.",
+      "image": {
+        "file": "Victory in Battle of Dien Bien Phu.jpg",
+        "alt": "Raising the flag over the command bunker"
+      }
+    },
+    {
+      "year": 2014,
+      "label": "2014",
+      "title": "A new museum",
+      "text": "For the 60th anniversary, a new museum opened at the foot of A1 Hill, with weapons, maps and the stories of soldiers and porters.",
+      "image": {
+        "file": "Captured French artillery at the Dien Bien Phu Museum.jpg",
+        "alt": "Captured French artillery at the museum"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The Victory Monument",
+      "text": "A bronze monument on D1 Hill, raised in 2004, looks out over the valley. Visitors walk the trenches of A1 Hill and step down into the restored command bunker.",
+      "image": {
+        "file": "The Victory Monument of Dien Bien Phu (front).jpg",
+        "alt": "The Điện Biên Phủ Victory Monument"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "guns",
+      "type": "history",
+      "title": "Guns over the mountains",
+      "image": {
+        "file": "Phao phong khong To Vinh Dien.JPG",
+        "alt": "An anti-aircraft gun at Điện Biên Phủ"
+      },
+      "narration": "The French believed no one could bring heavy artillery through the jungle and over the mountains around the valley. The Vietnamese did it by hand. Teams of soldiers hauled guns up steep slopes with ropes, a few hundred metres a night. A story told in every Vietnamese school is about Tô Vĩnh Diện, a soldier who, when a rope snapped, threw himself under the wheel of a gun to stop it rolling down the slope. When the bombardment began on 13 March, the guns were firing from hidden positions high above the French camp."
+    },
+    {
+      "id": "bicycles",
+      "type": "history",
+      "title": "The bicycles that carried a war",
+      "image": {
+        "file": "Dân công dân tộc vận chuyển hàng ra mặt trận.jpg",
+        "alt": "Porters carrying supplies"
+      },
+      "narration": "Behind the soldiers came an army of porters, many of them farmers and young women from the delta and the mountains. They carried rice, ammunition and medicine for hundreds of kilometres along jungle tracks, mostly at night to avoid French aircraft. Many pushed bicycles strengthened with bamboo and wood. Loaded with more than 200 kilograms each, the bicycles were steered by a pole tied to the handlebars. Supplying the siege was as much a victory as the fighting itself."
+    },
+    {
+      "id": "bunker",
+      "type": "history",
+      "title": "7 May 1954",
+      "image": {
+        "file": "Dien Bien Phu 1954 French prisoners.jpg",
+        "alt": "French prisoners after the battle"
+      },
+      "narration": "By early May, the French held only a small area around their command post. On the afternoon of 7 May, Vietnamese soldiers reached the bunker of General Christian de Castries and raised a flag over it. That evening the firing stopped. More than ten thousand French and colonial soldiers were taken prisoner. The next day, peace talks on Indochina began in Geneva. Today you can climb down into a reconstruction of the bunker, and walk the trenches of A1 Hill, where some of the hardest fighting took place."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small separate tickets for the museum, A1 Hill, the de Castries bunker and Him Lam Hill.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Each site has its own gate and ticket."
+    },
+    "etiquette": {
+      "do": [
+        "Start at the museum to understand the layout of the battle.",
+        "Walk the trenches on A1 Hill, and climb D1 Hill for the view over the valley.",
+        "Visit the war cemetery opposite A1 Hill.",
+        "Dress modestly at the monuments."
+      ],
+      "dont": [
+        "Climb on weapons or vehicles on display.",
+        "Make jokes or pose playfully at the cemetery.",
+        "Wander off marked paths on the hills."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Thái food",
+        "text": "Try grilled fish (pa pỉnh tộp), sticky rice and Điện Biên rice, considered among the best in the north."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Flights from Hà Nội take about an hour; the bus takes 10–12 hours over the Pha Đin Pass."
+      },
+      {
+        "category": "sights",
+        "title": "In season",
+        "text": "In March the hills around the valley are white with ban flowers."
+      }
+    ],
+    "pois": [
+      {
+        "name": "A1 Hill",
+        "category": "sights",
+        "lat": 21.3836,
+        "lon": 103.0218,
+        "note": "Trenches and memorial. Approximate."
+      },
+      {
+        "name": "Victory Museum",
+        "category": "entrance",
+        "lat": 21.3842,
+        "lon": 103.0198,
+        "note": "Start here. Approximate."
+      },
+      {
+        "name": "De Castries' bunker",
+        "category": "sights",
+        "lat": 21.38,
+        "lon": 103.013,
+        "note": "Reconstructed command bunker. Approximate."
+      },
+      {
+        "name": "Victory Monument (D1 Hill)",
+        "category": "sights",
+        "lat": 21.3895,
+        "lon": 103.019,
+        "note": "View over the valley. Approximate."
+      },
+      {
+        "name": "Điện Biên Phủ airport",
+        "category": "transport",
+        "lat": 21.3972,
+        "lon": 103.008,
+        "note": "Flights to Hà Nội."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

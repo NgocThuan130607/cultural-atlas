@@ -1,0 +1,210 @@
+{
+  "id": "hung-temple",
+  "city": "phu-tho",
+  "name": "Hùng Kings' Temple",
+  "localName": "Đền Hùng",
+  "lat": 21.3655,
+  "lon": 105.3246,
+  "summary": "Temples on Nghĩa Lĩnh mountain dedicated to the Hùng Kings, the legendary founders of the first Vietnamese kingdom. Every spring, millions come to honour them.",
+  "hero": {
+    "file": "Mausoleum of Hung King.JPG",
+    "alt": "The tomb of the Hùng King on Nghĩa Lĩnh mountain"
+  },
+  "eras": [
+    {
+      "year": -500,
+      "label": "c. 500 BCE",
+      "title": "The kingdom of Văn Lang",
+      "text": "In the first millennium BCE, people of the Đông Sơn culture farmed rice and cast great bronze drums in the plains below this hill. Vietnamese tradition says that eighteen Hùng Kings ruled the kingdom of Văn Lang from nearby.",
+      "image": {
+        "file": "Đền Hùng, Đền Giếng.jpg",
+        "alt": "The Well Temple at the foot of the mountain"
+      }
+    },
+    {
+      "year": 1470,
+      "label": "15th century",
+      "title": "Writing down the legends",
+      "text": "Under the Lê dynasty, scholars compiled the stories of the Hùng Kings into an official genealogy. Temples on the mountain were rebuilt over the following centuries.",
+      "image": {
+        "file": "Đền Hùng, đền Trung.jpg",
+        "alt": "The Middle Temple"
+      }
+    },
+    {
+      "year": 1917,
+      "label": "1917",
+      "title": "A national day of remembrance",
+      "text": "The royal court fixed the 10th day of the third lunar month as the day to honour the Hùng Kings across the country. Today it is a public holiday.",
+      "image": {
+        "file": "Thuong temple.JPG",
+        "alt": "The Upper Temple"
+      }
+    },
+    {
+      "year": 1954,
+      "label": "1954",
+      "title": "\"Together we must defend it\"",
+      "text": "In September 1954, Ho Chi Minh met soldiers at the temple and told them that the Hùng Kings had built the country, and that they must work together to defend it. The words are carved at the site.",
+      "image": {
+        "file": "Cổng đền Hùng (Phú Thọ).jpg",
+        "alt": "The gate of the temple complex"
+      }
+    },
+    {
+      "year": 2012,
+      "label": "2012",
+      "title": "A UNESCO tradition",
+      "text": "UNESCO added the worship of the Hùng Kings in Phú Thọ to its list of the intangible cultural heritage of humanity.",
+      "image": {
+        "file": "Đền Hùng, đền Hạ.jpg",
+        "alt": "The Lower Temple"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The spring pilgrimage",
+      "text": "During the festival season, crowds climb the stone steps through the forest, carrying incense, fruit and sticky-rice cakes to the temples at the top.",
+      "image": {
+        "file": "Trung tâm lễ hội đền Hùng 18-09-2015 1.jpg",
+        "alt": "The festival centre at the foot of the mountain"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "dragon-fairy",
+      "type": "legend",
+      "title": "Children of the Dragon and the Fairy",
+      "image": {
+        "file": "Đền Hùng, Đền Giếng.jpg",
+        "alt": "The Well Temple"
+      },
+      "narration": "Long ago, the legend says, Lạc Long Quân, a dragon lord of the sea, married Âu Cơ, a fairy of the mountains. She gave birth to a sac of one hundred eggs, which hatched into one hundred sons. But a dragon and a fairy could not live together for long. Fifty sons followed their father down to the sea, and fifty went with their mother into the mountains. The eldest of these became the first Hùng King. That is why Vietnamese people call each other đồng bào, 'born from the same sac'."
+    },
+    {
+      "id": "cakes",
+      "type": "legend",
+      "title": "The prince and the rice cakes",
+      "image": {
+        "file": "Đền Hùng, đền Hạ.jpg",
+        "alt": "The Lower Temple"
+      },
+      "narration": "One Hùng King wanted to choose an heir, and asked his sons to bring him the finest dish for the new year. The princes searched land and sea for rare delicacies. The youngest, Lang Liêu, was poor. In a dream he was told to make cakes from the rice that feeds the people: a square one, bánh chưng, for the earth, and a round one, bánh giầy, for the sky. The king tasted them, understood their meaning, and made Lang Liêu his heir. Families still make bánh chưng every Lunar New Year."
+    },
+    {
+      "id": "xoan",
+      "type": "culture",
+      "title": "Xoan, the songs of spring",
+      "image": {
+        "file": "Trung tâm lễ hội đền Hùng 18-09-2015 1.jpg",
+        "alt": "The festival centre"
+      },
+      "narration": "In a few villages near Việt Trì, people have sung xoan for centuries at the start of each new year. It was performed in communal houses to honour the Hùng Kings and the village spirits, with drums and clappers, slow ritual songs and lively dances. By the early 2000s only a handful of elderly singers remained. UNESCO listed xoan as heritage in urgent need of safeguarding in 2011. Young people took up the songs, and in 2017 it was moved to the main list as a tradition that had been saved."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry. Small fees for parking and electric shuttles.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Extremely crowded around the festival on the 10th day of the third lunar month."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk around the main altar quietly, and let worshippers go first.",
+        "Wear comfortable shoes for the steps up the mountain.",
+        "Visit early in the morning to avoid crowds and heat."
+      ],
+      "dont": [
+        "Point your feet at the altars or sit on temple steps in front of them.",
+        "Photograph people who are praying without asking.",
+        "Push in the queues during the festival."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Try bánh tai (rice dumplings), bánh chưng from the temple stalls, and Phú Thọ's sour pork (thịt chua)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 1.5 hours from Hà Nội by car or bus; Việt Trì is 10 km away."
+      },
+      {
+        "category": "sights",
+        "title": "The route",
+        "text": "From the gate, the path climbs past the Lower, Middle and Upper Temples to the tomb, then down to the Well Temple."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Main gate",
+        "category": "entrance",
+        "lat": 21.369,
+        "lon": 105.3262,
+        "note": "Approximate."
+      },
+      {
+        "name": "Lower Temple",
+        "category": "sights",
+        "lat": 21.3672,
+        "lon": 105.3249,
+        "note": "Approximate."
+      },
+      {
+        "name": "Upper Temple & tomb",
+        "category": "sights",
+        "lat": 21.3655,
+        "lon": 105.3246,
+        "note": "Top of Nghĩa Lĩnh mountain."
+      },
+      {
+        "name": "Festival centre",
+        "category": "food",
+        "lat": 21.3725,
+        "lon": 105.329,
+        "note": "Squares, stalls and parking. Approximate."
+      },
+      {
+        "name": "Việt Trì city",
+        "category": "transport",
+        "lat": 21.3227,
+        "lon": 105.4019,
+        "note": "Trains and buses."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

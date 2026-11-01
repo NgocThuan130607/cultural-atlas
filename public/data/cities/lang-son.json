@@ -1,0 +1,72 @@
+{
+  "id": "lang-son",
+  "hero": {
+    "file": "Mẫu Sơn.jpg",
+    "alt": "Mẫu Sơn mountain in Lạng Sơn"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Tày, Nùng and Dao",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "Autumn and spring; in winter, frost and sometimes snow on Mẫu Sơn",
+    "founded": "A province since 1831"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Lạng Sơn lies on the main route between Hà Nội and China. Limestone valleys and the Kỳ Cùng River run through it; unusually, the river flows north into China. Mẫu Sơn mountain (about 1,500 m) is one of the few places in Vietnam where snow sometimes falls."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Invading armies from the north usually came through Lạng Sơn, and the narrow valley of Chi Lăng saw some of Vietnam's most famous ambushes. In 1885, French troops fell back from Lạng Sơn after a defeat by Qing forces, which brought down the French government in Paris. In 1979 the town was badly damaged in the border war with China."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Tày and Nùng are the largest groups. Their markets, then songs and spring festivals fill the calendar. Lạng Sơn is famous for its roast pork flavoured with mắc mật leaves, and for the legend of Tô Thị, a woman turned to stone while waiting for her husband to return from war."
+    }
+  ],
+  "etiquette": [
+    "Dress modestly when visiting temples and memorials.",
+    "Bargain politely in the border markets.",
+    "Ask before photographing people.",
+    "Respect the quiet at war memorials."
+  ],
+  "timeline": [
+    {
+      "year": 981,
+      "text": "Lê Hoàn ambushes a Song army in the Chi Lăng valley.",
+      "landmark": "chi-lang-pass",
+      "era": 1
+    },
+    {
+      "year": 1427,
+      "text": "Lê Lợi's forces kill the Ming general Liễu Thăng near Chi Lăng and win the war of independence.",
+      "landmark": "chi-lang-pass",
+      "era": 2
+    },
+    {
+      "year": 1831,
+      "text": "Lạng Sơn becomes a province."
+    },
+    {
+      "year": 1885,
+      "text": "French troops retreat from Lạng Sơn in March, a defeat that brings down the government in Paris."
+    },
+    {
+      "year": 1979,
+      "text": "The town is heavily damaged in the border war with China."
+    },
+    {
+      "year": 1991,
+      "text": "Relations with China are normalised, and border trade through Lạng Sơn booms."
+    },
+    {
+      "year": 2026,
+      "text": "Travellers stop at Chi Lăng on the highway to the border.",
+      "landmark": "chi-lang-pass",
+      "era": 3
+    }
+  ]
+}

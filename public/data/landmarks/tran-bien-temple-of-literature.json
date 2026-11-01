@@ -1,0 +1,191 @@
+{
+  "id": "tran-bien-temple-of-literature",
+  "city": "dong-nai",
+  "name": "Trấn Biên Temple of Literature",
+  "localName": "Văn miếu Trấn Biên",
+  "lat": 10.9648,
+  "lon": 106.8015,
+  "summary": "The first Temple of Literature in southern Vietnam, founded in 1715 to honour Confucius and the region's scholars. It was destroyed under the French and rebuilt in 2002.",
+  "hero": {
+    "file": "Nhà thờ chính Văn miếu Trấn Biên.jpg",
+    "alt": "The main hall of the Trấn Biên Temple of Literature"
+  },
+  "eras": [
+    {
+      "year": 1679,
+      "label": "1679",
+      "title": "A port on the river",
+      "text": "When Ming loyalists from China settled on Cù lao Phố island, it became the busiest trading port of the south, with ships from China, Japan and Europe.",
+      "image": {
+        "file": "Bửu Long, Bien Hoa, Dong Nai, Vietnam - panoramio.jpg",
+        "alt": "Bửu Long near Biên Hòa"
+      }
+    },
+    {
+      "year": 1715,
+      "label": "1715",
+      "title": "A temple of learning",
+      "text": "Lord Nguyễn Phúc Chu founded a Temple of Literature at Trấn Biên in 1715, to honour Confucius and encourage learning in the newly settled south.",
+      "image": {
+        "file": "Văn Miếu Môn.jpg",
+        "alt": "The gate of the Temple of Literature"
+      }
+    },
+    {
+      "year": 1861,
+      "label": "1861",
+      "title": "Burned in the conquest",
+      "text": "French troops captured Biên Hòa in December 1861. The temple was destroyed, as this French engraving of the capture of the town suggests.",
+      "image": {
+        "file": "L'Illustration 1862 gravure L'expédition de Cochinchine - prise et incendie de Bien-Hao le 18 décembre 1861.jpg",
+        "alt": "French engraving of the capture of Biên Hòa, 1861"
+      }
+    },
+    {
+      "year": 2002,
+      "label": "2002",
+      "title": "Rebuilt",
+      "text": "The temple was rebuilt on its old site, finished in 2002, with a Khuê Văn Các pavilion like the one at Hà Nội's Temple of Literature.",
+      "image": {
+        "file": "Van mieu Tran Bien Bien Hoa.jpg",
+        "alt": "The Khuê Văn Các pavilion"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Blessings for students",
+      "text": "Before their exams, students come to light incense and ask for luck. The temple also hosts cultural events and calligraphy displays at Tết.",
+      "image": {
+        "file": "Nhà thờ chính Văn miếu Trấn Biên.jpg",
+        "alt": "The main hall"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "scholars",
+      "type": "history",
+      "title": "Scholars of the south",
+      "image": {
+        "file": "Nhà thờ chính Văn miếu Trấn Biên.jpg",
+        "alt": "The main hall"
+      },
+      "narration": "Besides Confucius, the temple honours scholars of the south. The most respected is Võ Trường Toản, an 18th-century teacher who refused to serve at court and taught many students instead. Three of his students, Trịnh Hoài Đức, Lê Quang Định and Ngô Nhơn Tịnh, became famous poets and officials known as the 'three masters of Gia Định'. Trịnh Hoài Đức wrote a detailed description of the south in the early 19th century that historians still use today."
+    },
+    {
+      "id": "cu-lao-pho",
+      "type": "history",
+      "title": "Cù lao Phố, the island port",
+      "image": {
+        "file": "Bửu Long, Bien Hoa, Dong Nai, Vietnam - panoramio.jpg",
+        "alt": "Bửu Long near Biên Hòa"
+      },
+      "narration": "In 1679, about three thousand Chinese soldiers and their families, loyal to the fallen Ming dynasty, sailed south and asked the Nguyễn lords for refuge. One group, led by Trần Thượng Xuyên, settled on Cù lao Phố, an island in the Đồng Nai River. They built warehouses, temples and streets, and the island became the main port of the south for nearly a century. In 1776, during the Tây Sơn wars, it was destroyed, and trade moved downriver to Saigon and Chợ Lớn."
+    },
+    {
+      "id": "cat-tien",
+      "type": "culture",
+      "title": "The forest of Cát Tiên",
+      "image": {
+        "file": "Cat Tien National Park, Vietnam.jpg",
+        "alt": "Cát Tiên forest"
+      },
+      "narration": "North of Biên Hòa, Cát Tiên National Park protects one of the largest lowland forests left in southern Vietnam. Gibbons call at dawn, and deer, bears and hundreds of bird species live there. It was also the last home of the Javan rhinoceros on the Asian mainland. The last one was killed by poachers in 2010. Its loss is a warning that the park's rangers repeat to every visitor."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:30",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+        "Walk quietly, and let worshippers go first.",
+        "Visit Bửu Long and the stone quarries nearby."
+      ],
+      "dont": [
+        "Point your feet at altars or monks.",
+        "Photograph people who are praying without asking."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Pomelos from Tân Triều, and freshwater fish from the Đồng Nai River."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 45 minutes from central Hồ Chí Minh City."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Cù lao Phố island, Bửu Long, and Cát Tiên National Park (3–4 hours north)."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Temple of Literature",
+        "category": "entrance",
+        "lat": 10.9648,
+        "lon": 106.8015,
+        "note": "Main gate."
+      },
+      {
+        "name": "Cù lao Phố island",
+        "category": "sights",
+        "lat": 10.9328,
+        "lon": 106.8294,
+        "note": "Old port island."
+      },
+      {
+        "name": "Bửu Long tourist area",
+        "category": "sights",
+        "lat": 10.97,
+        "lon": 106.81,
+        "note": "Lakes and pagodas. Approximate."
+      },
+      {
+        "name": "Biên Hòa station",
+        "category": "transport",
+        "lat": 10.945,
+        "lon": 106.818,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

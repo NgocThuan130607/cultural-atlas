@@ -1,0 +1,79 @@
+{
+  "id": "nghe-an",
+  "hero": {
+    "file": "Bãi biển Cửa Lò..jpg",
+    "alt": "Cửa Lò beach in Nghệ An"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Thái, Khơ Mú and others in the west",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "May–August (beaches) and around 19 May (Kim Liên festival)",
+    "founded": "A province since 1831"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Nghệ An is Vietnam's largest province by area. The Lam River flows from the Laos border through forests and valleys to the coastal city of Vinh and the sea. Pù Mát National Park protects the forests of the west."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In 722 Mai Thúc Loan rose against Tang rule here. Emperor Quang Trung planned a capital at Vinh in 1788. Nghệ An produced famous patriots: Phan Bội Châu, born in Nam Đàn in 1867, and Ho Chi Minh, born nearby in 1890. In 1930–31 peasants here rose in the 'Nghệ Tĩnh Soviets'. Vinh was almost flattened by bombing and rebuilt after the war."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The people of Nghệ An are known for their strong accent, their love of learning and their stubborn spirit. Ví and giặm folk songs, sung while working, are on UNESCO's list. Eel soup (súp lươn) is the local speciality."
+    }
+  ],
+  "etiquette": [
+    "Keep your voice low and dress modestly.",
+    "Light incense only where others do so.",
+    "Dress modestly at Kim Liên; it is a place of national pilgrimage."
+  ],
+  "timeline": [
+    {
+      "year": 722,
+      "text": "Mai Thúc Loan rises against Tang rule and proclaims himself emperor."
+    },
+    {
+      "year": 1788,
+      "text": "Emperor Quang Trung orders a citadel built at Vinh."
+    },
+    {
+      "year": 1867,
+      "text": "The patriot Phan Bội Châu is born in Nam Đàn."
+    },
+    {
+      "year": 1890,
+      "text": "Ho Chi Minh is born in Hoàng Trù village on 19 May.",
+      "landmark": "kim-lien",
+      "era": 0
+    },
+    {
+      "year": 1901,
+      "text": "His family moves into a house in Làng Sen (Kim Liên).",
+      "landmark": "kim-lien",
+      "era": 1
+    },
+    {
+      "year": 1930,
+      "text": "Peasants rise in the Nghệ Tĩnh Soviet movement."
+    },
+    {
+      "year": 1957,
+      "text": "Ho Chi Minh returns to visit his home village."
+    },
+    {
+      "year": 2014,
+      "text": "UNESCO lists the ví and giặm folk songs of Nghệ Tĩnh."
+    },
+    {
+      "year": 2026,
+      "text": "Pilgrims visit the thatched houses of Kim Liên.",
+      "landmark": "kim-lien",
+      "era": 3
+    }
+  ]
+}

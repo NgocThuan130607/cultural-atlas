@@ -1,0 +1,181 @@
+{
+  "id": "cai-rang-floating-market",
+  "city": "can-tho",
+  "name": "Cái Răng Floating Market",
+  "localName": "Chợ nổi Cái Răng",
+  "lat": 10.005,
+  "lon": 105.746,
+  "summary": "A wholesale market on the water, where boats loaded with fruit and vegetables gather at dawn. Each boat hangs samples of its goods from a tall pole.",
+  "hero": {
+    "file": "Một cảnh ở chợ nổi Cái Răng.jpg",
+    "alt": "Boats at the Cái Răng floating market"
+  },
+  "eras": [
+    {
+      "year": 1915,
+      "label": "Early 1900s",
+      "title": "Trading on the water",
+      "text": "As canals were dug across the delta, boats became the easiest way to move rice and fruit. Traders met at river junctions, and markets formed on the water itself.",
+      "image": {
+        "file": "Cai rang3.jpg",
+        "alt": "Boats on the river at Cái Răng"
+      }
+    },
+    {
+      "year": 2010,
+      "label": "2010",
+      "title": "A bridge over the river",
+      "text": "The Cần Thơ bridge, one of the longest cable-stayed bridges in South-East Asia, opened in 2010, linking the city to the main road north.",
+      "image": {
+        "file": "Can Tho Bridge.jpg",
+        "alt": "The Cần Thơ bridge"
+      }
+    },
+    {
+      "year": 2016,
+      "label": "2016",
+      "title": "A heritage market",
+      "text": "The floating market was recognised as part of Vietnam's national intangible heritage.",
+      "image": {
+        "file": "Cai Rang Floating Market 1.jpg",
+        "alt": "The floating market"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Dawn on the water",
+      "text": "Wholesale boats still gather from about 5 am. Small boats sell noodle soup, coffee and fruit to traders and visitors.",
+      "image": {
+        "file": "Một cảnh ở chợ nổi Cái Răng.jpg",
+        "alt": "The floating market today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "pole",
+      "type": "culture",
+      "title": "Shopping by the pole",
+      "image": {
+        "file": "Cai Rang Floating Market 5.jpg",
+        "alt": "Boats with poles of goods"
+      },
+      "narration": "On a floating market, there is no shouting of prices. Instead, each boat ties samples of what it sells to the top of a tall bamboo pole, called a cây bẹo: a few pineapples, a bunch of bananas, a watermelon, a sweet potato. Buyers can see from a distance what each boat offers and paddle over. The big boats are wholesalers, selling to smaller traders who take the goods to land markets and shops. Deals are done boat to boat, by hand."
+    },
+    {
+      "id": "breakfast",
+      "type": "culture",
+      "title": "Breakfast on the water",
+      "image": {
+        "file": "Cho noi (Cai Rang, Can Tho).JPG",
+        "alt": "The market"
+      },
+      "narration": "Between the big boats, small sampans weave back and forth selling breakfast. A woman cooks hủ tiếu noodle soup in a pot on her boat and passes the bowl across without spilling a drop. Another sells iced coffee, sweet cakes or sliced pineapple on a stick. Eating a bowl of soup while rocking gently among the boats at sunrise is the best way to understand life in the delta."
+    },
+    {
+      "id": "bridge",
+      "type": "history",
+      "title": "A bridge over the Hậu River",
+      "image": {
+        "file": "Can Tho Bridge.jpg",
+        "alt": "The Cần Thơ bridge"
+      },
+      "narration": "For generations, travellers had to wait for ferries to cross the wide Hậu River at Cần Thơ. A great cable-stayed bridge was planned to replace them. In September 2007, during construction, part of an approach span collapsed, killing 54 workers, one of the worst construction disasters in Vietnam's history. The bridge opened in 2010, and ended the long queues for the ferry."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free. Hire a boat at Ninh Kiều wharf in Cần Thơ, and agree the price and route first.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "05:00",
+                "09:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "The market is busiest from sunrise until about 8:00."
+    },
+    "etiquette": {
+      "do": [
+        "Wear a hat and sunscreen; boats have little shade.",
+        "Wear a life jacket on small boats.",
+        "Set off from Ninh Kiều wharf by 5:30 to see the market at its busiest."
+      ],
+      "dont": [
+        "Stand up suddenly in small boats.",
+        "Throw plastic into the river."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Delta food",
+        "text": "Hủ tiếu from a boat, bánh xèo, grilled snakehead fish and tropical fruit from the orchards."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 3.5 hours by road from Hồ Chí Minh City; Cần Thơ also has an airport."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Ninh Kiều riverside, Bình Thủy ancient house, and the Khmer pagodas of Sóc Trăng."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Cái Răng floating market",
+        "category": "sights",
+        "lat": 10.005,
+        "lon": 105.746,
+        "note": "On the river."
+      },
+      {
+        "name": "Ninh Kiều wharf",
+        "category": "entrance",
+        "lat": 10.034,
+        "lon": 105.788,
+        "note": "Boats to the market. Approximate."
+      },
+      {
+        "name": "Cần Thơ bridge",
+        "category": "sights",
+        "lat": 10.033,
+        "lon": 105.835,
+        "note": "Approximate."
+      },
+      {
+        "name": "Cần Thơ airport",
+        "category": "transport",
+        "lat": 10.0851,
+        "lon": 105.712,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

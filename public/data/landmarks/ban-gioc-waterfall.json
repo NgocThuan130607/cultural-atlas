@@ -1,0 +1,200 @@
+{
+  "id": "ban-gioc-waterfall",
+  "city": "cao-bang",
+  "name": "Bản Giốc Waterfall",
+  "localName": "Thác Bản Giốc",
+  "lat": 22.8559,
+  "lon": 106.7225,
+  "summary": "One of the largest waterfalls in Asia. The Quây Sơn River spills over limestone in wide tiers here, on the border between Vietnam and China.",
+  "hero": {
+    "file": "Bangioc9tam.jpg",
+    "alt": "The tiers of the Bản Giốc waterfall"
+  },
+  "eras": [
+    {
+      "year": -1000000,
+      "label": "Long ago",
+      "title": "Water over limestone",
+      "text": "The Quây Sơn River has spent thousands of years dissolving and depositing limestone, forming the wide steps of rock that the water now pours over. The falls are about 30 m high and more than 200 m wide.",
+      "image": {
+        "file": "Thác Bản Giốc.jpg",
+        "alt": "Water pouring over the limestone steps"
+      }
+    },
+    {
+      "year": 2009,
+      "label": "2009",
+      "title": "A border settled",
+      "text": "The waterfall sits right on the border: the Chinese side calls it Detian. In 2009 the two countries finished marking their land border, and the falls are shared between them.",
+      "image": {
+        "file": "DeTianPuBu.jpg",
+        "alt": "The falls seen from the Chinese side"
+      }
+    },
+    {
+      "year": 2018,
+      "label": "2018",
+      "title": "Part of a Global Geopark",
+      "text": "UNESCO recognised the Non Nước Cao Bằng Geopark, which includes the waterfall, caves and karst valleys of the province.",
+      "image": {
+        "file": "Ban Gioc - Detian Falls2.jpg",
+        "alt": "The Bản Giốc–Detian falls"
+      }
+    },
+    {
+      "year": 2023,
+      "label": "2023",
+      "title": "A shared scenic area",
+      "text": "Vietnam and China opened a cooperative scenic area at the falls, where visitors could cross a short way into the other side on a trial basis.",
+      "image": {
+        "file": "Ban Gioc Panorama .jpg",
+        "alt": "Panorama of the falls"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Rafts below the spray",
+      "text": "Bamboo rafts carry visitors close to the foot of the falls, into the cool spray. The water is fullest from June to September.",
+      "image": {
+        "file": "Bangioc9tam.jpg",
+        "alt": "The tiers of the Bản Giốc waterfall"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "pac-bo",
+      "type": "history",
+      "title": "Pác Bó, 1941",
+      "image": {
+        "file": "Ban Gioc Panorama .jpg",
+        "alt": "The green valleys of Cao Bằng"
+      },
+      "narration": "In January 1941, a man in his fifties crossed the mountains from China into Cao Bằng. It was Nguyễn Ái Quốc, soon to be known as Ho Chi Minh, coming home after thirty years abroad. He lived in a small cave at Pác Bó, near the border, sleeping on a bed of planks and working at a stone table by the stream. He named the stream after Lenin and a nearby mountain after Karl Marx. From here he organised the Việt Minh, the movement that would declare independence four years later."
+    },
+    {
+      "id": "nguom-ngao",
+      "type": "legend",
+      "title": "The tiger cave",
+      "image": {
+        "file": "Thác Bản Giốc.jpg",
+        "alt": "Limestone around Bản Giốc"
+      },
+      "narration": "A few kilometres from the waterfall lies a large cave called Ngườm Ngao. In the Tày language the name means 'tiger cave'. The story goes that tigers once lived there and villagers did not dare to enter. Today a path leads through chambers of stalactites and stalagmites that local people have named after the shapes they see in them: a field of rice terraces, a golden curtain, a pair of hands at prayer."
+    },
+    {
+      "id": "chestnuts",
+      "type": "culture",
+      "title": "Chestnuts and bánh cuốn",
+      "image": {
+        "file": "DeTianPuBu.jpg",
+        "alt": "Mountains along the border"
+      },
+      "narration": "Ask anyone in the north what to bring back from Cao Bằng and they will say chestnuts from Trùng Khánh. They are small and sweet, roasted in the autumn by roadside sellers. Cao Bằng also has its own way of eating bánh cuốn, the thin steamed rice rolls. Here they come with a bowl of hot bone broth instead of a cold dipping sauce, a breakfast made for cold mountain mornings."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Entry ticket to the scenic area. Bamboo raft rides to the foot of the falls cost extra.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. The falls are best seen in the morning light."
+    },
+    "etiquette": {
+      "do": [
+        "Wear a life jacket on the bamboo rafts.",
+        "Bring a rain jacket for the spray near the falls.",
+        "Visit Ngườm Ngao cave on the same trip.",
+        "Carry your passport if you plan to enter the shared border area."
+      ],
+      "dont": [
+        "Cross the border markers outside the official scenic area.",
+        "Climb on wet rocks near the falls.",
+        "Fly a drone. It is a border zone."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Cao Bằng food",
+        "text": "Try roast duck with mắc mật leaves, bánh cuốn with bone broth, and roasted Trùng Khánh chestnuts in autumn."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Cao Bằng city is about 6–7 hours by bus from Hà Nội; the falls are another 2 hours east."
+      },
+      {
+        "category": "sights",
+        "title": "Combine with",
+        "text": "Pác Bó historic site, on the way back to the city, and the Phật Tích Trúc Lâm pagoda above the falls."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Ticket gate & parking",
+        "category": "entrance",
+        "lat": 22.85,
+        "lon": 106.721,
+        "note": "Approximate."
+      },
+      {
+        "name": "Bamboo raft pier",
+        "category": "sights",
+        "lat": 22.8547,
+        "lon": 106.7232,
+        "note": "Rafts to the foot of the falls. Approximate."
+      },
+      {
+        "name": "Phật Tích Trúc Lâm pagoda",
+        "category": "sights",
+        "lat": 22.8538,
+        "lon": 106.7195,
+        "note": "Pagoda on the hill above the falls. Approximate."
+      },
+      {
+        "name": "Ngườm Ngao cave",
+        "category": "sights",
+        "lat": 22.846,
+        "lon": 106.701,
+        "note": "Large limestone cave. Approximate."
+      },
+      {
+        "name": "Food stalls by the falls",
+        "category": "food",
+        "lat": 22.8525,
+        "lon": 106.721,
+        "note": "Grilled snacks and drinks. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

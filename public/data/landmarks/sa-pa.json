@@ -1,0 +1,173 @@
+{
+  "id": "sa-pa",
+  "city": "lao-cai",
+  "name": "Sa Pa",
+  "localName": "Sa Pa",
+  "lat": 22.3364,
+  "lon": 103.8438,
+  "summary": "A misty hill town at about 1,500 m in the Hoàng Liên Sơn mountains. The French founded it as a summer resort, and rice terraces of Hmong, Dao and Giáy villages surround it.",
+  "hero": {
+    "file": "Sa Pa.jpg",
+    "alt": "Sa Pa town in the mountains"
+  },
+  "eras": [
+    {
+      "year": 1916,
+      "label": "1916",
+      "title": "A hill station is born",
+      "text": "In the 1910s French officials began building holiday villas on the cool plateau they called 'Chapa', to escape the summer heat of the Red River delta. The valleys around the new resort looked much as in this view from the 1920s.",
+      "image": {
+        "file": "Environs de Chapa (1926).jpg",
+        "alt": "The countryside around Sa Pa in the 1920s"
+      }
+    },
+    {
+      "year": 1926,
+      "label": "1926",
+      "title": "Summer capital of the north",
+      "text": "By the 1920s Sa Pa had hotels, villas and a busy market where the mountain peoples came to trade. The stone church in the centre of town dates from the French period.",
+      "image": {
+        "file": "Nha tho Da , Sapa vietnam - panoramio.jpg",
+        "alt": "The stone church of Sa Pa"
+      }
+    },
+    {
+      "year": 1993,
+      "label": "1990s",
+      "title": "Opening to travellers",
+      "text": "Many of Sa Pa's villas were damaged during the wars of the 20th century. After decades of isolation, the town opened up to foreign visitors in the 1990s, and trekking to villages such as Cát Cát, Lao Chải and Tả Van became popular.",
+      "image": {
+        "file": "Cầu Mây Alley, Sa Pa.jpg",
+        "alt": "A street in Sa Pa"
+      }
+    },
+    {
+      "year": 2016,
+      "label": "2016",
+      "title": "A cable car to the roof of Indochina",
+      "text": "In 2016 a cable car opened from the valley near Sa Pa to just below the summit of Fansipan (3,143 m). A climb that used to take two days can now be done in an afternoon.",
+      "image": {
+        "file": "Fansipan Cable Car and Sa Pa.jpg",
+        "alt": "The Fansipan cable car above Sa Pa"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Terraces and clouds",
+      "text": "Sa Pa has grown into a busy resort town, but the stone church still anchors the main square. Beyond the town, terraced valleys and villages lie in and out of the clouds.",
+      "image": {
+        "file": "Rice terraces in Sapa, Vietnam.jpg",
+        "alt": "Rice terraces near Sa Pa"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "peoples",
+      "type": "culture",
+      "title": "Who lives in the valleys",
+      "image": {
+        "file": "Cầu Mây Alley, Sa Pa.jpg",
+        "alt": "A street in Sa Pa"
+      },
+      "narration": "Around Sa Pa, each valley is home to different peoples. Black Hmong women wear jackets of hemp dyed deep blue with indigo, which often stains their hands. The Red Dao are known for their red headscarves and for their herbal baths, made from dozens of forest plants. The Giáy and Tày build their houses lower down, near the rivers. All of them farm rice on terraces they have carved into the slopes over many generations, and carefully feed water from one terrace to the next."
+    },
+    {
+      "id": "chapa",
+      "type": "history",
+      "title": "Chapa, the French resort",
+      "image": {
+        "file": "Environs de Chapa (1926).jpg",
+        "alt": "The countryside around Sa Pa in the 1920s"
+      },
+      "narration": "In the early 20th century the French were looking for cool places to rest away from the heat of the delta. The railway to Lào Cai, which opened in 1906, made the mountains reachable. On a plateau about 1,500 metres high they found Chapa, as they called it, and built villas, a church and hotels. For a few decades it was the summer retreat of the north. Most of the villas were lost in the wars that followed, but the town's layout and its stone church still recall that time."
+    },
+    {
+      "id": "fansipan",
+      "type": "legend",
+      "title": "The tottering giant rock",
+      "image": {
+        "file": "Fansipan summit 2 in sunrise.jpg",
+        "alt": "The summit of Fansipan at sunrise"
+      },
+      "narration": "The name Fansipan is said to come from local words that mean 'the giant, tottering rock'. For a long time the peak was respected and rarely climbed. Today a cable car carries visitors up the mountain, and the final steps to the summit marker pass temples and Buddha statues built in recent years. On a clear morning you can see an ocean of cloud below you, with the Hoàng Liên Sơn ridges rising out of it like islands."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "The town is free. Villages such as Cát Cát charge a small entry fee, and the Fansipan cable car is a separate ticket.",
+    "hours": {
+      "open24h": true,
+      "notes": "A town, always open. Village paths and the cable car run in the daytime."
+    },
+    "etiquette": {
+      "do": [
+        "Ask before you photograph people, especially older villagers and children.",
+        "Hire an experienced local driver or ride slowly: the passes are steep, narrow and often foggy.",
+        "Bring warm layers. Nights in the highlands are cold, and winter can bring frost.",
+        "Book trekking guides through a registered agency or homestay."
+      ],
+      "dont": [
+        "Give money or sweets to children. It encourages them to miss school and beg.",
+        "Enter a home or touch its altar without being invited.",
+        "Walk on the edges of the rice terraces, which damages the walls."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Mountain food",
+        "text": "Try thắng cố stew, grilled skewers at the night market, and salmon or sturgeon raised in Sa Pa's cold streams."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Take the night train from Hà Nội to Lào Cai and then a bus (about 1 hour), or a direct bus on the expressway (about 5–6 hours)."
+      },
+      {
+        "category": "sights",
+        "title": "Beyond Sa Pa",
+        "text": "Mù Cang Chải, in the former Yên Bái province, has some of the most famous terraces in Vietnam. They turn gold in late September."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Stone Church",
+        "category": "sights",
+        "lat": 22.3355,
+        "lon": 103.843,
+        "note": "In the central square. Approximate."
+      },
+      {
+        "name": "Cát Cát village",
+        "category": "sights",
+        "lat": 22.3277,
+        "lon": 103.8341,
+        "note": "Hmong village and waterfall, 2 km below town."
+      },
+      {
+        "name": "Sa Pa market",
+        "category": "food",
+        "lat": 22.3395,
+        "lon": 103.8435,
+        "note": "Food stalls and local produce. Approximate."
+      },
+      {
+        "name": "Fansipan cable car station",
+        "category": "entrance",
+        "lat": 22.332,
+        "lon": 103.822,
+        "note": "Cable car to the summit. Approximate."
+      },
+      {
+        "name": "Lào Cai railway station",
+        "category": "transport",
+        "lat": 22.499,
+        "lon": 103.966,
+        "note": "Trains to Hà Nội. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

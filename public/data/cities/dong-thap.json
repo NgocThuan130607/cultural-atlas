@@ -1,0 +1,83 @@
+{
+  "id": "dong-thap",
+  "hero": {
+    "file": "Cầu Cao Lãnh.jpg",
+    "alt": "The Cao Lãnh bridge"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "September–November (flood season, lotus) and the dry season",
+    "founded": "Merged with Tiền Giang in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Đồng Tháp lies along the Tiền River, the northern arm of the Mekong. Its north is part of Đồng Tháp Mười, the Plain of Reeds, a vast wetland that floods every autumn. Tràm Chim National Park protects cranes and wild rice there. The former Tiền Giang province adds Mỹ Tho and the fruit islands near the sea."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In the first centuries CE the area was part of Funan, an early kingdom of the Mekong, and its religious centre at Gò Tháp has been excavated. In 1679 Chinese Ming loyalists settled at Mỹ Tho. In 1785, Nguyễn Huệ destroyed a Siamese fleet at Rạch Gầm–Xoài Mút on the Tiền River. In the 1860s, resistance leaders fought the French from the marshes of Gò Tháp."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Lotus is the symbol of Đồng Tháp: its seeds, roots and leaves are eaten, and the flowers fill the ponds in summer. The flower village of Sa Đéc supplies the delta at Tết. Mỹ Tho is famous for its noodle soup, hủ tiếu Mỹ Tho."
+    }
+  ],
+  "etiquette": [
+    "Wear a hat and sunscreen; boats have little shade.",
+    "Wear a life jacket on small boats.",
+    "Ask before picking lotus flowers; ponds are private farms."
+  ],
+  "timeline": [
+    {
+      "year": 400,
+      "approx": true,
+      "text": "A religious centre of the Óc Eo culture (Funan) flourishes at Gò Tháp.",
+      "landmark": "go-thap",
+      "era": 0
+    },
+    {
+      "year": 1679,
+      "text": "Ming loyalists from China settle at Mỹ Tho, which grows into a river port."
+    },
+    {
+      "year": 1785,
+      "text": "On the Tiền River at Rạch Gầm–Xoài Mút, Nguyễn Huệ destroys a Siamese fleet."
+    },
+    {
+      "year": 1862,
+      "text": "Thiên Hộ Dương and Đốc Binh Kiều lead resistance against the French from Gò Tháp.",
+      "landmark": "go-thap",
+      "era": 1
+    },
+    {
+      "year": 1963,
+      "text": "The Battle of Ấp Bắc is fought in Tiền Giang."
+    },
+    {
+      "year": 2000,
+      "approx": true,
+      "text": "Archaeologists excavate Gò Tháp, finding gold leaves and temple foundations.",
+      "landmark": "go-thap",
+      "era": 2
+    },
+    {
+      "year": 2012,
+      "text": "Tràm Chim National Park becomes a Ramsar wetland."
+    },
+    {
+      "year": 2025,
+      "text": "Đồng Tháp and Tiền Giang merge."
+    },
+    {
+      "year": 2026,
+      "text": "Lotus ponds surround the old mound in summer.",
+      "landmark": "go-thap",
+      "era": 3
+    }
+  ]
+}

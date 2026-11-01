@@ -1,0 +1,89 @@
+{
+  "id": "gia-lai",
+  "hero": {
+    "file": "Chiều cao nguyên - Late afternoon in the Central High Plateaux - panoramio.jpg",
+    "alt": "Late afternoon on the Central Highlands"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Jarai, Ba Na and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "January–August on the coast; November–April in the highlands",
+    "founded": "Merged with Bình Định in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Gia Lai stretches from the sea at Quy Nhơn, in the former Bình Định province, west over the An Khê Pass to the basalt plateau of Pleiku. The highlands are covered in coffee, pepper and rubber, and the crater lake of Biển Hồ lies just north of Pleiku."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Around the year 1000, Vijaya, near Quy Nhơn, became the capital of the Cham kingdom; it fell to Đại Việt in 1471. In 1771 three brothers from Tây Sơn launched a rebellion that overthrew the rulers of both north and south and drove out Siamese and Qing armies. The highlands around Pleiku saw major battles in the American war, including Ia Drang in 1965."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Bình Định is known for its martial arts and for tuồng, classical opera. The Jarai and Ba Na of the highlands play gongs at their festivals, a tradition listed by UNESCO. Cham towers still stand around Quy Nhơn."
+    }
+  ],
+  "etiquette": [
+    "Dress modestly at temples and Cham towers.",
+    "Ask before photographing people in highland villages.",
+    "Accept rice wine from a jar if offered, even just a sip.",
+    "Do not touch gongs or ritual objects without permission."
+  ],
+  "timeline": [
+    {
+      "year": 1000,
+      "approx": true,
+      "text": "Vijaya, near today's Quy Nhơn, becomes the capital of Champa."
+    },
+    {
+      "year": 1471,
+      "text": "Emperor Lê Thánh Tông captures Vijaya."
+    },
+    {
+      "year": 1771,
+      "text": "The three Tây Sơn brothers raise a rebellion.",
+      "landmark": "quang-trung-museum",
+      "era": 0
+    },
+    {
+      "year": 1785,
+      "text": "Nguyễn Huệ destroys a Siamese fleet on the Mekong.",
+      "landmark": "quang-trung-museum",
+      "era": 1
+    },
+    {
+      "year": 1789,
+      "text": "Quang Trung defeats the Qing army at Thăng Long.",
+      "landmark": "quang-trung-museum",
+      "era": 2
+    },
+    {
+      "year": 1802,
+      "text": "The Tây Sơn dynasty falls to Nguyễn Ánh.",
+      "landmark": "quang-trung-museum",
+      "era": 3
+    },
+    {
+      "year": 1965,
+      "text": "The Battle of Ia Drang is fought in the highlands near Pleiku."
+    },
+    {
+      "year": 2005,
+      "text": "UNESCO recognises the gong culture of the Central Highlands."
+    },
+    {
+      "year": 2025,
+      "text": "Gia Lai and Bình Định merge."
+    },
+    {
+      "year": 2026,
+      "text": "Drummers and martial artists perform at the Quang Trung Museum.",
+      "landmark": "quang-trung-museum",
+      "era": 5
+    }
+  ]
+}

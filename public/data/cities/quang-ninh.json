@@ -1,0 +1,76 @@
+{
+  "id": "quang-ninh",
+  "hero": {
+    "file": "A view of Ha Long Bay from the high point of Sun Sot cave (31520203451).jpg",
+    "alt": "Hạ Long Bay seen from Sửng Sốt cave"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Dao, Tày and Sán Dìu",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "March–May and September–November",
+    "founded": "Created in 1963"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Quảng Ninh is Vietnam's north-east corner, between the sea and the Chinese border at Móng Cái. Its coast is scattered with around 2,000 limestone islands in Hạ Long and Bái Tử Long bays. Inland lie coal mines and the forested Yên Tử mountains."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The Bạch Đằng River, on the province's western edge, saw Vietnam's most famous naval victories, including Trần Hưng Đạo's defeat of the Mongol fleet in 1288. Around 1300, Emperor Trần Nhân Tông became a monk on Yên Tử and founded the Trúc Lâm school of Zen. From the late 19th century the French dug coal at Hòn Gai and Cẩm Phả, and mining is still a major industry."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Yên Tử is a pilgrimage mountain, climbed by hundreds of thousands of people each spring. The fishing families of the bay once lived in floating villages. The coal-mining towns have their own proud working culture, and Hạ Long's squid cakes (chả mực) are famous across the country."
+    }
+  ],
+  "etiquette": [
+    "Bring your own water bottle on cruises to cut plastic.",
+    "Do not throw anything into the bay.",
+    "Dress modestly on Yên Tử and at pagodas.",
+    "Agree prices for kayaks and small boats in advance."
+  ],
+  "timeline": [
+    {
+      "year": 1288,
+      "text": "Trần Hưng Đạo destroys a Mongol fleet on the Bạch Đằng River, using stakes hidden under the tide."
+    },
+    {
+      "year": 1299,
+      "approx": true,
+      "text": "Emperor Trần Nhân Tông founds the Trúc Lâm school of Zen on Yên Tử mountain."
+    },
+    {
+      "year": 1888,
+      "approx": true,
+      "text": "The French begin large-scale coal mining at Hòn Gai.",
+      "landmark": "ha-long-bay",
+      "era": 1
+    },
+    {
+      "year": 1963,
+      "text": "Quảng Ninh province is created."
+    },
+    {
+      "year": 1994,
+      "text": "UNESCO lists Hạ Long Bay as a World Heritage Site.",
+      "landmark": "ha-long-bay",
+      "era": 2
+    },
+    {
+      "year": 2023,
+      "text": "The World Heritage listing is extended to the Cát Bà archipelago.",
+      "landmark": "ha-long-bay",
+      "era": 3
+    },
+    {
+      "year": 2026,
+      "text": "Cruise boats and kayaks explore the bay's islands and caves.",
+      "landmark": "ha-long-bay",
+      "era": 4
+    }
+  ]
+}

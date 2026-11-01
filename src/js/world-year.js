@@ -6,8 +6,9 @@ import { $, $$, esc, icon, prefersReducedMotion } from './common.js';
 // Year scale: piecewise-linear, so 4,600 years of antiquity don't swallow the slider.
 // Each anchor is [year, position 0..1].
 // ---------------------------------------------------------------------------
-export function createYearScale({ from, to }) {
-  const anchors = [[from, 0], [0, 0.18], [1000, 0.36], [1500, 0.48], [1800, 0.62], [1900, 0.74], [to, 1]]
+export function createYearScale({ from, to, anchors: custom }) {
+  // `custom` (from the moments file) lets each atlas give more room to the centuries it cares about.
+  const anchors = (custom ?? [[from, 0], [0, 0.18], [1000, 0.36], [1500, 0.48], [1800, 0.62], [1900, 0.74], [to, 1]])
     .filter(([y], i, a) => i === 0 || i === a.length - 1 || (y > from && y < to));
   const lerp = (a, b, t) => a + (b - a) * t;
   return {

@@ -1,0 +1,88 @@
+{
+  "id": "lam-dong",
+  "hero": {
+    "file": "Da Lat - Xuan Huong Lake.jpg",
+    "alt": "Xuân Hương Lake in Đà Lạt"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus K'Ho, M'nông, Chăm and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–March: dry, cool and full of flowers",
+    "founded": "Merged with Đắk Nông and Bình Thuận in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Lâm Đồng runs from the cool Lâm Viên plateau, where Đà Lạt lies at about 1,500 m among pine forests, down to the sea. The former Đắk Nông adds volcanic caves and waterfalls, now a UNESCO Global Geopark. The former Bình Thuận adds the coast, with the red and white sand dunes of Mũi Né and the fishing port of Phan Thiết."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In 1893 the scientist Alexandre Yersin explored the Langbiang plateau, and the French later built Đà Lạt as a mountain resort. A rack railway climbed up from the coast in 1932, and the last emperor, Bảo Đại, had a summer palace here. In 1910 the young Ho Chi Minh taught at a school in Phan Thiết before leaving Vietnam."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Đà Lạt is famous for flowers, strawberries, artichoke tea and French villas. The K'Ho people of the plateau keep their gong traditions. Phan Thiết is one of the homes of Vietnamese fish sauce, and dragon fruit grows on the coastal plain."
+    }
+  ],
+  "etiquette": [
+    "Don't pick flowers in public gardens.",
+    "Bring a jacket; nights in Đà Lạt are cool.",
+    "Ask before photographing people in K'Ho villages.",
+    "Stay on paths at waterfalls; rocks are slippery."
+  ],
+  "timeline": [
+    {
+      "year": 1893,
+      "text": "Doctor Alexandre Yersin reaches the Langbiang plateau.",
+      "landmark": "da-lat-railway-station",
+      "era": 0
+    },
+    {
+      "year": 1910,
+      "text": "The young Nguyễn Tất Thành (Ho Chi Minh) teaches at the Dục Thanh school in Phan Thiết."
+    },
+    {
+      "year": 1932,
+      "text": "A rack railway from the coast reaches Đà Lạt.",
+      "landmark": "da-lat-railway-station",
+      "era": 1
+    },
+    {
+      "year": 1938,
+      "text": "Đà Lạt's Art Deco railway station opens.",
+      "landmark": "da-lat-railway-station",
+      "era": 2
+    },
+    {
+      "year": 1972,
+      "approx": true,
+      "text": "Trains stop running on the mountain line because of the war.",
+      "landmark": "da-lat-railway-station",
+      "era": 3
+    },
+    {
+      "year": 1991,
+      "approx": true,
+      "text": "A short heritage line reopens for visitors.",
+      "landmark": "da-lat-railway-station",
+      "era": 4
+    },
+    {
+      "year": 2020,
+      "text": "UNESCO names Đắk Nông a Global Geopark."
+    },
+    {
+      "year": 2025,
+      "text": "Lâm Đồng, Đắk Nông and Bình Thuận merge."
+    },
+    {
+      "year": 2026,
+      "text": "The old station is one of Đà Lạt's favourite photo spots.",
+      "landmark": "da-lat-railway-station",
+      "era": 5
+    }
+  ]
+}

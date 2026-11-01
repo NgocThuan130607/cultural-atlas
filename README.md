@@ -6,8 +6,10 @@ An interactive cultural guide for travellers. Start on a 3D globe, pick a city, 
 - **Story mode**: short narrated chapters on history, legends and culture, with a highlighted transcript.
 - **Visitor guide**: opening hours with a live "Open now" badge (in the landmark's own time zone), etiquette dos and don'ts, local tips, and a filterable map.
 
-The prototype covers six cities, each with one fully built landmark:
-Hanoi (Ho Chi Minh Mausoleum), Paris (Eiffel Tower), Cairo (Pyramids of Giza), Kyoto (Kinkaku-ji), Rome (Colosseum) and New York (Statue of Liberty).
+The globe has two atlases, switched with the **World / Vietnam** buttons:
+
+- **World:** six cities, each with one fully built landmark. They are Hanoi (Ho Chi Minh Mausoleum), Paris (Eiffel Tower), Cairo (Pyramids of Giza), Kyoto (Kinkaku-ji), Rome (Colosseum) and New York (Statue of Liberty).
+- **Vietnam:** all 34 provinces and centrally run cities on the administrative map that took effect on 1 July 2025. Each has a province page, a flagship landmark with Time travel, Stories and Visit tabs, and a timeline for "Through time". Provinces merged in 2025 can also be found by their former names, e.g. "Hà Giang" finds Tuyên Quang.
 
 ## Tech stack
 
@@ -87,7 +89,8 @@ src/
 public/data/
   cities.json             list of cities shown on the globe
   cities/<id>.json        city intro, facts, etiquette, "coming soon" landmarks, timeline
-  world-moments.json      key moments and periods for the world timeline
+  world-moments.json      key moments and periods for the World timeline
+  vietnam-moments.json    key moments, periods and year scale for the Vietnam timeline
   landmarks/<id>.json     eras, story chapters, visitor guide
   media.json              generated: image URLs + credits (don't edit by hand)
 scripts/
@@ -106,6 +109,13 @@ No code changes are needed.
      "tagline": "Where two continents meet", "landmarks": ["hagia-sophia"] }
    ```
    `timezone` must be an IANA name. It drives the local clock and the "Open now" badge.
+   Optional fields:
+   - `collections`: the atlases the place appears in, e.g. `["world"]`, `["vietnam"]` or both. Defaults to `["world"]`.
+   - `region`: needed for atlases with groups, e.g. `"North"`, `"Central"` or `"South"` for Vietnam.
+   - `kind`: `"City"` or `"Province"`. Cities' names win when labels overlap on the map.
+   - `formerly`: older names that search should also find.
+
+   The atlases themselves are defined in `collections` at the top of `cities.json`. Each has a `home` view (plus `bounds` for the 2D map), a moments file for "Through time", its `groups`, and `"cards": "events"` to show floating cards only for places with an event that year.
 
 2. **Create `public/data/cities/istanbul.json`.** Copy an existing city file and change `hero`, `facts`, `sections`, `etiquette` and, optionally, `planned`.
    Also give it a `timeline` for the world timeline. Use about 10–15 entries in year order:
@@ -124,6 +134,7 @@ No code changes are needed.
    | `story[]` | `type` is `history`, `legend` or `culture`. `narration` is read aloud by text-to-speech. Add `"audio": "media/x.mp3"`, `"video": "media/x.mp4"` or `"youtube": "<video id>"` to use real recordings instead. |
    | `guide.hours.seasons[]` | `months` (1–12) plus `days` with `daily` or `mon`…`sun` set to `[["09:00","17:00"]]`. Leave a day out to mark it closed. A closing time earlier than the opening time means "after midnight". |
    | `guide.hours.closedDates` | `["12-25"]` (MM-DD). |
+   | `guide.hours.open24h` | `true` for outdoor places with no gate, such as a bay or a mountain pass. Use it instead of `seasons`. |
    | `guide.pois[]` | `category` is `entrance`, `transport`, `food`, `sights` or `services`. |
 
 4. **Run the helpers:**

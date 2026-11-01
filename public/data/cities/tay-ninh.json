@@ -1,0 +1,69 @@
+{
+  "id": "tay-ninh",
+  "hero": {
+    "file": "Quần thể chùa Thượng ở núi Bà Đen.png",
+    "alt": "Pagodas on Bà Đen mountain"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Khmer",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April",
+    "founded": "Merged with Long An in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Tây Ninh stretches across the plains between Hồ Chí Minh City and Cambodia. Bà Đen, the 'Black Lady' mountain, rises alone from the flat land; at almost 1,000 m it is the highest peak in the south. The former Long An province adds the rice fields and canals of the Vàm Cỏ rivers and part of the Plain of Reeds."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Tây Ninh is the home of Cao Đài, a religion founded in 1926, whose Holy See was built between the 1930s and 1955. The area saw heavy fighting in the wars of the 20th century. Long An, crossed by the main roads into the Mekong Delta, has long been a gateway between Saigon and the delta."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Cao Đài followers dressed in white, and its colourful temples, are a familiar sight here. Bà Đen mountain draws pilgrims, especially at Tết. Tây Ninh is famous for shrimp salt (muối tôm) and for the dew-dried rice paper of Trảng Bàng."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+    "Walk quietly, and let worshippers go first.",
+    "During Cao Đài services, watch quietly from the upper gallery as directed."
+  ],
+  "timeline": [
+    {
+      "year": 1926,
+      "text": "The Cao Đài religion is officially founded in Tây Ninh.",
+      "landmark": "cao-dai-holy-see",
+      "era": 0
+    },
+    {
+      "year": 1933,
+      "text": "Construction of the Cao Đài Holy See begins.",
+      "landmark": "cao-dai-holy-see",
+      "era": 1
+    },
+    {
+      "year": 1955,
+      "text": "The Holy See is inaugurated.",
+      "landmark": "cao-dai-holy-see",
+      "era": 2
+    },
+    {
+      "year": 2020,
+      "text": "A cable car opens to the summit of Bà Đen mountain."
+    },
+    {
+      "year": 2025,
+      "text": "Tây Ninh and Long An merge."
+    },
+    {
+      "year": 2026,
+      "text": "Services are held four times a day at the Holy See.",
+      "landmark": "cao-dai-holy-see",
+      "era": 3
+    }
+  ]
+}

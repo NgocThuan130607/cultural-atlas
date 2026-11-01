@@ -1,0 +1,181 @@
+{
+  "id": "dong-loc-junction",
+  "city": "ha-tinh",
+  "name": "Đồng Lộc Junction",
+  "localName": "Ngã ba Đồng Lộc",
+  "lat": 18.447,
+  "lon": 105.628,
+  "summary": "A crossroads on the wartime supply route that was bombed thousands of times in 1968. A memorial honours ten young volunteers who died here.",
+  "hero": {
+    "file": "Nga Ba Dong Loc.jpg",
+    "alt": "The Đồng Lộc junction memorial"
+  },
+  "eras": [
+    {
+      "year": 1965,
+      "label": "1965",
+      "title": "A crossroads under fire",
+      "text": "Supplies for the South had to pass through Đồng Lộc, where roads met between the hills. American planes tried to cut it again and again, and volunteers worked day and night to fill the craters.",
+      "image": {
+        "file": "Nga Ba Dong Loc.jpg",
+        "alt": "The Đồng Lộc junction"
+      }
+    },
+    {
+      "year": 1968,
+      "label": "24 July 1968",
+      "title": "The ten young women",
+      "text": "On 24 July 1968, a bomb killed ten young women of a volunteer youth squad, aged 17 to 24, as they filled craters on the road. Their leader, Võ Thị Tần, was 24.",
+      "image": {
+        "file": "Tượng đài.jpg",
+        "alt": "The memorial statue at Đồng Lộc"
+      }
+    },
+    {
+      "year": 1996,
+      "label": "1990s",
+      "title": "A memorial on the hill",
+      "text": "After the war a memorial was built at the junction, with the graves of the ten women and a monument to all the young volunteers of the war.",
+      "image": {
+        "file": "Nga Ba Dong Loc.jpg",
+        "alt": "The memorial site"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Incense and flowers",
+      "text": "Visitors come to light incense, and many leave combs, mirrors and flowers on the graves of the young women.",
+      "image": {
+        "file": "Lighting incense at the Dong Loc Junction memorial.jpg",
+        "alt": "Lighting incense at the memorial"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "ten-girls",
+      "type": "history",
+      "title": "The ten girls of Đồng Lộc",
+      "image": {
+        "file": "Tượng đài.jpg",
+        "alt": "The memorial statue"
+      },
+      "narration": "Squad 4 of the volunteer youth at Đồng Lộc was made up of ten young women from the villages nearby. Their job was to keep the road open: filling bomb craters, defusing unexploded bombs and guiding trucks at night. On the afternoon of 24 July 1968, a bomb fell close to their shelter, killing all ten. They were buried together on the hill above the junction. Their letters and diaries, kept in the museum, show how young they were: they wrote about their families, their friends and the future they hoped for."
+    },
+    {
+      "id": "kieu",
+      "type": "culture",
+      "title": "Nguyễn Du and The Tale of Kiều",
+      "image": {
+        "file": "Thiencambeach.jpg",
+        "alt": "The coast of Hà Tĩnh"
+      },
+      "narration": "Nguyễn Du, born in 1765 into a family of mandarins from Tiên Điền, wrote The Tale of Kiều, the masterpiece of Vietnamese literature. In more than 3,000 lines of six-eight verse, it tells of a beautiful, talented young woman who sells herself to save her family and suffers fifteen years of misfortune. Vietnamese people quote it like proverbs, and fortune-tellers even used it to tell the future. His memorial at Tiên Điền attracts visitors from across the country."
+    },
+    {
+      "id": "hong-linh",
+      "type": "legend",
+      "title": "The ninety-nine peaks",
+      "image": {
+        "file": "Nga Ba Dong Loc.jpg",
+        "alt": "The hills of Hà Tĩnh"
+      },
+      "narration": "The Hồng Lĩnh range near the coast is said to have ninety-nine peaks. A legend tells that a flock of a hundred great birds flew south looking for a place to settle. When they reached this land, they liked it so much that they stopped and turned into mountains. But one bird was missing, so the range has only ninety-nine peaks. People say that is why the province never had a king."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Keep your voice low and dress modestly.",
+        "Light incense only where others do so.",
+        "Visit the small museum with the letters and belongings of the volunteers."
+      ],
+      "dont": [
+        "Pose playfully for photos at graves and memorials.",
+        "Step on graves or flowerbeds."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Try kẹo cu đơ candy, and bánh đa vừng (sesame rice crackers)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 20 km from Hà Tĩnh city by road."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "The Nguyễn Du memorial at Tiên Điền, and Thiên Cầm beach."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Đồng Lộc memorial",
+        "category": "entrance",
+        "lat": 18.447,
+        "lon": 105.628,
+        "note": "Approximate."
+      },
+      {
+        "name": "Graves of the ten volunteers",
+        "category": "sights",
+        "lat": 18.4475,
+        "lon": 105.6285,
+        "note": "On the hill. Approximate."
+      },
+      {
+        "name": "Hà Tĩnh city",
+        "category": "transport",
+        "lat": 18.3428,
+        "lon": 105.9057,
+        "note": "Buses."
+      },
+      {
+        "name": "Thiên Cầm beach",
+        "category": "food",
+        "lat": 18.24,
+        "lon": 106.11,
+        "note": "Seafood. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

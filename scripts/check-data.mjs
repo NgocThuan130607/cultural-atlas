@@ -28,12 +28,19 @@ const checkImage = (where, ref) => {
   if (!ref.alt) warn.push(`${where}: image has no alt text`);
 };
 
-const { cities } = await read('cities.json');
+const { cities, collections = [{ id: 'world' }] } = await read('cities.json');
+const colIds = new Set(collections.map((c) => c.id));
 const ids = new Set();
 for (const c of cities) {
   const w = `city "${c.id}"`;
   if (ids.has(c.id)) err(w, 'duplicate id');
   ids.add(c.id);
+  // Atlases ("World", "Vietnam") the city appears in, and its group (North / Central / South) where needed.
+  for (const id of c.collections ?? ['world']) {
+    const col = collections.find((x) => x.id === id);
+    if (!col) err(w, `collection "${id}" is not defined in cities.json "collections"`);
+    else if (col.groups && !col.groups.includes(c.region)) err(w, `"region" must be one of ${col.groups.join(', ')} for the ${id} atlas`);
+  }
   for (const k of ['name', 'country', 'continent', 'timezone', 'tagline']) if (!c[k]) err(w, `missing "${k}"`);
   if (!isCoord(c.lat, c.lon)) err(w, 'invalid lat/lon');
   try { new Intl.DateTimeFormat('en', { timeZone: c.timezone }); } catch { err(w, `unknown timezone "${c.timezone}"`); }
@@ -87,7 +94,8 @@ for (const c of cities) {
 
     const g = lm.guide;
     if (!g) { err(lw, 'missing guide'); continue; }
-    if (!g.hours?.seasons?.length) err(lw, 'guide.hours.seasons is empty');
+    // Outdoor places can use { "open24h": true } instead of seasons.
+    if (!g.hours?.open24h && !g.hours?.seasons?.length) err(lw, 'guide.hours needs "seasons" or "open24h": true');
     const months = new Set();
     g.hours?.seasons?.forEach((s, i) => {
       s.months.forEach((m) => { if (months.has(m)) err(`${lw} hours`, `month ${m} is in two seasons`); months.add(m); });
@@ -96,7 +104,7 @@ for (const c of cities) {
         list.forEach(([o, cl]) => { if (!TIME.test(o) || !TIME.test(cl)) err(`${lw} hours season ${i + 1}`, `bad time "${o}-${cl}" (use HH:MM)`); });
       }
     });
-    if (months.size !== 12) warn.push(`${lw}: hours cover ${months.size} of 12 months`);
+    if (!g.hours?.open24h && months.size !== 12) warn.push(`${lw}: hours cover ${months.size} of 12 months`);
     g.pois?.forEach((p) => {
       if (!CATEGORIES.includes(p.category)) err(`${lw} poi "${p.name}"`, `category must be one of ${CATEGORIES.join(', ')}`);
       if (!isCoord(p.lat, p.lon)) err(`${lw} poi "${p.name}"`, 'invalid lat/lon');
@@ -104,20 +112,27 @@ for (const c of cities) {
   }
 }
 
-// Moments and periods for "The world in one year".
-if (await exists('world-moments.json')) {
-  const wm = await read('world-moments.json');
-  const { from, to } = wm.range ?? {};
-  if (typeof from !== 'number' || typeof to !== 'number' || from >= to) err('world-moments.json', '"range" needs numeric from < to');
+// Moments and periods for "Through time", one file per atlas.
+for (const col of collections) {
+  const file = col.moments ?? (col.id === 'world' ? 'world-moments.json' : null);
+  if (!file) continue;
+  if (!(await exists(file))) { warn.push(`${file} missing: "Through time" will be hidden in the ${col.id} atlas`); continue; }
+  const wm = await read(file);
+  const { from, to, anchors } = wm.range ?? {};
+  if (typeof from !== 'number' || typeof to !== 'number' || from >= to) err(file, '"range" needs numeric from < to');
+  if (anchors && anchors.some(([y, p], i) => i && (y <= anchors[i - 1][0] || p <= anchors[i - 1][1]))) err(file, '"range.anchors" must increase in both year and position');
   wm.moments?.forEach((m, i) => {
-    const mw = `world-moments.json moment ${i + 1}`;
+    const mw = `${file} moment ${i + 1}`;
     if (typeof m.year !== 'number' || m.year < from || m.year > to) err(mw, '"year" must be a number inside "range"');
     if (i && m.year <= wm.moments[i - 1].year) err(mw, 'moments must be in increasing year order');
     if (!m.title) err(mw, 'missing "title"');
     if (m.focusCity && !ids.has(m.focusCity)) err(mw, `focusCity "${m.focusCity}" is not in cities.json`);
+    if (m.focusCity && ids.has(m.focusCity) && !(cities.find((c) => c.id === m.focusCity).collections ?? ['world']).includes(col.id)) {
+      err(mw, `focusCity "${m.focusCity}" is not part of the ${col.id} atlas`);
+    }
   });
-  if (!wm.periods?.length) err('world-moments.json', 'needs at least one period');
-} else warn.push('world-moments.json missing: the "Through time" button will be hidden');
+  if (!wm.periods?.length) err(file, 'needs at least one period');
+}
 
 warn.forEach((w) => console.warn('warning  ' + w));
 if (errors.length) {

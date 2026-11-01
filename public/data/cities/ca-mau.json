@@ -1,0 +1,78 @@
+{
+  "id": "ca-mau",
+  "hero": {
+    "file": "Bạc Liêu windpower farm.jpg",
+    "alt": "Wind turbines on the coast of Bạc Liêu"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Khmer and Chinese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April",
+    "founded": "Merged with Bạc Liêu in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Cà Mau is Vietnam's southernmost province, a flat peninsula of mangroves, canals and the peat forest of U Minh. At the tip, Mũi Cà Mau, mud carried by the sea collects among mangrove roots. The former Bạc Liêu province adds salt fields, shrimp farms and wind turbines standing in the sea."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The French created Bạc Liêu province in 1882. In 1919 the Bạc Liêu musician Cao Văn Lầu composed 'Dạ cổ hoài lang', which grew into vọng cổ, the heart of southern opera. During the wars of the 20th century, the U Minh forest was a resistance base."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "People of the far south are known for their easy-going generosity. Bạc Liêu is proud of its music and of the legends of its playboy 'prince'. Cà Mau is famous for crabs, shrimp and dried fish."
+    }
+  ],
+  "etiquette": [
+    "Wear a hat and sunscreen; boats have little shade.",
+    "Wear a life jacket on small boats.",
+    "Stay on boardwalks in the mangroves; the mud is deep."
+  ],
+  "timeline": [
+    {
+      "year": 1700,
+      "approx": true,
+      "text": "European sea charts begin to show the Cà Mau peninsula.",
+      "landmark": "ca-mau-cape",
+      "era": 1
+    },
+    {
+      "year": 1882,
+      "text": "The French create Bạc Liêu province."
+    },
+    {
+      "year": 1919,
+      "text": "In Bạc Liêu, Cao Văn Lầu composes \"Dạ cổ hoài lang\", the root of vọng cổ."
+    },
+    {
+      "year": 2003,
+      "text": "Mũi Cà Mau National Park is created.",
+      "landmark": "ca-mau-cape",
+      "era": 2
+    },
+    {
+      "year": 2009,
+      "text": "UNESCO names the Mũi Cà Mau Biosphere Reserve.",
+      "landmark": "ca-mau-cape",
+      "era": 3
+    },
+    {
+      "year": 2013,
+      "text": "UNESCO lists the đờn ca tài tử music of southern Vietnam."
+    },
+    {
+      "year": 2025,
+      "text": "Cà Mau and Bạc Liêu merge."
+    },
+    {
+      "year": 2026,
+      "text": "Visitors stand at the southern tip of the mainland.",
+      "landmark": "ca-mau-cape",
+      "era": 4
+    }
+  ]
+}

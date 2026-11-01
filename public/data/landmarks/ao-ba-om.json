@@ -1,0 +1,182 @@
+{
+  "id": "ao-ba-om",
+  "city": "vinh-long",
+  "name": "Ao Bà Om & Âng Pagoda",
+  "localName": "Ao Bà Om – Chùa Âng",
+  "lat": 9.918,
+  "lon": 106.307,
+  "summary": "A square lake ringed by ancient trees outside Trà Vinh, beside one of the oldest Khmer pagodas in the Mekong Delta. It is the heart of Khmer festivals each year.",
+  "hero": {
+    "file": "Ao Bà Om, Trà Vinh.jpg",
+    "alt": "Ao Bà Om lake"
+  },
+  "eras": [
+    {
+      "year": 990,
+      "label": "c. 990",
+      "title": "An ancient pagoda",
+      "text": "Âng Pagoda, beside the lake, is said to have been founded more than a thousand years ago. It has been rebuilt many times, but remains a centre of Khmer Buddhism.",
+      "image": {
+        "file": "Chùa Âng.jpg",
+        "alt": "Âng Pagoda"
+      }
+    },
+    {
+      "year": 1800,
+      "label": "Long ago",
+      "title": "Trees with roots in the air",
+      "text": "Huge dầu trees, centuries old, surround the lake. Their roots rise from the ground in twisted shapes, which local people liken to animals and spirits.",
+      "image": {
+        "file": "Cổ thụ ở ao Bà Ôm.jpg",
+        "alt": "An old tree at Ao Bà Om"
+      }
+    },
+    {
+      "year": 1997,
+      "label": "1990s",
+      "title": "A museum of Khmer culture",
+      "text": "A museum next to the lake displays Khmer musical instruments, costumes, boats and everyday objects of the delta's Khmer communities.",
+      "image": {
+        "file": "Bảo tàng văn hóa dân tộc Khmer tỉnh Trà Vinh.jpg",
+        "alt": "The museum of Khmer culture"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The moon festival",
+      "text": "Each autumn the lake fills with people for Ok Om Bok, with lanterns, music and food, while long ngo boats race on the river nearby.",
+      "image": {
+        "file": "Ao Bà Om.jpg",
+        "alt": "Ao Bà Om"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "contest",
+      "type": "legend",
+      "title": "The digging contest",
+      "image": {
+        "file": "Ao Bà Om, Trà Vinh.jpg",
+        "alt": "Ao Bà Om lake"
+      },
+      "narration": "Long ago, the legend says, the men and women of the area argued about which of them should propose marriage. They agreed on a contest: each side would dig a pond in one night, and whoever dug the bigger one would win. The women, led by a clever woman named Om, raised a lantern on a tall pole in the middle of the night. The men thought it was the morning star, stopped work and went to sleep. The women kept digging, and their pond was far larger. Since then, the story goes, the men have had to propose. The women's pond became Ao Bà Om, 'Lady Om's pond'."
+    },
+    {
+      "id": "ok-om-bok",
+      "type": "culture",
+      "title": "Ok Om Bok, the moon festival",
+      "image": {
+        "file": "Ao Bà Om.jpg",
+        "alt": "Ao Bà Om"
+      },
+      "narration": "On the full moon of the tenth month of the Khmer calendar, the Khmer of the delta thank the moon for the harvest. Families set out offerings of fruit, coconuts and cốm dẹp, flattened sticky rice, and children are fed handfuls of it while making wishes. Lanterns are floated on the water. In Trà Vinh and Sóc Trăng, the festival also brings races of ngo boats, long and narrow, paddled by dozens of rowers to the beat of drums."
+    },
+    {
+      "id": "pagoda",
+      "type": "culture",
+      "title": "Inside Âng Pagoda",
+      "image": {
+        "file": "Chùa Âng.jpg",
+        "alt": "Âng Pagoda"
+      },
+      "narration": "Khmer pagodas follow Theravada Buddhism, like those of Cambodia and Thailand. Âng Pagoda has steep, layered roofs, mythical bird-women carved on the pillars, and wall paintings of the life of the Buddha. Traditionally, Khmer boys spend some time as novice monks, learning to read and write Khmer and to follow the Buddha's teachings. The pagoda is also a school and a meeting place for the whole community."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+        "Walk quietly, and let worshippers go first.",
+        "Visit the Khmer culture museum by the lake."
+      ],
+      "dont": [
+        "Point your feet at altars or monks.",
+        "Photograph people who are praying without asking.",
+        "Climb on the roots of the old trees."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Bún nước lèo (Khmer fish noodle soup) in Trà Vinh, and coconut candy from Bến Tre."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 5 km from Trà Vinh city."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Other Khmer pagodas of Trà Vinh, and the coconut islands of Bến Tre."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Ao Bà Om",
+        "category": "entrance",
+        "lat": 9.918,
+        "lon": 106.307,
+        "note": "Approximate."
+      },
+      {
+        "name": "Âng Pagoda",
+        "category": "sights",
+        "lat": 9.9165,
+        "lon": 106.306,
+        "note": "Approximate."
+      },
+      {
+        "name": "Khmer culture museum",
+        "category": "sights",
+        "lat": 9.9185,
+        "lon": 106.308,
+        "note": "Approximate."
+      },
+      {
+        "name": "Trà Vinh city",
+        "category": "transport",
+        "lat": 9.9347,
+        "lon": 106.3456,
+        "note": "Buses."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

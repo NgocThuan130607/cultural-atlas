@@ -1,0 +1,87 @@
+{
+  "id": "tuyen-quang",
+  "hero": {
+    "file": "Dốc Thẩm Mã 2022 - NKS.jpg",
+    "alt": "A road winding through the Hà Giang highlands"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Tày, Hmong, Dao and other languages",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "October–November (buckwheat flowers) and March–April",
+    "founded": "A province since 1831; merged with Hà Giang in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Tuyên Quang stretches from the forested valleys of the Lô and Gâm rivers up to Vietnam's northern tip. Its northern half, the former Hà Giang province, is a high limestone plateau of jagged peaks and deep gorges, crossed by some of the country's most dramatic mountain roads."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "During the 1940s the forests around Tân Trào sheltered the leaders of the independence movement. In August 1945 the National Congress met there and launched the August Revolution, and during the war against France the area was part of the hidden 'safe zone'. The border highlands to the north saw heavy fighting with China in the 1980s."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "More than twenty ethnic groups live here, including the Tày, Hmong, Dao, Nùng and Lô Lô. Weekly markets in the mountains are social events as much as trading days. Tuyên Quang city is famous for its Mid-Autumn lantern festival, and Tày 'then' singing, recognised by UNESCO, is still performed at village ceremonies."
+    }
+  ],
+  "etiquette": [
+    "Ask before photographing people at markets.",
+    "Take off your shoes before climbing into a stilt house.",
+    "Accept a cup of tea or corn wine with both hands, even if you only take a sip.",
+    "Keep your voice down near village altars and spirit gates."
+  ],
+  "timeline": [
+    {
+      "year": 1831,
+      "text": "Emperor Minh Mạng reorganises the country into provinces, and Tuyên Quang becomes one of them."
+    },
+    {
+      "year": 1885,
+      "text": "After a siege of more than three months, French troops hold on to the citadel of Tuyên Quang."
+    },
+    {
+      "year": 1910,
+      "approx": true,
+      "text": "The Hmong leader Vương Chính Đức builds his fortified mansion in the Sà Phìn valley.",
+      "landmark": "dong-van-karst-plateau",
+      "era": 1
+    },
+    {
+      "year": 1945,
+      "text": "In August the National Congress at Tân Trào launches the August Revolution."
+    },
+    {
+      "year": 1947,
+      "text": "The leaders of the resistance move into the forest \"safe zone\" of Tuyên Quang and Thái Nguyên."
+    },
+    {
+      "year": 1959,
+      "text": "Volunteers begin cutting the Happiness Road across the Đồng Văn plateau.",
+      "landmark": "dong-van-karst-plateau",
+      "era": 2
+    },
+    {
+      "year": 1984,
+      "text": "Fighting breaks out on the Vị Xuyên front along the Hà Giang border and lasts until 1989."
+    },
+    {
+      "year": 2010,
+      "text": "UNESCO recognises the Đồng Văn Karst Plateau as a Global Geopark.",
+      "landmark": "dong-van-karst-plateau",
+      "era": 3
+    },
+    {
+      "year": 2025,
+      "text": "Tuyên Quang and Hà Giang merge into one province."
+    },
+    {
+      "year": 2026,
+      "text": "Travellers ride the mountain loop north of Hà Giang to the Lũng Cú flag tower.",
+      "landmark": "dong-van-karst-plateau",
+      "era": 4
+    }
+  ]
+}

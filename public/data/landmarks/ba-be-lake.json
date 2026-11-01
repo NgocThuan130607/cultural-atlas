@@ -1,0 +1,190 @@
+{
+  "id": "ba-be-lake",
+  "city": "thai-nguyen",
+  "name": "Ba Bể Lake",
+  "localName": "Hồ Ba Bể",
+  "lat": 22.4053,
+  "lon": 105.6153,
+  "summary": "Vietnam's largest natural freshwater lake, held between limestone mountains in Ba Bể National Park, with Tày villages of stilt houses along its shores.",
+  "hero": {
+    "file": "Babenp 2007 01 3.jpg",
+    "alt": "Ba Bể Lake between forested mountains"
+  },
+  "eras": [
+    {
+      "year": -1000000,
+      "label": "Long ago",
+      "title": "A lake among the karst",
+      "text": "Ba Bể formed when rivers carved into the limestone and the land between the mountains sank, trapping the water. The name means 'three lakes': three connected basins, together about 8 km long.",
+      "image": {
+        "file": "Ba Be Lake 6464.jpg",
+        "alt": "The long lake between limestone hills"
+      }
+    },
+    {
+      "year": 1992,
+      "label": "1992",
+      "title": "A national park",
+      "text": "The lake and the forests around it became a national park. It protects rare animals and plants that live in the forested limestone hills.",
+      "image": {
+        "file": "Ba Be Lake 2.jpg",
+        "alt": "Forest and water in Ba Bể National Park"
+      }
+    },
+    {
+      "year": 2011,
+      "label": "2011",
+      "title": "A wetland of the world",
+      "text": "Ba Bể was listed under the Ramsar Convention as a wetland of international importance, one of the first in Vietnam.",
+      "image": {
+        "file": "Ba Be Lake 3.jpg",
+        "alt": "Calm water on Ba Bể Lake"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Homestays on the shore",
+      "text": "Today visitors stay with Tày families in the village of Pác Ngòi. They take boats across the lake to Puông Cave, the Đầu Đẳng waterfall and the little 'Widow's Island'.",
+      "image": {
+        "file": "Ba Be Lake 9.jpg",
+        "alt": "Boats on Ba Bể Lake"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "widow",
+      "type": "legend",
+      "title": "The widow's island",
+      "image": {
+        "file": "Ba Be Lake 8.jpg",
+        "alt": "A small island in Ba Bể Lake"
+      },
+      "narration": "Long ago, the story goes, there was a village festival in this valley. An old beggar covered in sores came asking for food, and everyone turned him away except a poor widow and her children, who shared their rice with him. Before he left, he warned her that a flood was coming, and gave her a grain of rice and two husks. That night water burst from the ground and swallowed the village, and the valley became a lake. The widow sheltered on a patch of land that stayed above the water. A small islet in the lake is still called Pò Giá Mải, the Widow's Island."
+    },
+    {
+      "id": "pac-ngoi",
+      "type": "culture",
+      "title": "Life in Pác Ngòi",
+      "image": {
+        "file": "Ba Be Lake 9.jpg",
+        "alt": "Boats on Ba Bể Lake"
+      },
+      "narration": "On the southern shore, the Tày village of Pác Ngòi is a cluster of wooden stilt houses among rice fields. Families live upstairs, and the space underneath was traditionally used for animals and tools. Many houses now welcome guests for the night, serving fish from the lake, bamboo-tube rice and local wine. In the evenings you may hear 'then' singing, accompanied by the long-necked tính lute. This ritual music was listed by UNESCO in 2019."
+    },
+    {
+      "id": "puong",
+      "type": "culture",
+      "title": "Through the mountain by boat",
+      "image": {
+        "file": "Ba Be Lake 2.jpg",
+        "alt": "Forest and water in Ba Bể National Park"
+      },
+      "narration": "The Năng River flows into the lake from the north. To get there it passes straight through a mountain, in a huge cave called Puông. Boats glide beneath its ceiling, where colonies of bats live among the stalactites. Further on, the river tumbles over the rocks of the Đầu Đẳng waterfall. A day on the water, moving between cave, river and lake, is the classic way to see the national park."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "National park entry ticket, plus a boat you hire for your group. A boat to Puông Cave and Đầu Đẳng waterfall takes about 3–4 hours.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Boat trips run in daylight only; the lake shore and villages are always open."
+    },
+    "etiquette": {
+      "do": [
+        "Stay overnight in a homestay to see the lake at dawn.",
+        "Wear a life jacket on the boats.",
+        "Bring insect repellent and shoes that can get wet.",
+        "Agree the boat route and price before you set off."
+      ],
+      "dont": [
+        "Swim far from the shore. The lake is deep and cold.",
+        "Disturb the bats in Puông Cave with flash photography.",
+        "Leave plastic on the islands or in the water."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Lake food",
+        "text": "Try grilled fish from the lake, bamboo-tube rice (cơm lam) and smoked pork in a Tày homestay."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 5 hours by road from Hà Nội. Homestays can arrange a pick-up from Chợ Rã town."
+      },
+      {
+        "category": "sights",
+        "title": "On the water",
+        "text": "A half-day boat trip covers Puông Cave, Đầu Đẳng waterfall and the Widow's Island."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Park office & boat pier",
+        "category": "entrance",
+        "lat": 22.418,
+        "lon": 105.622,
+        "note": "Tickets and boats. Approximate."
+      },
+      {
+        "name": "Pác Ngòi village",
+        "category": "food",
+        "lat": 22.411,
+        "lon": 105.628,
+        "note": "Tày homestays and meals. Approximate."
+      },
+      {
+        "name": "Widow's Island (Pò Giá Mải)",
+        "category": "sights",
+        "lat": 22.405,
+        "lon": 105.616,
+        "note": "Tiny island from the legend. Approximate."
+      },
+      {
+        "name": "Puông Cave",
+        "category": "sights",
+        "lat": 22.452,
+        "lon": 105.637,
+        "note": "Reached by boat along the Năng River. Approximate."
+      },
+      {
+        "name": "Chợ Rã town",
+        "category": "transport",
+        "lat": 22.457,
+        "lon": 105.72,
+        "note": "Nearest town and buses. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

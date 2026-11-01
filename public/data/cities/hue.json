@@ -1,0 +1,93 @@
+{
+  "id": "hue",
+  "hero": {
+    "file": "Thành phố Huế nhìn từ trên cao (2).jpg",
+    "alt": "Huế seen from the Perfume River"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "February–April; heavy rain falls in October–November",
+    "founded": "Capital of the Nguyễn dynasty from 1802; a centrally run city since 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Huế lies on the Perfume River, a few kilometres from the sea, with the Tam Giang lagoon to the north and the Bạch Mã mountains to the south. Its climate is wet: the rains of autumn often flood the old city."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The Nguyễn lords made Phú Xuân, today's Huế, their capital in 1687. In 1802 Gia Long united Vietnam and made Huế the capital of the Nguyễn dynasty, the country's last. It remained the imperial capital until Emperor Bảo Đại abdicated in 1945. Much of the old city was destroyed in the fighting of 1968. In 1993 its monuments became Vietnam's first World Heritage Site."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Huế is known for refined court culture: royal music (nhã nhạc, listed by UNESCO), imperial cuisine and the slow pace of life. Bún bò Huế, the spicy beef noodle soup, comes from here, and the purple áo dài of Huế schoolgirls is famous."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk quietly, and let worshippers go first.",
+    "Dress modestly in the palace and at the royal tombs."
+  ],
+  "timeline": [
+    {
+      "year": 1306,
+      "text": "The Cham king gives the lands around Huế to Đại Việt as a dowry for Princess Huyền Trân."
+    },
+    {
+      "year": 1601,
+      "text": "The Thiên Mụ Pagoda is built on the bank of the Perfume River."
+    },
+    {
+      "year": 1687,
+      "text": "The Nguyễn lords move their capital to Phú Xuân."
+    },
+    {
+      "year": 1802,
+      "text": "Gia Long unites the country and makes Huế the capital of the Nguyễn dynasty.",
+      "landmark": "hue-imperial-city",
+      "era": 0
+    },
+    {
+      "year": 1833,
+      "text": "The Meridian Gate (Ngọ Môn) is built.",
+      "landmark": "hue-imperial-city",
+      "era": 1
+    },
+    {
+      "year": 1885,
+      "text": "The young emperor Hàm Nghi flees the capital and calls for resistance against France."
+    },
+    {
+      "year": 1926,
+      "text": "Bảo Đại, the last emperor, is enthroned.",
+      "landmark": "hue-imperial-city",
+      "era": 2
+    },
+    {
+      "year": 1945,
+      "text": "Bảo Đại abdicates at the Meridian Gate on 30 August.",
+      "landmark": "hue-imperial-city",
+      "era": 3
+    },
+    {
+      "year": 1968,
+      "text": "Fierce fighting during the Tết Offensive destroys much of the citadel.",
+      "landmark": "hue-imperial-city",
+      "era": 4
+    },
+    {
+      "year": 1993,
+      "text": "UNESCO lists the Complex of Huế Monuments.",
+      "landmark": "hue-imperial-city",
+      "era": 5
+    },
+    {
+      "year": 2025,
+      "text": "Huế becomes a centrally run city."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "id": "chi-lang-pass",
+  "city": "lang-son",
+  "name": "Chi Lăng Pass",
+  "localName": "Ải Chi Lăng",
+  "lat": 21.667,
+  "lon": 106.667,
+  "summary": "A narrow valley on the old road from China to Thăng Long. For a thousand years, Vietnamese armies ambushed invaders here.",
+  "hero": {
+    "file": "AiChiLang.JPG",
+    "alt": "The Chi Lăng valley"
+  },
+  "eras": [
+    {
+      "year": -1000000,
+      "label": "Long ago",
+      "title": "A natural trap",
+      "text": "The valley of Chi Lăng is several kilometres long and only a few hundred metres wide in places, hemmed in by limestone cliffs and the Thương River. An army marching through it is stretched out and easy to attack from the hills.",
+      "image": {
+        "file": "Chi Lăng 1.jpg",
+        "alt": "Limestone hills around Chi Lăng"
+      }
+    },
+    {
+      "year": 981,
+      "label": "981",
+      "title": "Lê Hoàn's ambush",
+      "text": "When a Song army invaded from the north, the Vietnamese ruler Lê Hoàn lured its land forces into the Chi Lăng valley and defeated them. The Song general Hầu Nhân Bảo was killed.",
+      "image": {
+        "file": "Chi Lăng 2.jpg",
+        "alt": "The valley floor at Chi Lăng"
+      }
+    },
+    {
+      "year": 1427,
+      "label": "1427",
+      "title": "The fall of Liễu Thăng",
+      "text": "In 1427 a large Ming relief army marched south to save the Ming troops besieged by Lê Lợi. In the hills around Chi Lăng, Vietnamese forces ambushed it and killed its commander, Liễu Thăng. Within months the Ming withdrew, ending twenty years of occupation.",
+      "image": {
+        "file": "Tuong dai chien thang Chi Lang.JPG",
+        "alt": "The Chi Lăng victory monument"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Memory in the valley",
+      "text": "Today a monument and temples stand in the valley, and the railway and highway to the border run past them. The name Chi Lăng is a byword in Vietnam for a place where invaders were defeated.",
+      "image": {
+        "file": "AiChiLang.JPG",
+        "alt": "The Chi Lăng valley"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "lieu-thang",
+      "type": "history",
+      "title": "The ambush of 1427",
+      "image": {
+        "file": "Tuong dai chien thang Chi Lang.JPG",
+        "alt": "The Chi Lăng victory monument"
+      },
+      "narration": "By 1427, Lê Lợi's army had trapped the Ming forces in the citadels of the delta. The Ming emperor sent a huge relief army south through Lạng Sơn under General Liễu Thăng. Lê Lợi's commanders waited in the hills. They drew the advance guard into the narrow valley, and near Mã Yên mountain they killed Liễu Thăng and scattered his troops. The rest of the relief army was defeated soon after. Within months the Ming commanders agreed to leave, and the next year Lê Lợi founded the Lê dynasty."
+    },
+    {
+      "id": "quy-mon",
+      "type": "legend",
+      "title": "The Gate of Ghosts",
+      "image": {
+        "file": "Quymon.JPG",
+        "alt": "The Quỷ Môn gate area"
+      },
+      "narration": "On the old road north there was a pass known as Quỷ Môn Quan, the Gate of Ghosts. An old saying warned that of ten men who went through it, only one would come back. For Chinese soldiers and officials marching south, it marked the start of a dangerous, malaria-ridden land. For Vietnamese, it was a reminder that the mountains themselves had defended the country."
+    },
+    {
+      "id": "to-thi",
+      "type": "legend",
+      "title": "The woman who waited",
+      "image": {
+        "file": "Mẫu Sơn.jpg",
+        "alt": "Mountains of Lạng Sơn"
+      },
+      "narration": "In Lạng Sơn city, a rock on a mountainside is said to be a woman holding her child. The legend says that her husband went off to war and never came back. Every day she climbed the mountain with her baby to watch the road, until both slowly turned to stone. Her name was Tô Thị. The rock fell in 1991 and was later restored, and the story is still told to visitors as a symbol of faithfulness."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free to visit the valley and monument.",
+    "hours": {
+      "open24h": true,
+      "notes": "The monument area is open; small temples nearby open in the daytime."
+    },
+    "etiquette": {
+      "do": [
+        "Combine Chi Lăng with Lạng Sơn city on the drive to the border.",
+        "Dress modestly at the temples.",
+        "Bring water and sun protection.",
+        "Use a local guide to find the old battle sites."
+      ],
+      "dont": [
+        "Climb on the monument.",
+        "Wander along the railway line.",
+        "Leave rubbish at the memorial."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Lạng Sơn food",
+        "text": "Roast pork with mắc mật leaves, and phở chua (sour phở) are local favourites."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 2 hours from Hà Nội on the expressway to Lạng Sơn; trains on the Hà Nội–Đồng Đăng line pass through Chi Lăng."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "In Lạng Sơn city: the Tam Thanh and Nhị Thanh caves, and the Kỳ Lừa night market."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Chi Lăng victory monument",
+        "category": "sights",
+        "lat": 21.667,
+        "lon": 106.667,
+        "note": "Approximate location."
+      },
+      {
+        "name": "Chi Lăng railway station",
+        "category": "transport",
+        "lat": 21.665,
+        "lon": 106.62,
+        "note": "Approximate."
+      },
+      {
+        "name": "Tam Thanh cave (Lạng Sơn city)",
+        "category": "sights",
+        "lat": 21.8601,
+        "lon": 106.7406,
+        "note": "Cave temple in the city. Approximate."
+      },
+      {
+        "name": "Kỳ Lừa market (Lạng Sơn city)",
+        "category": "food",
+        "lat": 21.859,
+        "lon": 106.76,
+        "note": "Busy market with local food. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

@@ -1,0 +1,82 @@
+{
+  "id": "quang-tri",
+  "hero": {
+    "file": "Thành cổ Quảng Trị Foto.jpg",
+    "alt": "The old citadel of Quảng Trị"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Bru-Vân Kiều and others in the mountains",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "March–August, the dry season for caves",
+    "founded": "Merged with Quảng Bình in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Quảng Trị includes the former Quảng Bình province. It runs from the Hoành Sơn pass in the north to near Huế, at Vietnam's narrowest point. The limestone of Phong Nha–Kẻ Bàng hides some of the world's largest caves. Further south, the Bến Hải River flows to the sea along the 17th parallel."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In the 17th century, the Nguyễn lords built long walls near Đồng Hới against the Trịnh in the north. From 1954 to 1975, the Bến Hải River was the line dividing North and South Vietnam, and the area around it saw some of the war's heaviest fighting, including the 81-day battle for the Quảng Trị citadel in 1972."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "La Vang, a Marian shrine, draws Catholic pilgrims from across Vietnam. The Bru-Vân Kiều people live in the western mountains. Đồng Hới is known for fresh seafood and cháo canh noodle soup."
+    }
+  ],
+  "etiquette": [
+    "Keep your voice low and dress modestly.",
+    "Light incense only where others do so.",
+    "Book cave tours with licensed operators; some caves can only be visited with a guide."
+  ],
+  "timeline": [
+    {
+      "year": 1630,
+      "approx": true,
+      "text": "The Nguyễn lords build the Lũy Thầy walls near Đồng Hới against the Trịnh."
+    },
+    {
+      "year": 1954,
+      "text": "The Geneva Accords make the Bến Hải River the line dividing North and South.",
+      "landmark": "hien-luong-bridge",
+      "era": 0
+    },
+    {
+      "year": 1967,
+      "text": "Bombing wrecks the Hiền Lương Bridge; villagers live underground in the Vĩnh Mốc tunnels.",
+      "landmark": "hien-luong-bridge",
+      "era": 2
+    },
+    {
+      "year": 1972,
+      "text": "The citadel of Quảng Trị is fought over for 81 days and nights."
+    },
+    {
+      "year": 1975,
+      "text": "The country is reunified and the dividing line disappears.",
+      "landmark": "hien-luong-bridge",
+      "era": 3
+    },
+    {
+      "year": 2003,
+      "text": "UNESCO lists Phong Nha–Kẻ Bàng National Park."
+    },
+    {
+      "year": 2009,
+      "text": "Explorers survey Sơn Đoòng, one of the largest caves in the world."
+    },
+    {
+      "year": 2025,
+      "text": "Quảng Trị and Quảng Bình merge."
+    },
+    {
+      "year": 2026,
+      "text": "A monument to reunification stands on the south bank.",
+      "landmark": "hien-luong-bridge",
+      "era": 4
+    }
+  ]
+}

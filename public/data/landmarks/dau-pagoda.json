@@ -1,0 +1,182 @@
+{
+  "id": "dau-pagoda",
+  "city": "bac-ninh",
+  "name": "Dâu Pagoda",
+  "localName": "Chùa Dâu (Pháp Vân tự)",
+  "lat": 21.0372,
+  "lon": 106.0416,
+  "summary": "One of the oldest Buddhist centres in Vietnam, in the old citadel of Luy Lâu. It is dedicated to the goddess of clouds and rain.",
+  "hero": {
+    "file": "ChuaDau ToanCanh.JPG",
+    "alt": "Dâu Pagoda"
+  },
+  "eras": [
+    {
+      "year": 200,
+      "label": "c. 200 CE",
+      "title": "Buddhism comes to Luy Lâu",
+      "text": "Around the 2nd and 3rd centuries, monks from India and Central Asia came to Luy Lâu, then the capital of Chinese-ruled Giao Chỉ. They translated sutras and built some of the first Buddhist temples in the region.",
+      "image": {
+        "file": "ChuaDau PhapVu.JPG",
+        "alt": "A Buddhist statue at Dâu Pagoda"
+      }
+    },
+    {
+      "year": 1313,
+      "label": "1313",
+      "title": "Rebuilt under the Trần",
+      "text": "In 1313 the scholar Mạc Đĩnh Chi rebuilt the pagoda on a grand scale, with halls, galleries and a tower. Much of today's layout follows that plan.",
+      "image": {
+        "file": "Tượng Mạc Đĩnh Chi.jpeg",
+        "alt": "Statue of Mạc Đĩnh Chi"
+      }
+    },
+    {
+      "year": 1700,
+      "label": "Lê dynasty",
+      "title": "The Hòa Phong tower",
+      "text": "The brick tower of Hòa Phong, which stands at the entrance, dates from the Lê dynasty. Only three of its storeys have survived the centuries.",
+      "image": {
+        "file": "ChuaDau Thap.JPG",
+        "alt": "The Hòa Phong tower"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Prayers for rain",
+      "text": "The pagoda is still active. Its statue of Pháp Vân, the goddess of clouds, is carried in procession during the Dâu festival on the 8th day of the fourth lunar month.",
+      "image": {
+        "file": "ChuaDau Chinh.JPG",
+        "alt": "The main hall of Dâu Pagoda"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "four-goddesses",
+      "type": "legend",
+      "title": "The goddesses of cloud, rain, thunder and lightning",
+      "image": {
+        "file": "ChuaDau PhapVan.JPG",
+        "alt": "The statue of Pháp Vân"
+      },
+      "narration": "Long ago, the legend says, a young woman named Man Nương lived near Luy Lâu and served an Indian monk called Khâu Đà La. She gave birth to a daughter, whom the monk placed inside a hollow tree. Years later, a storm brought the tree down into the river, and it floated to the citadel. People carved it into four statues: the goddesses of clouds, rain, thunder and lightning. The four pagodas that house them have been prayed to for rain ever since. Dâu Pagoda holds Pháp Vân, the goddess of clouds."
+    },
+    {
+      "id": "luy-lau",
+      "type": "history",
+      "title": "Luy Lâu, the first city",
+      "image": {
+        "file": "ChuaDau PhapVu.JPG",
+        "alt": "A statue at Dâu Pagoda"
+      },
+      "narration": "Two thousand years ago, the citadel of Luy Lâu stood here, surrounded by earthen walls. It was the seat of the Chinese governors of Giao Chỉ, the best known being Shi Xie (Sĩ Nhiếp in Vietnamese), who ruled around 200 CE. Merchants arrived by river and by sea, and with them came Buddhist monks from India. Some historians think Luy Lâu was a centre of Buddhism even before the faith became widespread in China. Traces of the old walls can still be seen near the pagoda."
+    },
+    {
+      "id": "quan-ho",
+      "type": "culture",
+      "title": "Quan họ: songs across the water",
+      "image": {
+        "file": "Trung tâm văn hóa Kinh Bắc.jpg",
+        "alt": "Kinh Bắc"
+      },
+      "narration": "Quan họ is sung by pairs of men and women, called liền anh and liền chị, from different villages. They answer each other in song, matching tune and rhyme, sometimes from boats on a pond. The singers wear traditional dress: turbans and long gowns for the men, and wide flat hats and layered áo tứ thân for the women. There are hundreds of melodies. At the Lim festival each spring, the hillside and the ponds fill with singers."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk around the main altar quietly, and let worshippers go first.",
+        "Visit the Đông Hồ woodblock print village on the same day."
+      ],
+      "dont": [
+        "Point your feet at the altars or sit on temple steps in front of them.",
+        "Photograph people who are praying without asking.",
+        "Climb the Hòa Phong tower."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Try bánh phu thê (sticky \"husband and wife\" cakes), and Lục Ngạn lychees in June."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 1 hour by car from Hà Nội."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Bút Tháp Pagoda, with its famous thousand-armed Bodhisattva statue, and the Đông Hồ print village."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Dâu Pagoda",
+        "category": "entrance",
+        "lat": 21.0372,
+        "lon": 106.0416,
+        "note": "Main gate."
+      },
+      {
+        "name": "Luy Lâu citadel remains",
+        "category": "sights",
+        "lat": 21.04,
+        "lon": 106.045,
+        "note": "Traces of old walls. Approximate."
+      },
+      {
+        "name": "Đông Hồ print village",
+        "category": "sights",
+        "lat": 21.065,
+        "lon": 106.07,
+        "note": "Woodblock prints. Approximate."
+      },
+      {
+        "name": "Bắc Ninh city",
+        "category": "transport",
+        "lat": 21.1861,
+        "lon": 106.0763,
+        "note": "Buses and trains."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

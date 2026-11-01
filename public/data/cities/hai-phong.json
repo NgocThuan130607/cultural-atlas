@@ -1,0 +1,91 @@
+{
+  "id": "hai-phong",
+  "hero": {
+    "file": "Sông Cấm Hải Phòng Về Đêm năm 2025.jpg",
+    "alt": "The Cấm River in Hải Phòng at night"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "May–June, when the flame trees flower, and autumn",
+    "founded": "Made a city by the French in 1888; merged with Hải Dương in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Hải Phòng is northern Vietnam's main seaport, on the Cấm River near the coast. Its territory includes Cát Bà island and the beaches of Đồ Sơn. Inland, the former Hải Dương province adds rice plains and the wooded hills of Chí Linh."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Tradition says the settlement was founded by Lê Chân, a woman general of the Trưng Sisters. In 938 Ngô Quyền won independence on the Bạch Đằng River nearby. The French built a modern port here, which became a city in 1888. In November 1946 French warships shelled Hải Phòng, a step towards full-scale war. In 1972 the United States mined its harbour."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Hải Phòng is called the 'city of flame trees' for its red phượng blossoms in early summer. The city is known for its strong local accent, its love of football and food such as crab noodle soup (bánh đa cua). The hills of Chí Linh hold two of the most sacred sites of the Trần dynasty."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk around the main altar quietly, and let worshippers go first.",
+    "Expect crowds and loud festivals at Kiếp Bạc in the eighth lunar month."
+  ],
+  "timeline": [
+    {
+      "year": 40,
+      "approx": true,
+      "text": "Tradition says Lê Chân, a general of the Trưng Sisters, founded a settlement here."
+    },
+    {
+      "year": 938,
+      "text": "Ngô Quyền destroys a Southern Han fleet on the Bạch Đằng River, opening an age of independence."
+    },
+    {
+      "year": 1288,
+      "text": "Trần Hưng Đạo directs the war against the Mongols from his base at Vạn Kiếp.",
+      "landmark": "con-son-kiep-bac",
+      "era": 0
+    },
+    {
+      "year": 1300,
+      "text": "Trần Hưng Đạo dies, and a temple is built in his honour at Kiếp Bạc.",
+      "landmark": "con-son-kiep-bac",
+      "era": 1
+    },
+    {
+      "year": 1437,
+      "approx": true,
+      "text": "The scholar Nguyễn Trãi retires to Côn Sơn.",
+      "landmark": "con-son-kiep-bac",
+      "era": 2
+    },
+    {
+      "year": 1888,
+      "text": "The French make Hải Phòng a city; its port becomes the gateway to the north."
+    },
+    {
+      "year": 1912,
+      "text": "The Hải Phòng Opera House is completed."
+    },
+    {
+      "year": 1946,
+      "text": "French warships shell Hải Phòng in November."
+    },
+    {
+      "year": 1972,
+      "text": "The United States mines Hải Phòng harbour."
+    },
+    {
+      "year": 2025,
+      "text": "Hải Phòng and Hải Dương merge."
+    },
+    {
+      "year": 2026,
+      "text": "Pilgrims crowd Kiếp Bạc for the autumn festival.",
+      "landmark": "con-son-kiep-bac",
+      "era": 4
+    }
+  ]
+}

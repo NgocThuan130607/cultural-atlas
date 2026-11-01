@@ -14,8 +14,8 @@ import {
 } from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import {
-  $, $$, esc, icon, getJSON, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
-  localTime, formatCoords, prefersReducedMotion,
+  $, $$, esc, icon, getJSON, loadCities, loadCollections, collectionsOf, loadCity, loadLandmark, loadMedia,
+  imageSrc, creditHTML, localTime, formatCoords, prefersReducedMotion,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
@@ -163,23 +163,28 @@ function landmarkPin(highlight = false) {
 }
 
 const LABEL_FONT = '500 15px "Roboto Flex", Roboto, sans-serif';
-const label = (text, offsetX) => ({
-  text, font: LABEL_FONT, fillColor: Color.WHITE, outlineColor: Color.fromCssColorString('rgba(0,0,0,.75)'), outlineWidth: 4,
+const SMALL_LABEL_FONT = '500 13px "Roboto Flex", Roboto, sans-serif'; // for the dense map of provinces
+const label = (text, offsetX, font = LABEL_FONT) => ({
+  text, font, fillColor: Color.WHITE, outlineColor: Color.fromCssColorString('rgba(0,0,0,.75)'), outlineWidth: 4,
   style: LabelStyle.FILL_AND_OUTLINE, horizontalOrigin: HorizontalOrigin.LEFT, verticalOrigin: VerticalOrigin.CENTER,
   pixelOffset: new Cartesian2(offsetX, 0), heightReference: HeightReference.CLAMP_TO_GROUND, disableDepthTestDistance: 2e6,
 });
 
 function addMarkers(viewer, cities, landmarks) {
   for (const c of cities) {
+    const province = !collectionsOf(c).includes('world'); // only shown on the close-up Vietnam map
     viewer.entities.add({
       id: `city:${c.id}`,
       position: Cartesian3.fromDegrees(c.lon, c.lat),
       billboard: {
-        image: cityPin(), width: 28, height: 28, heightReference: HeightReference.CLAMP_TO_GROUND,
+        image: cityPin(), width: province ? 22 : 28, height: province ? 22 : 28, heightReference: HeightReference.CLAMP_TO_GROUND,
         disableDepthTestDistance: 2e6, scaleByDistance: new NearFarScalar(1e6, 1.1, 2e7, .85),
         distanceDisplayCondition: new DistanceDisplayCondition(60_000, Number.POSITIVE_INFINITY),
       },
-      label: { ...label(c.name, 18), distanceDisplayCondition: new DistanceDisplayCondition(60_000, Number.POSITIVE_INFINITY) },
+      label: {
+        ...label(c.name, province ? 14 : 18, province ? SMALL_LABEL_FONT : LABEL_FONT),
+        distanceDisplayCondition: new DistanceDisplayCondition(60_000, Number.POSITIVE_INFINITY),
+      },
     });
   }
   for (const lm of landmarks) {
@@ -212,9 +217,46 @@ async function main() {
   const cityById = new Map(cities.map((c) => [c.id, c]));
   const lmById = new Map(landmarks.map((l) => [l.id, l]));
   const statusOf = (lm) => openStatus(lm.guide.hours, cityById.get(lm.city).timezone);
-  const world = await getJSON('world-moments.json').catch(() => null);
+
+  // ----- Atlases ("collections"): the World, and a close-up Vietnam with all 34 provinces -----
+  const collections = await loadCollections();
+  const colById = new Map(collections.map((c) => [c.id, c]));
+  const DEFAULT_HOME = { lon: HOME.lon, lat: HOME.lat, height: HOME.height, zoom: 3 };
+  const homeOf = (id = set) => colById.get(id)?.home ?? DEFAULT_HOME;
+  const inSet = (c, id = set) => collectionsOf(c).includes(id);
+  const visibleCities = () => cities.filter((c) => inSet(c));
+  const visibleLandmarks = () => landmarks.filter((lm) => inSet(cityById.get(lm.city)));
+  // Moments for the "Through time" bar, loaded per atlas when first needed.
+  const momentsCache = new Map();
+  const momentsFor = (id) => {
+    const file = colById.get(id)?.moments;
+    if (!file) return Promise.resolve(null);
+    if (!momentsCache.has(id)) momentsCache.set(id, getJSON(file).catch(() => null));
+    return momentsCache.get(id);
+  };
+
+  // The URL hash holds the atlas, a place or a year: "#vietnam&hue", "#paris", "#vietnam&year=1945".
+  const hashParts = decodeURIComponent(location.hash.slice(1)).split('&').filter(Boolean);
+  const hashSet = hashParts.find((p) => colById.has(p));
+  const hashPlace = hashParts.find((p) => cityById.has(p) || lmById.has(p));
+  const hashYear = hashParts.map((p) => /^year=(-?\d+)$/.exec(p)).find(Boolean);
+  const placeCity = hashPlace && (cityById.get(hashPlace) ?? cityById.get(lmById.get(hashPlace)?.city));
+  let set = hashSet ?? (placeCity && !inSet(placeCity, 'world') ? collectionsOf(placeCity)[0] : 'world');
+  if (!colById.has(set)) set = collections[0].id;
+  let world = await momentsFor(set);
+
+  /** Writes the hash, prefixed with the atlas when it isn't the default one. */
+  const writeHash = (part = '') => {
+    const parts = [set !== collections[0].id ? set : '', part].filter(Boolean);
+    history.replaceState(null, '', parts.length ? `#${parts.join('&')}` : location.pathname + location.search);
+  };
 
   const kcard = $('#kcard');
+  const yearBtn = $('#year-btn');
+  const barEl = $('#worldbar');
+  const cardsEl = $('#year-cards');
+  document.body.dataset.set = set;
+  renderSetSwitch();
   renderIntro();
   renderVoyager();
 
@@ -234,26 +276,50 @@ async function main() {
   }
   nav = viewer ? await startGlobe(viewer) : await startFlatMap('start', startError);
 
+  nav.showCities(new Set(visibleCities().map((c) => c.id)));
+
+  // ----- Switching atlas (World ↔ Vietnam) -----
+  async function setCollection(id, { fly = true } = {}) {
+    if (!colById.has(id) || id === set) return;
+    const wasYearMode = yearMode;
+    if (yearMode) exitYearMode({ quiet: true });
+    set = id;
+    document.body.dataset.set = set;
+    renderSetSwitch();
+    nav.showCities(new Set(visibleCities().map((c) => c.id)));
+    nav.setReferenceLabels?.(colById.get(set)?.referenceLabels !== false);
+    renderIntro();
+    renderVoyager();
+    world = await momentsFor(set);
+    yearBtn.hidden = !world;
+    writeHash();
+    if (wasYearMode && world) enterYearMode();
+    else if (fly) nav.home();
+  }
+
   // ----- Selection (updates card, view and URL hash) -----
   function selectCity(id, { fly = true } = {}) {
     const c = cityById.get(id);
     if (!c) return;
+    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false });
     if (yearMode) exitYearMode({ quiet: true });
     renderCity(c);
     if (fly) nav.city(c);
-    history.replaceState(null, '', `#${id}`);
+    writeHash(id);
   }
   function selectLandmark(id, { fly = true } = {}) {
     const lm = lmById.get(id);
     if (!lm) return;
+    const c = cityById.get(lm.city);
+    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false });
     if (yearMode) exitYearMode({ quiet: true });
     renderLandmark(lm);
     if (fly) nav.landmark(lm);
-    history.replaceState(null, '', `#${id}`);
+    writeHash(id);
   }
   function goIntro() {
     renderIntro();
-    history.replaceState(null, '', location.pathname + location.search);
+    writeHash();
   }
 
   // ----- Knowledge card events -----
@@ -286,21 +352,23 @@ async function main() {
   // ----- Search -----
   initSearch({ cities, landmarks, selectCity, selectLandmark });
 
-  // ----- Deep link (#paris, #eiffel-tower) -----
-  const hash = decodeURIComponent(location.hash.slice(1));
+  // ----- Deep link (#paris, #vietnam&hue, #vietnam&year=1945) -----
   const delay = reduced || !viewer ? 0 : 1800;
-  const yearLink = /^year=(-?\d+)$/.exec(hash);
-  if (cityById.has(hash)) setTimeout(() => selectCity(hash), delay);
-  else if (lmById.has(hash)) setTimeout(() => selectLandmark(hash), delay);
-  else if (yearLink && world) setTimeout(() => enterYearMode(Number(yearLink[1])), delay);
+  if (hashPlace && cityById.has(hashPlace)) setTimeout(() => selectCity(hashPlace), delay);
+  else if (hashPlace) setTimeout(() => selectLandmark(hashPlace), delay);
+  else if (hashYear && world) setTimeout(() => enterYearMode(Number(hashYear[1])), delay);
+
+  // ----- Atlas switch buttons -----
+  $('#set-switch').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-set]');
+    if (b) setCollection(b.dataset.set);
+  });
 
   // -------------------------------------------------------------------------
   // "The world in one year": one timeline for the whole globe
   // -------------------------------------------------------------------------
-  const yearBtn = $('#year-btn');
-  const barEl = $('#worldbar');
-  const cardsEl = $('#year-cards');
   let bar = null;
+  let barSet = null; // which atlas the bar was built for
   let snap = [];
   let cardKey = '';
   let unbindView = null;
@@ -313,10 +381,15 @@ async function main() {
     document.body.classList.add('year-mode');
     yearBtn.setAttribute('aria-pressed', 'true');
     barEl.hidden = false;
-    bar ??= createWorldBar(barEl, { ...world, onChange: onYear, onExit: () => exitYearMode() });
+    if (!bar || barSet !== set) {
+      bar?.stop();
+      bar = createWorldBar(barEl, { ...world, onChange: onYear, onExit: () => exitYearMode() });
+      barSet = set;
+    }
     nav.setCityLabels?.(false);
     bindView();
-    const start = Number.isFinite(year) ? year : (world.moments.find((m) => m.year === 1889)?.year ?? world.range.to);
+    const col = colById.get(set);
+    const start = Number.isFinite(year) ? year : (world.moments.find((m) => m.year === col?.defaultYear)?.year ?? world.range.to);
     bar.setYear(start, { animate: !Number.isFinite(year) });
     barEl.querySelector('#wb-range')?.focus({ preventScroll: true });
   }
@@ -333,17 +406,17 @@ async function main() {
     unbindView?.(); unbindView = null;
     nav.setPulse?.(new Set());
     nav.setCityLabels?.(true);
-    if (!quiet) { renderIntro(); history.replaceState(null, '', location.pathname + location.search); nav.home(); }
+    if (!quiet) { renderIntro(); writeHash(); nav.home(); }
   }
 
   /** Called by the world bar while dragging (final=false) and when a year is settled. */
   function onYear(year, { final, moment }) {
-    snap = snapshot(year, cities, cityDetails, lmById);
+    snap = snapshot(year, visibleCities(), cityDetails, lmById);
     renderWorldCard(year, moment);
     renderYearCards();
     nav.setPulse?.(new Set(snap.filter((s) => s.isEvent).map((s) => s.city.id)));
     if (!final) return;
-    history.replaceState(null, '', `#year=${year}`);
+    writeHash(`year=${year}`);
     // Moments turn the globe towards the place where history is happening.
     if (moment) {
       const focus = moment.focusCity && cityById.get(moment.focusCity);
@@ -391,7 +464,7 @@ async function main() {
         <div class="d-flex justify-content-between align-items-start gap-2">
           <div>
             <p class="t-label muted mb-1">${icon('history_toggle_off')} Through time</p>
-            <h2 class="t-headline mb-0">The world in <span data-world-year>${esc(formatYear(year, year < -1000))}</span></h2>
+            <h2 class="t-headline mb-0">${esc(colById.get(set)?.yearTitle ?? 'The world in')} <span data-world-year>${esc(formatYear(year, year < -1000))}</span></h2>
           </div>
           <button class="icon-btn" type="button" data-action="exit-year" aria-label="Leave the world timeline">${icon('close')}</button>
         </div>
@@ -426,7 +499,9 @@ async function main() {
     if (key === cardKey) return;
     const old = new Map($$('.ycard', cardsEl).map((el) => [el.dataset.city, el.dataset.entry]));
     cardKey = key;
-    cardsEl.innerHTML = `<svg class="ycard-lines" aria-hidden="true"></svg>${snap.filter((s) => s.entry).map((s) => `
+    // On a dense map (34 provinces) only cities with something happening that year get a card.
+    const eventsOnly = colById.get(set)?.cards === 'events';
+    cardsEl.innerHTML = `<svg class="ycard-lines" aria-hidden="true"></svg>${snap.filter((s) => s.entry && (!eventsOnly || s.isEvent)).map((s) => `
       <button type="button" class="ycard ${s.isEvent ? 'is-event' : ''} ${old.get(s.city.id) && old.get(s.city.id) !== String(s.entry.year) ? 'swap' : ''}"
         data-city="${esc(s.city.id)}" data-entry="${s.entry.year}" tabindex="-1">
         <img src="${esc(entryImage(s))}" alt="">
@@ -515,7 +590,8 @@ async function main() {
   // Opening move: ease in from deep space, then spin slowly until the user takes over.
   let spinning = !reduced;
   const stopSpin = () => { spinning = false; };
-  camera.flyTo({ destination: Cartesian3.fromDegrees(HOME.lon, HOME.lat, HOME.height), duration: reduced ? 0 : 2.2, complete: composeHome });
+  if (set !== 'world') spinning = false; // a close-up country map shouldn't drift away
+  { const h = homeOf(); camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, h.height), duration: reduced ? 0 : 2.2, complete: composeHome }); }
   viewer.clock.onTick.addEventListener(() => { if (spinning) camera.rotate(Cartesian3.UNIT_Z, -0.0005); });
   ['pointerdown', 'wheel', 'touchstart'].forEach((ev) => viewer.canvas.addEventListener(ev, stopSpin, { passive: true }));
 
@@ -529,7 +605,7 @@ async function main() {
   };
   handler.setInputAction((m) => {
     const id = pickId(m.endPosition);
-    if (id !== hovered) { setHighlight(viewer, hovered, false); setHighlight(viewer, id, true); hovered = id; }
+    if (id !== hovered) { setHighlight(viewer, hovered, false); setHighlight(viewer, id, true); hovered = id; declutter(); }
     viewer.canvas.style.cursor = id ? 'pointer' : '';
     updateReadout(m.endPosition);
   }, ScreenSpaceEventType.MOUSE_MOVE);
@@ -553,7 +629,8 @@ async function main() {
   }
   function flyHome() {
     camera.cancelFlight();
-    camera.flyTo({ destination: Cartesian3.fromDegrees(HOME.lon, HOME.lat, HOME.height), orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO }, duration: reduced ? 0 : 2, complete: composeHome });
+    const h = homeOf();
+    camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, h.height), orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO }, duration: reduced ? 0 : 2, complete: composeHome });
   }
 
   // Centre the view in the space left free by the card (left) and the landmark strip (bottom),
@@ -606,7 +683,12 @@ async function main() {
     });
   });
   let labelsLayer = null;
-  labelsLayerPromise.then((layer) => { labelsLayer = layer; });
+  let wantReferenceLabels = colById.get(set)?.referenceLabels !== false;
+  labelsLayerPromise.then((layer) => {
+    labelsLayer = layer;
+    if (layer) layer.show = wantReferenceLabels;
+    $('#layers-btn').setAttribute('aria-pressed', Boolean(layer?.show));
+  });
 
   function screenCenter() {
     const c = new Cartesian2(scene.canvas.clientWidth / 2, scene.canvas.clientHeight / 2);
@@ -640,9 +722,65 @@ async function main() {
     }
     tiltLabel.textContent = camera.pitch < CMath.toRadians(-75) ? '3D' : '2D';
   });
+  // ----- Label decluttering (like Google Earth): hide names that would overlap pins or other names -----
+  const projectPoint = (lat, lon) => {
+    const p = Cartesian3.fromDegrees(lon, lat);
+    const toCamera = Cartesian3.subtract(camera.positionWC, p, new Cartesian3());
+    const facing = Cartesian3.dot(toCamera, Cartesian3.normalize(p, new Cartesian3())) > 0;
+    const win = facing ? SceneTransforms.worldToWindowCoordinates(scene, p) : null;
+    return win ? { x: win.x, y: win.y, visible: true } : { visible: false };
+  };
+  let labelsOn = true;
+  const measureCtx = document.createElement('canvas').getContext('2d');
+  const labelWidth = new Map();
+  const isProvince = (c) => !collectionsOf(c).includes('world');
+  const widthOf = (c) => {
+    if (!labelWidth.has(c.id)) {
+      measureCtx.font = isProvince(c) ? SMALL_LABEL_FONT : LABEL_FONT;
+      labelWidth.set(c.id, measureCtx.measureText(c.name).width + 6);
+    }
+    return labelWidth.get(c.id);
+  };
+  // Hovered place first, then cities, then provinces; within each, keep the list order (north to south).
+  const priority = (c) => (hovered === `city:${c.id}` ? 3 : c.kind === 'City' ? 2 : 1);
+  function declutter() {
+    if (!labelsOn) return;
+    const items = visibleCities()
+      .map((c) => ({ c, e: viewer.entities.getById(`city:${c.id}`), p: projectPoint(c.lat, c.lon) }))
+      .filter((x) => x.e);
+    // Every visible pin is an obstacle that other cities' names must not cover.
+    const pins = items.filter((x) => x.p.visible).map(({ c, p }) => ({ id: c.id, x1: p.x - 9, x2: p.x + 9, y1: p.y - 9, y2: p.y + 9 }));
+    const placed = [];
+    const hits = (b, list) => list.some((o) => b.x1 < o.x2 && b.x2 > o.x1 && b.y1 < o.y2 && b.y2 > o.y1);
+    for (const { c, e, p } of [...items].sort((a, b) => priority(b.c) - priority(a.c))) {
+      if (!p.visible) { e.label.show = false; continue; }
+      const h = isProvince(c) ? 16 : 19;
+      const gap = isProvince(c) ? 13 : 17;
+      const w = widthOf(c);
+      const others = pins.filter((o) => o.id !== c.id);
+      // Try the name to the right of the pin, then left, then above and below.
+      const sides = [
+        { box: { x1: p.x + gap, x2: p.x + gap + w, y1: p.y - h / 2, y2: p.y + h / 2 }, h: HorizontalOrigin.LEFT, v: VerticalOrigin.CENTER, off: [gap, 0] },
+        { box: { x1: p.x - gap - w, x2: p.x - gap, y1: p.y - h / 2, y2: p.y + h / 2 }, h: HorizontalOrigin.RIGHT, v: VerticalOrigin.CENTER, off: [-gap, 0] },
+        { box: { x1: p.x - w / 2, x2: p.x + w / 2, y1: p.y - gap - h, y2: p.y - gap }, h: HorizontalOrigin.CENTER, v: VerticalOrigin.BOTTOM, off: [0, -gap] },
+        { box: { x1: p.x - w / 2, x2: p.x + w / 2, y1: p.y + gap, y2: p.y + gap + h }, h: HorizontalOrigin.CENTER, v: VerticalOrigin.TOP, off: [0, gap] },
+      ];
+      let side = sides.find((s) => !hits(s.box, placed) && !hits(s.box, others));
+      // The hovered place and big cities are always named, at least where they don't hide another name.
+      if (!side && priority(c) >= 2) side = sides.find((s) => !hits(s.box, placed)) ?? sides[0];
+      e.label.show = Boolean(side);
+      if (!side) continue;
+      e.label.horizontalOrigin = side.h;
+      e.label.verticalOrigin = side.v;
+      e.label.pixelOffset = new Cartesian2(...side.off);
+      placed.push(side.box);
+    }
+  }
   camera.percentageChanged = 0.01;
-  camera.changed.addEventListener(() => updateReadout());
+  camera.changed.addEventListener(() => { updateReadout(); declutter(); });
+  camera.moveEnd.addEventListener(declutter);
   updateReadout();
+  declutter();
 
   return {
     city: (c) => flyTo(c.lon, c.lat, 24_000, -42),
@@ -655,25 +793,25 @@ async function main() {
       labelsLayer.show = !labelsLayer.show;
       return labelsLayer.show;
     },
+    /** Shows or hides the map's own borders and place names (they would repeat our labels on the Vietnam map). */
+    setReferenceLabels: (on) => {
+      wantReferenceLabels = on;
+      if (labelsLayer) labelsLayer.show = on;
+      $('#layers-btn').setAttribute('aria-pressed', on);
+    },
     // ----- Used by the world timeline -----
     /** Turns the whole globe to face a city, keeping the rest of the world in view. */
     look: (c) => {
       stopSpin();
       camera.cancelFlight();
       camera.flyTo({
-        destination: Cartesian3.fromDegrees(c.lon, c.lat, 9_000_000),
+        destination: Cartesian3.fromDegrees(c.lon, c.lat, colById.get(set)?.lookHeight ?? 9_000_000),
         orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO, roll: 0 },
         duration: reduced ? 0 : 2.2, complete: composeHome,
       });
     },
     /** Screen position of a place; `visible` is false when it is on the far side of the Earth. */
-    project: (lat, lon) => {
-      const p = Cartesian3.fromDegrees(lon, lat);
-      const toCamera = Cartesian3.subtract(camera.positionWC, p, new Cartesian3());
-      const facing = Cartesian3.dot(toCamera, Cartesian3.normalize(p, new Cartesian3())) > 0;
-      const win = facing ? SceneTransforms.worldToWindowCoordinates(scene, p) : null;
-      return win ? { x: win.x, y: win.y, visible: true } : { visible: false };
-    },
+    project: projectPoint,
     /** Calls `cb` after every frame; returns a function that stops it. */
     onViewChange: (cb) => scene.postRender.addEventListener(cb),
     /** Makes the given cities' pins red and gently pulsing. */
@@ -695,7 +833,22 @@ async function main() {
       };
     })(),
     setCityLabels: (on) => {
-      for (const c of cities) { const e = viewer.entities.getById(`city:${c.id}`); if (e) e.label.show = on; }
+      labelsOn = on;
+      if (on) declutter();
+      else for (const c of cities) { const e = viewer.entities.getById(`city:${c.id}`); if (e) e.label.show = false; }
+    },
+    /** Shows only the given cities (and their landmarks) on the globe. */
+    showCities: (ids) => {
+      for (const c of cities) {
+        const e = viewer.entities.getById(`city:${c.id}`);
+        if (e) e.show = ids.has(c.id);
+      }
+      for (const lm of landmarks) {
+        const e = viewer.entities.getById(`landmark:${lm.id}`);
+        if (e) e.show = ids.has(lm.city);
+      }
+      if (set !== 'world') stopSpin();
+      declutter();
     },
   };
   } // end startGlobe
@@ -710,7 +863,8 @@ async function main() {
     holder.id = 'flat-map';
     holder.setAttribute('aria-label', '2D satellite map. Use the search box or the place list to choose a city.');
     document.body.prepend(holder);
-    const map = createMap(holder, { lat: 25, lon: 40, zoom: 3, minZoom: 2, style: 'satellite', zoomButtons: false });
+    const start = homeOf();
+    const map = createMap(holder, { lat: start.lat, lon: start.lon, zoom: start.zoom ?? 3, minZoom: 2, style: 'satellite', zoomButtons: false });
 
     // City dots with names, like on the globe.
     const cityMarkers = new Map();
@@ -718,13 +872,45 @@ async function main() {
       const m = L.marker([c.lat, c.lon], {
         title: c.name, alt: c.name, riseOnHover: true, keyboard: true,
         icon: L.divIcon({ className: '', html: `<span class="flat-city"><i></i><span>${esc(c.name)}</span></span>`, iconSize: [0, 0], iconAnchor: [9, 9] }),
-      }).on('click', () => (yearMode ? focusYearCity(c.id) : selectCity(c.id))).addTo(map);
+      }).on('click', () => (yearMode ? focusYearCity(c.id) : selectCity(c.id)));
+      if (inSet(c)) m.addTo(map);
       cityMarkers.set(c.id, m);
     }
+    // Hide names that would overlap another name (cities first, then provinces in list order).
+    const declutterFlat = () => {
+      const placed = [];
+      const list = cities.filter((c) => inSet(c)).sort((a, b) => (b.kind === 'City') - (a.kind === 'City'));
+      const overlaps = (r, o) => r.left < o.right && r.right > o.left && r.top < o.bottom && r.bottom > o.top;
+      // Pins are obstacles for province names (big cities may cover a neighbour's pin).
+      const pins = list.map((c) => ({ id: c.id, r: cityMarkers.get(c.id).getElement()?.querySelector('.flat-city > i')?.getBoundingClientRect() })).filter((x) => x.r);
+      for (const c of list) {
+        const el = cityMarkers.get(c.id).getElement()?.querySelector('.flat-city');
+        const span = el?.querySelector(':scope > span');
+        if (!span) continue;
+        span.style.visibility = '';
+        // Try the name on the right of the dot, then on the left.
+        let ok = false;
+        for (const left of [false, true]) {
+          el.classList.toggle('left', left);
+          const r = span.getBoundingClientRect();
+          if (!placed.some((o) => overlaps(r, o)) && !pins.some((p) => p.id !== c.id && overlaps(r, p.r))) { placed.push(r); ok = true; break; }
+        }
+        if (!ok && c.kind === 'City') { el.classList.remove('left'); placed.push(span.getBoundingClientRect()); ok = true; }
+        span.style.visibility = ok ? '' : 'hidden';
+      }
+    };
+    map.on('zoomend moveend', declutterFlat);
+    setTimeout(declutterFlat, 0);
     // Landmark pins appear once zoomed in to city level.
-    const pins = L.layerGroup(landmarks.map((lm) => landmarkMarker(lm.lat, lm.lon, lm.name)
+    const lmMarkers = new Map(landmarks.map((lm) => [lm.id, landmarkMarker(lm.lat, lm.lon, lm.name)
       .bindTooltip(esc(lm.name), { permanent: true, direction: 'right', offset: [12, -26], className: 'flat-label' })
-      .on('click', () => selectLandmark(lm.id))));
+      .on('click', () => selectLandmark(lm.id))]));
+    const pins = L.layerGroup();
+    const fillPins = () => {
+      pins.clearLayers();
+      for (const lm of landmarks) if (inSet(cityById.get(lm.city))) pins.addLayer(lmMarkers.get(lm.id));
+    };
+    fillPins();
     const syncPins = () => { if (map.getZoom() >= 9) pins.addTo(map); else pins.remove(); };
     map.on('zoomend', syncPins);
     syncPins();
@@ -748,11 +934,28 @@ async function main() {
     const flat = {
       city: (c) => frame(c.lat, c.lon, 12_000),
       landmark: (lm) => frame(lm.lat, lm.lon, 700),
-      home: () => map.flyTo([25, 40], 3, { animate: !reduced }),
+      home: () => {
+        const h = homeOf();
+        // Atlases with "bounds" (Vietnam) are fitted into the space beside the card and above the strip.
+        if (h.bounds) {
+          const desktop = matchMedia('(min-width: 768px)').matches;
+          const cardOpen = !kcard.classList.contains('collapsed');
+          map.flyToBounds(h.bounds, {
+            paddingTopLeft: [(desktop && cardOpen ? kcard.offsetWidth + 24 : 16), 64],
+            paddingBottomRight: [72, desktop ? $('#voyager').offsetHeight + 56 : (cardOpen ? kcard.offsetHeight + 16 : 16)],
+            animate: !reduced, duration: 1.2,
+          });
+        } else map.flyTo([h.lat, h.lon], h.zoom ?? 3, { animate: !reduced });
+      },
       zoomIn: () => map.zoomIn(),
       zoomOut: () => map.zoomOut(),
+      showCities: (ids) => {
+        cityMarkers.forEach((m, id) => { if (ids.has(id)) m.addTo(map); else m.remove(); });
+        fillPins();
+        setTimeout(declutterFlat, 0);
+      },
       // ----- Used by the world timeline -----
-      look: (c) => map.flyTo([c.lat, c.lon], 4, { animate: !reduced }),
+      look: (c) => map.flyTo([c.lat, c.lon], colById.get(set)?.lookZoom ?? 4, { animate: !reduced }),
       project: (lat, lon) => {
         const p = map.latLngToContainerPoint([lat, lon]);
         const size = map.getSize();
@@ -762,10 +965,12 @@ async function main() {
       setPulse: (ids) => cityMarkers.forEach((m, id) => m.getElement()?.querySelector('.flat-city')?.classList.toggle('pulse', ids.has(id))),
       setCityLabels: (on) => document.body.classList.toggle('hide-city-names', !on),
     };
-    // If the globe failed mid-visit, keep showing the place the visitor had selected.
-    const current = decodeURIComponent(location.hash.slice(1));
+    // If the globe failed mid-visit, keep showing the place the visitor had selected;
+    // otherwise frame the whole atlas.
+    const current = decodeURIComponent(location.hash.slice(1)).split('&').find((p) => cityById.has(p) || lmById.has(p));
     if (cityById.has(current)) flat.city(cityById.get(current));
     else if (lmById.has(current)) flat.landmark(lmById.get(current));
+    else if (homeOf().bounds) setTimeout(flat.home, 0);
     return flat;
   }
 
@@ -791,24 +996,39 @@ async function main() {
   }
 
   function renderIntro() {
+    const col = colById.get(set) ?? {};
+    const list = visibleCities();
+    const row = (c) => `
+      <li><button class="place-row" type="button" data-action="city" data-id="${esc(c.id)}">
+        <img class="thumb" src="${esc(imageSrc(cityDetails[c.id]?.hero, media))}" alt="" loading="lazy">
+        <span class="grow"><span class="t-title-s">${esc(c.name)}</span>
+          <span class="sub">${c.region ? `${esc(c.kind ?? 'Province')} · ${esc(lmById.get(c.landmarks[0])?.name ?? '')}` : `${esc(c.country)} · ${esc(c.continent)}`}</span></span>
+        ${icon('chevron_right', 'muted')}
+      </button></li>`;
+    // Atlases with groups (Vietnam: North / Central / South) list their places under headings.
+    const body = col.groups
+      ? col.groups.map((g) => {
+        const items = list.filter((c) => c.region === g);
+        return items.length ? `<p class="list-heading mb-0">${esc(g)} · ${items.length}</p><ul class="place-list">${items.map(row).join('')}</ul>` : '';
+      }).join('')
+      : `<p class="list-heading mb-0">${list.length} cities</p><ul class="place-list">${list.map(row).join('')}</ul>`;
     show(`
       <div class="intro-head">
         <div class="d-flex justify-content-between align-items-start gap-2">
-          <h1 class="t-headline mb-1">Atlas of Stories</h1>
+          <h1 class="t-headline mb-1">${esc(col.title ?? 'Atlas of Stories')}</h1>
           <button class="icon-btn" type="button" data-action="close" aria-label="Close panel">${icon('close')}</button>
         </div>
-        <p class="t-body-s muted mb-0">History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.</p>
+        <p class="t-body-s muted mb-0">${esc(col.intro ?? 'History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.')}</p>
       </div>
       <hr class="divider">
-      <p class="list-heading mb-0">${cities.length} cities</p>
-      <ul class="place-list">
-        ${cities.map((c) => `
-          <li><button class="place-row" type="button" data-action="city" data-id="${esc(c.id)}">
-            <img class="thumb" src="${esc(imageSrc(cityDetails[c.id]?.hero, media))}" alt="" loading="lazy">
-            <span class="grow"><span class="t-title-s">${esc(c.name)}</span><span class="sub">${esc(c.country)} · ${esc(c.continent)}</span></span>
-            ${icon('chevron_right', 'muted')}
-          </button></li>`).join('')}
-      </ul>`);
+      ${body}`);
+  }
+
+  /** World / Vietnam buttons. */
+  function renderSetSwitch() {
+    const icons = { world: icon('public'), vietnam: icon('star') };
+    $('#set-switch').innerHTML = collections.map((c) => `
+      <button type="button" data-set="${esc(c.id)}" aria-pressed="${c.id === set}">${icons[c.id] ?? icon('map')}<span>${esc(c.label)}</span></button>`).join('');
   }
 
   function renderCity(c) {
@@ -875,7 +1095,7 @@ async function main() {
   }
 
   function renderVoyager() {
-    $('#voyager').innerHTML = landmarks.map((lm) => `
+    $('#voyager').innerHTML = visibleLandmarks().map((lm) => `
       <button class="vcard" type="button" data-landmark="${esc(lm.id)}">
         <img src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
         <span><strong>${esc(lm.name)}</strong><small>${esc(cityById.get(lm.city).name)}</small></span>
@@ -988,7 +1208,12 @@ function initSearch({ cities, landmarks, selectCity, selectLandmark }) {
   const fold = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/gi, 'd').toLowerCase();
   const cityName = new Map(cities.map((c) => [c.id, c.name]));
   const entries = [
-    ...cities.map((c) => ({ type: 'city', id: c.id, title: c.name, sub: `${c.country} · City`, hay: fold(`${c.name} ${c.country} ${c.continent}`) })),
+    // Provinces merged in 2025 can also be found by their former names (e.g. "Hà Giang" → Tuyên Quang).
+    ...cities.map((c) => ({
+      type: 'city', id: c.id, title: c.name,
+      sub: `${c.country} · ${c.kind ?? 'City'}${c.formerly?.length ? ` · incl. ${c.formerly.join(', ')}` : ''}`,
+      hay: fold(`${c.name} ${c.country} ${c.continent} ${(c.formerly ?? []).join(' ')}`),
+    })),
     ...landmarks.map((l) => ({ type: 'landmark', id: l.id, title: l.name, sub: `${cityName.get(l.city)} · Landmark`, hay: fold(`${l.name} ${l.localName ?? ''} ${cityName.get(l.city)}`) })),
   ];
   let results = [];

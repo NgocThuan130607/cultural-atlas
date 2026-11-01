@@ -1,0 +1,82 @@
+{
+  "id": "hung-yen",
+  "hero": {
+    "file": "Văn miếu Xích Đằng 01.JPG",
+    "alt": "The Temple of Literature of Xích Đằng in Hưng Yên"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "July–August (longan season) and the ninth lunar month (Keo Pagoda festival)",
+    "founded": "A province since 1831; merged with Thái Bình in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Hưng Yên lies in the heart of the Red River delta, a flat land of rice fields, orchards and villages. The former Thái Bình province stretches to the sea between the Red and Thái Bình rivers, and is one of the country's great rice bowls."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In the 17th century, Phố Hiến near today's Hưng Yên city was the busiest river port of the north. A saying ranked it second only to the capital: 'first the capital, second Phố Hiến'. Merchants from China, Japan and the Netherlands traded there. The Trần family, who ruled Vietnam from 1225, came from the Thái Bình area, where their temples and tombs still stand."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Hưng Yên's 'cage longans' (nhãn lồng) were once sent as tribute to the royal court. Thái Bình is known for chèo, a traditional folk opera, and for water puppetry. Village festivals across the delta still feature boat races and rice-cooking contests."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk around the main altar quietly, and let worshippers go first.",
+    "Ask before picking fruit in orchards; longans are a family's income."
+  ],
+  "timeline": [
+    {
+      "year": 1061,
+      "text": "A pagoda is founded at Keo village under the Lý dynasty.",
+      "landmark": "keo-pagoda",
+      "era": 0
+    },
+    {
+      "year": 1225,
+      "text": "The Trần family, from the Thái Bình area, founds the Trần dynasty."
+    },
+    {
+      "year": 1630,
+      "text": "After a flood, Keo Pagoda is rebuilt on its present site.",
+      "landmark": "keo-pagoda",
+      "era": 1
+    },
+    {
+      "year": 1650,
+      "approx": true,
+      "text": "Phố Hiến is a busy river port where Chinese, Japanese and Dutch merchants trade."
+    },
+    {
+      "year": 1831,
+      "text": "Hưng Yên becomes a province."
+    },
+    {
+      "year": 1890,
+      "text": "The French create Thái Bình province."
+    },
+    {
+      "year": 1962,
+      "text": "Keo Pagoda is classified as a national monument.",
+      "landmark": "keo-pagoda",
+      "era": 2
+    },
+    {
+      "year": 2025,
+      "text": "Hưng Yên and Thái Bình merge."
+    },
+    {
+      "year": 2026,
+      "text": "Boat races still open the Keo Pagoda festival each autumn.",
+      "landmark": "keo-pagoda",
+      "era": 3
+    }
+  ]
+}

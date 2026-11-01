@@ -278,6 +278,8 @@ a { color: var(--primary); }
   text-shadow: 0 0 3px #000, 0 0 3px #000, 0 0 6px rgba(0, 0, 0, .8);
   i { width: 18px; height: 18px; border-radius: 50%; background: #1a73e8; border: 3.5px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .5); flex: none; }
   &:hover i { background: #d93025; }
+  // Name on the left of the dot; the dot stays at the marker's anchor point.
+  &.left { flex-direction: row-reverse; transform: translateX(calc(-100% + 18px)); }
 }
 .leaflet-tooltip.flat-label {
   background: none; border: 0; box-shadow: none; padding: 0; color: #fff;
@@ -611,4 +613,29 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
   .year-mode .kcard { bottom: 132px; max-height: 34dvh; border-radius: var(--radius-l); left: 8px; width: calc(100% - 16px); }
   .ycard:not(.is-event) { display: none; }
   .ycard { max-width: 180px; }
+}
+
+// ===========================================================================
+// Atlas switch (World / Vietnam)
+// ===========================================================================
+.set-switch {
+  display: flex; height: 40px; border-radius: 20px; overflow: hidden; padding: 0;
+  button {
+    display: inline-flex; align-items: center; gap: .375rem; border: 0; background: none; padding: 0 .9rem 0 .75rem;
+    font-size: .875rem; font-weight: 500; color: var(--on-surface-variant); transition: background-color .2s, color .2s;
+    .ms { font-size: 1.125rem; }
+    &:hover { background: var(--surface-1); }
+    &[aria-pressed="true"] { background: var(--primary-container); color: var(--on-primary-container); }
+    & + button { border-left: 1px solid var(--outline-variant); }
+  }
+}
+// The Vietnam atlas has no pulsing distractions: its intro list is long, so give it room.
+[data-set="vietnam"] .kcard { max-height: calc(100dvh - 72px - 190px); }
+@media (max-width: 767.98px) {
+  .set-switch button { padding: 0 .65rem; span:not(.ms) { font-size: .8125rem; } }
+  .year-btn .label { display: none; }
+  .year-btn { padding: 0 .6rem; }
+  .earth-topright { right: 12px; left: 12px; justify-content: flex-end; }
+  .earth-controls { top: 124px; }
+  [data-set="vietnam"] .kcard { max-height: 52dvh; }
 }

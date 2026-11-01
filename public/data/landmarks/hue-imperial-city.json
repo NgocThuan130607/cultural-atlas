@@ -1,0 +1,210 @@
+{
+  "id": "hue-imperial-city",
+  "city": "hue",
+  "name": "Imperial City of Huế",
+  "localName": "Hoàng thành Huế (Đại Nội)",
+  "lat": 16.4694,
+  "lon": 107.5778,
+  "summary": "The walled palace city of the Nguyễn emperors, Vietnam's last dynasty, inside the great citadel on the Perfume River.",
+  "hero": {
+    "file": "Đại nội.jpg",
+    "alt": "The Imperial City of Huế"
+  },
+  "eras": [
+    {
+      "year": 1802,
+      "label": "1802",
+      "title": "A new capital",
+      "text": "Gia Long, the first Nguyễn emperor, began building a vast square citadel in 1805, with an imperial city and a forbidden purple city at its heart.",
+      "image": {
+        "file": "Emperor Gia Long.jpg",
+        "alt": "Emperor Gia Long"
+      }
+    },
+    {
+      "year": 1833,
+      "label": "1833",
+      "title": "The Meridian Gate",
+      "text": "Emperor Minh Mạng built the Meridian Gate, Ngọ Môn, as the ceremonial entrance to the Imperial City, topped by the Pavilion of the Five Phoenixes.",
+      "image": {
+        "file": "Ngọ Môn Huế - NKS.jpg",
+        "alt": "The Meridian Gate"
+      }
+    },
+    {
+      "year": 1926,
+      "label": "1926",
+      "title": "The last enthronement",
+      "text": "In 1926 Bảo Đại was enthroned in the Hall of Supreme Harmony. Under French rule, the emperors kept their ceremonies but had little real power.",
+      "image": {
+        "file": "Enthronement of Emperor Bảo Đại 001.jpg",
+        "alt": "The enthronement of Bảo Đại"
+      }
+    },
+    {
+      "year": 1945,
+      "label": "1945",
+      "title": "The end of the monarchy",
+      "text": "On 30 August 1945, Bảo Đại read his abdication at the Meridian Gate and handed the imperial seal and sword to the new revolutionary government.",
+      "image": {
+        "file": "Ngo Mon Gate (7351192986).jpg",
+        "alt": "The Meridian Gate"
+      }
+    },
+    {
+      "year": 1968,
+      "label": "1968",
+      "title": "Destruction",
+      "text": "During the Tết Offensive of 1968, the citadel was the scene of weeks of street fighting. Most of the buildings of the Forbidden Purple City were destroyed.",
+      "image": {
+        "file": "Hue - Citadel - Royal Enclosure 01.JPG",
+        "alt": "Inside the Imperial City"
+      }
+    },
+    {
+      "year": 1993,
+      "label": "1993 – today",
+      "title": "World Heritage and restoration",
+      "text": "In 1993 Huế became Vietnam's first World Heritage Site. Palaces, gates and galleries have been restored one by one since.",
+      "image": {
+        "file": "Hiển Lâm Các - Đại Nội Huế(1).jpg",
+        "alt": "Hiển Lâm Các pavilion"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "abdication",
+      "type": "history",
+      "title": "The last emperor's farewell",
+      "image": {
+        "file": "Ngo Mon Gate (7351192986).jpg",
+        "alt": "The Meridian Gate"
+      },
+      "narration": "In August 1945, as the August Revolution swept the country, Emperor Bảo Đại decided to give up the throne. On 30 August, at the Meridian Gate, he read his abdication before a large crowd. He is remembered for saying that he would rather be a citizen of an independent country than the king of an enslaved one. He handed the golden seal and the sword of the dynasty to representatives of the new government. The 143 years of the Nguyễn dynasty, and two thousand years of monarchy in Vietnam, came to an end."
+    },
+    {
+      "id": "urns",
+      "type": "culture",
+      "title": "The nine dynastic urns",
+      "image": {
+        "file": "Cửu đỉnh Huế.jpg",
+        "alt": "The nine dynastic urns"
+      },
+      "narration": "In front of the Thế Miếu, the temple of the Nguyễn emperors, stand nine huge bronze urns, cast under Emperor Minh Mạng in the 1830s. Each is named after an emperor, and their sides are decorated with images of Vietnam: its mountains, rivers, seas, animals, plants and weapons. Together they form a kind of encyclopedia of the country in bronze, meant to show that the dynasty would last as long as the land itself."
+    },
+    {
+      "id": "nha-nhac",
+      "type": "culture",
+      "title": "Music of the court",
+      "image": {
+        "file": "Đại nội.jpg",
+        "alt": "The Imperial City"
+      },
+      "narration": "Nhã nhạc, 'elegant music', was played at court ceremonies, coronations and offerings to Heaven. Orchestras of drums, flutes, string instruments and gongs accompanied ritual dances. When the monarchy ended, the musicians scattered and the music almost disappeared. In 2003 UNESCO listed it as heritage of humanity, and today it is performed again in the restored theatre of the Imperial City."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://hueworldheritage.org.vn",
+    "price": "Ticket to the Imperial City; combined tickets also cover the royal tombs.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. On some evenings the Imperial City stays open late."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk quietly, and let worshippers go first.",
+        "Allow at least half a day; the site is large.",
+        "See the royal tombs of Minh Mạng, Tự Đức and Khải Định outside the city."
+      ],
+      "dont": [
+        "Climb on walls, towers or statues.",
+        "Photograph people who are praying without asking.",
+        "Sit on the thrones or cross the ropes."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Huế food",
+        "text": "Bún bò Huế, bánh bèo (small steamed rice cakes) and chè (sweet soups) by the river."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Phú Bài airport is 15 km away; trains run on the North–South line."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Thiên Mụ Pagoda, a boat trip on the Perfume River, and Đông Ba market."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Meridian Gate (Ngọ Môn)",
+        "category": "entrance",
+        "lat": 16.468,
+        "lon": 107.576,
+        "note": "Main entrance and tickets."
+      },
+      {
+        "name": "Hall of Supreme Harmony",
+        "category": "sights",
+        "lat": 16.4694,
+        "lon": 107.5778,
+        "note": "Throne hall."
+      },
+      {
+        "name": "Thiên Mụ Pagoda",
+        "category": "sights",
+        "lat": 16.4536,
+        "lon": 107.5448,
+        "note": "Seven-storey tower on the river."
+      },
+      {
+        "name": "Đông Ba market",
+        "category": "food",
+        "lat": 16.4725,
+        "lon": 107.5886,
+        "note": "Food stalls and local produce."
+      },
+      {
+        "name": "Huế railway station",
+        "category": "transport",
+        "lat": 16.4565,
+        "lon": 107.5778,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

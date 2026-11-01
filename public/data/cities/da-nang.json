@@ -1,0 +1,96 @@
+{
+  "id": "da-nang",
+  "hero": {
+    "file": "Dragon Bridge, Da Nang during day - 20230819 (cropped).jpg",
+    "alt": "The Dragon Bridge in Đà Nẵng"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Cơ Tu and others in the mountains",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "February–May",
+    "founded": "A centrally run city since 1997; merged with Quảng Nam in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Đà Nẵng sits on a wide bay where the Hàn River meets the sea, between the Hải Vân Pass and the Sơn Trà peninsula. The former Quảng Nam province adds the old port of Hội An on the Thu Bồn River, the Cham sanctuary of Mỹ Sơn, and mountains to the west."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "From the 4th century, Cham kings built temples at Mỹ Sơn. From the 16th century Hội An was an international port. In 1858 French and Spanish warships attacked Đà Nẵng, the beginning of the French conquest. In 1965 the first American combat troops landed here. Since the 2000s Đà Nẵng has grown into one of Vietnam's most modern cities."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Mì Quảng, turmeric noodles with a little rich broth, is the dish of the region. Bài chòi, a card game sung by village performers, is on UNESCO's list. In Hội An, silk lanterns, tailors and old family houses keep the trading town alive."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk quietly, and let worshippers go first.",
+    "In Hội An, buy a heritage ticket; it pays for the upkeep of the old houses."
+  ],
+  "timeline": [
+    {
+      "year": 400,
+      "approx": true,
+      "text": "Cham kings begin building temples at Mỹ Sơn."
+    },
+    {
+      "year": 1600,
+      "approx": true,
+      "text": "Hội An (Faifo) grows into an international port with Japanese and Chinese quarters.",
+      "landmark": "hoi-an-ancient-town",
+      "era": 0
+    },
+    {
+      "year": 1719,
+      "text": "Lord Nguyễn Phúc Chu names the Japanese covered bridge \"the bridge for friends from afar\".",
+      "landmark": "hoi-an-ancient-town",
+      "era": 1
+    },
+    {
+      "year": 1793,
+      "text": "A British embassy to China stops at Hội An and records the town.",
+      "landmark": "hoi-an-ancient-town",
+      "era": 2
+    },
+    {
+      "year": 1858,
+      "text": "French and Spanish warships attack Đà Nẵng, beginning the French conquest."
+    },
+    {
+      "year": 1906,
+      "approx": true,
+      "text": "A tramway links Tourane (Đà Nẵng) with Faifo (Hội An).",
+      "landmark": "hoi-an-ancient-town",
+      "era": 3
+    },
+    {
+      "year": 1965,
+      "text": "The first American combat troops land at Đà Nẵng."
+    },
+    {
+      "year": 1997,
+      "text": "Đà Nẵng becomes a centrally run city."
+    },
+    {
+      "year": 1999,
+      "text": "UNESCO lists Hội An Ancient Town and the Mỹ Sơn Sanctuary.",
+      "landmark": "hoi-an-ancient-town",
+      "era": 4
+    },
+    {
+      "year": 2025,
+      "text": "Đà Nẵng and Quảng Nam merge."
+    },
+    {
+      "year": 2026,
+      "text": "Lanterns light up Hội An every evening.",
+      "landmark": "hoi-an-ancient-town",
+      "era": 5
+    }
+  ]
+}

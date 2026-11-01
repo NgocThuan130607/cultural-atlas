@@ -1,0 +1,78 @@
+{
+  "id": "can-tho",
+  "hero": {
+    "file": "Can Tho Bridge.jpg",
+    "alt": "The Cần Thơ bridge over the Hậu River"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Khmer and Chinese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April",
+    "founded": "A centrally run city since 2004; merged with Sóc Trăng and Hậu Giang in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Cần Thơ is the largest city of the Mekong Delta, on the Hậu River, the southern arm of the Mekong. Canals and orchards surround it. The former Sóc Trăng and Hậu Giang provinces add rice fields, the coast and large Khmer communities."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In 1739, Mạc Thiên Tứ, ruler of Hà Tiên, set up a district here called Trấn Giang. Under the French, Cần Thơ grew into the rice-trading capital of the delta. In 2007 part of a bridge under construction across the Hậu River collapsed, killing 54 workers. When it opened in 2010 it ended the ferry crossing."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Life in Cần Thơ revolves around the water: floating markets, boat cafés and riverside restaurants. Đờn ca tài tử music is played at weddings and parties. In Sóc Trăng, the Khmer Bat Pagoda and the Clay Pagoda are famous, and bánh pía cakes are the local speciality."
+    }
+  ],
+  "etiquette": [
+    "Wear a hat and sunscreen; boats have little shade.",
+    "Wear a life jacket on small boats.",
+    "Buy a little from the boats you photograph up close."
+  ],
+  "timeline": [
+    {
+      "year": 1739,
+      "text": "Mạc Thiên Tứ, ruler of Hà Tiên, sets up the district of Trấn Giang at Cần Thơ."
+    },
+    {
+      "year": 1915,
+      "approx": true,
+      "text": "Cần Thơ grows into the rice-trading capital of the delta under French rule.",
+      "landmark": "cai-rang-floating-market",
+      "era": 0
+    },
+    {
+      "year": 2004,
+      "text": "Cần Thơ becomes a centrally run city."
+    },
+    {
+      "year": 2007,
+      "text": "Part of the unfinished Cần Thơ bridge collapses, killing 54 workers."
+    },
+    {
+      "year": 2010,
+      "text": "The Cần Thơ bridge opens.",
+      "landmark": "cai-rang-floating-market",
+      "era": 1
+    },
+    {
+      "year": 2016,
+      "text": "The Cái Răng floating market is recognised as national intangible heritage.",
+      "landmark": "cai-rang-floating-market",
+      "era": 2
+    },
+    {
+      "year": 2025,
+      "text": "Cần Thơ, Sóc Trăng and Hậu Giang merge."
+    },
+    {
+      "year": 2026,
+      "text": "Boats still gather at Cái Răng at dawn.",
+      "landmark": "cai-rang-floating-market",
+      "era": 3
+    }
+  ]
+}

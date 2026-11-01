@@ -1,0 +1,67 @@
+{
+  "id": "ha-tinh",
+  "hero": {
+    "file": "Thiencambeach.jpg",
+    "alt": "Thiên Cầm beach"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "May–August for the beaches; spring for festivals",
+    "founded": "A province since 1831"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Hà Tĩnh is a narrow strip between the Trường Sơn mountains and the sea. The Hồng Lĩnh range, said to have 99 peaks, rises near the coast, and beaches such as Thiên Cầm line the shore."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Nguyễn Du, the author of The Tale of Kiều, came from a family of Tiên Điền in this province. From 1885 Phan Đình Phùng led a long resistance against the French from the mountains of Vũ Quang. During the American war, the province's roads were part of the supply route to the South and were bombed heavily."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Hà Tĩnh shares the ví and giặm folk songs with Nghệ An. It is proud of its poets and scholars, and of kẹo cu đơ, a candy of peanuts and molasses between rice crackers."
+    }
+  ],
+  "etiquette": [
+    "Keep your voice low and dress modestly.",
+    "Light incense only where others do so.",
+    "Visitors often leave combs, mirrors or flowers at the graves of the ten young women of Đồng Lộc."
+  ],
+  "timeline": [
+    {
+      "year": 1765,
+      "text": "The poet Nguyễn Du, whose family came from Tiên Điền in Hà Tĩnh, is born."
+    },
+    {
+      "year": 1831,
+      "text": "Hà Tĩnh becomes a province."
+    },
+    {
+      "year": 1885,
+      "text": "Phan Đình Phùng leads the resistance against the French from the Vũ Quang mountains."
+    },
+    {
+      "year": 1965,
+      "text": "Đồng Lộc junction becomes a key point on the supply route to the South.",
+      "landmark": "dong-loc-junction",
+      "era": 0
+    },
+    {
+      "year": 1968,
+      "text": "On 24 July, ten young volunteer women are killed by a bomb at Đồng Lộc.",
+      "landmark": "dong-loc-junction",
+      "era": 1
+    },
+    {
+      "year": 2026,
+      "text": "Visitors light incense at the memorial on the hill.",
+      "landmark": "dong-loc-junction",
+      "era": 3
+    }
+  ]
+}

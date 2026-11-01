@@ -1,0 +1,89 @@
+{
+  "id": "ninh-binh",
+  "hero": {
+    "file": "Co do Hoa Lu 112.JPG",
+    "alt": "The ancient capital of Hoa Lư"
+  },
+  "facts": {
+    "languages": "Vietnamese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "Late May–early June (golden rice at Tam Cốc) and spring festivals",
+    "founded": "A province since 1831; merged with Hà Nam and Nam Định in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Ninh Bình is where the limestone mountains of the north reach the sea plain. Towers of karst rise straight out of rice fields and rivers at Tràng An and Tam Cốc. Cúc Phương, Vietnam's first national park, protects old forest in the west. The former Nam Định and Hà Nam provinces add flat rice lands and the coast."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In 968 Đinh Bộ Lĩnh united the country and made Hoa Lư, hidden among the limestone, its capital. It stayed the capital until 1010. Nam Định was the home region of the Trần dynasty, who built a second capital, Thiên Trường, there. Under the French, Nam Định grew into a textile city. Phát Diệm Cathedral, finished in 1899, shows how Catholicism took root in the delta."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Bái Đính is one of the largest pagoda complexes in Vietnam. Phủ Dầy in Nam Định is the centre of the worship of the Mother Goddesses, listed by UNESCO in 2016. Nam Định also claims to be the birthplace of phở."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk around the main altar quietly, and let worshippers go first.",
+    "Keep your voice down on the boats; the valleys echo.",
+    "Tip the rowers a little if you are happy with the trip."
+  ],
+  "timeline": [
+    {
+      "year": -30000,
+      "approx": true,
+      "text": "Prehistoric people shelter in the caves of Tràng An.",
+      "landmark": "trang-an",
+      "era": 0
+    },
+    {
+      "year": 968,
+      "text": "Đinh Bộ Lĩnh unites the country as Đại Cồ Việt, with its capital at Hoa Lư.",
+      "landmark": "trang-an",
+      "era": 1
+    },
+    {
+      "year": 1010,
+      "text": "Emperor Lý Thái Tổ moves the capital from Hoa Lư to Thăng Long.",
+      "landmark": "trang-an",
+      "era": 2
+    },
+    {
+      "year": 1262,
+      "text": "The Trần build the Thiên Trường palace in Nam Định."
+    },
+    {
+      "year": 1899,
+      "text": "Phát Diệm Cathedral, built in Vietnamese style from stone and wood, is completed."
+    },
+    {
+      "year": 1962,
+      "text": "Cúc Phương becomes Vietnam's first national park."
+    },
+    {
+      "year": 2014,
+      "text": "UNESCO lists the Tràng An Landscape Complex.",
+      "landmark": "trang-an",
+      "era": 3
+    },
+    {
+      "year": 2016,
+      "text": "UNESCO lists the worship of the Mother Goddesses, centred at Phủ Dầy."
+    },
+    {
+      "year": 2025,
+      "text": "Ninh Bình, Hà Nam and Nam Định merge."
+    },
+    {
+      "year": 2026,
+      "text": "Rowing boats carry visitors through the flooded caves of Tràng An.",
+      "landmark": "trang-an",
+      "era": 4
+    }
+  ]
+}

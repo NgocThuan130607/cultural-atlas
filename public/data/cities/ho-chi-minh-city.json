@@ -1,0 +1,90 @@
+{
+  "id": "ho-chi-minh-city",
+  "hero": {
+    "file": "Ho Chi Minh City Skyline at Night.jpg",
+    "alt": "Hồ Chí Minh City skyline at night"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Chinese dialects and Khmer",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April, the dry season",
+    "founded": "Gia Định from 1698; renamed Hồ Chí Minh City in 1976; merged with Bình Dương and Bà Rịa–Vũng Tàu in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Vietnam's largest city spreads along the Saigon River, on the edge of the Mekong Delta. Its south reaches the sea through the Cần Giờ mangrove forest. Since 2025 it has also included the factories and new towns of Bình Dương, the port and beaches of Vũng Tàu, and the Côn Đảo islands."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Once a Khmer trading post called Prey Nokor, the area came under Vietnamese rule in 1698. Nguyễn Ánh built a citadel at Gia Định in 1790, and the French captured Saigon in 1859, making it the capital of their colony of Cochinchina. From 1955 it was the capital of South Vietnam. On 30 April 1975 the war ended here, and in 1976 the city took the name of Ho Chi Minh."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Saigon never stops: motorbikes, street food, cafés on every corner and markets open from dawn to night. Chợ Lớn is the heart of the Chinese community. Đờn ca tài tử, the chamber music of the south, is on UNESCO's list, and cải lương opera grew out of it."
+    }
+  ],
+  "etiquette": [
+    "Cross the street slowly and steadily; motorbikes will flow around you.",
+    "Keep phones and bags away from the kerb; snatch thefts happen.",
+    "Dress modestly in pagodas, churches and the palace.",
+    "Agree prices before using cyclos or unmetered taxis."
+  ],
+  "timeline": [
+    {
+      "year": 1698,
+      "text": "Nguyễn Hữu Cảnh sets up the Gia Định administration for the Nguyễn lords."
+    },
+    {
+      "year": 1790,
+      "text": "Nguyễn Ánh builds the citadel of Gia Định."
+    },
+    {
+      "year": 1859,
+      "text": "French forces capture Saigon."
+    },
+    {
+      "year": 1868,
+      "text": "Work begins on the Norodom Palace for the French governor.",
+      "landmark": "independence-palace",
+      "era": 0
+    },
+    {
+      "year": 1911,
+      "text": "On 5 June the young Nguyễn Tất Thành (Ho Chi Minh) leaves Saigon on a French ship."
+    },
+    {
+      "year": 1966,
+      "text": "The new Independence Palace opens.",
+      "landmark": "independence-palace",
+      "era": 2
+    },
+    {
+      "year": 1975,
+      "text": "On 30 April a tank crashes through the palace gates, and the war ends.",
+      "landmark": "independence-palace",
+      "era": 3
+    },
+    {
+      "year": 1976,
+      "text": "Saigon is renamed Hồ Chí Minh City."
+    },
+    {
+      "year": 2024,
+      "text": "The city's first metro line opens."
+    },
+    {
+      "year": 2025,
+      "text": "Hồ Chí Minh City merges with Bình Dương and Bà Rịa–Vũng Tàu."
+    },
+    {
+      "year": 2026,
+      "text": "The palace is a museum in the middle of a city of millions.",
+      "landmark": "independence-palace",
+      "era": 4
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "an-giang",
+  "hero": {
+    "file": "Phu Quoc Island 01.jpg",
+    "alt": "Phú Quốc island"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Khmer, Chăm and Chinese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April; September–November for the flood season",
+    "founded": "Merged with Kiên Giang in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new An Giang runs from the Mekong where it enters Vietnam from Cambodia to the Gulf of Thailand. Inland are the Seven Mountains (Bảy Núi), rare hills in the flat delta, and the Trà Sư melaleuca forest. The former Kiên Giang province adds the coast, Hà Tiên and the islands of Phú Quốc."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In the first centuries CE, the port city of Óc Eo traded with India, China and even the Roman Empire. In 1708 the Chinese adventurer Mạc Cửu placed Hà Tiên under the Nguyễn lords. Between 1819 and 1824 tens of thousands of workers dug the Vĩnh Tế canal along the border. In April 1978 Khmer Rouge troops massacred villagers at Ba Chúc."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "An Giang is a meeting place of peoples: Vietnamese, Khmer, Chinese and Chăm Muslims, whose mosques stand along the river near Châu Đốc. Châu Đốc is famous for its fermented fish (mắm), and Phú Quốc for its fish sauce and pepper."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+    "Walk quietly, and let worshippers go first.",
+    "At mosques, dress modestly and ask before entering."
+  ],
+  "timeline": [
+    {
+      "year": 150,
+      "approx": true,
+      "text": "Óc Eo, a port city of the Funan kingdom, trades with India, China and Rome.",
+      "landmark": "ba-chua-xu-temple",
+      "era": 0
+    },
+    {
+      "year": 1708,
+      "text": "Mạc Cửu places Hà Tiên under the Nguyễn lords."
+    },
+    {
+      "year": 1819,
+      "text": "Work begins on the Vĩnh Tế canal along the Cambodian border."
+    },
+    {
+      "year": 1825,
+      "approx": true,
+      "text": "A temple to the Lady of the Realm is built at the foot of Sam mountain.",
+      "landmark": "ba-chua-xu-temple",
+      "era": 1
+    },
+    {
+      "year": 1978,
+      "text": "Khmer Rouge troops massacre villagers at Ba Chúc in April."
+    },
+    {
+      "year": 2024,
+      "text": "UNESCO lists the festival of the Lady of the Realm of Sam Mountain.",
+      "landmark": "ba-chua-xu-temple",
+      "era": 3
+    },
+    {
+      "year": 2025,
+      "text": "An Giang and Kiên Giang merge."
+    },
+    {
+      "year": 2026,
+      "text": "Millions of pilgrims visit the temple every year.",
+      "landmark": "ba-chua-xu-temple",
+      "era": 4
+    }
+  ]
+}

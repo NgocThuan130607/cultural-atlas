@@ -1,0 +1,193 @@
+{
+  "id": "ho-citadel",
+  "city": "thanh-hoa",
+  "name": "Citadel of the Hồ Dynasty",
+  "localName": "Thành nhà Hồ (Tây Đô)",
+  "lat": 20.0781,
+  "lon": 105.6047,
+  "summary": "A stone citadel built in a few months in 1397, of huge cut blocks fitted without mortar. It is a UNESCO World Heritage Site.",
+  "hero": {
+    "file": "Tay Do castle South gate.JPG",
+    "alt": "The south gate of the Hồ citadel"
+  },
+  "eras": [
+    {
+      "year": 1397,
+      "label": "1397",
+      "title": "A citadel in three months",
+      "text": "In early 1397, Hồ Quý Ly, the most powerful minister of the Trần court, had a new capital built at Tây Đô, the \"Western Capital\". Workers raised walls of huge limestone blocks in about three months.",
+      "image": {
+        "file": "Tay Do castle South gate.JPG",
+        "alt": "The south gate"
+      }
+    },
+    {
+      "year": 1400,
+      "label": "1400",
+      "title": "A new dynasty",
+      "text": "In 1400 Hồ Quý Ly forced the last Trần emperor to give up the throne and founded his own dynasty, ruling from this citadel. He renamed the country Đại Ngu.",
+      "image": {
+        "file": "Cổng Bắc thành nhà Hồ .jpg",
+        "alt": "The north gate"
+      }
+    },
+    {
+      "year": 1407,
+      "label": "1407",
+      "title": "The Ming invasion",
+      "text": "The Ming emperor used the change of dynasty as an excuse to invade. In 1407 the Hồ armies were defeated and their rulers taken to China. The citadel lost its role as a capital.",
+      "image": {
+        "file": "Tay Do castle East gate.JPG",
+        "alt": "The east gate"
+      }
+    },
+    {
+      "year": 2011,
+      "label": "2011",
+      "title": "World Heritage",
+      "text": "UNESCO listed the citadel as an outstanding example of new architecture in 14th-century South-East Asia, built at great speed and still standing.",
+      "image": {
+        "file": "Ho dynasty's citadel, Vietnam.jpg",
+        "alt": "The walls of the citadel"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Gates in the fields",
+      "text": "Most of the walls have fallen, but the four stone gates still stand among rice fields and villages, the south gate the most impressive.",
+      "image": {
+        "file": "Cổng Nam.jpg",
+        "alt": "The south gate today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "reformer",
+      "type": "history",
+      "title": "Hồ Quý Ly, the reformer",
+      "image": {
+        "file": "Cổng Bắc thành nhà Hồ .jpg",
+        "alt": "The north gate"
+      },
+      "narration": "Hồ Quý Ly was one of the most daring rulers in Vietnamese history. Before and after taking the throne, he introduced paper money, limited how much land the nobles could own, reformed exams and promoted writing in the Vietnamese script, chữ Nôm. Many of the old aristocracy hated him for ending the Trần dynasty. His reign was short: in 1407 the Ming invaded, and he and his son were captured. Historians still argue whether he was a usurper or a reformer ahead of his time."
+    },
+    {
+      "id": "stones",
+      "type": "culture",
+      "title": "Stones without mortar",
+      "image": {
+        "file": "Tay Do castle South gate.JPG",
+        "alt": "The south gate"
+      },
+      "narration": "The walls of Tây Đô are made of limestone blocks cut so precisely that they stand without mortar. Some weigh more than ten tonnes. The south gate has three arches whose stones are shaped and fitted so well that they have stood for over 600 years. How the builders quarried, moved and lifted the blocks so fast, without modern tools, still impresses engineers."
+    },
+    {
+      "id": "nam-giao",
+      "type": "history",
+      "title": "The altar to Heaven",
+      "image": {
+        "file": "12-gieng vua-dan te nam giao.JPG",
+        "alt": "Remains of the Nam Giao altar"
+      },
+      "narration": "In 1402, Hồ Hán Thương, Hồ Quý Ly's son and successor, built a Nam Giao altar on a hill south of the citadel, where the emperor made offerings to Heaven and Earth. Archaeologists uncovered its terraces and a stone-lined royal well in the 2010s. The altar shows that the Hồ, though they ruled only seven years, built a capital with all the rituals of an empire."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small entry ticket.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Start at the south gate and the small museum.",
+        "Bring a hat; there is little shade.",
+        "Visit the Nam Giao altar site south of the citadel.",
+        "Combine with the temple of Lady Triệu."
+      ],
+      "dont": [
+        "Climb on the walls or gates.",
+        "Take stones from the site.",
+        "Drive across the fields."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Try nem chua (fermented pork) and bánh gai (black leaf cakes)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 45 km north-west of Thanh Hóa city, or 3 hours by car from Hà Nội."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Lam Kinh, the home and tombs of Lê Lợi's dynasty, and the beach at Sầm Sơn."
+      }
+    ],
+    "pois": [
+      {
+        "name": "South gate & museum",
+        "category": "entrance",
+        "lat": 20.0781,
+        "lon": 105.6047,
+        "note": "Main entrance."
+      },
+      {
+        "name": "North gate",
+        "category": "sights",
+        "lat": 20.0835,
+        "lon": 105.605,
+        "note": "Approximate."
+      },
+      {
+        "name": "Nam Giao altar site",
+        "category": "sights",
+        "lat": 20.065,
+        "lon": 105.596,
+        "note": "Approximate."
+      },
+      {
+        "name": "Thanh Hóa city",
+        "category": "transport",
+        "lat": 19.8067,
+        "lon": 105.7852,
+        "note": "Trains and buses."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

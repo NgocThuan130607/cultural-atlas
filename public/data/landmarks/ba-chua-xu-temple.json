@@ -1,0 +1,165 @@
+{
+  "id": "ba-chua-xu-temple",
+  "city": "an-giang",
+  "name": "Temple of the Lady of the Realm",
+  "localName": "Miếu Bà Chúa Xứ Núi Sam",
+  "lat": 10.6823,
+  "lon": 105.0801,
+  "summary": "A temple at the foot of Sam mountain, near Châu Đốc, dedicated to the Lady of the Realm. Its festival draws millions of pilgrims each year.",
+  "hero": {
+    "file": "Miếu Bà Chúa Xứ Núi Sam.jpg",
+    "alt": "The temple of the Lady of the Realm"
+  },
+  "eras": [
+    {
+      "year": 600,
+      "label": "Ancient times",
+      "title": "A statue on the mountain",
+      "text": "The statue worshipped here is carved from sandstone, and scholars believe it is very old, possibly a Hindu image from the time of Funan. For a long time it sat on top of Sam mountain.",
+      "image": {
+        "file": "Nơi Bà Chúa Xứ Núi Sam ngự khi xưa.jpg",
+        "alt": "Where the Lady once sat on the mountain"
+      }
+    },
+    {
+      "year": 1825,
+      "label": "1820s",
+      "title": "A temple at the foot of the hill",
+      "text": "After the Vĩnh Tế canal was dug and settlers arrived, villagers built a simple temple of bamboo and leaves for the statue at the foot of the mountain. It has been rebuilt and enlarged many times.",
+      "image": {
+        "file": "Mieuba2.jpg",
+        "alt": "The temple"
+      }
+    },
+    {
+      "year": 1972,
+      "label": "1970s",
+      "title": "A grand temple",
+      "text": "The temple was rebuilt in its present form, with layered green-tiled roofs, in the 1970s.",
+      "image": {
+        "file": "Chau doc - chua ba chua xu - panoramio.jpg",
+        "alt": "The temple at Châu Đốc"
+      }
+    },
+    {
+      "year": 2024,
+      "label": "2024",
+      "title": "A UNESCO festival",
+      "text": "UNESCO listed the festival of the Lady of the Realm of Sam Mountain as part of the intangible cultural heritage of humanity.",
+      "image": {
+        "file": "Miếu Bà Chúa Xứ, bên trong.JPG",
+        "alt": "Inside the temple"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Pilgrims all year",
+      "text": "The temple is open day and night. Pilgrims bring roast pigs, fruit and incense to ask the Lady for luck and good business.",
+      "image": {
+        "file": "Offrandes destinées à la Déesse \"Ba Chua Xu\" (Chau Doc, Vietnam) (6602143141).jpg",
+        "alt": "Offerings to the Lady"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "statue",
+      "type": "legend",
+      "title": "The statue that chose its home",
+      "image": {
+        "file": "Nơi Bà Chúa Xứ Núi Sam ngự khi xưa.jpg",
+        "alt": "The old site on the mountain"
+      },
+      "narration": "The legend says that villagers found the statue on the top of Sam mountain and wanted to bring it down to build it a proper temple. However many strong men tried, they could not lift it. Then a woman in a trance spoke for the Lady: nine young girls should carry her. The girls lifted the statue easily and carried it down the slope. At the foot of the mountain it suddenly became too heavy to move, and the villagers understood that the Lady had chosen her home. The temple stands on that spot."
+    },
+    {
+      "id": "canal",
+      "type": "history",
+      "title": "Thoại Ngọc Hầu and the Vĩnh Tế canal",
+      "image": {
+        "file": "Mieuba2.jpg",
+        "alt": "The temple"
+      },
+      "narration": "Near the temple is the tomb of Thoại Ngọc Hầu, a general of the Nguyễn emperors. Between 1819 and 1824 he oversaw the digging of the Vĩnh Tế canal, about 90 km long, along the border with Cambodia, using the labour of tens of thousands of people, many of whom died. The canal secured the border and opened the region to settlers. Emperor Minh Mạng named it after Thoại Ngọc Hầu's wife, Châu Thị Vĩnh Tế."
+    },
+    {
+      "id": "festival",
+      "type": "culture",
+      "title": "The festival of the Lady",
+      "image": {
+        "file": "Miếu Bà Chúa Xứ, bên trong.JPG",
+        "alt": "Inside the temple"
+      },
+      "narration": "The great festival takes place from the 22nd to the 27th day of the fourth lunar month. At midnight, the statue is bathed with scented water and dressed in a new robe, while priests and elders perform ancient rites. There are processions, music and lion dances. Pilgrims come from across the south, and from abroad, many of them traders who believe the Lady brings prosperity. In 2024 UNESCO recognised the festival as heritage of humanity."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "open24h": true,
+      "notes": "The temple is open day and night; very crowded around the festival in the fourth lunar month and at Lunar New Year."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+        "Walk quietly, and let worshippers go first.",
+        "Climb or ride up Sam mountain for the view over the border plains."
+      ],
+      "dont": [
+        "Point your feet at altars or monks.",
+        "Photograph people who are praying without asking.",
+        "Buy \"lucky\" items from sellers who follow you; prices are high."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Châu Đốc fermented fish (bún cá, lẩu mắm), and Phú Quốc fish sauce and pepper."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 6 hours from Hồ Chí Minh City; 5 km from Châu Đốc town."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "The Chăm mosques along the river, the Trà Sư forest, and the Ba Chúc memorial."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Temple of the Lady of the Realm",
+        "category": "entrance",
+        "lat": 10.6823,
+        "lon": 105.0801,
+        "note": "Main temple."
+      },
+      {
+        "name": "Tây An Pagoda",
+        "category": "sights",
+        "lat": 10.683,
+        "lon": 105.0815,
+        "note": "Approximate."
+      },
+      {
+        "name": "Tomb of Thoại Ngọc Hầu",
+        "category": "sights",
+        "lat": 10.6815,
+        "lon": 105.079,
+        "note": "Approximate."
+      },
+      {
+        "name": "Châu Đốc town",
+        "category": "food",
+        "lat": 10.705,
+        "lon": 105.117,
+        "note": "Restaurants and markets. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

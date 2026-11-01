@@ -1,4 +1,57 @@
 {
+  "collections": [
+    {
+      "id": "world",
+      "label": "World",
+      "title": "Atlas of Stories",
+      "intro": "History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.",
+      "home": {
+        "lon": 62,
+        "lat": 24,
+        "height": 22500000,
+        "zoom": 3
+      },
+      "lookHeight": 9000000,
+      "lookZoom": 4,
+      "moments": "world-moments.json",
+      "yearTitle": "The world in",
+      "defaultYear": 1889
+    },
+    {
+      "id": "vietnam",
+      "label": "Vietnam",
+      "title": "Vietnam · 34 provinces",
+      "intro": "Every province and city of Vietnam, from the karst peaks of the far north to the mangroves of Cà Mau. Choose one to explore its history, landmarks and customs.",
+      "home": {
+        "lon": 106.3,
+        "lat": 16.6,
+        "height": 3400000,
+        "zoom": 6,
+        "bounds": [
+          [
+            8.4,
+            102.1
+          ],
+          [
+            23.4,
+            109.5
+          ]
+        ]
+      },
+      "lookHeight": 2200000,
+      "lookZoom": 6,
+      "moments": "vietnam-moments.json",
+      "yearTitle": "Vietnam in",
+      "defaultYear": 1945,
+      "groups": [
+        "North",
+        "Central",
+        "South"
+      ],
+      "cards": "events",
+      "referenceLabels": false
+    }
+  ],
   "cities": [
     {
       "id": "hanoi",
@@ -9,7 +62,15 @@
       "lon": 105.8542,
       "timezone": "Asia/Ho_Chi_Minh",
       "tagline": "A thousand-year capital of lakes, temples and street food",
-      "landmarks": ["ho-chi-minh-mausoleum"]
+      "landmarks": [
+        "ho-chi-minh-mausoleum"
+      ],
+      "kind": "City",
+      "region": "North",
+      "collections": [
+        "world",
+        "vietnam"
+      ]
     },
     {
       "id": "paris",
@@ -20,7 +81,12 @@
       "lon": 2.3522,
       "timezone": "Europe/Paris",
       "tagline": "The City of Light, built along the Seine",
-      "landmarks": ["eiffel-tower"]
+      "landmarks": [
+        "eiffel-tower"
+      ],
+      "collections": [
+        "world"
+      ]
     },
     {
       "id": "cairo",
@@ -31,7 +97,12 @@
       "lon": 31.2357,
       "timezone": "Africa/Cairo",
       "tagline": "The city of a thousand minarets, on the banks of the Nile",
-      "landmarks": ["pyramids-of-giza"]
+      "landmarks": [
+        "pyramids-of-giza"
+      ],
+      "collections": [
+        "world"
+      ]
     },
     {
       "id": "kyoto",
@@ -42,7 +113,12 @@
       "lon": 135.7681,
       "timezone": "Asia/Tokyo",
       "tagline": "Japan's imperial capital for more than a thousand years",
-      "landmarks": ["kinkaku-ji"]
+      "landmarks": [
+        "kinkaku-ji"
+      ],
+      "collections": [
+        "world"
+      ]
     },
     {
       "id": "rome",
@@ -53,7 +129,12 @@
       "lon": 12.4964,
       "timezone": "Europe/Rome",
       "tagline": "The Eternal City, layered with three thousand years of history",
-      "landmarks": ["colosseum"]
+      "landmarks": [
+        "colosseum"
+      ],
+      "collections": [
+        "world"
+      ]
     },
     {
       "id": "new-york",
@@ -64,7 +145,681 @@
       "lon": -74.006,
       "timezone": "America/New_York",
       "tagline": "A harbour city of immigrants and skyscrapers",
-      "landmarks": ["statue-of-liberty"]
+      "landmarks": [
+        "statue-of-liberty"
+      ],
+      "collections": [
+        "world"
+      ]
+    },
+    {
+      "id": "tuyen-quang",
+      "name": "Tuyên Quang",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.8236,
+      "lon": 105.214,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Stone highlands on the northern frontier, and the cradle of the 1945 revolution",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Hà Giang"
+      ],
+      "landmarks": [
+        "dong-van-karst-plateau"
+      ]
+    },
+    {
+      "id": "lao-cai",
+      "name": "Lào Cai",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.7229,
+      "lon": 104.9113,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Terraced valleys, Fansipan and the gateway to China on the Red River",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Yên Bái"
+      ],
+      "landmarks": [
+        "sa-pa"
+      ]
+    },
+    {
+      "id": "thai-nguyen",
+      "name": "Thái Nguyên",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.5942,
+      "lon": 105.8482,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Tea hills, steel and the forest heartland of the resistance",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bắc Kạn"
+      ],
+      "landmarks": [
+        "ba-be-lake"
+      ]
+    },
+    {
+      "id": "cao-bang",
+      "name": "Cao Bằng",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 22.6657,
+      "lon": 106.2577,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Waterfalls, karst valleys and the cave where Ho Chi Minh came home",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "ban-gioc-waterfall"
+      ]
+    },
+    {
+      "id": "lang-son",
+      "name": "Lạng Sơn",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.8537,
+      "lon": 106.7615,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "The northern gateway, guarded by mountain passes and legends",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "chi-lang-pass"
+      ]
+    },
+    {
+      "id": "lai-chau",
+      "name": "Lai Châu",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 22.3964,
+      "lon": 103.4582,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "High passes, tea hills and the far north-west",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "o-quy-ho-pass"
+      ]
+    },
+    {
+      "id": "dien-bien",
+      "name": "Điện Biên",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.386,
+      "lon": 103.023,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "The valley where a colonial war was decided",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "dien-bien-phu-battlefield"
+      ]
+    },
+    {
+      "id": "son-la",
+      "name": "Sơn La",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.3256,
+      "lon": 103.9188,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Plateaux of plum blossom and tea above the Đà River",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "son-la-prison"
+      ]
+    },
+    {
+      "id": "phu-tho",
+      "name": "Phú Thọ",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.3227,
+      "lon": 105.4019,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Land of the Hùng Kings, where the rivers leave the mountains",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Vĩnh Phúc",
+        "Hòa Bình"
+      ],
+      "landmarks": [
+        "hung-temple"
+      ]
+    },
+    {
+      "id": "bac-ninh",
+      "name": "Bắc Ninh",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 21.2731,
+      "lon": 106.1946,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Kinh Bắc, land of quan họ songs, old pagodas and woodblock prints",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bắc Giang"
+      ],
+      "landmarks": [
+        "dau-pagoda"
+      ]
+    },
+    {
+      "id": "quang-ninh",
+      "name": "Quảng Ninh",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 20.95,
+      "lon": 107.0733,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Hạ Long Bay, coal mines and the sacred mountain of Yên Tử",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "ha-long-bay"
+      ]
+    },
+    {
+      "id": "hai-phong",
+      "name": "Hải Phòng",
+      "kind": "City",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 20.8449,
+      "lon": 106.6881,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Port city of red flame trees, and the hills of the Trần heroes",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Hải Dương"
+      ],
+      "landmarks": [
+        "con-son-kiep-bac"
+      ]
+    },
+    {
+      "id": "hung-yen",
+      "name": "Hưng Yên",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 20.6464,
+      "lon": 106.0511,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Longan orchards, the old port of Phố Hiến and the rice lands of Thái Bình",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Thái Bình"
+      ],
+      "landmarks": [
+        "keo-pagoda"
+      ]
+    },
+    {
+      "id": "ninh-binh",
+      "name": "Ninh Bình",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "North",
+      "lat": 20.2506,
+      "lon": 105.9745,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Karst rivers, the first imperial capital and the cathedral towns of the delta",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Hà Nam",
+        "Nam Định"
+      ],
+      "landmarks": [
+        "trang-an"
+      ]
+    },
+    {
+      "id": "thanh-hoa",
+      "name": "Thanh Hóa",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 19.8067,
+      "lon": 105.7852,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Land of dynasties: the Hồ citadel, Lê Lợi and the Đông Sơn drums",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "ho-citadel"
+      ]
+    },
+    {
+      "id": "nghe-an",
+      "name": "Nghệ An",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 18.6796,
+      "lon": 105.6813,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Birthplace of Ho Chi Minh, and of fierce scholars and rebels",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "kim-lien"
+      ]
+    },
+    {
+      "id": "ha-tinh",
+      "name": "Hà Tĩnh",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 18.3428,
+      "lon": 105.9057,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Land of poets, and of the young heroines of Đồng Lộc",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "dong-loc-junction"
+      ]
+    },
+    {
+      "id": "quang-tri",
+      "name": "Quảng Trị",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 17.4689,
+      "lon": 106.6223,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Giant caves of Phong Nha, and the river that divided a country",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Quảng Bình"
+      ],
+      "landmarks": [
+        "hien-luong-bridge"
+      ]
+    },
+    {
+      "id": "hue",
+      "name": "Huế",
+      "kind": "City",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 16.4637,
+      "lon": 107.5909,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "The old imperial capital on the Perfume River",
+      "collections": [
+        "vietnam"
+      ],
+      "landmarks": [
+        "hue-imperial-city"
+      ]
+    },
+    {
+      "id": "da-nang",
+      "name": "Đà Nẵng",
+      "kind": "City",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 16.0544,
+      "lon": 108.2022,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Beaches and bridges, beside the lantern-lit old town of Hội An",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Quảng Nam"
+      ],
+      "landmarks": [
+        "hoi-an-ancient-town"
+      ]
+    },
+    {
+      "id": "quang-ngai",
+      "name": "Quảng Ngãi",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 15.1214,
+      "lon": 108.8044,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Volcanic Lý Sơn, the Sa Huỳnh coast and the highlands of Kon Tum",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Kon Tum"
+      ],
+      "landmarks": [
+        "ly-son-island"
+      ]
+    },
+    {
+      "id": "gia-lai",
+      "name": "Gia Lai",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 13.7765,
+      "lon": 109.2237,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "From the beaches of Quy Nhơn to the highlands of Pleiku, homeland of the Tây Sơn",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bình Định"
+      ],
+      "landmarks": [
+        "quang-trung-museum"
+      ]
+    },
+    {
+      "id": "dak-lak",
+      "name": "Đắk Lắk",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 12.6667,
+      "lon": 108.0378,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Coffee capital of the highlands, and the basalt coast of Phú Yên",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Phú Yên"
+      ],
+      "landmarks": [
+        "buon-don"
+      ]
+    },
+    {
+      "id": "khanh-hoa",
+      "name": "Khánh Hòa",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 12.2388,
+      "lon": 109.1967,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Nha Trang's bay, Cham towers and the dry coast of Ninh Thuận",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Ninh Thuận"
+      ],
+      "landmarks": [
+        "po-nagar"
+      ]
+    },
+    {
+      "id": "lam-dong",
+      "name": "Lâm Đồng",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "Central",
+      "lat": 11.9404,
+      "lon": 108.4583,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Pine-clad Đà Lạt, highland waterfalls and the dunes of Mũi Né",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Đắk Nông",
+        "Bình Thuận"
+      ],
+      "landmarks": [
+        "da-lat-railway-station"
+      ]
+    },
+    {
+      "id": "ho-chi-minh-city",
+      "name": "Hồ Chí Minh City",
+      "kind": "City",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.7769,
+      "lon": 106.7009,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Saigon: Vietnam's restless metropolis, from Bến Thành to the sea at Vũng Tàu",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bình Dương",
+        "Bà Rịa–Vũng Tàu"
+      ],
+      "landmarks": [
+        "independence-palace"
+      ]
+    },
+    {
+      "id": "dong-nai",
+      "name": "Đồng Nai",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.9574,
+      "lon": 106.8427,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Biên Hòa's river town, the forests of Cát Tiên and the rubber lands of Bình Phước",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bình Phước"
+      ],
+      "landmarks": [
+        "tran-bien-temple-of-literature"
+      ]
+    },
+    {
+      "id": "tay-ninh",
+      "name": "Tây Ninh",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.5359,
+      "lon": 106.4137,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "The great Cao Đài temple, Bà Đen mountain and the rice plains of Long An",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Long An"
+      ],
+      "landmarks": [
+        "cao-dai-holy-see"
+      ]
+    },
+    {
+      "id": "dong-thap",
+      "name": "Đồng Tháp",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.36,
+      "lon": 106.36,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Lotus country of the Plain of Reeds, and the river town of Mỹ Tho",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Tiền Giang"
+      ],
+      "landmarks": [
+        "go-thap"
+      ]
+    },
+    {
+      "id": "vinh-long",
+      "name": "Vĩnh Long",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.2537,
+      "lon": 105.9722,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Islands of fruit and coconuts between the Mekong's arms, and the Khmer pagodas of Trà Vinh",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bến Tre",
+        "Trà Vinh"
+      ],
+      "landmarks": [
+        "ao-ba-om"
+      ]
+    },
+    {
+      "id": "can-tho",
+      "name": "Cần Thơ",
+      "kind": "City",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.0452,
+      "lon": 105.7469,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Capital of the Mekong Delta, its floating markets and the Khmer pagodas of Sóc Trăng",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Sóc Trăng",
+        "Hậu Giang"
+      ],
+      "landmarks": [
+        "cai-rang-floating-market"
+      ]
+    },
+    {
+      "id": "an-giang",
+      "name": "An Giang",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 10.0125,
+      "lon": 105.0809,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Sacred Sam mountain, the Óc Eo heritage and the islands of Phú Quốc",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Kiên Giang"
+      ],
+      "landmarks": [
+        "ba-chua-xu-temple"
+      ]
+    },
+    {
+      "id": "ca-mau",
+      "name": "Cà Mau",
+      "kind": "Province",
+      "country": "Vietnam",
+      "continent": "Asia",
+      "region": "South",
+      "lat": 9.1769,
+      "lon": 105.1524,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "tagline": "Mangroves at the end of the land, and the wind farms and songs of Bạc Liêu",
+      "collections": [
+        "vietnam"
+      ],
+      "formerly": [
+        "Bạc Liêu"
+      ],
+      "landmarks": [
+        "ca-mau-cape"
+      ]
     }
   ]
 }

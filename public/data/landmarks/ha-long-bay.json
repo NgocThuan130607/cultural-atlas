@@ -1,0 +1,200 @@
+{
+  "id": "ha-long-bay",
+  "city": "quang-ninh",
+  "name": "Hạ Long Bay",
+  "localName": "Vịnh Hạ Long",
+  "lat": 20.91,
+  "lon": 107.1839,
+  "summary": "A bay of nearly 2,000 limestone islands rising from green water. It is a UNESCO World Heritage Site and one of the great landscapes of Asia.",
+  "hero": {
+    "file": "Ha Long Bay in 2019.jpg",
+    "alt": "Limestone islands in Hạ Long Bay"
+  },
+  "eras": [
+    {
+      "year": -500000000,
+      "label": "Long ago",
+      "title": "Islands from the sea",
+      "text": "The islands are the tops of limestone hills drowned by the sea. Their rock, caves and fossils record hundreds of millions of years of the Earth's history, and their steep sides have been carved by waves into arches and notches.",
+      "image": {
+        "file": "Halong Bay, Rock formations in fog.jpg",
+        "alt": "Islands in the mist"
+      }
+    },
+    {
+      "year": 1900,
+      "label": "c. 1900",
+      "title": "The \"Baie d'Along\"",
+      "text": "Under French rule, the bay became famous in postcards and travel books as the \"Baie d'Along\". Steamers took visitors from Hải Phòng to see its caves and islands.",
+      "image": {
+        "file": "Baie Along 1.jpg",
+        "alt": "An old view of the bay"
+      }
+    },
+    {
+      "year": 1994,
+      "label": "1994",
+      "title": "World Heritage",
+      "text": "UNESCO listed Hạ Long Bay as a World Heritage Site for its outstanding beauty, and in 2000 added its geological value.",
+      "image": {
+        "file": "Halong Bay panorama.jpg",
+        "alt": "Panorama of Hạ Long Bay"
+      }
+    },
+    {
+      "year": 2023,
+      "label": "2023",
+      "title": "Joined with Cát Bà",
+      "text": "The World Heritage Site was extended to include the Cát Bà archipelago in neighbouring Hải Phòng, creating one protected landscape of more than 1,000 square kilometres.",
+      "image": {
+        "file": "Halong Bay in Vietnam.jpg",
+        "alt": "Islands of Hạ Long Bay"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Life on the water",
+      "text": "Most families of the floating fishing villages moved ashore in the 2010s, but a few floating houses remain. Cruise boats now carry visitors between the islands and into the caves.",
+      "image": {
+        "file": "Lang Chai Floating Village-Halong Bay Vietnam-Andres Larin.jpg",
+        "alt": "A floating village in the bay"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "dragon",
+      "type": "legend",
+      "title": "Where the dragon came down",
+      "image": {
+        "file": "Dragon Mountain (29843112887).jpg",
+        "alt": "Islands of the bay"
+      },
+      "narration": "Hạ Long means 'where the dragon descends'. The legend says that when Vietnam was threatened by invaders from the sea, the Jade Emperor sent a mother dragon and her children down from heaven to help. They spat out jewels and jade, which fell into the sea and became a wall of islands that wrecked the enemy ships. The dragons liked the peaceful bay so much that they stayed on earth. The mother came down at Hạ Long, and her children at Bái Tử Long, the bay 'where the children bowed to their mother'."
+    },
+    {
+      "id": "stakes",
+      "type": "history",
+      "title": "The stakes of Bạch Đằng",
+      "image": {
+        "file": "Halong Bay in Vietnam.jpg",
+        "alt": "The bay"
+      },
+      "narration": "Twice in Vietnam's history, invaders were destroyed on the Bạch Đằng River, which flows into the sea just west of the bay. In 938 Ngô Quyền had wooden stakes tipped with iron driven into the riverbed. At high tide, his boats lured the enemy fleet in. When the tide went out, the ships were caught on the hidden stakes and destroyed. In 1288, General Trần Hưng Đạo used the same trick against the fleet of the Mongol Yuan dynasty. Some of the stakes have been found by archaeologists in the riverbanks."
+    },
+    {
+      "id": "caves",
+      "type": "culture",
+      "title": "Caves inside the islands",
+      "image": {
+        "file": "Hang Sửng Sốt 3.jpg",
+        "alt": "Inside Sửng Sốt cave"
+      },
+      "narration": "Many of the islands are hollow. Sửng Sốt, the 'Surprise Cave', opens into huge chambers full of stalactites. Thiên Cung, the 'Heavenly Palace', is decorated with rock formations that guides compare to dragons, fairies and flowers. Fishermen once sheltered from storms in these caves. Today visitors also explore the bay by kayak, paddling into lagoons that can only be reached through low tunnels at low tide."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Bay entry ticket, plus a cruise. Day cruises last 4–8 hours, or you can stay overnight on a boat.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Day boats run in daylight; overnight cruises stay on the bay."
+    },
+    "etiquette": {
+      "do": [
+        "Book cruises with licensed operators, and check what the price includes.",
+        "Wear a life jacket on small boats and kayaks.",
+        "Bring a jacket in winter. It is cold and misty on the water.",
+        "Visit at least one cave and one viewpoint."
+      ],
+      "dont": [
+        "Throw rubbish or food into the water.",
+        "Touch stalactites or write on the cave walls.",
+        "Swim away from the official beaches."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Seafood",
+        "text": "Try chả mực (fried squid cakes), and fresh seafood at Hạ Long's harbour restaurants."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 2–2.5 hours from Hà Nội on the expressway. Cruises leave from Tuần Châu and Bãi Cháy."
+      },
+      {
+        "category": "sights",
+        "title": "Best views",
+        "text": "Climb to the top of Ti Tốp island, or ride the cable car to Ba Đèo hill in Hạ Long city."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Tuần Châu harbour",
+        "category": "entrance",
+        "lat": 20.93,
+        "lon": 106.99,
+        "note": "Main cruise port. Approximate."
+      },
+      {
+        "name": "Sửng Sốt cave",
+        "category": "sights",
+        "lat": 20.8448,
+        "lon": 107.0904,
+        "note": "Large cave on an island."
+      },
+      {
+        "name": "Ti Tốp island",
+        "category": "sights",
+        "lat": 20.861,
+        "lon": 107.082,
+        "note": "Viewpoint and small beach. Approximate."
+      },
+      {
+        "name": "Bãi Cháy",
+        "category": "food",
+        "lat": 20.955,
+        "lon": 107.04,
+        "note": "Hotels, seafood and the night market. Approximate."
+      },
+      {
+        "name": "Quảng Ninh Museum",
+        "category": "sights",
+        "lat": 20.953,
+        "lon": 107.089,
+        "note": "Modern museum by the bay. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

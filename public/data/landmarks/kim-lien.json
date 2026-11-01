@@ -1,0 +1,182 @@
+{
+  "id": "kim-lien",
+  "city": "nghe-an",
+  "name": "Kim Liên Relic Site",
+  "localName": "Khu di tích Kim Liên (Làng Sen)",
+  "lat": 18.6799,
+  "lon": 105.552,
+  "summary": "The villages where Ho Chi Minh was born and spent his childhood, with simple thatched houses kept as they were in the 1890s.",
+  "hero": {
+    "file": "Kim Lien Monuments Park.JPG",
+    "alt": "The Kim Liên relic site"
+  },
+  "eras": [
+    {
+      "year": 1890,
+      "label": "1890",
+      "title": "Born in Hoàng Trù",
+      "text": "Nguyễn Sinh Cung, later known as Ho Chi Minh, was born on 19 May 1890 in his mother's family home in Hoàng Trù village, a small thatched house that still stands.",
+      "image": {
+        "file": "Kim Lien Monuments Park.JPG",
+        "alt": "The Kim Liên relic site"
+      }
+    },
+    {
+      "year": 1901,
+      "label": "1901",
+      "title": "A house in Làng Sen",
+      "text": "In 1901 his father, Nguyễn Sinh Sắc, passed the high court examinations, and the village of Làng Sen (Kim Liên) gave the family a house. Its few pieces of furniture are kept as they were.",
+      "image": {
+        "file": "Mâm gỗ tại nhà cụ Phó bảng Nguyễn Sinh Sắc - Khu di tích lịch sử Kim Liên.jpg",
+        "alt": "A wooden tray in the family house"
+      }
+    },
+    {
+      "year": 1911,
+      "label": "1911",
+      "title": "Leaving home",
+      "text": "After studying in Huế and teaching in Phan Thiết, the young man left Vietnam in 1911 on a French ship. He would not return for thirty years.",
+      "image": {
+        "file": "Ho Chi Minh 1946.jpg",
+        "alt": "Ho Chi Minh in 1946"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A place of pilgrimage",
+      "text": "The two villages are a national relic site. Every year around 19 May, many people come for the Làng Sen festival.",
+      "image": {
+        "file": "Kim Lien Monuments Park.JPG",
+        "alt": "Kim Liên today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "family",
+      "type": "history",
+      "title": "A scholar's family",
+      "image": {
+        "file": "Mâm gỗ tại nhà cụ Phó bảng Nguyễn Sinh Sắc - Khu di tích lịch sử Kim Liên.jpg",
+        "alt": "In the family house"
+      },
+      "narration": "Ho Chi Minh's father, Nguyễn Sinh Sắc, was a poor scholar who studied for years to pass the imperial exams. His mother, Hoàng Thị Loan, wove cloth to support the family; she died in Huế in 1901. The boy learned Chinese characters from his father and grandfather, and grew up hearing villagers talk about the French conquest. His father later refused to serve as a mandarin under the French. The simple houses at Kim Liên show how modestly the family lived."
+    },
+    {
+      "id": "phan-boi-chau",
+      "type": "history",
+      "title": "The scholars of Nam Đàn",
+      "image": {
+        "file": "Kim Lien Monuments Park.JPG",
+        "alt": "Kim Liên"
+      },
+      "narration": "Nam Đàn district produced two of the great figures of Vietnam's independence movement. Phan Bội Châu, born here in 1867, founded the Đông Du ('Go East') movement in 1905, sending young Vietnamese to study in Japan. He believed modern education would free the country. The young Nguyễn Sinh Cung knew of him, but chose a different path: he went west, to France, to learn how the colonisers thought."
+    },
+    {
+      "id": "vi-giam",
+      "type": "culture",
+      "title": "Ví and giặm",
+      "image": {
+        "file": "Bãi biển Cửa Lò..jpg",
+        "alt": "The coast of Nghệ An"
+      },
+      "narration": "In the fields, on the boats and at the looms of Nghệ An and Hà Tĩnh, people sang ví and giặm. Ví are slow, free songs, often sung back and forth between groups of men and women. Giặm have a steadier rhythm and tell stories or give advice. They were sung by ordinary people at work, in the local dialect, about love, hardship and home. UNESCO listed them in 2014, and clubs in villages across the two provinces keep them alive."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. May close at lunchtime."
+    },
+    "etiquette": {
+      "do": [
+        "Keep your voice low and dress modestly.",
+        "Light incense only where others do so.",
+        "Visit both villages: Hoàng Trù (birthplace) and Làng Sen (childhood home)."
+      ],
+      "dont": [
+        "Pose playfully for photos at graves and memorials.",
+        "Step on graves or flowerbeds.",
+        "Touch the furniture in the houses."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Eel soup (súp lươn) and eel vermicelli are the classic Vinh breakfast."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 15 km from Vinh city, which has an airport and a railway station."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "The Phan Bội Châu memorial in Nam Đàn, and Cửa Lò beach near Vinh."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Làng Sen (Kim Liên)",
+        "category": "entrance",
+        "lat": 18.6799,
+        "lon": 105.552,
+        "note": "Childhood home."
+      },
+      {
+        "name": "Hoàng Trù village",
+        "category": "sights",
+        "lat": 18.668,
+        "lon": 105.556,
+        "note": "Birthplace. Approximate."
+      },
+      {
+        "name": "Vinh city",
+        "category": "transport",
+        "lat": 18.6796,
+        "lon": 105.6813,
+        "note": "Airport and trains."
+      },
+      {
+        "name": "Cửa Lò beach",
+        "category": "food",
+        "lat": 18.82,
+        "lon": 105.72,
+        "note": "Seafood and beach. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

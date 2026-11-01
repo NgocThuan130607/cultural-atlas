@@ -1,0 +1,182 @@
+{
+  "id": "cao-dai-holy-see",
+  "city": "tay-ninh",
+  "name": "Cao Đài Holy See",
+  "localName": "Tòa Thánh Tây Ninh",
+  "lat": 11.3039,
+  "lon": 106.1335,
+  "summary": "The great temple of Cao Đài, a 20th-century Vietnamese faith that blends Buddhism, Confucianism, Taoism and Christianity. Respectful visitors may watch its services, held four times a day.",
+  "hero": {
+    "file": "Cao Dai Holy See (10037404444).jpg",
+    "alt": "The Cao Đài Holy See"
+  },
+  "eras": [
+    {
+      "year": 1926,
+      "label": "1926",
+      "title": "A new religion",
+      "text": "In the early 1920s a group of officials in Saigon held séances and received messages they believed came from God. In 1926 they officially founded Cao Đài, the \"Great Way of the Third Period of Salvation\", in Tây Ninh.",
+      "image": {
+        "file": "CaoDaiMain.jpg",
+        "alt": "The Holy See"
+      }
+    },
+    {
+      "year": 1933,
+      "label": "1933",
+      "title": "Building the Holy See",
+      "text": "Followers began building the great temple in 1933, mostly with volunteer labour and donations. Work was interrupted by war.",
+      "image": {
+        "file": "Cao Dai Holy See (10037445595).jpg",
+        "alt": "The towers of the Holy See"
+      }
+    },
+    {
+      "year": 1955,
+      "label": "1955",
+      "title": "Inauguration",
+      "text": "The Holy See was completed and inaugurated in 1955, with its two towers, nine levels inside and a huge globe painted with the Divine Eye.",
+      "image": {
+        "file": "Tây Ninh Holy See main gate.jpg",
+        "alt": "The main gate of the Holy See"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Services in colour",
+      "text": "Four times a day, at 6:00, noon, 18:00 and midnight, followers in white, yellow, blue and red robes file in for prayers accompanied by music.",
+      "image": {
+        "file": "Tempel Cao Dai Innenansicht Tay Ninh Vietnam.JPG",
+        "alt": "Inside the Holy See"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "eye",
+      "type": "culture",
+      "title": "The Divine Eye",
+      "image": {
+        "file": "Cao Dai eye.jpg",
+        "alt": "The Divine Eye"
+      },
+      "narration": "The symbol of Cao Đài is a single left eye, the Divine Eye, which appears on the temple's front and on the great globe inside. Cao Đài teaches that all religions come from the same source, and it honours Buddha, Confucius, Laozi and Jesus. Its saints include unexpected figures: a famous painting at the entrance shows the French writer Victor Hugo, the Chinese leader Sun Yat-sen and the Vietnamese poet Nguyễn Bỉnh Khiêm signing a covenant between God and humanity."
+    },
+    {
+      "id": "service",
+      "type": "culture",
+      "title": "The noon service",
+      "image": {
+        "file": "Cao Dai Temple Tay Ninh.JPG",
+        "alt": "The Holy See during a service"
+      },
+      "narration": "Just before noon, a drum and bells sound. Followers enter in lines, men on one side and women on the other, and kneel in rows according to rank. Dignitaries wear robes of yellow for Buddhism, blue for Taoism and red for Confucianism, and ordinary followers wear white. Musicians play traditional instruments and a choir chants. Visitors may watch from the upper gallery, in silence, without flash."
+    },
+    {
+      "id": "ba-den",
+      "type": "legend",
+      "title": "The Black Lady mountain",
+      "image": {
+        "file": "Quần thể chùa Thượng ở núi Bà Đen.png",
+        "alt": "Pagodas on Bà Đen mountain"
+      },
+      "narration": "Bà Đen means 'the Black Lady'. One legend tells of a beautiful young woman named Lý Thị Thiên Hương who often climbed the mountain to pray at a pagoda. Attacked by bandits, she threw herself from a cliff rather than be captured. Later she appeared to a monk in a dream, with darkened skin, and asked him to find her body. People built a shrine to her, and the mountain took her name. Pilgrims still climb, or now ride the cable car, to pray to her."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Services at 6:00, 12:00, 18:00 and midnight; visitors watch from the upper gallery."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+        "Walk quietly, and let worshippers go first.",
+        "Arrive before 12:00 to watch the noon service."
+      ],
+      "dont": [
+        "Point your feet at altars or monks.",
+        "Photograph people who are praying without asking.",
+        "Use flash or walk on the main floor during services."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Bánh tráng phơi sương (dew-dried rice paper) with herbs and pork, and muối tôm (shrimp salt) with fruit."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 2.5 hours from Hồ Chí Minh City; often combined with the Củ Chi tunnels."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Bà Đen mountain and its cable car, 10 km away."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Holy See",
+        "category": "entrance",
+        "lat": 11.3039,
+        "lon": 106.1335,
+        "note": "Main temple."
+      },
+      {
+        "name": "Bà Đen mountain cable car",
+        "category": "sights",
+        "lat": 11.3814,
+        "lon": 106.1712,
+        "note": "Approximate."
+      },
+      {
+        "name": "Tây Ninh town",
+        "category": "transport",
+        "lat": 11.31,
+        "lon": 106.098,
+        "note": "Buses. Approximate."
+      },
+      {
+        "name": "Trảng Bàng (rice paper)",
+        "category": "food",
+        "lat": 11.03,
+        "lon": 106.36,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

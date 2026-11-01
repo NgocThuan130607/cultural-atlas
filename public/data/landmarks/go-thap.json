@@ -1,0 +1,181 @@
+{
+  "id": "go-thap",
+  "city": "dong-thap",
+  "name": "Gò Tháp Relic Site",
+  "localName": "Khu di tích Gò Tháp",
+  "lat": 10.5974,
+  "lon": 105.8249,
+  "summary": "A mound in the Plain of Reeds where a religious centre of the ancient Óc Eo culture once stood. It was later a base of the 19th-century resistance against France.",
+  "hero": {
+    "file": "Khu di tich khao co Go thap,Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
+    "alt": "The archaeological site of Gò Tháp"
+  },
+  "eras": [
+    {
+      "year": 400,
+      "label": "c. 400 CE",
+      "title": "A temple of Funan",
+      "text": "In the first centuries CE, people of the Óc Eo culture built brick temples on this rise in the wetland. Archaeologists found gold leaves engraved with Hindu gods buried in their foundations.",
+      "image": {
+        "file": "Ruins of Go Thap Muoi, Go Thap archaeological site.jpg",
+        "alt": "Ruins at Gò Tháp"
+      }
+    },
+    {
+      "year": 1862,
+      "label": "1862–1866",
+      "title": "A base in the marshes",
+      "text": "After the French took the eastern provinces, the resistance leaders Thiên Hộ Dương and Đốc Binh Kiều built a base at Gò Tháp, protected by the flooded plain. Đốc Binh Kiều died here in 1866.",
+      "image": {
+        "file": "Đền thờ Võ Duy Dương và Đốc Binh Kiều.jpg",
+        "alt": "Temple to Thiên Hộ Dương and Đốc Binh Kiều"
+      }
+    },
+    {
+      "year": 2000,
+      "label": "2000s",
+      "title": "Digging up the past",
+      "text": "Excavations uncovered brick foundations, statues and gold objects, and a small museum was built to display them.",
+      "image": {
+        "file": "Nha trung bay bao ton , khu di tich khao co, Go thap,Tân Kiều, Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
+        "alt": "The museum at Gò Tháp"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Among the lotus",
+      "text": "Today the site is a park of temples, ponds and old trees in the middle of the rice fields, with lotus flowering in summer.",
+      "image": {
+        "file": "Duong vao khu di tich Go thap, huyen Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
+        "alt": "The road to Gò Tháp"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "funan",
+      "type": "history",
+      "title": "A lost kingdom under the mud",
+      "image": {
+        "file": "Ruins of Go Thap Muoi, Go Thap archaeological site.jpg",
+        "alt": "Ruins at Gò Tháp"
+      },
+      "narration": "Long before Vietnamese settlers arrived, the Mekong Delta was home to Funan, one of the first kingdoms of South-East Asia, from about the 1st to the 7th century. Its people dug canals, traded with India and China, and worshipped Hindu gods and the Buddha. Archaeologists call their culture Óc Eo, after its port city in today's An Giang. At Gò Tháp they found temple foundations and gold leaves engraved with gods, buried as offerings. Most of Funan still lies under the mud of the delta."
+    },
+    {
+      "id": "resistance",
+      "type": "history",
+      "title": "Thiên Hộ Dương and Đốc Binh Kiều",
+      "image": {
+        "file": "Đền thờ Võ Duy Dương và Đốc Binh Kiều.jpg",
+        "alt": "The temple to the resistance leaders"
+      },
+      "narration": "In the 1860s, after the French had seized the eastern provinces of the south, Võ Duy Dương, known as Thiên Hộ Dương, gathered fighters in the Plain of Reeds. With his commander Đốc Binh Kiều, he built a fortified camp at Gò Tháp, where the floods made it almost impossible to reach. They fought the French for several years. Đốc Binh Kiều was killed in 1866, and the camp fell soon after. A temple at the site honours them both."
+    },
+    {
+      "id": "lotus",
+      "type": "culture",
+      "title": "The finest lotus",
+      "image": {
+        "file": "Duong vao khu di tich Go thap, huyen Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
+        "alt": "Countryside at Gò Tháp"
+      },
+      "narration": "A well-known folk verse says that the lotus of Tháp Mười is the most beautiful of all. In summer, pink and white flowers rise above the ponds of the Plain of Reeds. Farmers sell the seeds fresh or dried, cook the roots in salads, wrap rice in the leaves and make tea from the stamens. Restaurants in Đồng Tháp serve whole lotus menus, and boats take visitors out among the flowers at dawn, when they open."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small entry ticket.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Wear a hat and sunscreen; boats have little shade.",
+        "Wear a life jacket on small boats.",
+        "Visit the small museum to see the finds."
+      ],
+      "dont": [
+        "Climb on the ruins.",
+        "Pick lotus in the ponds."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Lotus-seed dishes, and hủ tiếu Mỹ Tho noodle soup."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 3.5 hours by road from Hồ Chí Minh City."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Tràm Chim National Park, and the flower village and old Huỳnh Thủy Lê house in Sa Đéc."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Gò Tháp relic site",
+        "category": "entrance",
+        "lat": 10.5974,
+        "lon": 105.8249,
+        "note": "Main gate."
+      },
+      {
+        "name": "Temple of the resistance leaders",
+        "category": "sights",
+        "lat": 10.598,
+        "lon": 105.826,
+        "note": "Approximate."
+      },
+      {
+        "name": "Tràm Chim National Park",
+        "category": "sights",
+        "lat": 10.71,
+        "lon": 105.52,
+        "note": "Wetland. Approximate."
+      },
+      {
+        "name": "Mỹ Tho",
+        "category": "transport",
+        "lat": 10.36,
+        "lon": 106.36,
+        "note": "Buses to Hồ Chí Minh City."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

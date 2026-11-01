@@ -1,0 +1,76 @@
+{
+  "id": "thai-nguyen",
+  "hero": {
+    "file": "Tan Cuong Tea culture.jpg",
+    "alt": "Tea culture of Tân Cương"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Tày, Nùng, Dao and other languages",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "September–November and March–May",
+    "founded": "A province since 1831; merged with Bắc Kạn in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Thái Nguyên lies where the Red River delta meets the northern mountains. The Cầu River runs through its rolling midlands, which are covered in tea. To the north, the former Bắc Kạn province is a land of forests and limestone, with Ba Bể Lake at its heart."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In August 1917, soldiers at the Thái Nguyên garrison mutinied against the French and held the town for several days. From 1947 the forests of Định Hóa became the 'ATK' safe zone, the hidden headquarters of the government during the war against France. In the 1960s Thái Nguyên became the home of Vietnam's first steelworks."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Tân Cương green tea, grown on the hills west of the city, is considered among the best in Vietnam. Tea is served at every visit and every negotiation. In the hills and around Ba Bể, the Tày and Nùng keep their stilt houses, their 'then' songs and the music of the tính lute."
+    }
+  ],
+  "etiquette": [
+    "When offered tea, accept the cup with both hands.",
+    "Take off your shoes before entering a stilt house.",
+    "Ask your host before photographing the family altar.",
+    "Don't leave rubbish at the lake or in the national park."
+  ],
+  "timeline": [
+    {
+      "year": 1831,
+      "text": "Thái Nguyên becomes a province under Emperor Minh Mạng."
+    },
+    {
+      "year": 1917,
+      "text": "Soldiers at the Thái Nguyên garrison rise against French rule and hold the town for several days."
+    },
+    {
+      "year": 1947,
+      "text": "The \"ATK\" safe zone in Định Hóa becomes the hidden headquarters of the resistance until 1954."
+    },
+    {
+      "year": 1963,
+      "text": "The first iron flows from the new Thái Nguyên steelworks."
+    },
+    {
+      "year": 1992,
+      "text": "Ba Bể National Park is created.",
+      "landmark": "ba-be-lake",
+      "era": 1
+    },
+    {
+      "year": 2011,
+      "text": "Ba Bể Lake is listed as a wetland of international importance under the Ramsar Convention.",
+      "landmark": "ba-be-lake",
+      "era": 2
+    },
+    {
+      "year": 2025,
+      "text": "Thái Nguyên and Bắc Kạn merge into one province."
+    },
+    {
+      "year": 2026,
+      "text": "Tân Cương tea is prized across Vietnam, and boats still glide across Ba Bể Lake.",
+      "landmark": "ba-be-lake",
+      "era": 3
+    }
+  ]
+}

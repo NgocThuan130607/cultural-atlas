@@ -1,0 +1,78 @@
+{
+  "id": "cao-bang",
+  "hero": {
+    "file": "Ban Gioc Panorama .jpg",
+    "alt": "Panorama of the Bản Giốc waterfall"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Tày, Nùng, Hmong and Dao",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "September–October, when the rice is golden and the waterfall is full",
+    "founded": "A province since 1831"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Cao Bằng sits on the Chinese border in the far north-east. Its green valleys are walled by limestone peaks, and its rivers, such as the Quây Sơn, run clear between them. The province is a UNESCO Global Geopark, Non Nước Cao Bằng, known for its caves, waterfalls and rock formations."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "After losing Thăng Long in 1592, the Mạc dynasty held out in Cao Bằng until 1677. In January 1941 Ho Chi Minh crossed the border near Pác Bó and returned to Vietnam after thirty years abroad. He lived and worked in a cave there while preparing the independence movement. In 1950 the Border Campaign drove French forces from the region."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Tày and Nùng peoples make up most of the population. Their stilt houses, 'then' songs and the tính lute are part of daily and ritual life. Cao Bằng is known for its chestnuts from Trùng Khánh, and for a breakfast of thin steamed rice rolls (bánh cuốn) served with a bowl of bone broth."
+    }
+  ],
+  "etiquette": [
+    "Ask before photographing people and homes.",
+    "Take off your shoes in stilt houses.",
+    "Respect the border markers and don't cross them.",
+    "Dress modestly at Pác Bó and the pagodas."
+  ],
+  "timeline": [
+    {
+      "year": 1592,
+      "text": "After losing Thăng Long, the Mạc dynasty retreats to Cao Bằng and holds it until 1677."
+    },
+    {
+      "year": 1831,
+      "text": "Cao Bằng becomes a province."
+    },
+    {
+      "year": 1941,
+      "text": "Ho Chi Minh returns to Vietnam at Pác Bó after thirty years abroad."
+    },
+    {
+      "year": 1950,
+      "text": "The Border Campaign drives French forces from the Cao Bằng frontier."
+    },
+    {
+      "year": 2009,
+      "text": "Vietnam and China finish marking their land border, including at Bản Giốc.",
+      "landmark": "ban-gioc-waterfall",
+      "era": 1
+    },
+    {
+      "year": 2018,
+      "text": "UNESCO names Non Nước Cao Bằng a Global Geopark.",
+      "landmark": "ban-gioc-waterfall",
+      "era": 2
+    },
+    {
+      "year": 2023,
+      "text": "Visitors can cross into the shared Bản Giốc–Detian scenic area on a trial basis.",
+      "landmark": "ban-gioc-waterfall",
+      "era": 3
+    },
+    {
+      "year": 2026,
+      "text": "The waterfall is at its fullest after the summer rains.",
+      "landmark": "ban-gioc-waterfall",
+      "era": 4
+    }
+  ]
+}

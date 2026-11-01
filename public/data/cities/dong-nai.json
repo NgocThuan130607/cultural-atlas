@@ -1,0 +1,87 @@
+{
+  "id": "dong-nai",
+  "hero": {
+    "file": "Cat Tien National Park, Vietnam.jpg",
+    "alt": "Forest in Cát Tiên National Park"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus S'tiêng, Chơ Ro, Mạ and Chinese",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April",
+    "founded": "Trấn Biên from 1698; merged with Bình Phước in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Đồng Nai lies on the river of the same name, just north-east of Hồ Chí Minh City. Its north is covered by the forest of Cát Tiên National Park and the Trị An reservoir. The former Bình Phước adds red-soil uplands of rubber, cashew and pepper along the Cambodian border."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In 1679, Chinese refugees loyal to the fallen Ming dynasty were allowed to settle on Cù lao Phố, an island near Biên Hòa, which became the busiest port of the south. In 1698 the Nguyễn lords set up Trấn Biên here. In 1715 they built the south's first Temple of Literature. The French took Biên Hòa in 1861, and the American war brought a huge air base."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Biên Hòa is known for its glazed pottery and its stone carving at Bửu Long. The S'tiêng and Chơ Ro peoples keep their gong music and traditions in the uplands. Đồng Nai's fruit orchards supply the city with pomelos and durians."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+    "Walk quietly, and let worshippers go first.",
+    "Stay on marked trails in Cát Tiên and go with a ranger for night walks."
+  ],
+  "timeline": [
+    {
+      "year": 1679,
+      "text": "Chinese refugees loyal to the Ming settle on Cù lao Phố, which becomes a busy port.",
+      "landmark": "tran-bien-temple-of-literature",
+      "era": 0
+    },
+    {
+      "year": 1698,
+      "text": "Nguyễn Hữu Cảnh sets up Trấn Biên district."
+    },
+    {
+      "year": 1715,
+      "text": "The Temple of Literature of Trấn Biên is founded.",
+      "landmark": "tran-bien-temple-of-literature",
+      "era": 1
+    },
+    {
+      "year": 1776,
+      "text": "Fighting between the Tây Sơn and the Nguyễn destroys the port of Cù lao Phố."
+    },
+    {
+      "year": 1861,
+      "text": "French troops take Biên Hòa; the Temple of Literature is destroyed.",
+      "landmark": "tran-bien-temple-of-literature",
+      "era": 2
+    },
+    {
+      "year": 2001,
+      "text": "Cát Tiên becomes part of a UNESCO Biosphere Reserve."
+    },
+    {
+      "year": 2002,
+      "text": "The Temple of Literature is rebuilt.",
+      "landmark": "tran-bien-temple-of-literature",
+      "era": 3
+    },
+    {
+      "year": 2010,
+      "text": "The last Javan rhinoceros of mainland Asia is killed by poachers in Cát Tiên."
+    },
+    {
+      "year": 2025,
+      "text": "Đồng Nai and Bình Phước merge."
+    },
+    {
+      "year": 2026,
+      "text": "Schoolchildren still visit the temple before their exams.",
+      "landmark": "tran-bien-temple-of-literature",
+      "era": 4
+    }
+  ]
+}

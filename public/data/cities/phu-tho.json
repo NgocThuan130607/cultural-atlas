@@ -1,0 +1,93 @@
+{
+  "id": "phu-tho",
+  "hero": {
+    "file": "Đường lên Đền Hùng - panoramio.jpg",
+    "alt": "The path up to the Hùng Kings' Temple"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Mường, Dao and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "Spring, especially the Hùng Kings festival on the 10th day of the third lunar month",
+    "founded": "Named Phú Thọ in 1903; merged with Vĩnh Phúc and Hòa Bình in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Phú Thọ lies where the northern mountains meet the Red River delta. Near Việt Trì, the 'city of the confluence', the Red, Lô and Đà rivers join. The former Vĩnh Phúc province includes the Tam Đảo mountains. The former Hòa Bình province is the land of the Mường people, and the great reservoir of the Hòa Bình dam lies there."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Vietnamese tradition places the kingdom of Văn Lang and its Hùng Kings here, and archaeologists have found rich Bronze Age sites around Việt Trì. In the 1920s, excavations in the caves of Hòa Bình gave the world the name 'Hoabinhian' for a prehistoric culture of South-East Asia. The Hòa Bình dam on the Đà River, completed in 1994, was once the largest in South-East Asia."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The worship of the Hùng Kings and the xoan singing of Phú Thọ villages are both on UNESCO's lists. The Mường people of Hòa Bình are known for their gong music, their stilt houses and an epic poem about the creation of the world."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk around the main altar quietly, and let worshippers go first.",
+    "Climb the temple steps calmly; it is a pilgrimage for many visitors.",
+    "Bring a simple offering of fruit or flowers if you wish to pray."
+  ],
+  "timeline": [
+    {
+      "year": -500,
+      "approx": true,
+      "text": "Bronze Age people of the Đông Sơn culture farm the river plains; tradition places the kingdom of Văn Lang here.",
+      "landmark": "hung-temple",
+      "era": 0
+    },
+    {
+      "year": 1470,
+      "approx": true,
+      "text": "Under Emperor Lê Thánh Tông, the court records the genealogy of the Hùng Kings.",
+      "landmark": "hung-temple",
+      "era": 1
+    },
+    {
+      "year": 1903,
+      "text": "The province takes the name Phú Thọ."
+    },
+    {
+      "year": 1917,
+      "text": "The court makes the 10th day of the third lunar month the national day to honour the Hùng Kings.",
+      "landmark": "hung-temple",
+      "era": 2
+    },
+    {
+      "year": 1926,
+      "approx": true,
+      "text": "Excavations in the caves of Hòa Bình reveal the prehistoric \"Hoabinhian\" culture."
+    },
+    {
+      "year": 1954,
+      "text": "Ho Chi Minh visits the temples and tells soldiers that, as the Hùng Kings built the country, they must defend it.",
+      "landmark": "hung-temple",
+      "era": 3
+    },
+    {
+      "year": 1994,
+      "text": "The Hòa Bình hydropower dam on the Đà River is completed."
+    },
+    {
+      "year": 2012,
+      "text": "UNESCO lists the worship of the Hùng Kings.",
+      "landmark": "hung-temple",
+      "era": 4
+    },
+    {
+      "year": 2025,
+      "text": "Phú Thọ, Vĩnh Phúc and Hòa Bình merge into one province."
+    },
+    {
+      "year": 2026,
+      "text": "Millions of pilgrims climb Nghĩa Lĩnh mountain each spring.",
+      "landmark": "hung-temple",
+      "era": 5
+    }
+  ]
+}

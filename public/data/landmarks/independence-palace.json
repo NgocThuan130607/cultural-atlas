@@ -1,0 +1,200 @@
+{
+  "id": "independence-palace",
+  "city": "ho-chi-minh-city",
+  "name": "Independence Palace",
+  "localName": "Dinh Độc Lập",
+  "lat": 10.7771,
+  "lon": 106.6954,
+  "summary": "The modernist presidential palace of South Vietnam. On 30 April 1975 a tank crashed through its gates, and the war ended.",
+  "hero": {
+    "file": "20190923 Independence Palace-10.jpg",
+    "alt": "The Independence Palace"
+  },
+  "eras": [
+    {
+      "year": 1868,
+      "label": "1868",
+      "title": "Norodom Palace",
+      "text": "The French built a grand palace here for the Governor of Cochinchina, completed in the 1870s and named after King Norodom of Cambodia. This photograph shows it in 1896.",
+      "image": {
+        "file": "1896 - Cochinchine - Saïgon - Palais du Gouvernement Général.jpg",
+        "alt": "The Norodom Palace in 1896"
+      }
+    },
+    {
+      "year": 1925,
+      "label": "1920s",
+      "title": "Seat of the governors",
+      "text": "Under French rule the palace hosted governors and official visitors, like Governor-General Alexandre Varenne in the 1920s.",
+      "image": {
+        "file": "Toàn quyền Alexandre Varenne tại Saigon - Dinh Norodom.jpg",
+        "alt": "Governor-General Varenne at the Norodom Palace"
+      }
+    },
+    {
+      "year": 1966,
+      "label": "1966",
+      "title": "A modern palace",
+      "text": "After the old palace was badly damaged in a bombing attack on President Ngô Đình Diệm in 1962, it was pulled down. A new palace designed by architect Ngô Viết Thụ opened in 1966.",
+      "image": {
+        "file": "Vietnam Independence Palace 1967.jpg",
+        "alt": "The Independence Palace in 1967"
+      }
+    },
+    {
+      "year": 1975,
+      "label": "30 April 1975",
+      "title": "The gates fall",
+      "text": "Just before noon on 30 April 1975, tanks of the North Vietnamese army broke through the gates. The last president of South Vietnam surrendered, and the war ended.",
+      "image": {
+        "file": "Xetang843.jpg",
+        "alt": "Tank 843 at the palace"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A museum of an era",
+      "text": "The palace is kept almost exactly as it was in 1975: meeting rooms, banquet halls, a rooftop helipad and a basement war room full of maps and radios.",
+      "image": {
+        "file": "20190923 Independence Palace-10.jpg",
+        "alt": "The palace today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "architect",
+      "type": "history",
+      "title": "A palace of light and shade",
+      "image": {
+        "file": "Vietnam Independence Palace 1967.jpg",
+        "alt": "The palace in 1967"
+      },
+      "narration": "Ngô Viết Thụ, the architect, was the first Vietnamese to win the Grand Prix de Rome, a top French architecture prize. For the new palace, he combined modernist lines with Vietnamese ideas. A screen of concrete 'bamboo' shades the front, letting in air and light while keeping out the sun. Fans of feng shui say the building's outline forms Chinese characters for good fortune and prosperity. Built in the middle of a war, it was meant to show a confident, modern Vietnam."
+    },
+    {
+      "id": "tanks",
+      "type": "history",
+      "title": "30 April 1975",
+      "image": {
+        "file": "Xetang843.jpg",
+        "alt": "Tank 843"
+      },
+      "narration": "On the morning of 30 April 1975, North Vietnamese tanks raced into Saigon. Tank 843 hit the side gate of the palace and stuck; tank 390 smashed straight through the main gate. Soldiers ran up the steps and raised a flag on the roof. Inside, President Dương Văn Minh, who had been in office for just two days, and his cabinet were waiting. That afternoon he announced the surrender on the radio. Both tanks are now kept as national treasures, and replicas stand in the palace grounds."
+    },
+    {
+      "id": "war-room",
+      "type": "culture",
+      "title": "Rooms of power",
+      "image": {
+        "file": "ReunificationPalaceWarroom.jpg",
+        "alt": "The war room in the basement"
+      },
+      "narration": "Visitors can walk through the palace almost as its staff left it. Upstairs are the cabinet room, reception halls decorated with lacquer paintings, the president's living quarters and a cinema. On the roof is a helipad with a helicopter. In the basement, behind thick concrete, are the telecommunications centre and war room, with old radios, telephones and wall maps of the battlefields. Walking through them, the last years of South Vietnam feel very close."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://dinhdoclap.gov.vn",
+    "price": "Small entry ticket; audio guides available.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "08:00",
+                "16:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Last entry earlier; may close at lunchtime."
+    },
+    "etiquette": {
+      "do": [
+        "Dress modestly; this is a national monument.",
+        "Visit the basement war room.",
+        "Combine with Notre-Dame Cathedral and the Central Post Office nearby.",
+        "Go in the morning before the heat."
+      ],
+      "dont": [
+        "Sit on the furniture or cross the ropes.",
+        "Climb on the tanks.",
+        "Use a drone over the city centre."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Saigon food",
+        "text": "Cơm tấm (broken rice with grilled pork), bánh mì and bún thịt nướng; coffee on a tiny plastic stool."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "In District 1. Bến Thành metro station is a 10-minute walk."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Notre-Dame Cathedral, the Central Post Office, Bến Thành market and the War Remnants Museum."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Main gate",
+        "category": "entrance",
+        "lat": 10.776,
+        "lon": 106.6966,
+        "note": "Approximate."
+      },
+      {
+        "name": "Notre-Dame Cathedral",
+        "category": "sights",
+        "lat": 10.7797,
+        "lon": 106.6992,
+        "note": "Red-brick cathedral."
+      },
+      {
+        "name": "War Remnants Museum",
+        "category": "sights",
+        "lat": 10.7795,
+        "lon": 106.6921,
+        "note": "Approximate."
+      },
+      {
+        "name": "Bến Thành market",
+        "category": "food",
+        "lat": 10.7725,
+        "lon": 106.698,
+        "note": "Food stalls and souvenirs."
+      },
+      {
+        "name": "Bến Thành metro station",
+        "category": "transport",
+        "lat": 10.7718,
+        "lon": 106.6984,
+        "note": "Metro line 1. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

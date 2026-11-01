@@ -1,0 +1,182 @@
+{
+  "id": "keo-pagoda",
+  "city": "hung-yen",
+  "name": "Keo Pagoda",
+  "localName": "Chùa Keo (Thần Quang tự)",
+  "lat": 20.3606,
+  "lon": 106.2972,
+  "summary": "A 17th-century Buddhist pagoda in the Red River delta, famous for its three-storey wooden bell tower.",
+  "hero": {
+    "file": "Chuakeothaibinh.jpg",
+    "alt": "Keo Pagoda"
+  },
+  "eras": [
+    {
+      "year": 1061,
+      "label": "1061",
+      "title": "Founded by a Zen master",
+      "text": "The first pagoda was founded under the Lý dynasty by the Zen master Không Lộ, on a site closer to the river.",
+      "image": {
+        "file": "Chua Keo 2.jpg",
+        "alt": "A hall of Keo Pagoda"
+      }
+    },
+    {
+      "year": 1630,
+      "label": "1630",
+      "title": "Rebuilt after the flood",
+      "text": "After the Red River flooded the old site, the pagoda was rebuilt in 1630 where it stands today: a long sequence of halls, courtyards and galleries, built entirely of wood and tile.",
+      "image": {
+        "file": "Chua Keo 3.jpg",
+        "alt": "The halls of Keo Pagoda"
+      }
+    },
+    {
+      "year": 1962,
+      "label": "1962",
+      "title": "A national monument",
+      "text": "Keo Pagoda was among the first monuments classified by the state for protection, as one of the finest examples of 17th-century architecture in the delta.",
+      "image": {
+        "file": "Chua Keo 5.jpg",
+        "alt": "Wooden details of the pagoda"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The bell tower",
+      "text": "The pagoda's three-storey bell tower, about 11 metres high, is the image most people associate with Keo. It is held together by wooden joints and pegs.",
+      "image": {
+        "file": "Chua Keo 7.jpg",
+        "alt": "The bell tower of Keo Pagoda"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "khong-lo",
+      "type": "legend",
+      "title": "The fisherman who became a master",
+      "image": {
+        "file": "Chua Keo 2.jpg",
+        "alt": "A hall of Keo Pagoda"
+      },
+      "narration": "Keo Pagoda honours Không Lộ, a Zen master of the Lý dynasty. The stories say he came from a family of fishermen, gave up his nets to study Buddhism and became the emperor's spiritual adviser. Legends credit him with healing the sick and with supernatural powers. Fishermen and farmers of the delta pray to him for good harvests and safe journeys, and his statue is carried in procession at the pagoda's festival."
+    },
+    {
+      "id": "tower",
+      "type": "culture",
+      "title": "A tower of wood",
+      "image": {
+        "file": "Chua Keo 7.jpg",
+        "alt": "The bell tower"
+      },
+      "narration": "The bell tower at the back of the pagoda is a masterpiece of traditional carpentry. Its three tiers of curved roofs rest on wooden pillars, connected by beams fitted together with mortise-and-tenon joints and wooden pegs. Large bronze bells hang inside. The whole pagoda shows the same craftsmanship: carved dragons, clouds and lotuses on the beams, and long covered corridors linking the halls."
+    },
+    {
+      "id": "festival",
+      "type": "culture",
+      "title": "The autumn festival",
+      "image": {
+        "file": "Chua Keo 5.jpg",
+        "alt": "Keo Pagoda"
+      },
+      "narration": "Keo Pagoda holds two festivals: one in spring, and a larger one in autumn, in the middle of the ninth lunar month. Teams of villagers race long boats on the river and compete to cook rice in clay pots over small fires, sometimes while carrying the pots on poles. There are processions, games and singing. The festival marks the anniversary of the death of Không Lộ, and also celebrates the end of the rice harvest."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk around the main altar quietly, and let worshippers go first.",
+        "Walk around the outside of the pagoda to see the bell tower from the pond."
+      ],
+      "dont": [
+        "Point your feet at the altars or sit on temple steps in front of them.",
+        "Photograph people who are praying without asking.",
+        "Climb into the bell tower."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Delta food",
+        "text": "Thái Bình is known for bánh cáy (sesame and rice crackers) and seafood from the coast; Hưng Yên for longans in summer."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 2.5 hours by car from Hà Nội."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Phố Hiến's old temples and assembly halls in Hưng Yên city, and the Trần temples in Thái Bình."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Keo Pagoda",
+        "category": "entrance",
+        "lat": 20.3606,
+        "lon": 106.2972,
+        "note": "Main gate."
+      },
+      {
+        "name": "Thái Bình city",
+        "category": "transport",
+        "lat": 20.45,
+        "lon": 106.34,
+        "note": "Buses. Approximate."
+      },
+      {
+        "name": "Phố Hiến (Hưng Yên city)",
+        "category": "sights",
+        "lat": 20.6464,
+        "lon": 106.0511,
+        "note": "Old river port and temples."
+      },
+      {
+        "name": "Longan orchards of Hưng Yên",
+        "category": "food",
+        "lat": 20.66,
+        "lon": 106.07,
+        "note": "Fruit in July–August. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

@@ -1,0 +1,74 @@
+{
+  "id": "son-la",
+  "hero": {
+    "file": "Sống lưng khủng long Tà Xùa.jpg",
+    "alt": "The 'dinosaur spine' ridge at Tà Xùa"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Thái, Hmong, Mường and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "January–March (plum and peach blossom on Mộc Châu) and October–November",
+    "founded": "Created by the French in 1895"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Sơn La is a land of high plateaux and deep river valleys in the north-west. The Mộc Châu plateau, about 1,000 m up, is covered in tea, dairy pastures and fruit orchards. The Đà River runs through the province, now held back by the Sơn La dam, one of the largest hydropower plants in South-East Asia. At Tà Xùa, a narrow ridge rises above a sea of cloud."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Sơn La was ruled for centuries by Thái lords. In 1908 the French built a prison on Khau Cả hill, which later held many leaders of the independence movement. In 2012 the Sơn La hydropower plant was completed on the Đà River, flooding valleys and moving tens of thousands of people to new villages."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Thái people are the largest group. Their stilt houses, embroidered scarves and the xòe dance are seen at every festival. Mộc Châu is famous across Vietnam for fresh milk, tea and the white plum blossom that covers the hills in early spring."
+    }
+  ],
+  "etiquette": [
+    "Take off your shoes before entering a Thái stilt house.",
+    "Ask before photographing people.",
+    "Accept a sip of rice wine when it is offered with a toast.",
+    "Pick fruit in orchards only with the owner's permission."
+  ],
+  "timeline": [
+    {
+      "year": 1895,
+      "text": "The French create Sơn La province."
+    },
+    {
+      "year": 1908,
+      "text": "The French build a prison on Khau Cả hill.",
+      "landmark": "son-la-prison",
+      "era": 0
+    },
+    {
+      "year": 1930,
+      "text": "The prison is enlarged to hold political prisoners.",
+      "landmark": "son-la-prison",
+      "era": 1
+    },
+    {
+      "year": 1944,
+      "text": "The revolutionary Tô Hiệu dies of illness in the prison.",
+      "landmark": "son-la-prison",
+      "era": 2
+    },
+    {
+      "year": 1958,
+      "text": "A state dairy farm is founded on the Mộc Châu plateau."
+    },
+    {
+      "year": 2012,
+      "text": "The Sơn La hydropower plant on the Đà River is completed."
+    },
+    {
+      "year": 2026,
+      "text": "The prison is a museum, and Mộc Châu is a favourite weekend escape.",
+      "landmark": "son-la-prison",
+      "era": 3
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "id": "po-nagar",
+  "city": "khanh-hoa",
+  "name": "Po Nagar Cham Towers",
+  "localName": "Tháp Bà Ponagar",
+  "lat": 12.2653,
+  "lon": 109.1956,
+  "summary": "Brick temple towers on a hill above the Cái River, built by the Cham between the 8th and 13th centuries to honour Po Nagar, the mother goddess of the land.",
+  "hero": {
+    "file": "Po Nagar Nha Trang Vietnam.JPG",
+    "alt": "The Po Nagar towers"
+  },
+  "eras": [
+    {
+      "year": 800,
+      "label": "c. 800",
+      "title": "A temple rebuilt",
+      "text": "Cham inscriptions record that raiders from the sea attacked the sanctuary in the late 8th century. Afterwards, the temple was rebuilt in brick, the material of all the towers that stand today.",
+      "image": {
+        "file": "Champa Po Nagar Nha Trang.jpg",
+        "alt": "The Cham towers of Po Nagar"
+      }
+    },
+    {
+      "year": 817,
+      "label": "9th century",
+      "title": "The main tower",
+      "text": "The tallest tower, about 25 metres high, dates from the early 9th century. Inside sits a statue of the goddess with ten arms.",
+      "image": {
+        "file": "Templo Po Nagar 13.jpg",
+        "alt": "The main tower"
+      }
+    },
+    {
+      "year": 1653,
+      "label": "1653",
+      "title": "One goddess, two peoples",
+      "text": "When the Nguyễn lords took the region in 1653, Vietnamese settlers began to worship the Cham goddess too, under the name Thiên Y A Na.",
+      "image": {
+        "file": "Durga ornament Po Nagar.jpg",
+        "alt": "Carved decoration at Po Nagar"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The festival of the goddess",
+      "text": "Every spring, from the 20th to the 23rd day of the third lunar month, Cham and Vietnamese pilgrims gather for the festival of the goddess.",
+      "image": {
+        "file": "Templo Po Nagar 18.jpg",
+        "alt": "Po Nagar today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "melon",
+      "type": "legend",
+      "title": "The goddess from the melon garden",
+      "image": {
+        "file": "Templo Po Nagar 13.jpg",
+        "alt": "The main tower"
+      },
+      "narration": "The Vietnamese tell that an old couple on Đại An mountain found a little girl in their melon garden and raised her as their own. One day she turned into a log of fragrant agarwood and floated away across the sea to the north, where a prince found the log, saw the girl appear, and married her. Later she returned to her homeland with her children, taught people to farm and weave, and finally rose to the sky. People built the towers to worship her as Thiên Y A Na, the mother of the land."
+    },
+    {
+      "id": "two-peoples",
+      "type": "culture",
+      "title": "One goddess, two peoples",
+      "image": {
+        "file": "Champa Po Nagar Nha Trang.jpg",
+        "alt": "The towers"
+      },
+      "narration": "For the Chăm, Po Nagar is Yang Ino Po Nagar, the mother goddess who created the land and the agarwood tree. For the Vietnamese who settled here later, she became Thiên Y A Na, and her cult spread up and down the central coast. At the festival each spring, Chăm dancers and Vietnamese mediums perform in the same courtyard, and fishermen bring offerings for good catches. Few places show so clearly how two cultures came to share one sacred site."
+    },
+    {
+      "id": "pottery",
+      "type": "culture",
+      "title": "Pots without a wheel",
+      "image": {
+        "file": "Ganesh Tempel Po Nagar Nha Trang.jpg",
+        "alt": "Carvings at Po Nagar"
+      },
+      "narration": "In the village of Bàu Trúc, in the former Ninh Thuận province, Chăm women make pottery the way their ancestors did. They do not use a potter's wheel. Instead, the potter walks backwards around the clay, shaping it with her hands and simple tools. The pots are fired in the open under straw and wood, which gives them their reddish, smoky colours. UNESCO listed the craft in 2022 as heritage in urgent need of safeguarding."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small entry ticket. Sarongs are lent free at the gate.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "17:30"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk quietly, and let worshippers go first.",
+        "Visit in the early morning, before the heat and the tour groups."
+      ],
+      "dont": [
+        "Climb on walls, towers or statues.",
+        "Photograph people who are praying without asking.",
+        "Wear shorts or sleeveless tops inside the towers."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Bún chả cá (fish-cake noodles), nem nướng Ninh Hòa (grilled pork rolls) and seafood by the beach."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "10 minutes by taxi from central Nha Trang. Cam Ranh airport is 35 km away."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "The Yersin museum in Nha Trang, and the Chăm towers and pottery villages of Phan Rang further south."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Po Nagar towers",
+        "category": "entrance",
+        "lat": 12.2653,
+        "lon": 109.1956,
+        "note": "Main gate."
+      },
+      {
+        "name": "Xóm Bóng bridge",
+        "category": "sights",
+        "lat": 12.264,
+        "lon": 109.1945,
+        "note": "View of the river and fishing boats. Approximate."
+      },
+      {
+        "name": "Yersin Museum",
+        "category": "sights",
+        "lat": 12.2489,
+        "lon": 109.196,
+        "note": "Approximate."
+      },
+      {
+        "name": "Nha Trang beach",
+        "category": "food",
+        "lat": 12.2388,
+        "lon": 109.1967,
+        "note": "Seafood and cafés."
+      },
+      {
+        "name": "Nha Trang station",
+        "category": "transport",
+        "lat": 12.249,
+        "lon": 109.182,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

@@ -1,0 +1,192 @@
+{
+  "id": "con-son-kiep-bac",
+  "city": "hai-phong",
+  "name": "Côn Sơn – Kiếp Bạc",
+  "localName": "Khu di tích Côn Sơn – Kiếp Bạc",
+  "lat": 21.1511,
+  "lon": 106.3276,
+  "summary": "Two sacred sites in the hills of Chí Linh: Kiếp Bạc temple to General Trần Hưng Đạo, and Côn Sơn pagoda, where the scholar Nguyễn Trãi spent his last years.",
+  "hero": {
+    "file": "Den kiep bac.jpg",
+    "alt": "Kiếp Bạc temple"
+  },
+  "eras": [
+    {
+      "year": 1288,
+      "label": "1288",
+      "title": "Headquarters at Vạn Kiếp",
+      "text": "During the Mongol invasions, Trần Hưng Đạo, commander of the Trần armies, made Vạn Kiếp his headquarters. From here he planned the river battles that destroyed the invaders in 1288.",
+      "image": {
+        "file": "Den kiep bac.jpg",
+        "alt": "Kiếp Bạc temple"
+      }
+    },
+    {
+      "year": 1300,
+      "label": "1300",
+      "title": "A temple to a hero",
+      "text": "Trần Hưng Đạo died in 1300 at Vạn Kiếp. A temple was built on the site of his home, and over the centuries he came to be worshipped as Đức Thánh Trần, a saint with protective powers.",
+      "image": {
+        "file": "Tượng đồng Trần Hưng Đạo tại đền Kiếp Bạc.jpg",
+        "alt": "Bronze statue of Trần Hưng Đạo at Kiếp Bạc"
+      }
+    },
+    {
+      "year": 1437,
+      "label": "1430s",
+      "title": "Nguyễn Trãi at Côn Sơn",
+      "text": "Nguyễn Trãi, the scholar and strategist who helped Lê Lợi defeat the Ming, retired to the pine-covered hills of Côn Sơn. There he wrote some of the most loved poems in the Vietnamese language.",
+      "image": {
+        "file": "Chua Con son.jpg",
+        "alt": "Côn Sơn pagoda"
+      }
+    },
+    {
+      "year": 1904,
+      "label": "1904",
+      "title": "An old photograph",
+      "text": "This photograph shows Kiếp Bạc temple at the start of the 20th century, when the delta was under French rule.",
+      "image": {
+        "file": "Kiếp Bạc temple in 1904.jpg",
+        "alt": "Kiếp Bạc temple in 1904"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "Festivals of autumn",
+      "text": "Each year, around the 20th day of the eighth lunar month, the anniversary of Trần Hưng Đạo's death, crowds of pilgrims fill Kiếp Bạc for a festival of processions and prayers.",
+      "image": {
+        "file": "Con Son Kiep Bac Haiduong.jpg",
+        "alt": "The Côn Sơn – Kiếp Bạc area"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "general",
+      "type": "history",
+      "title": "The general who would not surrender",
+      "image": {
+        "file": "Tượng đồng Trần Hưng Đạo tại đền Kiếp Bạc.jpg",
+        "alt": "Statue of Trần Hưng Đạo"
+      },
+      "narration": "When the Mongol armies of Kublai Khan invaded, Vietnam faced the largest empire on Earth. Trần Hưng Đạo urged his officers to fight in a famous proclamation that is still studied in schools. A story says that when the emperor asked whether they should surrender to save the people, he answered: 'If Your Majesty wishes to surrender, first cut off my head.' Three times, in 1258, 1285 and 1288, the invaders were driven back, the last time on the Bạch Đằng River."
+    },
+    {
+      "id": "saint",
+      "type": "culture",
+      "title": "From general to saint",
+      "image": {
+        "file": "TranHungDao altar.jpg",
+        "alt": "Altar to Trần Hưng Đạo"
+      },
+      "narration": "After his death, Trần Hưng Đạo was honoured not only as a hero but as a protective spirit. People call him Đức Thánh Trần, Saint Trần, and believe he can drive away illness and evil spirits. His image is found in temples all over the country, and in the Mother Goddess religion mediums are possessed by him in trance rituals. At Kiếp Bạc, pilgrims ask him for protection, and many take home a blessed seal, printed in red, for luck."
+    },
+    {
+      "id": "poet",
+      "type": "history",
+      "title": "Nguyễn Trãi's song of Côn Sơn",
+      "image": {
+        "file": "Denthonguyentrai.jpg",
+        "alt": "Temple to Nguyễn Trãi"
+      },
+      "narration": "Nguyễn Trãi wrote Lê Lợi's proclamation of victory over the Ming in 1428, one of the great texts of Vietnamese history. Later, out of favour at court, he retired to Côn Sơn, where his grandfather had lived. In 'The Song of Côn Sơn' he describes the murmur of the stream, the pines like a green canopy and the stones like mats to sleep on. His end was tragic: in 1442 he was accused of killing the young emperor and executed with his family. He was cleared of all blame decades later."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free entry. Small fees for parking and the cable car at Côn Sơn.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "06:00",
+                "18:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. Very crowded during the festivals of the first and eighth lunar months."
+    },
+    "etiquette": {
+      "do": [
+        "Cover your shoulders and knees, and take off your hat inside the halls.",
+        "Walk around the main altar quietly, and let worshippers go first.",
+        "Climb the stone steps through the pines at Côn Sơn to the Ngũ Nhạc peak."
+      ],
+      "dont": [
+        "Point your feet at the altars or sit on temple steps in front of them.",
+        "Photograph people who are praying without asking.",
+        "Buy \"lucky\" items from pushy sellers at the temple gates."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Hải Dương is famous for green-bean cakes (bánh đậu xanh); in Hải Phòng city, try bánh đa cua (crab noodle soup)."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 1.5 hours from Hà Nội, or 1 hour from Hải Phòng city."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "The Bạch Đằng stake field and the old town of Hải Phòng with its 1912 opera house."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Kiếp Bạc temple",
+        "category": "entrance",
+        "lat": 21.1511,
+        "lon": 106.3276,
+        "note": "Temple to Trần Hưng Đạo."
+      },
+      {
+        "name": "Côn Sơn pagoda",
+        "category": "sights",
+        "lat": 21.1498,
+        "lon": 106.384,
+        "note": "Pagoda and temple to Nguyễn Trãi."
+      },
+      {
+        "name": "Côn Sơn lake",
+        "category": "food",
+        "lat": 21.146,
+        "lon": 106.381,
+        "note": "Restaurants by the lake. Approximate."
+      },
+      {
+        "name": "Hải Phòng city",
+        "category": "transport",
+        "lat": 20.8449,
+        "lon": 106.6881,
+        "note": "Port city, trains to Hà Nội."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

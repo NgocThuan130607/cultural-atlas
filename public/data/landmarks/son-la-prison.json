@@ -1,0 +1,183 @@
+{
+  "id": "son-la-prison",
+  "city": "son-la",
+  "name": "Sơn La Prison",
+  "localName": "Nhà tù Sơn La",
+  "lat": 21.327,
+  "lon": 103.9118,
+  "summary": "A French colonial prison on Khau Cả hill, where many leaders of the independence movement were held. Today it is a museum and memorial.",
+  "hero": {
+    "file": "Nhatusonla.jpg",
+    "alt": "The gate of Sơn La Prison"
+  },
+  "eras": [
+    {
+      "year": 1908,
+      "label": "1908",
+      "title": "A prison in the mountains",
+      "text": "The French built the prison in 1908, far from the delta. Its remote location, malaria and harsh climate were meant to break the prisoners.",
+      "image": {
+        "file": "Nhatusonla.jpg",
+        "alt": "The gate of Sơn La Prison"
+      }
+    },
+    {
+      "year": 1930,
+      "label": "1930",
+      "title": "Prison of the revolutionaries",
+      "text": "After the uprisings of 1930 the French enlarged the prison to hold political prisoners. Many people who later led the country spent years here, in crowded cells and a dark underground dungeon.",
+      "image": {
+        "file": "Nhà tù Sơn La - panoramio.jpg",
+        "alt": "Cells inside Sơn La Prison"
+      }
+    },
+    {
+      "year": 1944,
+      "label": "1944",
+      "title": "Tô Hiệu's peach tree",
+      "text": "The revolutionary Tô Hiệu died here of tuberculosis in 1944. A peach tree he is said to have planted still grows in the prison yard and blossoms every spring.",
+      "image": {
+        "file": "Nhà tù Sơn La - panoramio (1).jpg",
+        "alt": "The prison yard"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A museum on the hill",
+      "text": "The prison was restored after damage in the war and now forms part of the Sơn La Museum. Visitors can walk through the cells and the underground dungeon.",
+      "image": {
+        "file": "Nhatusonla.jpg",
+        "alt": "Sơn La Prison today"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "peach-tree",
+      "type": "history",
+      "title": "The peach tree of Tô Hiệu",
+      "image": {
+        "file": "Nhà tù Sơn La - panoramio (1).jpg",
+        "alt": "The prison yard"
+      },
+      "narration": "Tô Hiệu was a young revolutionary from the delta who was sent to Sơn La in the late 1930s. Inside the prison he helped organise the other prisoners, teaching and keeping up their morale, even as tuberculosis weakened him. He died in 1944, aged just 32. A peach tree beside the prison, said to have been planted by him, is still cared for today. When it flowers each spring, visitors and schoolchildren come to see it, as a reminder of those who did not live to see independence."
+    },
+    {
+      "id": "school",
+      "type": "history",
+      "title": "A school behind bars",
+      "image": {
+        "file": "Nhà tù Sơn La - panoramio.jpg",
+        "alt": "Cells inside the prison"
+      },
+      "narration": "Prisoners at Sơn La turned their cells into classrooms. Those who could read taught those who could not. They studied politics, history and foreign languages, and copied texts by hand. They even produced a secret handwritten newspaper called Suối Reo, 'the singing stream', passed from cell to cell. For many young men from villages across the country, the prison became the place where they received an education."
+    },
+    {
+      "id": "moc-chau",
+      "type": "culture",
+      "title": "Milk and blossom on Mộc Châu",
+      "image": {
+        "file": "Sống lưng khủng long Tà Xùa.jpg",
+        "alt": "Mountains of Sơn La"
+      },
+      "narration": "A couple of hours from the prison, the Mộc Châu plateau has a completely different mood. A state dairy farm was founded there in 1958, and Mộc Châu milk is now sold all over Vietnam. Tea gardens cover the hills in neat green rows. In January and February, plum and peach trees flower across the plateau, and families from Hà Nội drive up to see the white and pink blossom and buy fresh yoghurt by the roadside."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small entry ticket to the museum and prison.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:30",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. May close at lunchtime."
+    },
+    "etiquette": {
+      "do": [
+        "Keep your voice low in the cells.",
+        "Visit the Sơn La Museum on the same hill.",
+        "Combine the visit with Mộc Châu, about 2 hours away.",
+        "Dress modestly."
+      ],
+      "dont": [
+        "Climb on walls or into closed areas.",
+        "Take playful selfies in the dungeon.",
+        "Touch the old peach tree."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Thái food",
+        "text": "Try grilled stream fish, smoked buffalo meat (thịt trâu gác bếp) and sticky rice in bamboo tubes."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Buses from Hà Nội take about 6–7 hours along Highway 6, passing through Mộc Châu."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Mộc Châu plateau for tea and blossom, and the Tà Xùa ridge for sunrise over the clouds."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Sơn La Prison & Museum",
+        "category": "entrance",
+        "lat": 21.327,
+        "lon": 103.9118,
+        "note": "On Khau Cả hill. Approximate."
+      },
+      {
+        "name": "Sơn La city centre",
+        "category": "food",
+        "lat": 21.3256,
+        "lon": 103.9188,
+        "note": "Restaurants and markets."
+      },
+      {
+        "name": "Sơn La bus station",
+        "category": "transport",
+        "lat": 21.315,
+        "lon": 103.928,
+        "note": "Buses to Hà Nội. Approximate."
+      },
+      {
+        "name": "Mộc Châu plateau",
+        "category": "sights",
+        "lat": 20.85,
+        "lon": 104.63,
+        "note": "Tea, dairy and blossom. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

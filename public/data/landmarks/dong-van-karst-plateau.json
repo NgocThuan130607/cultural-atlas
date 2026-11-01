@@ -1,0 +1,173 @@
+{
+  "id": "dong-van-karst-plateau",
+  "city": "tuyen-quang",
+  "name": "Đồng Văn Karst Plateau",
+  "localName": "Cao nguyên đá Đồng Văn",
+  "lat": 23.2786,
+  "lon": 105.3632,
+  "summary": "A UNESCO Global Geopark of grey limestone peaks on Vietnam's northern border. The Hmong, Lô Lô and other peoples here grow maize in pockets of soil between the rocks.",
+  "hero": {
+    "file": "Bãi đá mặt trăng Đồng Văn - NKS.jpg",
+    "alt": "Grey limestone rocks on the Đồng Văn plateau"
+  },
+  "eras": [
+    {
+      "year": -300000000,
+      "label": "Ancient seas",
+      "title": "Rock from the sea floor",
+      "text": "The limestone of Đồng Văn formed on the bed of ancient seas hundreds of millions of years ago. Later the land rose, and rain dissolved the stone into sharp peaks, gorges and fields of jagged rock. Fossils of sea creatures can still be found in it.",
+      "image": {
+        "file": "Bãi đá mặt trăng Đồng Văn - NKS.jpg",
+        "alt": "Jagged grey limestone on the plateau"
+      }
+    },
+    {
+      "year": 1910,
+      "label": "c. 1910",
+      "title": "The house of the Hmong king",
+      "text": "In the early 20th century, the Hmong leader Vương Chính Đức grew rich and powerful on the plateau. He built a fortified mansion of stone, pine and carved timber in the Sà Phìn valley, and locals called him the 'King of the Hmong'.",
+      "image": {
+        "file": "Dinh thự vua Mèo họ Vương - Vuong’s Palace, Đồng Văn.jpg",
+        "alt": "The Vương family mansion at Sà Phìn"
+      }
+    },
+    {
+      "year": 1959,
+      "label": "1959–1965",
+      "title": "The Road of Happiness",
+      "text": "Young volunteers from many ethnic groups cut the 'Happiness Road' through the mountains to Đồng Văn and Mèo Vạc, often hanging on ropes to break the rock by hand. Its most famous stretch crosses the Mã Pì Lèng Pass, high above the Nho Quế River.",
+      "image": {
+        "file": "Đèo Mã Pì Lèng.jpg",
+        "alt": "The Mã Pì Lèng Pass above the Nho Quế River"
+      }
+    },
+    {
+      "year": 2010,
+      "label": "2010",
+      "title": "A Global Geopark",
+      "text": "UNESCO made the plateau Vietnam's first Global Geopark. The listing recognises both the geology and the cultures of the Hmong, Lô Lô, Tày, Dao and other peoples who live here.",
+      "image": {
+        "file": "Turtle Hill @SaPhin HaGiang Vietnam.jpg",
+        "alt": "Karst hills around Sà Phìn"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "At the top of Vietnam",
+      "text": "A huge red flag flies from the Lũng Cú Flag Tower near Vietnam's northernmost point. Travellers ride the loop of mountain roads past terraced maize fields, earth-walled houses and weekly markets.",
+      "image": {
+        "file": "Cột Cờ.jpg",
+        "alt": "The Lũng Cú flag tower"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "khau-vai",
+      "type": "legend",
+      "title": "The love market of Khâu Vai",
+      "image": {
+        "file": "SaPhin HaGiang Vietnam.JPG",
+        "alt": "A valley on the Đồng Văn plateau"
+      },
+      "narration": "Once a year, on the 27th day of the third lunar month, the village of Khâu Vai near Mèo Vạc holds a market unlike any other. The story behind it tells of a young man and a young woman from two different peoples who fell in love but could not marry, because their families and clans were against it. Rather than start a feud, they agreed to part, and to meet again once a year on the same day. Today couples, old friends and former sweethearts still travel across the mountains to meet at the love market, to talk, sing and remember."
+    },
+    {
+      "id": "happiness-road",
+      "type": "history",
+      "title": "Breaking rock by hand",
+      "image": {
+        "file": "Đèo Mã Pì Lèng.jpg",
+        "alt": "The road over the Mã Pì Lèng Pass"
+      },
+      "narration": "Until the 1960s, the only way to cross the plateau was on foot or by horse, along narrow trails above sheer drops. Between 1959 and 1965, thousands of young volunteers built a road from Hà Giang to Đồng Văn and Mèo Vạc. On the cliffs of Mã Pì Lèng, workers hung from ropes and cut the rock with hammers, chisels and explosives. Several lost their lives. People named it the Road of Happiness, because it finally connected the highland villages with the rest of the country."
+    },
+    {
+      "id": "stone-houses",
+      "type": "culture",
+      "title": "Maize in the rocks",
+      "image": {
+        "file": "Turtle Hill @SaPhin HaGiang Vietnam.jpg",
+        "alt": "Karst hills and fields near Sà Phìn"
+      },
+      "narration": "On this plateau there is more stone than soil. Hmong farmers plant maize in small pockets of earth between the rocks, sometimes carrying soil up the slopes in baskets. They build thick walls of rammed earth to keep their houses warm, and fences of piled stone around them. Maize is food, animal feed and the base of the strong corn wine that is shared at every market and celebration. Visiting in October, you may also see the hillsides turn pink and white with buckwheat flowers."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free to travel through. The Vương Palace, the Lũng Cú Flag Tower and some viewpoints charge small entry fees.",
+    "hours": {
+      "open24h": true,
+      "notes": "A landscape, not a ticketed site. The Vương Palace and Lũng Cú Flag Tower open in the daytime only."
+    },
+    "etiquette": {
+      "do": [
+        "Ask before you photograph people, especially older villagers and children.",
+        "Hire an experienced local driver or ride slowly: the passes are steep, narrow and often foggy.",
+        "Bring warm layers. Nights in the highlands are cold, and winter can bring frost.",
+        "Plan your trip around a Sunday market in Đồng Văn or Mèo Vạc."
+      ],
+      "dont": [
+        "Give money or sweets to children. It encourages them to miss school and beg.",
+        "Enter a home or touch its altar without being invited.",
+        "Fly a drone near the Chinese border."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Highland food",
+        "text": "Try thắng cố, a hearty stew sold at markets, and buckwheat cakes. Cháo ấu tẩu, a bitter porridge, is a Hà Giang speciality made from a root that must be cooked for hours."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Buses run from Hà Nội to Hà Giang city in about 6–7 hours. From there, most people travel the 3–4 day loop by motorbike or with a hired driver."
+      },
+      {
+        "category": "sights",
+        "title": "Do not miss",
+        "text": "The Mã Pì Lèng Pass, the Lũng Cú Flag Tower and the old quarter of Đồng Văn with its tiled-roof houses."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Lũng Cú Flag Tower",
+        "category": "sights",
+        "lat": 23.3637,
+        "lon": 105.3162,
+        "note": "Near the northernmost point of Vietnam."
+      },
+      {
+        "name": "Mã Pì Lèng Pass",
+        "category": "sights",
+        "lat": 23.24,
+        "lon": 105.4,
+        "note": "Viewpoint over the Nho Quế River gorge."
+      },
+      {
+        "name": "Vương Palace (Sà Phìn)",
+        "category": "entrance",
+        "lat": 23.241,
+        "lon": 105.27,
+        "note": "Mansion of the Hmong Vương family. Approximate."
+      },
+      {
+        "name": "Đồng Văn old quarter & market",
+        "category": "food",
+        "lat": 23.2786,
+        "lon": 105.3632,
+        "note": "Sunday market and street food."
+      },
+      {
+        "name": "Hà Giang city (bus station)",
+        "category": "transport",
+        "lat": 22.8233,
+        "lon": 104.9839,
+        "note": "Start of the loop. Buses to Hà Nội."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

@@ -1,0 +1,199 @@
+{
+  "id": "hien-luong-bridge",
+  "city": "quang-tri",
+  "name": "Hiền Lương Bridge",
+  "localName": "Cầu Hiền Lương – sông Bến Hải",
+  "lat": 17.0039,
+  "lon": 107.0514,
+  "summary": "A bridge over the Bến Hải River, on the 17th parallel, which split Vietnam in two from 1954 to 1975.",
+  "hero": {
+    "file": "Benhairiver1.jpg",
+    "alt": "The Bến Hải River and Hiền Lương Bridge"
+  },
+  "eras": [
+    {
+      "year": 1954,
+      "label": "1954",
+      "title": "A temporary line",
+      "text": "The Geneva Accords of July 1954 divided Vietnam at the 17th parallel, along the Bến Hải River, until elections that were planned for 1956 but never held. The small Hiền Lương Bridge became the border.",
+      "image": {
+        "file": "Benhairiver1.jpg",
+        "alt": "The Bến Hải River"
+      }
+    },
+    {
+      "year": 1957,
+      "label": "1950s–60s",
+      "title": "A war of flags",
+      "text": "Each side painted its half of the bridge a different colour and raised ever-taller flagpoles on its bank. Loudspeakers blared propaganda across the water.",
+      "image": {
+        "file": "Cột cờ giới tuyến1.JPG",
+        "alt": "The flagpole on the north bank"
+      }
+    },
+    {
+      "year": 1967,
+      "label": "1967",
+      "title": "Under the bombs",
+      "text": "The area on both sides of the river became a battlefield. The bridge was destroyed by bombing, and villages north of the river were flattened.",
+      "image": {
+        "file": "17th para taken from N of river.JPG",
+        "alt": "The river seen from the north bank"
+      }
+    },
+    {
+      "year": 1975,
+      "label": "1975",
+      "title": "One country",
+      "text": "With reunification in 1975 the dividing line disappeared. Families separated for twenty years could cross the river again.",
+      "image": {
+        "file": "Tour of the DMZ, Vietnam (17100711821).jpg",
+        "alt": "Hiền Lương Bridge"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "The longing for unity",
+      "text": "The bridge has been rebuilt in its old form, and the flagpole raised again. A monument on the south bank shows a mother and child longing for reunification.",
+      "image": {
+        "file": "Tượng đài Khát vọng thống nhất non sông.JPG",
+        "alt": "The monument to reunification"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "divided",
+      "type": "history",
+      "title": "A river that divided a country",
+      "image": {
+        "file": "Benhairiver1.jpg",
+        "alt": "The Bến Hải River"
+      },
+      "narration": "When the war against France ended in 1954, the peace agreement signed in Geneva drew a temporary line across Vietnam at the 17th parallel. Troops were to regroup on either side until national elections in 1956. The elections never took place. For twenty-one years the narrow Bến Hải River separated two states, and the Hiền Lương Bridge, under 200 metres long, separated families who could see each other across the water but not meet."
+    },
+    {
+      "id": "flag",
+      "type": "history",
+      "title": "The mother who mended the flag",
+      "image": {
+        "file": "Người mẹ vá cờ Hiền Lương.JPG",
+        "alt": "Statue of the mother mending the flag"
+      },
+      "narration": "On the north bank stood a tall flagpole, and on the south bank another. The flags were targets, torn by wind and gunfire. People of the Vĩnh Linh area, many of them women, sewed and mended the northern flag again and again, sometimes at night, so that it would fly every morning. A statue of a mother mending the flag now stands near the bridge. The flagpole on the north bank has been rebuilt, and a large flag flies there today."
+    },
+    {
+      "id": "vinh-moc",
+      "type": "history",
+      "title": "A village underground",
+      "image": {
+        "file": "17th para taken from N of river.JPG",
+        "alt": "The area north of the river"
+      },
+      "narration": "North of the river, the village of Vĩnh Mốc was bombed almost every day. Its people dug tunnels about two kilometres long, on three levels, down to more than 20 metres underground. Families lived there for years, with small rooms, wells and a meeting hall. Children were born in the tunnels. Today visitors can walk through them, bending low, and come out at exits facing the sea."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Small fee for the exhibition and flagpole area.",
+    "hours": {
+      "seasons": [
+        {
+          "label": "All year",
+          "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "days": {
+            "daily": [
+              [
+                "07:00",
+                "17:00"
+              ]
+            ]
+          }
+        }
+      ],
+      "closedDates": [],
+      "notes": "Approximate. The bridge itself is always open to walk across."
+    },
+    "etiquette": {
+      "do": [
+        "Keep your voice low and dress modestly.",
+        "Light incense only where others do so.",
+        "Visit the Vĩnh Mốc tunnels, about 15 km away."
+      ],
+      "dont": [
+        "Pose playfully for photos at graves and memorials.",
+        "Step on graves or flowerbeds.",
+        "Wander off paths in the countryside; old ordnance is still found."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Try bánh bột lọc and cháo canh (thick noodle soup) in Đồng Hới and Đông Hà."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 1.5 hours by road from Huế, or 2 hours from Đồng Hới."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Vĩnh Mốc tunnels, the Quảng Trị citadel, and Phong Nha caves further north."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Hiền Lương Bridge",
+        "category": "entrance",
+        "lat": 17.0039,
+        "lon": 107.0514,
+        "note": "Walk across the river."
+      },
+      {
+        "name": "North-bank flagpole",
+        "category": "sights",
+        "lat": 17.006,
+        "lon": 107.051,
+        "note": "Approximate."
+      },
+      {
+        "name": "Vĩnh Mốc tunnels",
+        "category": "sights",
+        "lat": 17.072,
+        "lon": 107.112,
+        "note": "Approximate."
+      },
+      {
+        "name": "Quảng Trị citadel",
+        "category": "sights",
+        "lat": 16.7539,
+        "lon": 107.1895,
+        "note": "Memorial park."
+      },
+      {
+        "name": "Đông Hà (station & buses)",
+        "category": "transport",
+        "lat": 16.816,
+        "lon": 107.1,
+        "note": "Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

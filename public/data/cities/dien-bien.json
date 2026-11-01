@@ -1,0 +1,79 @@
+{
+  "id": "dien-bien",
+  "hero": {
+    "file": "Toàn cảnh cánh đồng Điện Biên.jpg",
+    "alt": "The wide valley of Điện Biên"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Thái, Hmong, Khơ Mú and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "March (white ban flowers) and September–October (harvest)",
+    "founded": "Created in 2004 from the old Lai Châu province"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Điện Biên is in the far north-west, bordering Laos and China. At its heart is the Mường Thanh valley, the largest in the north-western mountains. It is about 20 km long and covered in rice fields, and the Nậm Rốm River runs through it."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "In the 18th century the rebel leader Hoàng Công Chất made the Mường Thanh valley his base. In 1953–1954 the French built a fortified camp here and were besieged and defeated by the Việt Minh. The battle ended French rule in Indochina and led to the Geneva Accords."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Thái people, both Black and White Thái, have farmed the valley for centuries. Their xòe dance, performed in a circle with linked hands, was listed by UNESCO in 2021. In March the hills turn white with ban (bauhinia) flowers, a symbol of the region in Thái love songs."
+    }
+  ],
+  "etiquette": [
+    "Keep your voice low at war memorials and cemeteries.",
+    "Dress modestly at the museum and monuments.",
+    "Ask before photographing people.",
+    "Join in if you are invited into a xòe circle."
+  ],
+  "timeline": [
+    {
+      "year": 1760,
+      "approx": true,
+      "text": "The rebel leader Hoàng Công Chất makes the Mường Thanh valley his base."
+    },
+    {
+      "year": 1953,
+      "text": "French paratroopers land at Điện Biên Phủ and build a fortified camp.",
+      "landmark": "dien-bien-phu-battlefield",
+      "era": 0
+    },
+    {
+      "year": 1954,
+      "text": "After 56 days of siege, the French garrison surrenders on 7 May.",
+      "landmark": "dien-bien-phu-battlefield",
+      "era": 2
+    },
+    {
+      "year": 2004,
+      "text": "Điện Biên province is created, and a Victory Monument rises for the 50th anniversary."
+    },
+    {
+      "year": 2012,
+      "text": "The Sơn La dam fills, and its reservoir floods much of the old town of Mường Lay."
+    },
+    {
+      "year": 2014,
+      "text": "A new museum opens for the 60th anniversary of the victory.",
+      "landmark": "dien-bien-phu-battlefield",
+      "era": 3
+    },
+    {
+      "year": 2021,
+      "text": "UNESCO lists the xòe dance of the Thái people."
+    },
+    {
+      "year": 2026,
+      "text": "Rice fields fill the valley where the battle was fought.",
+      "landmark": "dien-bien-phu-battlefield",
+      "era": 4
+    }
+  ]
+}

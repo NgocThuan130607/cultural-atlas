@@ -1,0 +1,79 @@
+{
+  "id": "khanh-hoa",
+  "hero": {
+    "file": "Nha Trang , Vietnam - panoramio (35).jpg",
+    "alt": "Nha Trang bay"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Chăm and Raglai",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "January–August",
+    "founded": "Merged with Ninh Thuận in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Khánh Hòa has some of Vietnam's finest bays: Vân Phong, Nha Trang and Cam Ranh, with dozens of islands. The former Ninh Thuận province to the south is the driest part of the country, with sand dunes, vineyards and the forests of Núi Chúa National Park."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "This coast was the heart of Champa. Kauthara, around Nha Trang, and Panduranga, in Ninh Thuận, were two of its regions. Vietnamese lords took Kauthara in 1653, and Panduranga was fully absorbed in 1832. In 1891 the French-Swiss scientist Alexandre Yersin settled in Nha Trang, where he later founded a research institute."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Chăm of Ninh Thuận still worship at their brick towers, and celebrate the Katê festival each autumn. The Chăm potters of Bàu Trúc shape pots by walking around them, without a wheel; UNESCO listed the craft in 2022. Nha Trang is known for seafood and for bird's-nest soup."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat inside the halls.",
+    "Walk quietly, and let worshippers go first.",
+    "At the Cham towers, borrow a sarong at the gate if your legs are uncovered."
+  ],
+  "timeline": [
+    {
+      "year": 800,
+      "approx": true,
+      "text": "Raiders from the sea attack the Po Nagar temple; the Cham rebuild it in brick.",
+      "landmark": "po-nagar",
+      "era": 0
+    },
+    {
+      "year": 817,
+      "approx": true,
+      "text": "The main tower of Po Nagar is built.",
+      "landmark": "po-nagar",
+      "era": 1
+    },
+    {
+      "year": 1653,
+      "text": "The Nguyễn lords take Kauthara; Vietnamese begin to worship the goddess as Thiên Y A Na.",
+      "landmark": "po-nagar",
+      "era": 2
+    },
+    {
+      "year": 1832,
+      "text": "Panduranga, the last Cham principality, is fully absorbed by Emperor Minh Mạng."
+    },
+    {
+      "year": 1891,
+      "text": "The scientist Alexandre Yersin settles in Nha Trang."
+    },
+    {
+      "year": 2022,
+      "text": "UNESCO lists the pottery-making of the Chăm people of Bàu Trúc."
+    },
+    {
+      "year": 2025,
+      "text": "Khánh Hòa and Ninh Thuận merge."
+    },
+    {
+      "year": 2026,
+      "text": "Pilgrims and visitors climb to the towers above the Cái River.",
+      "landmark": "po-nagar",
+      "era": 3
+    }
+  ]
+}

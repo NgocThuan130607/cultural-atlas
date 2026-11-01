@@ -28,6 +28,9 @@ export function getJSON(path) {
   return cache.get(path);
 }
 export const loadCities = () => getJSON('cities.json').then((d) => d.cities);
+/** Atlases the globe can switch between ("World", "Vietnam"); each city lists the ones it belongs to. */
+export const loadCollections = () => getJSON('cities.json').then((d) => d.collections ?? [{ id: 'world', label: 'World' }]);
+export const collectionsOf = (city) => city.collections ?? ['world'];
 export const loadCity = (id) => getJSON(`cities/${id}.json`);
 export const loadLandmark = (id) => getJSON(`landmarks/${id}.json`);
 export const loadMedia = () => getJSON('media.json').catch(() => ({}));

@@ -1,0 +1,156 @@
+{
+  "id": "ly-son-island",
+  "city": "quang-ngai",
+  "name": "Lý Sơn Island",
+  "localName": "Đảo Lý Sơn",
+  "lat": 15.3808,
+  "lon": 109.1175,
+  "summary": "A volcanic island off the coast, famous for its garlic fields, its sea cliffs and the sailors who once travelled to the Paracel Islands.",
+  "hero": {
+    "file": "Mot phan quang canh Ly Son.jpg",
+    "alt": "Lý Sơn island"
+  },
+  "eras": [
+    {
+      "year": -1000000,
+      "label": "Long ago",
+      "title": "Born of volcanoes",
+      "text": "Lý Sơn is the top of an ancient volcano. Its craters, black rocks and sea caves were shaped by eruptions and then by the waves.",
+      "image": {
+        "file": "Dao Ly Son nhin tu xa.jpg",
+        "alt": "Lý Sơn seen from the sea"
+      }
+    },
+    {
+      "year": 1700,
+      "label": "17th–19th c.",
+      "title": "The Hoàng Sa sailors",
+      "text": "For about two hundred years, the Nguyễn lords and emperors recruited sailors from Lý Sơn for the Hoàng Sa flotilla, which sailed to the Paracel Islands each year to collect goods, map the islands and mark them.",
+      "image": {
+        "file": "Tau danh ca tai Ly Son.jpg",
+        "alt": "Fishing boats at Lý Sơn"
+      }
+    },
+    {
+      "year": 2005,
+      "label": "2000s",
+      "title": "Garlic island",
+      "text": "Farmers grow a small, strongly flavoured garlic in fields covered with white sand carried up from the beach. Lý Sơn garlic became famous across Vietnam.",
+      "image": {
+        "file": "Ly Son Island 10 - panoramio.jpg",
+        "alt": "Fields on Lý Sơn"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A favourite island",
+      "text": "Fast boats from the mainland bring visitors to see the cliffs of Hang Câu, the crater of Thới Lới and the white sands of the smaller island, Bé.",
+      "image": {
+        "file": "Bãi tắm đảo bé Lý Sơn.jpg",
+        "alt": "A beach on Bé island"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "hoang-sa",
+      "type": "history",
+      "title": "The Hoàng Sa sailors",
+      "image": {
+        "file": "Tau danh ca tai Ly Son.jpg",
+        "alt": "Boats at Lý Sơn"
+      },
+      "narration": "From the 17th century, the Nguyễn rulers sent a flotilla of small boats each year from Lý Sơn to the Paracel Islands, known in Vietnamese as Hoàng Sa. The sailors collected goods from shipwrecks, caught fish and measured the islands. The voyage was dangerous, and many did not come back. Before leaving, families held a ceremony for them, the Khao lề thế lính, with small model boats and figures to take the sailors' place in death. The ceremony is still held on the island every spring."
+    },
+    {
+      "id": "garlic",
+      "type": "culture",
+      "title": "Garlic on volcanic soil",
+      "image": {
+        "file": "Ly Son Island 10 - panoramio.jpg",
+        "alt": "Fields on Lý Sơn"
+      },
+      "narration": "Lý Sơn's soil is volcanic and dry. To grow garlic, farmers spread a layer of fine white sand from the sea over the dark earth. The sand keeps moisture in and the soil cool. The garlic that grows here is small, single-cloved or with tiny cloves, and very fragrant. Island families also grow onions and other crops in the same way, and the patchwork of green fields and white sand is one of the island's most striking sights."
+    },
+    {
+      "id": "cliffs",
+      "type": "culture",
+      "title": "Cliffs and craters",
+      "image": {
+        "file": "Mot phan quang canh Ly Son.jpg",
+        "alt": "Lý Sơn"
+      },
+      "narration": "On the island's north-east coast, the sea has carved the cliffs of Hang Câu, a wall of layered volcanic rock where waves pound at the foot. Inland, Thới Lới mountain is an old crater, now partly filled with a reservoir. A small temple cave, Chùa Hang, is built into the rock by the sea. At sunrise and sunset the black rocks and the blue water make the island one of the most photographed places on the central coast."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "Free to visit the island; pay for the boat from Sa Kỳ port (about 30–60 minutes).",
+    "hours": {
+      "open24h": true,
+      "notes": "An island, always open. Boats run in the daytime and may stop in rough seas."
+    },
+    "etiquette": {
+      "do": [
+        "Check the weather; boats are cancelled when the sea is rough.",
+        "Rent a motorbike to go around the island.",
+        "Visit the Hoàng Sa flotilla exhibition.",
+        "Bring sun protection."
+      ],
+      "dont": [
+        "Pick or trample garlic plants.",
+        "Climb the cliffs without a guide.",
+        "Leave rubbish on the beaches."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Island food",
+        "text": "Garlic salad, seaweed, and grilled seafood; take some garlic home."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "Boats leave from Sa Kỳ port, about 20 km from Quảng Ngãi city."
+      },
+      {
+        "category": "sights",
+        "title": "Do not miss",
+        "text": "Hang Câu cliffs, Thới Lới crater and a boat to Bé island."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Lý Sơn ferry port",
+        "category": "entrance",
+        "lat": 15.383,
+        "lon": 109.115,
+        "note": "Approximate."
+      },
+      {
+        "name": "Hang Câu cliffs",
+        "category": "sights",
+        "lat": 15.39,
+        "lon": 109.13,
+        "note": "Approximate."
+      },
+      {
+        "name": "Thới Lới crater",
+        "category": "sights",
+        "lat": 15.388,
+        "lon": 109.105,
+        "note": "Approximate."
+      },
+      {
+        "name": "Sa Kỳ port (mainland)",
+        "category": "transport",
+        "lat": 15.21,
+        "lon": 108.93,
+        "note": "Boats to the island. Approximate."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

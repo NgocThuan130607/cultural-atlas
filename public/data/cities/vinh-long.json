@@ -1,0 +1,73 @@
+{
+  "id": "vinh-long",
+  "hero": {
+    "file": "Cồn Phụng.jpg",
+    "alt": "Phụng island on the Mekong"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Khmer",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "December–April; fruit season May–August",
+    "founded": "Merged with Bến Tre and Trà Vinh in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The new Vĩnh Long covers the islands and peninsulas between the arms of the Mekong. The former Bến Tre province is a land of coconut groves. Vĩnh Long itself is a land of orchards and brick kilns, and the former Trà Vinh reaches the sea."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The Nguyễn lords set up Long Hồ, today's Vĩnh Long, in 1732 to govern the new southern lands. In 1867 Phan Thanh Giản, unable to resist the French, handed over the western provinces and took his own life. In January 1960 the Đồng Khởi uprising broke out in Bến Tre. Trà Vinh has one of the largest Khmer communities in Vietnam."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "Trà Vinh alone has well over a hundred Khmer Theravada pagodas, with monks in saffron robes. The Khmer festivals of Chol Chnam Thmay (new year) and Ok Om Bok (moon festival) fill the calendar. Bến Tre is famous for coconut candy, and Vĩnh Long for its pottery kilns along the Mang Thít River."
+    }
+  ],
+  "etiquette": [
+    "Cover your shoulders and knees, and take off your hat and shoes where others do.",
+    "Walk quietly, and let worshippers go first.",
+    "Women should not touch Khmer monks or hand things directly to them."
+  ],
+  "timeline": [
+    {
+      "year": 990,
+      "approx": true,
+      "text": "Tradition says Âng Pagoda is founded by the Khmer.",
+      "landmark": "ao-ba-om",
+      "era": 0
+    },
+    {
+      "year": 1732,
+      "text": "The Nguyễn lords set up Long Hồ (today's Vĩnh Long)."
+    },
+    {
+      "year": 1867,
+      "text": "Phan Thanh Giản hands over the western provinces to France and takes his own life."
+    },
+    {
+      "year": 1960,
+      "text": "The Đồng Khởi uprising breaks out in Bến Tre in January."
+    },
+    {
+      "year": 1997,
+      "approx": true,
+      "text": "A museum of Khmer culture opens beside Ao Bà Om.",
+      "landmark": "ao-ba-om",
+      "era": 2
+    },
+    {
+      "year": 2025,
+      "text": "Vĩnh Long, Bến Tre and Trà Vinh merge."
+    },
+    {
+      "year": 2026,
+      "text": "Ok Om Bok festivities fill the lakeside each autumn.",
+      "landmark": "ao-ba-om",
+      "era": 3
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "id": "hoi-an-ancient-town",
+  "city": "da-nang",
+  "name": "Hội An Ancient Town",
+  "localName": "Phố cổ Hội An",
+  "lat": 15.8775,
+  "lon": 108.3275,
+  "summary": "A small trading port on the Thu Bồn River. Its wooden shophouses, assembly halls and Japanese bridge survive from the 17th–19th centuries, and it is a UNESCO World Heritage Site.",
+  "hero": {
+    "file": "Phố cổ Hội An - NKS.jpg",
+    "alt": "Hội An Ancient Town"
+  },
+  "eras": [
+    {
+      "year": 1600,
+      "label": "c. 1600",
+      "title": "Faifo, a port of nations",
+      "text": "Around 1600, Hội An, known to foreigners as Faifo, was one of the busiest ports in South-East Asia. Japanese and Chinese merchants settled in their own quarters. This Japanese scroll shows a trading ship arriving.",
+      "image": {
+        "file": "Giao Chi quoc dich mau do hai do.jpg",
+        "alt": "Japanese scroll of a trading voyage to Hội An"
+      }
+    },
+    {
+      "year": 1719,
+      "label": "1719",
+      "title": "The Japanese bridge",
+      "text": "A covered bridge built by the Japanese community linked their quarter to the Chinese one. In 1719 Lord Nguyễn Phúc Chu gave it a name: Lai Viễn Kiều, \"the bridge for friends from afar\".",
+      "image": {
+        "file": "Cau Nhat Ban (2).jpg",
+        "alt": "The Japanese covered bridge"
+      }
+    },
+    {
+      "year": 1793,
+      "label": "1793",
+      "title": "Seen by a British embassy",
+      "text": "In 1793 a British embassy on its way to China stopped here. This engraving from its account shows the town and river.",
+      "image": {
+        "file": "A voyage to Cochinchina in the years 1792 and 1793 - Faifo.jpg",
+        "alt": "Faifo in 1793"
+      }
+    },
+    {
+      "year": 1906,
+      "label": "c. 1906",
+      "title": "The river silts up",
+      "text": "As the river silted up and ships grew larger, trade moved to Đà Nẵng. A small tramway linked the two towns. Hội An slowly fell asleep, which is why its old houses survived.",
+      "image": {
+        "file": "Tourane, 1907-1916 - Ligne de Tourane à Faifoo, National Archives Centre 1 Hà Nội 04.jpg",
+        "alt": "The Tourane–Faifo tramway"
+      }
+    },
+    {
+      "year": 1999,
+      "label": "1999",
+      "title": "World Heritage",
+      "text": "UNESCO listed Hội An as an exceptionally well-preserved South-East Asian trading port, with more than a thousand historic buildings.",
+      "image": {
+        "file": "HoiAnOldQuarter.jpg",
+        "alt": "The old quarter"
+      }
+    },
+    {
+      "year": 2026,
+      "label": "Today",
+      "title": "A town of lanterns",
+      "text": "Today the old town is closed to cars in the evening, and silk lanterns glow along the river. Tailors, cafés and family shops fill the old houses.",
+      "image": {
+        "file": "Dem ram Hoi An 2006.jpg",
+        "alt": "Hội An on a full-moon night"
+      }
+    }
+  ],
+  "story": [
+    {
+      "id": "bridge",
+      "type": "legend",
+      "title": "The monster under the bridge",
+      "image": {
+        "file": "Cau Nhat Ban (2).jpg",
+        "alt": "The Japanese covered bridge"
+      },
+      "narration": "A legend says that a huge monster called Mamazu lived beneath the earth. Its head was in India, its tail in Japan and its back under Vietnam. Whenever it moved, earthquakes and floods struck. The Japanese merchants of Hội An built the covered bridge like a sword driven into its back, to keep it still. A small temple on the bridge, guarded by statues of a dog and a monkey, honours a spirit who protects the town from floods."
+    },
+    {
+      "id": "halls",
+      "type": "history",
+      "title": "The assembly halls",
+      "image": {
+        "file": "Hoi quan Phuoc Kien.jpg",
+        "alt": "The Fujian Assembly Hall"
+      },
+      "narration": "Chinese merchants in Hội An grouped together by home province, and each community built an assembly hall: Fujian, Cantonese, Hainan and others. These halls were temples, meeting rooms and social clubs at once. After the fall of the Ming dynasty in the 17th century, many Chinese loyalists settled here for good and married local women. Their descendants became known as the Minh Hương. The Fujian hall, with its bright gate and incense coils, honours Thiên Hậu, the goddess of the sea."
+    },
+    {
+      "id": "lanterns",
+      "type": "culture",
+      "title": "Full-moon nights",
+      "image": {
+        "file": "Dem ram Hoi An 2006.jpg",
+        "alt": "Hội An on a full-moon night"
+      },
+      "narration": "On the 14th day of every lunar month, when the moon is full, Hội An's old town turns down its electric lights. Silk lanterns of every colour glow along the streets, and children sell paper candles that visitors set floating on the river for luck. Lantern-making is a local craft: bamboo frames are bent by hand and covered with silk, and many workshops welcome visitors who want to make their own."
+    }
+  ],
+  "guide": {
+    "officialUrl": "https://vietnam.travel",
+    "price": "A heritage ticket gives entry to several old houses, assembly halls and small museums.",
+    "hours": {
+      "open24h": true,
+      "notes": "The streets are always open. Ticketed houses and halls open roughly 8:00–21:00."
+    },
+    "etiquette": {
+      "do": [
+        "Buy a heritage ticket and visit a family house, an assembly hall and the Japanese bridge.",
+        "Dress modestly in temples and assembly halls.",
+        "Walk or cycle. The old town is closed to cars in the evening.",
+        "Come back in the evening for the lanterns."
+      ],
+      "dont": [
+        "Sit on the steps or furniture of old houses.",
+        "Release candles that are not paper and wax.",
+        "Order tailored clothes in a rush; allow time for fittings."
+      ]
+    },
+    "tips": [
+      {
+        "category": "food",
+        "title": "Local food",
+        "text": "Cao lầu noodles, made only in Hội An, mì Quảng and bánh mì."
+      },
+      {
+        "category": "transport",
+        "title": "Getting there",
+        "text": "About 45 minutes by car from Đà Nẵng airport."
+      },
+      {
+        "category": "sights",
+        "title": "Nearby",
+        "text": "Mỹ Sơn Cham sanctuary (1 hour), and the Marble Mountains on the way to Đà Nẵng."
+      }
+    ],
+    "pois": [
+      {
+        "name": "Japanese Covered Bridge",
+        "category": "entrance",
+        "lat": 15.8772,
+        "lon": 108.326,
+        "note": "Heritage ticket required. Approximate."
+      },
+      {
+        "name": "Fujian Assembly Hall",
+        "category": "sights",
+        "lat": 15.8777,
+        "lon": 108.3299,
+        "note": "Approximate."
+      },
+      {
+        "name": "Hội An central market",
+        "category": "food",
+        "lat": 15.8766,
+        "lon": 108.331,
+        "note": "Food stalls. Approximate."
+      },
+      {
+        "name": "An Hội night market",
+        "category": "food",
+        "lat": 15.8758,
+        "lon": 108.3265,
+        "note": "Across the river. Approximate."
+      },
+      {
+        "name": "Đà Nẵng airport",
+        "category": "transport",
+        "lat": 16.0439,
+        "lon": 108.1994,
+        "note": "45 minutes by car."
+      }
+    ]
+  },
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+}

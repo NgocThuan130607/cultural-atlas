@@ -1,0 +1,78 @@
+{
+  "id": "dak-lak",
+  "hero": {
+    "file": "Lak Lake.jpg",
+    "alt": "Lắk Lake in Đắk Lắk"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Ê Đê, M'nông, Jarai and others",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "November–March (dry season; coffee blossom in February–March)",
+    "founded": "Created by the French in 1904; merged with Phú Yên in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "Đắk Lắk spreads across a basalt plateau in the Central Highlands, crossed by the Serepok River and dotted with waterfalls and lakes. Yok Đôn National Park protects dry forest on the border with Cambodia. The former Phú Yên province adds the coast, with the basalt columns of Gành Đá Đĩa and Mũi Điện, Vietnam's easternmost point."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "The highlands were the land of the Ê Đê, M'nông and Jarai peoples. The French created the province of Darlac in 1904 and later planted coffee and rubber. On 10 March 1975, the attack on Buôn Ma Thuột opened the campaign that ended the war. Coffee farming boomed from the 1990s, and Vietnam became one of the world's largest coffee exporters."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Ê Đê live in long houses on stilts, sometimes dozens of metres long, shared by an extended family; property passes down the female line. Gong music fills their festivals. Buôn Ma Thuột holds a coffee festival, and coffee is drunk strong and sweet, dripped through a metal phin filter."
+    }
+  ],
+  "etiquette": [
+    "Ask before entering a long house or photographing people.",
+    "Accept rice wine from the jar if offered, even just a sip.",
+    "Do not ride elephants; choose places that let you watch them instead.",
+    "Do not touch ritual gongs without permission."
+  ],
+  "timeline": [
+    {
+      "year": 1611,
+      "text": "Lord Nguyễn Hoàng sets up the Phú Yên prefecture on the coast."
+    },
+    {
+      "year": 1904,
+      "text": "The French create the province of Darlac."
+    },
+    {
+      "year": 1924,
+      "approx": true,
+      "text": "The famous elephant hunter Y Thu Knul (Khunjunob) of Buôn Đôn dies.",
+      "landmark": "buon-don",
+      "era": 0
+    },
+    {
+      "year": 1975,
+      "text": "The attack on Buôn Ma Thuột on 10 March opens the final campaign of the war."
+    },
+    {
+      "year": 1991,
+      "approx": true,
+      "text": "Yok Đôn becomes a national park.",
+      "landmark": "buon-don",
+      "era": 1
+    },
+    {
+      "year": 2005,
+      "text": "UNESCO recognises the gong culture of the Central Highlands."
+    },
+    {
+      "year": 2025,
+      "text": "Đắk Lắk and Phú Yên merge."
+    },
+    {
+      "year": 2026,
+      "text": "Visitors cross the bamboo bridges of Buôn Đôn over the Serepok.",
+      "landmark": "buon-don",
+      "era": 3
+    }
+  ]
+}

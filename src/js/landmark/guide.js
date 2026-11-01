@@ -16,7 +16,8 @@ export function initGuide(pane, layer, { lm, city }) {
       <h2 id="hours-title">Opening hours</h2>
       <p class="mb-1"><span class="status" id="open-status"></span></p>
       <p class="t-body-s muted mb-3">Local time in ${esc(city.name)} (${esc(city.timezone.replaceAll('_', ' '))})</p>
-      ${hours.seasons.map((s) => `
+      ${hours.open24h ? '<p class="mb-0">Open every day, around the clock. There is no gate.</p>' : ''}
+      ${(hours.seasons ?? []).map((s) => `
         <details class="season" ${s === currentSeason ? 'open' : ''}>
           <summary><span>${esc(s.label)}${s === currentSeason ? ' <span class="t-body-s muted">· now</span>' : ''}</span>${icon('expand_more', 'chev')}</summary>
           <table class="hours-table mt-1"><tbody>

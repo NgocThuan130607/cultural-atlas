@@ -1,0 +1,87 @@
+{
+  "id": "lao-cai",
+  "hero": {
+    "file": "Fansipan summit 2 in sunrise.jpg",
+    "alt": "Sunrise on the summit of Fansipan"
+  },
+  "facts": {
+    "languages": "Vietnamese, plus Hmong, Dao, Tày, Giáy and other languages",
+    "currency": "Vietnamese đồng (VND)",
+    "bestTime": "September–October (golden rice terraces) and March–May",
+    "founded": "Created by the French in 1907; merged with Yên Bái in 2025"
+  },
+  "sections": [
+    {
+      "id": "geography",
+      "title": "Geography",
+      "text": "The Red River enters Vietnam at Lào Cai and flows south-east between two mountain ranges. To the west rises the Hoàng Liên Sơn range, with Fansipan (3,143 m), the highest peak in Indochina. In the former Yên Bái province, rice terraces climb the slopes at Mù Cang Chải, and the Thác Bà reservoir fills a valley with hundreds of islands."
+    },
+    {
+      "id": "history",
+      "title": "History",
+      "text": "Lào Cai has long been a crossing point on the river trade route to Yunnan. In 1910 the French completed a railway from Hải Phòng through Hà Nội and Lào Cai to Kunming. In February 1930, nationalists of the Việt Nam Quốc Dân Đảng launched the Yên Bái uprising against French rule. It was quickly crushed, and its leader Nguyễn Thái Học was executed that June."
+    },
+    {
+      "id": "culture",
+      "title": "Culture",
+      "text": "The Hmong, Dao, Tày, Giáy and Xa Phó peoples live in the high valleys. Each group has its own dress, from the indigo hemp of the Black Hmong to the red headscarves of the Red Dao. The Bắc Hà Sunday market and the terraced fields of Mù Cang Chải draw photographers from around the world."
+    }
+  ],
+  "etiquette": [
+    "Ask before photographing people or entering a house.",
+    "Buy handicrafts directly from the makers, and don't haggle too hard over small sums.",
+    "Stay on the dykes when you walk through rice terraces.",
+    "Book homestays through a local guide or registered host."
+  ],
+  "timeline": [
+    {
+      "year": 1906,
+      "text": "The railway from Hà Nội reaches Lào Cai. Four years later it continues to Kunming in China."
+    },
+    {
+      "year": 1907,
+      "text": "The French create Lào Cai province."
+    },
+    {
+      "year": 1916,
+      "text": "French officials begin building summer villas in \"Chapa\" (Sa Pa).",
+      "landmark": "sa-pa",
+      "era": 0
+    },
+    {
+      "year": 1930,
+      "text": "In February the Yên Bái uprising against French rule breaks out and is crushed."
+    },
+    {
+      "year": 1971,
+      "text": "The Thác Bà hydropower plant opens, creating a vast lake in Yên Bái."
+    },
+    {
+      "year": 1979,
+      "text": "Lào Cai town is badly damaged in the border war with China."
+    },
+    {
+      "year": 1993,
+      "approx": true,
+      "text": "Sa Pa opens up to foreign trekkers, and tourism begins to grow.",
+      "landmark": "sa-pa",
+      "era": 2
+    },
+    {
+      "year": 2016,
+      "text": "A cable car opens to the summit of Fansipan.",
+      "landmark": "sa-pa",
+      "era": 3
+    },
+    {
+      "year": 2025,
+      "text": "Lào Cai and Yên Bái merge into one province."
+    },
+    {
+      "year": 2026,
+      "text": "Each autumn the rice terraces turn gold before the harvest.",
+      "landmark": "sa-pa",
+      "era": 4
+    }
+  ]
+}
