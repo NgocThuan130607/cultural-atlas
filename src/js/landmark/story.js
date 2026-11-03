@@ -11,11 +11,15 @@ const tts = 'speechSynthesis' in window ? window.speechSynthesis : null;
 const splitSentences = (text) => text.match(/[^.!?]+[.!?]+["”’']?\s*|[^.!?]+$/g)?.map((s) => s.trim()).filter(Boolean) ?? [text];
 const minutes = (text) => Math.max(1, Math.round(text.split(/\s+/).length / 150));
 
+// Prefers a natural-sounding English voice. Those are often online voices, so after one fails
+// (no internet, blocked network) only voices installed on the computer are used.
+let localOnly = false;
 function pickVoice() {
-  const voices = tts?.getVoices() ?? [];
+  const voices = (tts?.getVoices() ?? []).filter((v) => !localOnly || v.localService);
   const en = voices.filter((v) => v.lang?.toLowerCase().startsWith('en'));
   return en.find((v) => /natural|neural|google|samantha|daniel/i.test(v.name)) ?? en[0] ?? null;
 }
+const START_TIMEOUT = 5000; // ms to wait for a sentence to start before trying another voice
 
 export function initStory(pane, layer, { lm, media }) {
   const chapters = lm.story;
@@ -124,6 +128,9 @@ export function initStory(pane, layer, { lm, media }) {
     });
   }
 
+  let utterance = null; // kept so the browser doesn't drop it before it ends
+  let watchdog = 0;
+
   function speakFrom(k, id) {
     if (id !== session) return;
     if (k >= sentences.length) return finished();
@@ -134,9 +141,29 @@ export function initStory(pane, layer, { lm, media }) {
     const voice = pickVoice();
     if (voice) { u.voice = voice; u.lang = voice.lang; } else { u.lang = 'en-GB'; }
     u.rate = Number(V('story-rate').value);
-    u.onend = () => speakFrom(k + 1, id);
-    u.onerror = (e) => { if (e.error !== 'interrupted' && e.error !== 'canceled') setPlaying(false); };
+    let started = false;
+    const failed = () => {
+      clearTimeout(watchdog);
+      if (id !== session) return;
+      tts.cancel();
+      if (voice && !voice.localService && !localOnly) { localOnly = true; speakFrom(k, id); return; }
+      setPlaying(false);
+      showNote('The narration could not be played. Check that your sound is on and this tab is not muted, or read the transcript below.');
+    };
+    u.onstart = () => { started = true; clearTimeout(watchdog); showNote(''); };
+    u.onend = () => { clearTimeout(watchdog); if (started) speakFrom(k + 1, id); else failed(); };
+    u.onerror = (e) => { if (e.error !== 'interrupted' && e.error !== 'canceled') failed(); };
+    utterance = u;
+    tts.resume(); // Chrome can get stuck in a paused state
     tts.speak(u);
+    clearTimeout(watchdog);
+    watchdog = setTimeout(() => { if (!started) failed(); }, START_TIMEOUT);
+  }
+
+  function showNote(text) {
+    if (!tts) return;
+    P('story-note').hidden = !text;
+    P('story-note').textContent = text;
   }
 
   function play() {
@@ -149,6 +176,8 @@ export function initStory(pane, layer, { lm, media }) {
 
   function stop() {
     session++;
+    clearTimeout(watchdog);
+    utterance = null;
     tts?.cancel();
     audio?.pause();
     setPlaying(false);
