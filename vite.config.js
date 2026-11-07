@@ -5,7 +5,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 const root = import.meta.dirname;
 
 /** Every page of the site. scripts/build.mjs builds them one at a time. */
-export const PAGES = ['index', 'city', 'timetravel', 'stories', 'visit'];
+export const PAGES = ['index', 'city', 'timetravel', 'stories', 'visit', 'trip', 'discover'];
 // public/landmark.html is a plain redirect for older links (landmark.html?id=…#story) and is copied as-is.
 
 // CesiumJS's Assets and Widgets are loaded from the jsDelivr CDN (same version as package.json),

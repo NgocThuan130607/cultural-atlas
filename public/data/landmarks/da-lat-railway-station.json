@@ -6,6 +6,8 @@
   "lat": 11.942,
   "lon": 108.455,
   "summary": "An Art Deco railway station from 1938, at the end of a rack railway that once climbed from the coast. Today a short heritage line runs to the village of Trại Mát.",
+  "bestMonths": [1, 2, 3, 12],
+  "tags": ["architecture", "history"],
   "hero": {
     "file": "Da Lat train station 37.jpg",
     "alt": "Đà Lạt railway station"

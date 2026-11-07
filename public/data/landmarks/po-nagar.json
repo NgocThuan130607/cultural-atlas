@@ -6,6 +6,8 @@
   "lat": 12.2653,
   "lon": 109.1956,
   "summary": "Brick temple towers on a hill above the Cái River, built by the Cham between the 8th and 13th centuries to honour Po Nagar, the mother goddess of the land.",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8],
+  "tags": ["spiritual", "history", "architecture"],
   "hero": {
     "file": "Po Nagar Nha Trang Vietnam.JPG",
     "alt": "The Po Nagar towers"
@@ -82,6 +84,16 @@
         "alt": "Carvings at Po Nagar"
       },
       "narration": "In the village of Bàu Trúc, in the former Ninh Thuận province, Chăm women make pottery the way their ancestors did. They do not use a potter's wheel. Instead, the potter walks backwards around the clay, shaping it with her hands and simple tools. The pots are fired in the open under straw and wood, which gives them their reddish, smoky colours. UNESCO listed the craft in 2022 as heritage in urgent need of safeguarding."
+    },
+    {
+      "id": "film-dance",
+      "type": "film",
+      "title": "Dance at the towers",
+      "video": {
+        "file": "Danco en Po Nagar.webm",
+        "alt": "Video of women in white dancing with clay jars balanced on their heads in front of a Po Nagar tower"
+      },
+      "narration": "Filmed in November 2013 in front of the Po Nagar towers in Nha Trang. Women in white dresses dance while balancing clay water jars on their heads, a dance from the Cham tradition. Performances like this are held at the temple for visitors, beside the brick towers the Cham built more than a thousand years ago."
     }
   ],
   "guide": {

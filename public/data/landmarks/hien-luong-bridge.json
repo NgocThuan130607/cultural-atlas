@@ -6,6 +6,8 @@
   "lat": 17.0039,
   "lon": 107.0514,
   "summary": "A bridge over the Bến Hải River, on the 17th parallel, which split Vietnam in two from 1954 to 1975.",
+  "bestMonths": [3, 4, 5, 6, 7, 8],
+  "tags": ["history"],
   "hero": {
     "file": "Benhairiver1.jpg",
     "alt": "The Bến Hải River and Hiền Lương Bridge"

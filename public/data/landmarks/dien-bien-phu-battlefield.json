@@ -6,6 +6,8 @@
   "lat": 21.3836,
   "lon": 103.0218,
   "summary": "The valley where Vietnamese forces besieged and defeated the French army in 1954, ending French rule in Indochina. Hills, bunkers and a museum keep the story.",
+  "bestMonths": [3, 9, 10],
+  "tags": ["history"],
   "hero": {
     "file": "Victory in Battle of Dien Bien Phu.jpg",
     "alt": "Soldiers raise the flag over the French command bunker in 1954"

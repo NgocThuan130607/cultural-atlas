@@ -13,7 +13,8 @@ const warn = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 
 const CATEGORIES = ['entrance', 'transport', 'food', 'sights', 'services'];
-const STORY_TYPES = ['history', 'legend', 'culture'];
+const STORY_TYPES = ['history', 'legend', 'culture', 'film'];
+const TAGS = ['history', 'architecture', 'nature', 'spiritual', 'local-life', 'adventure']; // same as src/js/season.js
 const TIME = /^([01]\d|2[0-3]):[0-5]\d$/;
 const DAYS = ['daily', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const isCoord = (lat, lon) => typeof lat === 'number' && typeof lon === 'number' && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
@@ -76,6 +77,12 @@ for (const c of cities) {
     if (lm.city !== c.id) err(lw, `"city" should be "${c.id}"`);
     if (!isCoord(lm.lat, lm.lon)) err(lw, 'invalid lat/lon');
     checkImage(`${lw} hero`, lm.hero);
+    // Used by Discover and the season badges.
+    if (!Array.isArray(lm.bestMonths) || !lm.bestMonths.length) warn.push(`${lw}: no "bestMonths", so it never appears in seasonal suggestions`);
+    else if (lm.bestMonths.some((m) => !Number.isInteger(m) || m < 1 || m > 12) || new Set(lm.bestMonths).size !== lm.bestMonths.length) err(lw, '"bestMonths" must be distinct month numbers 1–12');
+    if (!Array.isArray(lm.tags) || !lm.tags.length) warn.push(`${lw}: no "tags", so interest filters skip it`);
+    else lm.tags.filter((t) => !TAGS.includes(t)).forEach((t) => err(lw, `unknown tag "${t}" (use ${TAGS.join(', ')})`));
+    if ('featured' in lm && typeof lm.featured !== 'boolean') err(lw, '"featured" must be true or false');
 
     if (!lm.eras?.length) err(lw, 'needs at least one era');
     lm.eras?.forEach((e, i) => {
@@ -89,7 +96,12 @@ for (const c of cities) {
       const sw = `${lw} story ${i + 1}`;
       if (!STORY_TYPES.includes(s.type)) err(sw, `type must be one of ${STORY_TYPES.join(', ')}`);
       if (!s.narration && !s.audio && !s.video && !s.youtube) err(sw, 'needs narration text, audio or video');
-      checkImage(sw, s.image);
+      // A Commons video ({ "file": "x.webm" }) brings its own poster image, so it needs no "image".
+      if (s.video?.file) {
+        const m = media[s.video.file.replace(/_/g, ' ')];
+        if (!m?.sources?.length) err(sw, `video "${s.video.file}" not in media.json. Run "npm run media".`);
+        if (s.image) checkImage(sw, s.image);
+      } else checkImage(sw, s.image);
     });
 
     const g = lm.guide;

@@ -6,6 +6,9 @@
   "lat": 35.03937,
   "lon": 135.72924,
   "summary": "A Zen temple whose upper two floors are covered in gold leaf and reflected in a mirror-like pond. It was rebuilt after a young monk burned it down in 1950.",
+  "bestMonths": [3, 4, 11],
+  "tags": ["spiritual", "architecture", "nature"],
+  "featured": true,
   "hero": {
     "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
     "alt": "The Golden Pavilion reflected in its pond"

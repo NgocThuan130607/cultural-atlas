@@ -6,6 +6,8 @@
   "lat": 8.6317,
   "lon": 104.7139,
   "summary": "The southern tip of mainland Vietnam, where mangrove forests grow out into the sea and the coastline keeps changing.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["nature", "adventure"],
   "hero": {
     "file": "MũiCàMau.jpg",
     "alt": "Cà Mau Cape"

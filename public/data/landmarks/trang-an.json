@@ -6,6 +6,9 @@
   "lat": 20.2557,
   "lon": 105.9156,
   "summary": "Limestone towers, caves and rivers where boats glide through flooded valleys. It is a UNESCO World Heritage Site for both its nature and its history.",
+  "bestMonths": [2, 3, 5, 6],
+  "tags": ["nature", "spiritual"],
+  "featured": true,
   "hero": {
     "file": "Trang An - 04.jpg",
     "alt": "Boats on the river at Tràng An"

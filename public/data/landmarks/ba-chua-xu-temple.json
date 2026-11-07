@@ -6,6 +6,8 @@
   "lat": 10.6823,
   "lon": 105.0801,
   "summary": "A temple at the foot of Sam mountain, near Châu Đốc, dedicated to the Lady of the Realm. Its festival draws millions of pilgrims each year.",
+  "bestMonths": [1, 2, 3, 4, 9, 10, 11, 12],
+  "tags": ["spiritual"],
   "hero": {
     "file": "Miếu Bà Chúa Xứ Núi Sam.jpg",
     "alt": "The temple of the Lady of the Realm"

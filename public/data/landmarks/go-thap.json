@@ -6,6 +6,8 @@
   "lat": 10.5974,
   "lon": 105.8249,
   "summary": "A mound in the Plain of Reeds where a religious centre of the ancient Óc Eo culture once stood. It was later a base of the 19th-century resistance against France.",
+  "bestMonths": [1, 2, 3, 4, 9, 10, 11, 12],
+  "tags": ["history", "nature"],
   "hero": {
     "file": "Khu di tich khao co Go thap,Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
     "alt": "The archaeological site of Gò Tháp"

@@ -6,6 +6,8 @@
   "lat": 23.2786,
   "lon": 105.3632,
   "summary": "A UNESCO Global Geopark of grey limestone peaks on Vietnam's northern border. The Hmong, Lô Lô and other peoples here grow maize in pockets of soil between the rocks.",
+  "bestMonths": [3, 4, 10, 11],
+  "tags": ["nature", "adventure", "local-life"],
   "hero": {
     "file": "Bãi đá mặt trăng Đồng Văn - NKS.jpg",
     "alt": "Grey limestone rocks on the Đồng Văn plateau"

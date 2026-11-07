@@ -6,6 +6,8 @@
   "lat": 21.3655,
   "lon": 105.3246,
   "summary": "Temples on Nghĩa Lĩnh mountain dedicated to the Hùng Kings, the legendary founders of the first Vietnamese kingdom. Every spring, millions come to honour them.",
+  "bestMonths": [2, 3, 4],
+  "tags": ["spiritual", "history"],
   "hero": {
     "file": "Mausoleum of Hung King.JPG",
     "alt": "The tomb of the Hùng King on Nghĩa Lĩnh mountain"

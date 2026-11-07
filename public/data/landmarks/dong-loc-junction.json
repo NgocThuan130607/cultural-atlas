@@ -6,6 +6,8 @@
   "lat": 18.447,
   "lon": 105.628,
   "summary": "A crossroads on the wartime supply route that was bombed thousands of times in 1968. A memorial honours ten young volunteers who died here.",
+  "bestMonths": [2, 3, 4, 5, 6, 7, 8],
+  "tags": ["history"],
   "hero": {
     "file": "Nga Ba Dong Loc.jpg",
     "alt": "The Đồng Lộc junction memorial"

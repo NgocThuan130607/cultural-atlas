@@ -6,6 +6,9 @@
   "lat": 41.8902,
   "lon": 12.4922,
   "summary": "The largest amphitheatre of the Roman world, where around 50,000 spectators watched gladiators and wild-animal hunts. It later became a fortress, a quarry and a Christian shrine.",
+  "bestMonths": [4, 5, 6, 9, 10],
+  "tags": ["history", "architecture"],
+  "featured": true,
   "hero": {
     "file": "Colosseo 2020.jpg",
     "alt": "The Colosseum in Rome"
@@ -112,6 +115,16 @@
         "alt": "Painting of the Colosseum by moonlight"
       },
       "narration": "Today the Colosseum carries new meanings. Every Good Friday, the Pope leads the Way of the Cross here by torchlight, a tradition that draws crowds from around the world. And since the year 2000, the monument has been lit up in gold each time a country abolishes the death penalty. A place once famous for violent death now stands as a symbol for the value of human life."
+    },
+    {
+      "id": "film-inside",
+      "type": "film",
+      "title": "Inside the arena today",
+      "video": {
+        "file": "Inside Colosseum.webm",
+        "alt": "Video looking across the inside of the Colosseum, its tiers and the arena floor"
+      },
+      "narration": "A short look around the inside of the Colosseum, filmed in 2017. You can see the tiers where around fifty thousand spectators once sat. Most of the wooden arena floor has gone, so the underground passages beneath it, called the hypogeum, lie open to the sky. Animals, fighters and stage scenery waited down there before being lifted up through trapdoors into the arena."
     }
   ],
   "guide": {

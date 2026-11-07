@@ -6,6 +6,9 @@
   "lat": 15.8775,
   "lon": 108.3275,
   "summary": "A small trading port on the Thu Bồn River. Its wooden shophouses, assembly halls and Japanese bridge survive from the 17th–19th centuries, and it is a UNESCO World Heritage Site.",
+  "bestMonths": [2, 3, 4, 5],
+  "tags": ["local-life", "architecture", "history"],
+  "featured": true,
   "hero": {
     "file": "Phố cổ Hội An - NKS.jpg",
     "alt": "Hội An Ancient Town"
@@ -102,6 +105,16 @@
         "alt": "Hội An on a full-moon night"
       },
       "narration": "On the 14th day of every lunar month, when the moon is full, Hội An's old town turns down its electric lights. Silk lanterns of every colour glow along the streets, and children sell paper candles that visitors set floating on the river for luck. Lantern-making is a local craft: bamboo frames are bent by hand and covered with silk, and many workshops welcome visitors who want to make their own."
+    },
+    {
+      "id": "film-market",
+      "type": "film",
+      "title": "Morning at the market",
+      "video": {
+        "file": "HoiAn Market.webm",
+        "alt": "Handheld video walking through the stalls of Hội An market"
+      },
+      "narration": "A walk through the market in Hội An, filmed by a visitor. Stallholders sit among bowls, baskets and trays of fresh food, and shoppers squeeze through the narrow lanes. The central market stands on the riverside at the edge of the old town, where traders have bought and sold for centuries. Come early in the morning, when it is busiest and coolest."
     }
   ],
   "guide": {

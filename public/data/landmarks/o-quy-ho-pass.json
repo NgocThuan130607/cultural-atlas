@@ -6,6 +6,8 @@
   "lat": 22.3533,
   "lon": 103.7644,
   "summary": "One of Vietnam's 'four great passes'. The road climbs to about 2,000 m across the Hoàng Liên Sơn range between Lai Châu and Sa Pa, often above a sea of cloud.",
+  "bestMonths": [3, 4, 9, 10, 11],
+  "tags": ["nature", "adventure"],
   "hero": {
     "file": "O Quy Ho pass.jpg",
     "alt": "The road over the Ô Quy Hồ Pass"

@@ -6,6 +6,8 @@
   "lat": 10.9648,
   "lon": 106.8015,
   "summary": "The first Temple of Literature in southern Vietnam, founded in 1715 to honour Confucius and the region's scholars. It was destroyed under the French and rebuilt in 2002.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["history", "spiritual"],
   "hero": {
     "file": "Nhà thờ chính Văn miếu Trấn Biên.jpg",
     "alt": "The main hall of the Trấn Biên Temple of Literature"

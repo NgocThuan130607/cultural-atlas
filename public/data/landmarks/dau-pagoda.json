@@ -6,6 +6,8 @@
   "lat": 21.0372,
   "lon": 106.0416,
   "summary": "One of the oldest Buddhist centres in Vietnam, in the old citadel of Luy Lâu. It is dedicated to the goddess of clouds and rain.",
+  "bestMonths": [2, 3],
+  "tags": ["spiritual", "architecture"],
   "hero": {
     "file": "ChuaDau ToanCanh.JPG",
     "alt": "Dâu Pagoda"

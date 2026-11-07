@@ -6,6 +6,8 @@
   "lat": 21.03676,
   "lon": 105.83466,
   "summary": "The resting place of Vietnam's founding president, on Ba Đình Square where he declared independence in 1945. Vietnamese people come here as a national pilgrimage, and visitors follow strict rules of respect.",
+  "bestMonths": [3, 4, 10, 11, 12],
+  "tags": ["history"],
   "hero": {
     "file": "Lăng Bác - NKS.jpg",
     "alt": "The grey granite Ho Chi Minh Mausoleum on Ba Đình Square"

@@ -5,6 +5,8 @@ import {
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createMap, landmarkMarker, L } from '../map.js';
+import { saveButton } from '../trip.js';
+import { seasonBadge } from '../season.js';
 
 async function main() {
   const id = param('id');
@@ -36,20 +38,35 @@ async function main() {
         <span>${icon('schedule')}<span id="city-time">${esc(localTime(city.timezone))}</span></span>
         <span>${icon('location_on')}${formatCoords(city.lat, city.lon)}</span>
       </div>
-      <p class="mt-3 mb-0">${esc(city.tagline)}.</p>
+      <p class="lead-text mt-3 mb-3">${esc(city.tagline)}.</p>
+      <div class="d-flex flex-wrap align-items-center gap-2">
+        ${landmarks[0] ? seasonBadge(landmarks[0]) : ''}
+        <button type="button" class="btn-m btn-outlined map-toggle" id="map-toggle" aria-pressed="false" aria-controls="viewport">${icon('map')}<span>Hide map</span></button>
+      </div>
     </header>
+
+    <section class="panel-section" aria-labelledby="glance-title">
+      <h2 id="glance-title">At a glance</h2>
+      <ul class="glance">
+        <li>${icon('wb_sunny')}<span><small>Best time to visit</small>${esc(detail.facts.bestTime)}</span></li>
+        <li>${icon('translate')}<span><small>Language</small>${esc(detail.facts.languages)}</span></li>
+        <li>${icon('payments')}<span><small>Currency</small>${esc(detail.facts.currency)}</span></li>
+        <li>${icon('schedule')}<span><small>Time zone</small>${esc(city.timezone.replaceAll('_', ' '))}</span></li>
+        <li>${icon('history_edu')}<span><small>Founded</small>${esc(detail.facts.founded)}</span></li>
+        ${detail.etiquette[0] ? `<li>${icon('lightbulb')}<span><small>Good to know</small>${esc(detail.etiquette[0])}</span></li>` : ''}
+      </ul>
+    </section>
 
     <section class="panel-section px-0" aria-labelledby="lm-title">
       <h2 id="lm-title" class="px-4 mb-1">Landmarks</h2>
       <ul class="place-list">
         ${landmarks.map((lm) => { const s = openStatus(lm.guide.hours, city.timezone); return `
-          <li><a class="place-row px-4" href="${landmarkUrl(lm.id)}" data-lm="${esc(lm.id)}">
+          <li class="place-item"><a class="place-row ps-4" href="${landmarkUrl(lm.id)}" data-lm="${esc(lm.id)}">
             <img class="thumb" src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
             <span class="grow"><span class="t-title-s">${esc(lm.name)}</span>
               <span class="sub">${esc(lm.localName ?? '')}</span>
               <span class="sub status ${s.state}">${esc(s.text)}</span></span>
-            ${icon('chevron_right', 'muted')}
-          </a></li>`; }).join('')}
+          </a>${saveButton(lm, 'icon')}</li>`; }).join('')}
         ${(detail.planned ?? []).map((p) => `
           <li><div class="place-row planned px-4">
             <span class="thumb empty">${icon('hourglass_empty')}</span>
@@ -60,17 +77,6 @@ async function main() {
     </section>
 
     ${detail.sections.map(section).join('')}
-
-    <section class="panel-section" aria-labelledby="facts-title">
-      <h2 id="facts-title">Good to know</h2>
-      <dl class="facts">
-        <dt>Language</dt><dd>${esc(detail.facts.languages)}</dd>
-        <dt>Currency</dt><dd>${esc(detail.facts.currency)}</dd>
-        <dt>Best time</dt><dd>${esc(detail.facts.bestTime)}</dd>
-        <dt>Founded</dt><dd>${esc(detail.facts.founded)}</dd>
-        <dt>Time zone</dt><dd>${esc(city.timezone.replaceAll('_', ' '))}</dd>
-      </dl>
-    </section>
 
     <section class="panel-section" aria-labelledby="etq-title">
       <h2 id="etq-title">Local etiquette</h2>
@@ -99,6 +105,21 @@ async function main() {
     row.addEventListener('mouseenter', () => { m?.getElement()?.firstElementChild?.classList.add('highlight'); m?.openPopup(); });
     row.addEventListener('mouseleave', () => m?.getElement()?.firstElementChild?.classList.remove('highlight'));
   });
+
+  // Readers can hide the map to give the text the whole width. Remembered for next time.
+  const main = $('#main');
+  const toggle = $('#map-toggle');
+  const setMap = (hidden) => {
+    main.classList.toggle('map-hidden', hidden);
+    toggle.setAttribute('aria-pressed', hidden);
+    $('span:not(.ms)', toggle).textContent = hidden ? 'Show map' : 'Hide map';
+    try { localStorage.setItem('atlas-map-hidden', hidden ? '1' : '0'); } catch { /* not saved */ }
+    if (!hidden) setTimeout(() => map.invalidateSize(), 0);
+  };
+  let saved = false;
+  try { saved = localStorage.getItem('atlas-map-hidden') === '1'; } catch { /* storage blocked */ }
+  setMap(saved);
+  toggle.addEventListener('click', () => setMap(!main.classList.contains('map-hidden')));
 
   setInterval(() => { $('#city-time').textContent = localTime(city.timezone); }, 30_000);
 }

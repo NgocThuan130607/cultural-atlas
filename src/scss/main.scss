@@ -649,3 +649,262 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
   .earth-controls { top: 124px; }
   [data-set="vietnam"] .kcard { max-height: 52dvh; }
 }
+
+// ===========================================================================
+// Story films
+// ===========================================================================
+.type-film { color: #146c2e; }
+[data-bs-theme="dark"] .type-film { color: #6dd58c; }
+.transcript.static .sentence { cursor: default; &:hover { background: none; } }
+.chapter-row .num .ms { font-size: 1rem; }
+.story-stage video { object-fit: contain; }
+
+// ===========================================================================
+// My trip: Save buttons, top-bar counter, toast and the trip page
+// ===========================================================================
+.trip-link { position: relative; color: var(--on-surface-variant); text-decoration: none;
+  &[aria-current="page"] { background: var(--primary-container); color: var(--on-primary-container); }
+}
+.trip-count {
+  position: absolute; top: 2px; right: 0; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: #d93025; color: #fff; font-size: .6875rem; font-weight: 700; line-height: 18px; text-align: center;
+  &[hidden] { display: none; }
+}
+.earth-topright .trip-link { color: var(--on-surface); }
+
+.save-btn {
+  &.btn-outlined[aria-pressed="true"] { background: var(--primary-container); border-color: transparent; color: var(--on-primary-container); }
+  &[aria-pressed="true"] .ms { color: #d93025; }
+  &.icon-btn[aria-pressed="true"] { background: transparent; &:hover { background: color-mix(in srgb, var(--on-surface) 8%, transparent); } }
+}
+[data-bs-theme="dark"] .save-btn[aria-pressed="true"] .ms { color: #f28b82; }
+
+// A list row that links somewhere, with a Save button beside the link.
+.place-item { display: flex; align-items: center; padding-right: .75rem;
+  .place-row { flex: 1; min-width: 0; padding-right: .5rem; }
+}
+
+.trip-toast {
+  position: fixed; z-index: 1080; left: 50%; bottom: 24px; transform: translate(-50%, 24px); opacity: 0; pointer-events: none;
+  display: flex; align-items: center; gap: 1rem; max-width: calc(100vw - 32px); padding: .75rem 1rem; border-radius: var(--radius-s);
+  background: #303030; color: #f2f2f2; box-shadow: var(--elev-3); font-size: .875rem; transition: opacity .2s, transform .2s var(--ease);
+  &.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+  .ms { color: #f28b82; font-size: 1.125rem; margin-right: .25rem; }
+  a, button { color: #a8c7fa; font-weight: 600; background: none; border: 0; padding: 0; white-space: nowrap; text-decoration: none; }
+  a:hover, button:hover { text-decoration: underline; }
+}
+
+.trip-empty .big { font-size: 3.5rem; color: var(--primary); }
+.trip-day { padding-bottom: .25rem; }
+.trip-day-title { display: flex; align-items: center; gap: .5rem; margin: .75rem 0 .25rem; font-size: .9375rem; font-weight: 600; color: var(--primary); .ms { font-size: 1.125rem; } }
+.past-badge { padding: 1px 6px; border-radius: 6px; background: var(--surface-2); color: var(--on-surface-variant); font-size: .6875rem; font-weight: 600; }
+.trip-warn {
+  display: flex; gap: .5rem; align-items: flex-start; margin: .25rem 0 .5rem; padding: .5rem .75rem; border-radius: var(--radius-s);
+  background: color-mix(in srgb, var(--closing) 12%, transparent); color: var(--on-surface); font-size: .8125rem;
+  .ms { color: var(--closing); font-size: 1.125rem; flex: none; }
+}
+
+.trip-card { margin: .5rem 1rem; padding: .75rem; border: 1px solid var(--outline-variant); border-radius: var(--radius-m); background: var(--surface);
+  &.editing { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+  h3 a { color: var(--on-surface); text-decoration: none; &:hover { color: var(--primary); text-decoration: underline; } }
+  .sub { color: var(--on-surface-variant); font-size: .8125rem; }
+}
+.trip-card-main { display: flex; gap: .875rem; align-items: flex-start; .grow { flex: 1; min-width: 0; } }
+.trip-thumb { position: relative; flex: none;
+  img { width: 72px; height: 72px; border-radius: var(--radius-s); object-fit: cover; display: block; background: var(--surface-2); }
+}
+.trip-num {
+  position: absolute; top: -6px; left: -6px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--primary); color: var(--on-primary); font-size: .75rem; font-weight: 700; box-shadow: 0 0 0 2px var(--surface);
+}
+.trip-when { display: flex; align-items: center; gap: .3rem; margin: 0 0 .125rem; font-weight: 600; font-variant-numeric: tabular-nums;
+  .ms { font-size: 1rem; color: var(--primary); }
+  small { font-weight: 400; color: var(--on-surface-variant); }
+}
+.trip-check { font-size: .8125rem; margin-top: .25rem; }
+.trip-note { display: flex; gap: .375rem; margin-top: .375rem; font-size: .8125rem; color: var(--on-surface-variant); .ms { font-size: 1rem; flex: none; } }
+.trip-card-actions { display: flex; flex-wrap: wrap; gap: .375rem; margin-top: .75rem; }
+.chip-icon { width: 32px; padding: 0; justify-content: center; }
+.trip-form { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--outline-variant);
+  .form-label { font-size: .8125rem; font-weight: 500; margin-bottom: .25rem; color: var(--on-surface-variant); }
+  .form-control, .form-select { background-color: var(--surface); color: var(--on-surface); border-color: var(--outline); }
+}
+.trip-hint { margin: .75rem 0 .25rem; font-size: .8125rem; &.status::before { flex: none; } }
+.btn-text.danger { color: var(--closed); &:hover { color: var(--closed); background: color-mix(in srgb, var(--closed) 8%, transparent); } }
+
+.trip-pin {
+  width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; border: 2px solid #fff;
+  background: #0b57d0; color: #fff; font: 700 14px/1 "Roboto Flex", Roboto, sans-serif; box-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+  &.saved { background: #d93025; .ms { font-size: 16px; } }
+}
+
+@media (max-width: 767.98px) {
+  .earth-topright .icon-btn.solo.trip-link { display: inline-grid; }
+}
+
+// Printing the trip gives a clean list: no map, top bar or buttons.
+@media print {
+  .appbar, .viewport, .trip-card-actions, .trip-actions, .proto-note, .trip-toast, .trip-form, .credits-block { display: none !important; }
+  .split { display: block; height: auto; }
+  .panel { overflow: visible; border: 0; }
+  .trip-card { break-inside: avoid; }
+}
+
+// ===========================================================================
+// Reading comfort. From user testing: the text was too small and the map took too much room.
+// ===========================================================================
+.panel { font-size: 1.0625rem; line-height: 1.65; }
+.panel .t-body-s, .panel .crumb, .panel .meta-row,
+.panel .place-row .sub, .panel .trip-card .sub, .panel .trip-note, .panel .trip-check { font-size: .875rem; }
+.panel .t-title-s { font-size: 1rem; }
+.panel-section h2:not([class^="t-"]):not([class*=" t-"]) { font-size: 1.25rem; font-weight: 600; margin-bottom: .75rem; letter-spacing: -.005em; }
+.prose p, .lead-text { max-width: 65ch; }
+.lead-text { font-size: 1.1875rem; line-height: 1.5; color: var(--on-surface); }
+.transcript { font-size: 1.125rem; }
+
+// City, Visit and My trip give the text about half the screen instead of a third.
+@media (min-width: 992px) {
+  .split.reading { grid-template-columns: minmax(480px, 1fr) minmax(0, 1fr); }
+  .split.reading .panel-section { padding: 1.5rem 2.25rem; }
+  .split.reading .m-tabs .m-tab { padding-block: .75rem .625rem; }
+}
+// "Hide map": the text takes the whole width, kept to a comfortable line length.
+.split.map-hidden { grid-template-columns: 1fr;
+  .viewport { display: none; }
+  .panel { border-right: 0; }
+  .panel > * { max-width: 860px; margin-inline: auto; }
+}
+@media (max-width: 991.98px) {
+  .split.reading .viewport { height: 38vh; min-height: 240px; }
+}
+
+.map-toggle[aria-pressed="true"] { background: var(--primary-container); border-color: transparent; color: var(--on-primary-container); }
+
+// "At a glance" cards on the city page
+.glance { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem;
+  li { display: flex; gap: .75rem; align-items: flex-start; padding: .875rem 1rem; border-radius: var(--radius-m); background: var(--surface-1); font-size: .9375rem; line-height: 1.45; }
+  .ms { color: var(--primary); font-size: 1.375rem; flex: none; margin-top: 2px; }
+  small { display: block; font-size: .875rem; color: var(--on-surface-variant); font-weight: 500; margin-bottom: .125rem; }
+}
+
+// Season badge ("Good time to visit in November" / "Best in Mar–May")
+.season-badge {
+  display: inline-flex; align-items: center; gap: .375rem; min-height: 32px; padding: .25rem .75rem; border-radius: 16px;
+  background: var(--surface-2); color: var(--on-surface-variant); font-size: .875rem; font-weight: 500; line-height: 1.3;
+  .ms { font-size: 1.125rem; }
+  &.good { background: color-mix(in srgb, var(--open) 14%, transparent); color: var(--open); }
+}
+.tag { display: inline-flex; align-items: center; gap: .25rem; padding: .125rem .5rem; border-radius: 6px; background: var(--surface-1); color: var(--on-surface-variant); font-size: .8125rem; font-weight: 500;
+  .ms { font-size: .9375rem; }
+}
+.trip-season { margin-top: .375rem; .season-badge { min-height: 26px; font-size: .8125rem; } }
+.trip-season-hint { margin: 0 0 .5rem; &:empty { display: none; } }
+
+// ===========================================================================
+// Home after user testing: welcome dialog, fewer visible buttons, clearer intro
+// ===========================================================================
+.intro-text { font-size: 1rem; line-height: 1.55; color: var(--on-surface); }
+.kcard .t-label .ms { font-size: 1rem; color: var(--closing); }
+
+.welcome {
+  width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 2rem 2rem 1.75rem; border: 0; border-radius: var(--radius-xl);
+  background: var(--surface); color: var(--on-surface); box-shadow: var(--elev-3); text-align: center;
+  &::backdrop { background: rgba(0, 0, 0, .55); backdrop-filter: blur(2px); }
+  &[open] { animation: fade-up .3s var(--ease) both; }
+  .welcome-close { position: absolute; top: 12px; right: 12px; }
+  .welcome-mark { font-size: 3rem; color: var(--primary); }
+  h2 { margin: .5rem 0; }
+  .welcome-lead { font-size: 1.0625rem; color: var(--on-surface-variant); margin: 0 auto 1.25rem; max-width: 44ch; }
+}
+.welcome-steps { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .625rem; text-align: left;
+  li { display: flex; gap: .875rem; align-items: flex-start; padding: .75rem 1rem; border-radius: var(--radius-m); background: var(--surface-1);
+    font-size: .9375rem; line-height: 1.45; color: var(--on-surface-variant); }
+  .ms { color: var(--primary); font-size: 1.5rem; flex: none; }
+  strong { display: block; font-weight: 600; color: var(--on-surface); font-size: 1rem; }
+}
+.welcome-actions { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+
+// Map options menu (borders and labels, tilt, point north), opening to the left of its button
+.earth-controls { position: fixed; }
+.map-menu { position: absolute; right: 52px; top: 0; min-width: 250px; padding: .375rem 0; border-radius: var(--radius-m);
+  &[hidden] { display: none; }
+}
+.menu-item {
+  display: flex; align-items: center; gap: .75rem; width: 100%; padding: .625rem 1rem; border: 0; background: none;
+  color: var(--on-surface); font-size: .9375rem; text-align: left;
+  &:hover, &:focus-visible { background: var(--surface-1); outline: none; }
+  .ms, .tilt-label { width: 1.5rem; text-align: center; color: var(--on-surface-variant); }
+  .tilt-label { font-weight: 700; font-size: .8125rem; }
+  &[aria-pressed="true"] .ms { color: var(--primary); }
+  &[aria-pressed="true"]::after { content: "\2713"; margin-left: auto; color: var(--primary); font-weight: 700; }
+}
+#map-options[aria-expanded="true"] { background: var(--primary-container); color: var(--on-primary-container); }
+.flat-mode #map-options { display: none; }
+
+.earth-topright .trip-link { gap: .375rem; text-decoration: none;
+  .trip-count { position: static; }
+}
+@media (max-width: 767.98px) {
+  .earth-topright .icon-btn.solo.help-btn { display: inline-grid; }
+  .earth-topright .trip-link .label { display: none; }
+}
+
+// ===========================================================================
+// Discover page
+// ===========================================================================
+.discover-page { min-height: calc(100dvh - var(--appbar-h)); background: var(--bg); }
+.discover-wrap { max-width: 1120px; margin: 0 auto; padding: 2rem 1.5rem 4rem; font-size: 1.0625rem; line-height: 1.6; }
+.discover-head { margin-bottom: 1.5rem; }
+.discover-card { padding: 1.5rem; border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--outline-variant); margin-bottom: 2rem;
+  h2 { display: flex; align-items: center; gap: .5rem; font-size: 1.375rem; font-weight: 600; margin-bottom: 1rem; .ms { color: var(--primary); font-size: 1.5rem; } }
+}
+.quiz form { display: grid; gap: 1.25rem; justify-items: start; }
+.quiz-q { border: 0; padding: 0; margin: 0; width: 100%; min-width: 0;
+  select { max-width: 260px; background-color: var(--surface); color: var(--on-surface); }
+}
+.quiz-label { display: block; font-weight: 600; font-size: 1rem; margin-bottom: .5rem; float: none; width: auto; padding: 0;
+  .muted { font-weight: 400; }
+}
+.chip-options { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip-option { position: relative;
+  input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  > span { display: inline-flex; align-items: center; gap: .375rem; height: 36px; padding: 0 .875rem; border: 1px solid var(--outline-variant); border-radius: 18px; background: var(--surface); color: var(--on-surface-variant); font-size: .9375rem; font-weight: 500; cursor: pointer; transition: background-color .2s; }
+  .ms { font-size: 1.125rem; }
+  > span:hover { background: var(--surface-1); }
+  input:checked + span { background: var(--primary-container); border-color: transparent; color: var(--on-primary-container); }
+  input:focus-visible + span { outline: 3px solid color-mix(in srgb, var(--primary) 50%, transparent); outline-offset: 2px; }
+}
+.browse-bar, .chip-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.browse-bar { position: sticky; top: var(--appbar-h); z-index: 5; padding: .75rem 0; margin-bottom: .5rem; background: var(--bg); }
+.discover-section { margin-bottom: 2.5rem;
+  h2 { font-size: 1.375rem; font-weight: 600; margin: 0; }
+}
+.section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: 1rem; }
+.month-nav { display: flex; align-items: center; gap: .25rem;
+  select { width: 10rem; background-color: var(--surface); color: var(--on-surface); }
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+.place-card { display: flex; flex-direction: column; border-radius: var(--radius-l); overflow: hidden; background: var(--surface); border: 1px solid var(--outline-variant); transition: box-shadow .2s;
+  &:hover { box-shadow: var(--elev-2); }
+  .place-card-img { position: relative; display: block; aspect-ratio: 16 / 10; background: var(--surface-2);
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  }
+  .pick-badge { position: absolute; top: 10px; left: 10px; display: inline-flex; align-items: center; gap: .25rem; padding: .125rem .5rem; border-radius: 8px; background: rgba(20, 22, 26, .75); color: #fff; font-size: .8125rem; font-weight: 600;
+    .ms { font-size: 1rem; color: #fdd663; } }
+  .place-card-body { padding: 1rem 1rem .5rem; flex: 1; }
+  h3 a { color: var(--on-surface); text-decoration: none; &:hover { color: var(--primary); text-decoration: underline; } }
+  .sub { color: var(--on-surface-variant); font-size: .9375rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .25rem; }
+  .best { display: flex; align-items: center; gap: .375rem; font-size: .875rem; color: var(--on-surface-variant); .ms { font-size: 1.05rem; } }
+  .place-card-actions { display: flex; flex-wrap: wrap; gap: .5rem; padding: .5rem 1rem 1rem; }
+}
+.reasons { list-style: none; padding: 0; margin: 0 0 .5rem; font-size: .9375rem;
+  li { display: flex; align-items: flex-start; gap: .375rem; line-height: 1.4; margin-bottom: .25rem; }
+  .ms { color: var(--open); font-size: 1.05rem; margin-top: 1px; }
+}
+.empty-note { display: flex; align-items: center; gap: .5rem; padding: 1.25rem; border-radius: var(--radius-m); background: var(--surface-1); color: var(--on-surface-variant); }
+@media (max-width: 575.98px) {
+  .discover-wrap { padding: 1.25rem 1rem 3rem; }
+  .discover-card { padding: 1.125rem; }
+}
+.appbar .discover-link[aria-current="page"] { background: var(--primary-container); color: var(--on-primary-container); }

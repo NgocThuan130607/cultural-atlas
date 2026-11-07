@@ -6,6 +6,8 @@
   "lat": 9.918,
   "lon": 106.307,
   "summary": "A square lake ringed by ancient trees outside Trà Vinh, beside one of the oldest Khmer pagodas in the Mekong Delta. It is the heart of Khmer festivals each year.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["spiritual", "local-life"],
   "hero": {
     "file": "Ao Bà Om, Trà Vinh.jpg",
     "alt": "Ao Bà Om lake"

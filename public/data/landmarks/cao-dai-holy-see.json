@@ -6,6 +6,8 @@
   "lat": 11.3039,
   "lon": 106.1335,
   "summary": "The great temple of Cao Đài, a 20th-century Vietnamese faith that blends Buddhism, Confucianism, Taoism and Christianity. Respectful visitors may watch its services, held four times a day.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["spiritual", "architecture"],
   "hero": {
     "file": "Cao Dai Holy See (10037404444).jpg",
     "alt": "The Cao Đài Holy See"

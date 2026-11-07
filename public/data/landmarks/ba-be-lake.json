@@ -6,6 +6,8 @@
   "lat": 22.4053,
   "lon": 105.6153,
   "summary": "Vietnam's largest natural freshwater lake, held between limestone mountains in Ba Bể National Park, with Tày villages of stilt houses along its shores.",
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "tags": ["nature"],
   "hero": {
     "file": "Babenp 2007 01 3.jpg",
     "alt": "Ba Bể Lake between forested mountains"

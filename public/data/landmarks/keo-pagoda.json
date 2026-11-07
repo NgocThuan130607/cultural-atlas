@@ -6,6 +6,8 @@
   "lat": 20.3606,
   "lon": 106.2972,
   "summary": "A 17th-century Buddhist pagoda in the Red River delta, famous for its three-storey wooden bell tower.",
+  "bestMonths": [7, 8, 10],
+  "tags": ["spiritual", "architecture"],
   "hero": {
     "file": "Chuakeothaibinh.jpg",
     "alt": "Keo Pagoda"

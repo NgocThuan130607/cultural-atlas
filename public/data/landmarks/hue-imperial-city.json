@@ -6,6 +6,9 @@
   "lat": 16.4694,
   "lon": 107.5778,
   "summary": "The walled palace city of the Nguyễn emperors, Vietnam's last dynasty, inside the great citadel on the Perfume River.",
+  "bestMonths": [2, 3, 4],
+  "tags": ["history", "architecture"],
+  "featured": true,
   "hero": {
     "file": "Đại nội.jpg",
     "alt": "The Imperial City of Huế"
@@ -102,6 +105,16 @@
         "alt": "The Imperial City"
       },
       "narration": "Nhã nhạc, 'elegant music', was played at court ceremonies, coronations and offerings to Heaven. Orchestras of drums, flutes, string instruments and gongs accompanied ritual dances. When the monarchy ended, the musicians scattered and the music almost disappeared. In 2003 UNESCO listed it as heritage of humanity, and today it is performed again in the restored theatre of the Imperial City."
+    },
+    {
+      "id": "film-aerial",
+      "type": "film",
+      "title": "From above: the Imperial City",
+      "video": {
+        "file": "Aerial view hoang thanh hue video.webm",
+        "alt": "Drone video over the Imperial City of Huế, showing gates, courtyards and lawns along its central axis"
+      },
+      "narration": "This drone film, made in September 2024, flies over the Imperial City of Huế. From above you can see how carefully it was planned: square walls and moats, with the most important gates, courtyards and halls lined up along one central axis. The Nguyễn emperors began building it in 1804. The whole citadel faces the Perfume River and Ngự Bình hill, a position chosen by geomancy. The video has no sound."
     }
   ],
   "guide": {

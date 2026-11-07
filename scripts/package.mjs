@@ -19,7 +19,7 @@ await cp(dist, out, {
 for (const d of ['cities', 'landmarks']) await rm(join(out, 'data', d), { recursive: true, force: true });
 
 // Readable source code. Not needed to run the site.
-const SOURCE = ['index.html', 'city.html', 'timetravel.html', 'stories.html', 'visit.html', 'src', 'public', 'scripts',
+const SOURCE = ['index.html', 'city.html', 'timetravel.html', 'stories.html', 'visit.html', 'trip.html', 'discover.html', 'src', 'public', 'scripts',
   'vite.config.js', 'package.json', 'package-lock.json', 'README.md'];
 for (const item of SOURCE) {
   await cp(join(root, item), join(out, 'source', item), {
@@ -31,15 +31,18 @@ for (const item of SOURCE) {
 await writeFile(join(out, 'README.txt'), `Atlas of Stories - prototype
 
 How to open: double-click index.html (the home page). No server or installation is needed.
-An internet connection is needed for the satellite imagery, maps, fonts and photos.
+An internet connection is needed for the satellite imagery, maps, fonts, photos and videos.
 Tested in Microsoft Edge and Google Chrome on Windows.
 
 Pages:
   index.html       Home: 3D globe (World and Vietnam atlases, search, "Through time")
   city.html        City / province guide        e.g. city.html?id=hanoi
   timetravel.html  Landmark: Time travel         e.g. timetravel.html?id=eiffel-tower
-  stories.html     Landmark: narrated Stories    e.g. stories.html?id=eiffel-tower
+  stories.html     Landmark: narrated Stories and films   e.g. stories.html?id=eiffel-tower
   visit.html       Landmark: Visitor guide       e.g. visit.html?id=eiffel-tower
+  trip.html        My trip: saved landmarks and a day-by-day visit plan
+  discover.html    Discover: "Help me choose" quiz, places by season, editor's picks, interests
+                   (saved in this browser only, with the browser's local storage)
 
 The js/ and css/ files are built (minified) from the readable code in source/.
 source/ is not needed to run the site. To rebuild: install Node.js 20+, then in source/ run

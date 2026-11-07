@@ -6,6 +6,9 @@
   "lat": 48.85826,
   "lon": 2.29452,
   "summary": "A 330-metre iron tower built for the 1889 World's Fair. Many Paris artists hated it at first. Today it is the city's best-loved symbol.",
+  "bestMonths": [4, 5, 6, 9, 10],
+  "tags": ["architecture", "history"],
+  "featured": true,
   "hero": {
     "file": "Tour Eiffel Wikimedia Commons (cropped).jpg",
     "alt": "The Eiffel Tower against a blue sky"
@@ -124,6 +127,16 @@
         "alt": "The Eiffel Tower sparkling at night"
       },
       "narration": "Parisians call the tower la Dame de fer, the Iron Lady. Painters such as Robert Delaunay and Georges Seurat put it in their work, and it appears in countless films, songs and souvenirs. The tower also reflects the mood of the nation. It has been lit in the colours of other countries' flags to show friendship, and darkened at moments of mourning. A tip for photographers: taking pictures of the night lights for yourself is fine, but the lighting design is protected by copyright, so publishing night photos for commercial use needs permission."
+    },
+    {
+      "id": "film-lift",
+      "type": "film",
+      "title": "Ride the lift up the tower",
+      "video": {
+        "file": "Eiffel Tower lift - mute.webm",
+        "alt": "View from an Eiffel Tower lift climbing through the iron lattice, with Paris below"
+      },
+      "narration": "This short clip was filmed from inside one of the Eiffel Tower’s lifts in 2013. As the cabin climbs, the iron beams slide past the window and Paris opens up below. The lifts inside the tower’s legs follow the curve of the legs, so they climb at an angle rather than straight up. The video has no sound."
     }
   ],
   "guide": {

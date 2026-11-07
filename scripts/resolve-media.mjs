@@ -1,6 +1,7 @@
-// Finds every Wikimedia Commons image named in public/data (any `"file": "..."` field),
+// Finds every Wikimedia Commons image or video named in public/data (any `"file": "..."` field),
 // looks each one up on Commons, and writes public/data/media.json with the image URL,
 // author and licence, so pages can show proper credits.
+// Videos (.webm, .ogv) also get a poster image (`url`), their length and the files to stream (`sources`).
 //
 // Run: npm run media
 import { readFile, writeFile, readdir } from 'node:fs/promises';
@@ -35,10 +36,14 @@ const stripHtml = (s = '') => s.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').tri
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const norm = (s) => s.replace(/_/g, ' ').trim();
 
-async function query(titles) {
+const isVideo = (name) => /\.(webm|ogv)$/i.test(name);
+
+async function query(titles, video) {
   const url = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({
     action: 'query', format: 'json', formatversion: '2', redirects: '1',
-    prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(THUMB_WIDTH),
+    ...(video
+      ? { prop: 'videoinfo', viprop: 'url|size|extmetadata|derivatives', viurlwidth: String(THUMB_WIDTH) }
+      : { prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(THUMB_WIDTH) }),
     titles: titles.map((t) => 'File:' + t).join('|'),
   });
   for (let attempt = 0; attempt < 6; attempt++) {
@@ -63,29 +68,42 @@ console.log(`${wanted.length} images referenced, ${todo.length} to look up`);
 const result = Object.fromEntries(wanted.filter((f) => existing[f]).map((f) => [f, existing[f]]));
 const missing = [];
 
-for (let i = 0; i < todo.length; i += 40) {
-  const batch = todo.slice(i, i + 40);
-  const json = await query(batch);
-  // Map API-normalised titles back to the names used in our data.
-  const back = new Map(batch.map((t) => ['File:' + t, t]));
-  for (const n of json.query.normalized ?? []) back.set(n.to, back.get(n.from) ?? n.from);
-  for (const r of json.query.redirects ?? []) back.set(r.to, back.get(r.from) ?? r.from);
-  for (const page of json.query.pages) {
-    const name = norm(back.get(page.title) ?? page.title.replace(/^File:/, ''));
-    const info = page.imageinfo?.[0];
-    if (page.missing || !info) { missing.push(name); continue; }
-    const meta = info.extmetadata ?? {};
-    result[name] = {
-      url: info.thumburl ?? info.url,
-      width: info.thumbwidth ?? info.width,
-      height: info.thumbheight ?? info.height,
-      page: info.descriptionurl,
-      artist: stripHtml(meta.Artist?.value) || 'Unknown author',
-      license: stripHtml(meta.LicenseShortName?.value) || 'See source',
-      licenseUrl: meta.LicenseUrl?.value ?? null,
-    };
+/** Files to stream, best first: a 720p or 480p VP9 copy made by Commons (small and widely supported), then the original. */
+function videoSources(info) {
+  const derivs = info.derivatives ?? [];
+  const pick = ['720p.vp9.webm', '480p.vp9.webm'].map((k) => derivs.find((d) => d.transcodekey === k)).find(Boolean);
+  const list = pick ? [{ src: pick.src, type: 'video/webm' }] : [];
+  list.push({ src: info.url.replace(/\?.*$/, ''), type: /\.ogv$/i.test(info.url.replace(/\?.*$/, '')) ? 'video/ogg' : 'video/webm' });
+  return list;
+}
+
+for (const video of [false, true]) {
+  const list = todo.filter((f) => isVideo(f) === video);
+  for (let i = 0; i < list.length; i += 40) {
+    const batch = list.slice(i, i + 40);
+    const json = await query(batch, video);
+    // Map API-normalised titles back to the names used in our data.
+    const back = new Map(batch.map((t) => ['File:' + t, t]));
+    for (const n of json.query.normalized ?? []) back.set(n.to, back.get(n.from) ?? n.from);
+    for (const r of json.query.redirects ?? []) back.set(r.to, back.get(r.from) ?? r.from);
+    for (const page of json.query.pages) {
+      const name = norm(back.get(page.title) ?? page.title.replace(/^File:/, ''));
+      const info = (video ? page.videoinfo : page.imageinfo)?.[0];
+      if (page.missing || !info) { missing.push(name); continue; }
+      const meta = info.extmetadata ?? {};
+      result[name] = {
+        url: info.thumburl ?? info.url, // for a video: a still frame used as its poster
+        width: info.thumbwidth ?? info.width,
+        height: info.thumbheight ?? info.height,
+        page: info.descriptionurl,
+        artist: stripHtml(meta.Artist?.value) || 'Unknown author',
+        license: stripHtml(meta.LicenseShortName?.value) || 'See source',
+        licenseUrl: meta.LicenseUrl?.value ?? null,
+        ...(video ? { duration: Math.round(info.duration ?? 0), sources: videoSources(info) } : {}),
+      };
+    }
+    await wait(1500);
   }
-  await wait(1500);
 }
 
 // Keep output stable and readable.

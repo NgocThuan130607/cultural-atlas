@@ -6,6 +6,8 @@
   "lat": 21.327,
   "lon": 103.9118,
   "summary": "A French colonial prison on Khau Cả hill, where many leaders of the independence movement were held. Today it is a museum and memorial.",
+  "bestMonths": [1, 2, 3, 10, 11],
+  "tags": ["history"],
   "hero": {
     "file": "Nhatusonla.jpg",
     "alt": "The gate of Sơn La Prison"

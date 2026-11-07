@@ -5,6 +5,8 @@ import {
   localTime, formatCoords, showError, LANDMARK_PAGES, landmarkUrl,
 } from '../common.js';
 import { openStatus } from '../hours.js';
+import { saveButton } from '../trip.js';
+import { seasonBadge } from '../season.js';
 
 /**
  * Builds a landmark page.
@@ -22,8 +24,8 @@ export async function initLandmarkPage(active, init) {
   $('#back-btn').href = `city.html?id=${encodeURIComponent(city.id)}`;
   $('#back-btn').setAttribute('aria-label', `Back to ${city.name}`);
 
-  // Every image the landmark can show is listed in the credits.
-  [lm.hero, ...lm.eras.map((e) => e.image), ...lm.story.map((s) => s.image)].forEach((ref) => noteImage(ref, media));
+  // Every image and video the landmark can show is listed in the credits.
+  [lm.hero, ...lm.eras.map((e) => e.image), ...lm.story.flatMap((s) => [s.image, s.video])].forEach((ref) => noteImage(ref, media));
 
   const status = openStatus(lm.guide.hours, city.timezone);
   $('#panel').innerHTML = `
@@ -37,6 +39,7 @@ export async function initLandmarkPage(active, init) {
         <span>${icon('location_on')}${formatCoords(lm.lat, lm.lon, 4)}</span>
       </div>
       <p class="mt-3 mb-0">${esc(lm.summary)}</p>
+      <div class="d-flex flex-wrap align-items-center gap-2 mt-3">${saveButton(lm)}${seasonBadge(lm)}</div>
     </header>
     <nav class="m-tabs" aria-label="Ways to explore ${esc(lm.name)}">
       ${LANDMARK_PAGES.map((p) => `

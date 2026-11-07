@@ -6,6 +6,8 @@
   "lat": 22.8559,
   "lon": 106.7225,
   "summary": "One of the largest waterfalls in Asia. The Quây Sơn River spills over limestone in wide tiers here, on the border between Vietnam and China.",
+  "bestMonths": [9, 10],
+  "tags": ["nature"],
   "hero": {
     "file": "Bangioc9tam.jpg",
     "alt": "The tiers of the Bản Giốc waterfall"

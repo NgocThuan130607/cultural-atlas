@@ -6,6 +6,8 @@
   "lat": 18.6799,
   "lon": 105.552,
   "summary": "The villages where Ho Chi Minh was born and spent his childhood, with simple thatched houses kept as they were in the 1890s.",
+  "bestMonths": [5, 6, 7, 8],
+  "tags": ["history", "local-life"],
   "hero": {
     "file": "Kim Lien Monuments Park.JPG",
     "alt": "The Kim Liên relic site"

@@ -6,6 +6,8 @@
   "lat": 20.0781,
   "lon": 105.6047,
   "summary": "A stone citadel built in a few months in 1397, of huge cut blocks fitted without mortar. It is a UNESCO World Heritage Site.",
+  "bestMonths": [4, 5, 6, 9, 10, 11],
+  "tags": ["history", "architecture"],
   "hero": {
     "file": "Tay Do castle South gate.JPG",
     "alt": "The south gate of the Hồ citadel"

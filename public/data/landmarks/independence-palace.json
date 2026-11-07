@@ -6,6 +6,8 @@
   "lat": 10.7771,
   "lon": 106.6954,
   "summary": "The modernist presidential palace of South Vietnam. On 30 April 1975 a tank crashed through its gates, and the war ended.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["history", "architecture"],
   "hero": {
     "file": "20190923 Independence Palace-10.jpg",
     "alt": "The Independence Palace"
@@ -92,6 +94,16 @@
         "alt": "The war room in the basement"
       },
       "narration": "Visitors can walk through the palace almost as its staff left it. Upstairs are the cabinet room, reception halls decorated with lacquer paintings, the president's living quarters and a cinema. On the roof is a helipad with a helicopter. In the basement, behind thick concrete, are the telecommunications centre and war room, with old radios, telephones and wall maps of the battlefields. Walking through them, the last years of South Vietnam feel very close."
+    },
+    {
+      "id": "film-tour",
+      "type": "film",
+      "title": "A walk through the palace",
+      "video": {
+        "file": "Reunification Palace tour.webm",
+        "alt": "Video tour of the rooms of the Independence Palace in Ho Chi Minh City"
+      },
+      "narration": "A tour of the palace, filmed in 2016. The building was designed by Ngô Viết Thụ, the first Vietnamese architect to win the Prix de Rome, and opened in 1966 as the home and office of the president of South Vietnam. After 30 April 1975 it was left much as it was, so the reception halls, private apartments and the war room in the basement still look as they did then. Signs in Vietnamese, English and French guide visitors from room to room."
     }
   ],
   "guide": {

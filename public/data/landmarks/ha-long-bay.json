@@ -6,6 +6,9 @@
   "lat": 20.91,
   "lon": 107.1839,
   "summary": "A bay of nearly 2,000 limestone islands rising from green water. It is a UNESCO World Heritage Site and one of the great landscapes of Asia.",
+  "bestMonths": [3, 4, 5, 9, 10, 11],
+  "tags": ["nature"],
+  "featured": true,
   "hero": {
     "file": "Ha Long Bay in 2019.jpg",
     "alt": "Limestone islands in Hạ Long Bay"
@@ -92,6 +95,16 @@
         "alt": "Inside Sửng Sốt cave"
       },
       "narration": "Many of the islands are hollow. Sửng Sốt, the 'Surprise Cave', opens into huge chambers full of stalactites. Thiên Cung, the 'Heavenly Palace', is decorated with rock formations that guides compare to dragons, fairies and flowers. Fishermen once sheltered from storms in these caves. Today visitors also explore the bay by kayak, paddling into lagoons that can only be reached through low tunnels at low tide."
+    },
+    {
+      "id": "film-bay",
+      "type": "film",
+      "title": "Among the islands",
+      "video": {
+        "file": "Ha Long Bay, Vietnam - Dec 2024.webm",
+        "alt": "Video of limestone islands rising from calm water in Hạ Long Bay, with boats in the distance"
+      },
+      "narration": "A short clip of Hạ Long Bay, filmed from the water in December 2024. Steep limestone islands rise straight out of calm sea, and tourist boats move slowly between them. There are around sixteen hundred islands and islets in the bay, most of them uninhabited and covered in forest."
     }
   ],
   "guide": {

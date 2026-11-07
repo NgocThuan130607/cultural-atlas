@@ -6,6 +6,8 @@
   "lat": 13.9206,
   "lon": 108.9208,
   "summary": "A museum on the site of the Tây Sơn brothers' home. It tells the story of the peasant rebellion that toppled two ruling houses and defeated two foreign armies.",
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8],
+  "tags": ["history"],
   "hero": {
     "file": "Tượng đài Quang Trung tại Bảo tàng Quang Trung.JPG",
     "alt": "Statue of Quang Trung at the museum"

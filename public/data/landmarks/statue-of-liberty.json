@@ -6,6 +6,8 @@
   "lat": 40.68925,
   "lon": -74.0445,
   "summary": "A copper statue given by the people of France. It became a symbol of freedom and the first sight of America for millions of immigrants arriving by sea.",
+  "bestMonths": [4, 5, 6, 9, 10, 11],
+  "tags": ["history", "architecture"],
   "hero": { "file": "Front view of Statue of Liberty (cropped).jpg", "alt": "The Statue of Liberty holding her torch" },
   "eras": [
     {
@@ -86,6 +88,13 @@
       "title": "Why the statue is green",
       "image": { "file": "Statue of Liberty -- Liberty Island New York Harbor (NY) April 2016 (26714239775).jpg", "alt": "The green Statue of Liberty on Liberty Island" },
       "narration": "When she was unveiled, Liberty was the shiny brown of a new penny. Rain, salty sea air and time slowly oxidised the copper and formed a green layer called patina. By the early 1900s the change was complete. At one point officials considered painting her, but they discovered that the patina actually protects the metal underneath. So the green stayed, and it became part of her identity."
+    },
+    {
+      "id": "film-1911",
+      "type": "film",
+      "title": "On film in 1911: New York City",
+      "video": { "file": "Surreal Old Timey Film Of New York City In 1911.webm", "alt": "Black-and-white film of New York streets in 1911, with early cars, horse-drawn carriages and pedestrians" },
+      "narration": "In 1911 a crew from Svenska Biografteatern, a Swedish film company, filmed everyday life in New York. By then the Statue of Liberty had stood in the harbour for twenty-five years, and millions of immigrants had sailed past it on their way to Ellis Island. The film includes views of the statue and of the Flatiron Building. Most of it shows the streets: early motor cars and horse-drawn carriages side by side, streetcars, and crowds in hats and long coats."
     }
   ],
   "guide": {

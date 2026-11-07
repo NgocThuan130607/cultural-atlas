@@ -6,6 +6,8 @@
   "lat": 21.667,
   "lon": 106.667,
   "summary": "A narrow valley on the old road from China to Thăng Long. For a thousand years, Vietnamese armies ambushed invaders here.",
+  "bestMonths": [3, 4, 9, 10, 11],
+  "tags": ["history", "nature"],
   "hero": {
     "file": "AiChiLang.JPG",
     "alt": "The Chi Lăng valley"

@@ -6,6 +6,9 @@
   "lat": 22.3364,
   "lon": 103.8438,
   "summary": "A misty hill town at about 1,500 m in the Hoàng Liên Sơn mountains. The French founded it as a summer resort, and rice terraces of Hmong, Dao and Giáy villages surround it.",
+  "bestMonths": [3, 4, 5, 9, 10],
+  "tags": ["nature", "adventure", "local-life"],
+  "featured": true,
   "hero": {
     "file": "Sa Pa.jpg",
     "alt": "Sa Pa town in the mountains"

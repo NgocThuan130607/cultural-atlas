@@ -6,6 +6,8 @@
   "lat": 12.8828,
   "lon": 107.7896,
   "summary": "A village on the Serepok River, once famous for catching and training wild elephants. Today it is a place to learn about M'nông and Lao culture and the elephants of the Yok Đôn forest.",
+  "bestMonths": [1, 2, 3, 11, 12],
+  "tags": ["nature", "local-life"],
   "hero": {
     "file": "Srepok Ban Don.JPG",
     "alt": "The Serepok River at Buôn Đôn"

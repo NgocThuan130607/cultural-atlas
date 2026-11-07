@@ -35,13 +35,18 @@
   <div class="earth-topright">
     <div class="set-switch floating" id="set-switch" role="group" aria-label="Choose an atlas"></div>
     <button class="btn-m year-btn" id="year-btn" type="button" aria-pressed="false" title="See what was happening everywhere in the same year"><span class="ms">history_toggle_off</span><span class="label">Through time</span></button>
-    <button class="icon-btn solo" id="layers-btn" type="button" aria-pressed="true" aria-label="Show borders and place names" title="Borders and labels"><span class="ms">layers</span></button>
+    <a class="btn-m year-btn trip-link" href="./trip.html" aria-label="My trip" title="My trip"><span class="ms">luggage</span><span class="label">My trip</span><span class="trip-count" hidden></span></a>
+    <button class="icon-btn solo help-btn" id="help-btn" type="button" aria-label="How to use Atlas of Stories" title="How it works"><span class="ms">help</span></button>
     <button class="icon-btn solo" id="theme-toggle" type="button" aria-label="Switch colour theme"><span class="ms">dark_mode</span></button>
   </div>
 
   <div class="earth-controls">
-    <button class="icon-btn solo" id="compass" type="button" aria-label="Reset to north" title="Reset to north"><span class="ms fill">navigation</span></button>
-    <button class="icon-btn solo" id="tilt-btn" type="button" aria-label="Toggle 3D tilt" title="Toggle 3D view"><span class="tilt-label">3D</span></button>
+    <div class="map-menu floating" id="map-menu" role="group" aria-label="Map options" hidden>
+      <button class="menu-item" id="layers-btn" type="button" aria-pressed="true"><span class="ms">layers</span><span>Borders and place names</span></button>
+      <button class="menu-item" id="tilt-btn" type="button"><span class="tilt-label">3D</span><span>Tilt the view (2D / 3D)</span></button>
+      <button class="menu-item" id="compass" type="button"><span class="ms fill">navigation</span><span>Point north</span></button>
+    </div>
+    <button class="icon-btn solo" id="map-options" type="button" aria-expanded="false" aria-controls="map-menu" aria-label="Map options" title="Map options"><span class="ms">tune</span></button>
     <div class="group floating zoom-group">
       <button class="icon-btn" id="zoom-in" type="button" aria-label="Zoom in"><span class="ms">add</span></button>
       <button class="icon-btn" id="zoom-out" type="button" aria-label="Zoom out"><span class="ms">remove</span></button>

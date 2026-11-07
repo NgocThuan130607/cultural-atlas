@@ -6,6 +6,8 @@
   "lat": 21.1511,
   "lon": 106.3276,
   "summary": "Two sacred sites in the hills of Chí Linh: Kiếp Bạc temple to General Trần Hưng Đạo, and Côn Sơn pagoda, where the scholar Nguyễn Trãi spent his last years.",
+  "bestMonths": [5, 6, 9, 10, 11],
+  "tags": ["spiritual", "history", "nature"],
   "hero": {
     "file": "Den kiep bac.jpg",
     "alt": "Kiếp Bạc temple"

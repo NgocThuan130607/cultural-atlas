@@ -76,6 +76,7 @@ export function creditHTML(ref, media) {
 
 /** Marks an image as shown so it appears in the credits list, without printing an inline credit. */
 export function noteImage(ref, media) {
+  if (typeof ref !== 'object') return;
   const m = mediaEntry(ref, media);
   if (m) usedImages.set(ref.file, m);
 }
@@ -86,7 +87,7 @@ export function creditsBlock(disclaimer = '') {
     `<li><a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(file.replace(/\.[a-z]+$/i, ''))}</a>, ${esc(m.artist)} (${esc(m.license)})</li>`).join('');
   return `<footer class="credits-block">
     ${disclaimer ? `<p class="mb-2">${esc(disclaimer)}</p>` : ''}
-    <details><summary>Image credits (${usedImages.size})</summary><ul>${items}</ul></details>
+    <details><summary>${[...usedImages.values()].some((m) => m.sources) ? 'Image and video' : 'Image'} credits (${usedImages.size})</summary><ul>${items}</ul></details>
   </footer>`;
 }
 

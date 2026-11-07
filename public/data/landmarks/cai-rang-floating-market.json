@@ -6,6 +6,9 @@
   "lat": 10.005,
   "lon": 105.746,
   "summary": "A wholesale market on the water, where boats loaded with fruit and vegetables gather at dawn. Each boat hangs samples of its goods from a tall pole.",
+  "bestMonths": [1, 2, 3, 4, 12],
+  "tags": ["local-life"],
+  "featured": true,
   "hero": {
     "file": "Một cảnh ở chợ nổi Cái Răng.jpg",
     "alt": "Boats at the Cái Răng floating market"

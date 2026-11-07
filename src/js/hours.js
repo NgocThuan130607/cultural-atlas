@@ -87,6 +87,47 @@ function openResult(minutesLeft, close) {
     : { state: 'open', text: `Open now · closes at ${fmt(close)}` };
 }
 
+/** Opening hours on one calendar date ("2026-11-12"), e.g. "09:30–23:45", or "Closed". */
+export function hoursOn(hours, date) {
+  if (hours.open24h) return 'Open 24 hours';
+  const list = intervalsFor(hours, dateParts(date));
+  return list.length ? list.map(([o, c]) => `${fmt(o)}–${fmt(c)}`).join(', ') : 'Closed';
+}
+
+const dateParts = (date) => {
+  const [y, m, d] = date.split('-').map(Number);
+  return { month: m, day: d, weekday: new Date(Date.UTC(y, m - 1, d)).getUTCDay() };
+};
+
+/**
+ * Checks a planned visit against the opening hours, in the landmark's local time.
+ * `date` is "YYYY-MM-DD", `time` is "HH:MM", `duration` is in minutes.
+ * Returns { state: 'open' | 'closing' | 'closed', text }: 'closing' means it closes before the visit ends.
+ */
+export function checkVisit(hours, date, time, duration) {
+  if (hours.open24h) return { state: 'open', text: 'Open 24 hours' };
+  const p = dateParts(date);
+  const start = toMin(time);
+  const end = start + duration;
+  // Late opening from the day before that runs past midnight (e.g. until 00:45).
+  const [y, m, d] = date.split('-').map(Number);
+  const prev = new Date(Date.UTC(y, m - 1, d - 1));
+  const before = intervalsFor(hours, { month: prev.getUTCMonth() + 1, day: prev.getUTCDate(), weekday: prev.getUTCDay() })
+    .filter(([, c]) => c > 1440).map(([, c]) => [0, c - 1440]);
+  const list = [...before, ...intervalsFor(hours, p)];
+  if (!intervalsFor(hours, p).length && !before.length) return { state: 'closed', text: `Closed on that day (${DAY_NAMES[p.weekday]})` };
+  const now = list.find(([o, c]) => start >= o && start < c);
+  if (now) {
+    return end <= now[1]
+      ? { state: 'open', text: `Open at that time (${fmt(now[0])}–${fmt(now[1])})` }
+      : { state: 'closing', text: `Closes at ${fmt(now[1])}, before your visit ends` };
+  }
+  const next = list.find(([o]) => o > start);
+  return next
+    ? { state: 'closed', text: `Not open yet at ${time}. Opens at ${fmt(next[0])}` }
+    : { state: 'closed', text: `Already closed by ${time}. Hours that day: ${hoursOn(hours, date)}` };
+}
+
 /** Monday-first weekly table for one season: [{ day, weekday, text }]. */
 export function weekTable(season) {
   return [1, 2, 3, 4, 5, 6, 0].map((wd) => {

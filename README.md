@@ -3,8 +3,12 @@
 An interactive cultural guide for travellers. Start on a 3D globe, pick a city, then explore a landmark in three ways, each on its own page:
 
 - **Time travel** (`timetravel.html`): drag a slider through the landmark's eras and watch historical photos fade into modern ones, or compare two eras side by side.
-- **Stories** (`stories.html`): short narrated chapters on history, legends and culture, with a highlighted transcript.
+- **Stories** (`stories.html`): short narrated chapters on history, legends and culture, with a highlighted transcript. Nine landmarks also have a **film** chapter: a real video streamed from Wikimedia Commons, such as the Lumière company's 1897 film of the Sphinx.
 - **Visit** (`visit.html`): opening hours with a live "Open now" badge (in the landmark's own time zone), etiquette dos and don'ts, local tips, and a filterable map.
+
+Not sure where to go? **Discover** (`discover.html`) asks three quick questions (when, what you enjoy, where) and suggests three places with reasons. It also lists places at their best in any month, editor's picks, and places by interest. First-time visitors to the globe get a short welcome that explains the site in three steps (the **?** button opens it again).
+
+Press **Save** (♡) on any landmark to add it to **My trip** (`trip.html`). There you choose a day, an arrival time and how long to stay, and the atlas checks the plan against that day's opening hours. It also warns when two visits overlap or are too far apart for one day, shows the route on a map, and exports the plan as a calendar file (`.ics`) or prints it. The trip is kept in the browser's `localStorage`, so it needs no account or server.
 
 ## Pages
 
@@ -15,6 +19,8 @@ An interactive cultural guide for travellers. Start on a 3D globe, pick a city, 
 | `timetravel.html?id=eiffel-tower` | Landmark: Time travel (`&era=2` opens a given era) |
 | `stories.html?id=eiffel-tower` | Landmark: narrated stories |
 | `visit.html?id=eiffel-tower` | Landmark: visitor guide |
+| `trip.html` | My trip: saved landmarks, a day-by-day plan with opening-hours checks, map, calendar export |
+| `discover.html` | Discover: "Help me choose" quiz, places by season, editor's picks, browse by interest |
 | `landmark.html` | Redirect that keeps older links (`landmark.html?id=…#story`) working |
 
 The globe has two atlases, switched with the **World / Vietnam** buttons:
@@ -32,6 +38,8 @@ The globe has two atlases, switched with the **World / Vietnam** buttons:
 | 3D globe | CesiumJS, no key needed. Its images and star map load from the jsDelivr CDN. Far away it shows Sentinel-2 cloudless imagery by EOX (true colour, CC BY-NC-SA 4.0, so non-commercial use only); close up it switches to Esri World Imagery. Esri 3D terrain and a borders/labels layer are added on top. It renders at full screen resolution with MSAA. An optional Cesium ion token or Google Maps key adds photorealistic 3D buildings. |
 | Maps | Leaflet with Esri tiles: street map (light/dark) and satellite with labels |
 | Narration | Each chapter's own audio/video file, or the browser's built-in text-to-speech |
+| Video | Wikimedia Commons videos, streamed as Commons' own 480p WebM copies |
+| Saved trip | The browser's `localStorage` (no account, no server) |
 | Data | Static JSON in `public/data/` (no backend) |
 | Images | Wikimedia Commons, credited automatically on every page |
 
@@ -47,7 +55,7 @@ npm run preview    # serve the production build
 npm run package    # check + build, then copy to submission/website/ (plus readable source)
 ```
 
-`dist/` is a static site. It works on GitHub Pages or any web server, and also **straight from disk: double-click `dist/index.html`**. An internet connection is still needed for map tiles, fonts and photos.
+`dist/` is a static site. It works on GitHub Pages or any web server, and also **straight from disk: double-click `dist/index.html`**. An internet connection is still needed for map tiles, fonts, photos and videos.
 
 Browsers block three things on pages opened from disk (`file://`), so the build avoids them:
 
@@ -93,16 +101,20 @@ Museums tell the story of one place through time. This feature tells history *ac
 ## Project structure
 
 ```
-index.html, city.html,                 page shells (the five page types)
-timetravel.html, stories.html, visit.html
+index.html, city.html,                 page shells (the seven page types)
+timetravel.html, stories.html,
+visit.html, trip.html, discover.html
 src/
   scss/main.scss          Bootstrap theme + all custom styles
   js/common.js            data loading, image credits, theme switch, navbar
   js/cesium-base.js       Cesium setup: embedded workers, CDN base URL, WebGL 1 fix
-  js/hours.js             opening-hours / "Open now" logic (time-zone aware)
+  js/hours.js             opening-hours / "Open now" logic and planned-visit checks (time-zone aware)
+  js/trip.js              My trip: saved places in localStorage, Save buttons, trip counter, toast
+  js/season.js            best months and interest tags: month ranges, season badge, tag labels
+  js/home-ui.js           Home: first-visit welcome dialog and the Map options menu
   js/map.js               Leaflet helpers and map categories
   js/world-year.js        "Through time": year scale, per-year snapshot, world timeline bar
-  js/pages/               globe.js, city.js, timetravel.js, stories.js, visit.js (one per page)
+  js/pages/               globe.js, city.js, timetravel.js, stories.js, visit.js, trip.js, discover.js (one per page)
   js/landmark/            shell.js (shared landmark header + page switcher),
                           timeline.js, story.js, guide.js (the three landmark views)
 public/
@@ -113,10 +125,10 @@ public/data/
   world-moments.json      key moments and periods for the World timeline
   vietnam-moments.json    key moments, periods and year scale for the Vietnam timeline
   landmarks/<id>.json     eras, story chapters, visitor guide
-  media.json              generated: image URLs + credits (don't edit by hand)
+  media.json              generated: image and video URLs + credits (don't edit by hand)
   atlas-data.js           generated: all the JSON above in one script (not in git)
 scripts/
-  resolve-media.mjs       npm run media: looks up images on Wikimedia Commons
+  resolve-media.mjs       npm run media: looks up images and videos on Wikimedia Commons
   check-data.mjs          npm run check: validates all the data files
   bundle-data.mjs         npm run data: builds public/data/atlas-data.js
   build.mjs               npm run build: builds each page as a classic script
@@ -156,7 +168,10 @@ No code changes are needed.
    |---|---|
    | `eras[]` | In chronological order. `year` is a number (negative for BCE) used for ordering. `label` is what's shown, e.g. `"c. 2560 BCE"` or `"Today"`. |
    | `eras[].image` | `{ "file": "<Wikimedia Commons file name>", "alt": "…", "focus": "center bottom" }`. `focus` is optional and controls cropping in the before/after view. For your own photos, use `{ "src": "media/my-photo.jpg", "credit": "Photo: …" }` and put the file in `public/media/`. |
-   | `story[]` | `type` is `history`, `legend` or `culture`. `narration` is read aloud by text-to-speech. Add `"audio": "media/x.mp3"`, `"video": "media/x.mp4"` or `"youtube": "<video id>"` to use real recordings instead. |
+   | `story[]` | `type` is `history`, `legend`, `culture` or `film`. `narration` is read aloud by text-to-speech. A `film` chapter has `"video": { "file": "<Commons video>.webm", "alt": "…" }` instead of an image; its `narration` is shown as "About this film" and not read aloud. Add `"audio": "media/x.mp3"` or `"youtube": "<video id>"` to use other recordings. |
+   | `bestMonths` | Months (1–12) when the place is at its best, e.g. `[4, 5, 6, 9, 10]`. Drives Discover, the season badge and My trip. |
+   | `tags` | Interests: `history`, `architecture`, `nature`, `spiritual`, `local-life`, `adventure`. |
+   | `featured` | `true` for an editor's pick on Discover. |
    | `guide.hours.seasons[]` | `months` (1–12) plus `days` with `daily` or `mon`…`sun` set to `[["09:00","17:00"]]`. Leave a day out to mark it closed. A closing time earlier than the opening time means "after midnight". |
    | `guide.hours.closedDates` | `["12-25"]` (MM-DD). |
    | `guide.hours.open24h` | `true` for outdoor places with no gate, such as a bay or a mountain pass. Use it instead of `seasons`. |

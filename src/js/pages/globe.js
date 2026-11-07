@@ -19,6 +19,9 @@ import {
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
+import { saveButton } from '../trip.js';
+import { initWelcome, initMapMenu } from '../home-ui.js';
+import { isGoodMonth, thisMonth, MONTHS } from '../season.js';
 
 const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
 const googleKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
@@ -351,6 +354,11 @@ async function main() {
 
   // ----- Search -----
   initSearch({ cities, landmarks, selectCity, selectLandmark });
+
+  // ----- First-visit welcome and the Map options menu -----
+  // Someone following a link to a place or year goes straight there, without the welcome.
+  initWelcome({ showNow: !hashPlace && !hashYear });
+  initMapMenu();
 
   // ----- Deep link (#paris, #vietnam&hue, #vietnam&year=1945) -----
   const delay = reduced || !viewer ? 0 : 1800;
@@ -1018,10 +1026,25 @@ async function main() {
           <h1 class="t-headline mb-1">${esc(col.title ?? 'Atlas of Stories')}</h1>
           <button class="icon-btn" type="button" data-action="close" aria-label="Close panel">${icon('close')}</button>
         </div>
-        <p class="t-body-s muted mb-0">${esc(col.intro ?? 'History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.')}</p>
+        <p class="intro-text mb-3">${esc(col.intro ?? 'History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.')}</p>
+        <a class="btn-m btn-filled" href="discover.html">${icon('explore')}Find a place for my trip</a>
+        ${seasonPicks()}
       </div>
       <hr class="divider">
       ${body}`);
+  }
+
+  /** Up to three landmarks in this atlas that are at their best this month, editor's picks first. */
+  function seasonPicks() {
+    const month = thisMonth();
+    const picks = visibleLandmarks().filter((lm) => isGoodMonth(lm, month))
+      .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured))).slice(0, 3);
+    if (!picks.length) return '';
+    return `
+      <p class="t-label muted mt-3 mb-2">${icon('wb_sunny')} Good to visit in ${MONTHS[month - 1]}</p>
+      <div class="d-flex flex-wrap gap-2">
+        ${picks.map((lm) => `<button type="button" class="chip" data-action="landmark" data-id="${esc(lm.id)}">${esc(lm.name)}</button>`).join('')}
+      </div>`;
   }
 
   /** World / Vietnam buttons. */
@@ -1085,6 +1108,7 @@ async function main() {
         <p class="mt-3 mb-0">${esc(lm.summary)}</p>
         <div class="kcard-actions">
           <a class="btn-m btn-filled" href="${url('time')}">${icon('arrow_forward')}Explore</a>
+          ${saveButton(lm)}
         </div>
         <div class="kcard-actions mt-2">
           <a class="chip" href="${url('time')}">${icon('history')}Time travel</a>
