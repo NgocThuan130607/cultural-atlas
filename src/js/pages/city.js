@@ -1,4 +1,8 @@
-// City page: a content panel (left) beside a satellite map of the city's landmarks (right).
+// City page, as a deck of slides (fifth round of user feedback, see slides.js):
+// 1. the city's photo filling the screen, its name in a beige frame and a sand card with the essentials;
+// 2. the map of landmarks with the list of places overlapping it;
+// 3–5. Geography, History and Culture, each with its own photo, alternating sides and light / dark;
+// 6. good to know: quick facts and local etiquette.
 import {
   $, $$, esc, icon, param, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
   creditsBlock, localTime, formatCoords, showError, landmarkUrl, protoNote,
@@ -7,6 +11,15 @@ import { openStatus } from '../hours.js';
 import { createMap, landmarkMarker, L } from '../map.js';
 import { saveButton } from '../trip.js';
 import { seasonBadge } from '../season.js';
+import { slide, deckHTML, photo, titleFrame, bigNumber, makeDeck } from '../slides.js';
+import { motifLayer } from '../motifs.js';
+
+/** A paragraph whose first sentence is set slightly larger, to lead the eye into the text. */
+function leadParagraph(text) {
+  const m = text.match(/^(.+?[.!?])\s+(.+)$/s);
+  return m ? `<p><span class="lead-sentence">${esc(m[1])}</span> ${esc(m[2])}</p>` : `<p>${esc(text)}</p>`;
+}
+const num = (n) => String(n).padStart(2, '0');
 
 async function main() {
   const id = param('id');
@@ -19,76 +32,143 @@ async function main() {
   document.title = `${city.name} · Atlas of Stories`;
   $('#back-btn').href = `index.html#${encodeURIComponent(city.id)}`;
 
-  const section = (s) => `
-    <section class="panel-section prose" aria-labelledby="sec-${esc(s.id)}">
-      <h2 id="sec-${esc(s.id)}">${esc(s.title)}</h2>
-      <p>${esc(s.text)}</p>
-    </section>`;
+  // Photos for Geography, History and Culture. A section can name its own "image"; otherwise one is
+  // borrowed from the flagship landmark, never repeating the hero or another section's photo.
+  const used = new Set([detail.hero.file]);
+  const lm0 = landmarks[0];
+  // Wide photos first: a tall one cropped to a wide frame would show only a slice (often just sky).
+  const wide = (x) => { const m = media[x.file?.replace(/_/g, ' ')]; return m?.width && m.width / m.height >= 1.25; };
+  const take = (...refs) => {
+    const free = refs.flat().filter((x) => (x?.file ? !used.has(x.file) && imageSrc(x, media) : x?.src));
+    const ref = free.find((x) => x.src || wide(x)) ?? free[0];
+    if (ref?.file) used.add(ref.file);
+    return ref ?? null;
+  };
+  const pool = lm0 ? [lm0.hero, ...lm0.eras.map((e) => e.image).reverse(), ...lm0.story.map((c) => c.image)] : [];
+  const pick = {
+    history: () => take(lm0?.eras.slice(0, -1).map((e) => e.image) ?? [], pool), // oldest eras first
+    culture: () => take(lm0?.story.filter((c) => c.type === 'culture').map((c) => c.image) ?? [], lm0?.story.map((c) => c.image) ?? [], pool),
+    geography: () => take(pool),
+  };
+  const sectionImages = Object.fromEntries(['history', 'culture', 'geography'].map((k) => {
+    const own = detail.sections.find((x) => x.id === k)?.image;
+    if (own?.file) used.add(own.file);
+    return [k, own ?? pick[k]?.()];
+  }));
+  const imageOf = (s) => s.image ?? sectionImages[s.id] ?? detail.hero;
+  const extra = take(pool) ?? detail.hero; // for the "Good to know" slide
 
-  $('#panel').innerHTML = `
-    <div class="panel-hero">
-      <img src="${esc(imageSrc(detail.hero, media))}" alt="${esc(detail.hero.alt ?? '')}">
-      <span class="credit">${creditHTML(detail.hero, media)}</span>
-    </div>
-    <header class="panel-section">
-      <p class="crumb mb-1"><a href="index.html#${esc(city.id)}">Globe</a> › ${esc(city.continent)}</p>
-      <h1 class="t-display mb-1">${esc(city.name)}</h1>
-      <p class="muted mb-3">${esc(city.country)}</p>
-      <div class="meta-row">
-        <span>${icon('schedule')}<span id="city-time">${esc(localTime(city.timezone))}</span></span>
-        <span>${icon('location_on')}${formatCoords(city.lat, city.lon)}</span>
+  // ---------- 1. Cover ----------
+  const cover = slide({
+    id: 'overview', title: 'Overview', tone: 'dark', layout: 'cover-full', label: 'city-title', bg: esc(imageSrc(detail.hero, media)),
+    body: `
+      ${motifLayer(detail.motifs?.cover)}
+      <figure class="s-fill">
+        <img data-parallax src="${esc(imageSrc(detail.hero, media))}" alt="${esc(detail.hero.alt ?? '')}">
+        <figcaption class="s-credit">${creditHTML(detail.hero, media)}</figcaption>
+      </figure>
+      <div class="s-col">
+      ${titleFrame(`
+        <p class="crumb mb-3"><a href="index.html#${esc(city.id)}">Globe</a> › ${esc(city.continent)}</p>
+        <h1 id="city-title" class="s-title ${city.name.length > 20 ? 'long' : ''}">${esc(city.name)}</h1>
+        <p class="title-sub mb-0">${esc(city.country)}</p>`)}
+      <div class="s-sand" data-reveal data-drift style="--d:2">
+        <p class="lead-text">${esc(city.tagline)}.</p>
+        <div class="meta-row mb-3">
+          <span>${icon('schedule')}<span id="city-time">${esc(localTime(city.timezone))}</span></span>
+          <span>${icon('location_on')}${formatCoords(city.lat, city.lon)}</span>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-2">
+          <button type="button" class="btn-m btn-dark" data-deck-go="next">Start exploring${icon('arrow_forward')}</button>
+          ${lm0 ? seasonBadge(lm0) : ''}
+        </div>
       </div>
-      <p class="lead-text mt-3 mb-3">${esc(city.tagline)}.</p>
-      <div class="d-flex flex-wrap align-items-center gap-2">
-        ${landmarks[0] ? seasonBadge(landmarks[0]) : ''}
-        <button type="button" class="btn-m btn-outlined map-toggle" id="map-toggle" aria-pressed="false" aria-controls="viewport">${icon('map')}<span>Hide map</span></button>
+      </div>`,
+  });
+
+  // ---------- 2. Landmarks on the map ----------
+  const mapSlide = slide({
+    id: 'ch-landmarks', title: 'Landmarks', tone: 'light', layout: 'map', label: 'lm-title', bg: esc(imageSrc(detail.hero, media)),
+    body: `
+      ${motifLayer(detail.motifs?.map)}
+      <div class="s-col">
+      ${titleFrame(`
+        <p class="kicker">${esc(city.name)} · On the map</p>
+        <h2 id="lm-title" class="s-title-m mb-0">Landmarks</h2>`)}
+      <div class="s-card s-list" data-reveal data-drift style="--d:2">
+        <ul class="place-list">
+          ${landmarks.map((lm) => { const st = openStatus(lm.guide.hours, city.timezone); return `
+            <li class="place-item"><a class="place-row" href="${landmarkUrl(lm.id)}" data-lm="${esc(lm.id)}">
+              <img class="thumb" src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
+              <span class="grow"><span class="t-title-s">${esc(lm.name)}</span>
+                <span class="sub">${esc(lm.localName ?? '')}</span>
+                <span class="sub status ${st.state}">${esc(st.text)}</span></span>
+            </a>${saveButton(lm, 'icon')}</li>`; }).join('')}
+          ${(detail.planned ?? []).map((p) => `
+            <li><div class="place-row planned">
+              <span class="thumb empty">${icon('hourglass_empty')}</span>
+              <span class="grow"><span class="t-title-s">${esc(p.name)}</span><span class="sub">Coming soon · ${esc(p.blurb)}</span></span>
+            </div></li>`).join('')}
+        </ul>
+        ${detail.planned?.length ? protoNote('only one landmark per place is built in this prototype. The landmarks marked "Coming soon" would get the same Time travel, Stories and Visit pages in the full version.', 'mt-2 mb-0') : ''}
       </div>
-    </header>
+      </div>
+      <div class="s-map" data-reveal style="--d:1"><div class="map-fill" id="city-map" role="region" aria-label="Satellite map of ${esc(city.name)}'s landmarks"></div></div>`,
+  });
 
-    <section class="panel-section" aria-labelledby="glance-title">
-      <h2 id="glance-title">At a glance</h2>
-      <ul class="glance">
-        <li>${icon('wb_sunny')}<span><small>Best time to visit</small>${esc(detail.facts.bestTime)}</span></li>
-        <li>${icon('translate')}<span><small>Language</small>${esc(detail.facts.languages)}</span></li>
-        <li>${icon('payments')}<span><small>Currency</small>${esc(detail.facts.currency)}</span></li>
-        <li>${icon('schedule')}<span><small>Time zone</small>${esc(city.timezone.replaceAll('_', ' '))}</span></li>
-        <li>${icon('history_edu')}<span><small>Founded</small>${esc(detail.facts.founded)}</span></li>
-        ${detail.etiquette[0] ? `<li>${icon('lightbulb')}<span><small>Good to know</small>${esc(detail.etiquette[0])}</span></li>` : ''}
+  // ---------- 3–5. Geography, History, Culture ----------
+  const sections = detail.sections.map((s, i) => slide({
+    id: `ch-${esc(s.id)}`, title: esc(s.title), tone: i % 2 ? 'light' : 'dark', flip: i % 2 === 0, label: `sec-${esc(s.id)}`,
+    bg: esc(imageSrc(imageOf(s), media)),
+    body: `
+      ${motifLayer(s.motifs)}
+      <div class="s-col">
+      ${titleFrame(`
+        <p class="kicker">${esc(city.name)}</p>
+        <h2 id="sec-${esc(s.id)}" class="s-title-m mb-0">${esc(s.title)}</h2>`)}
+      <div class="s-card" data-reveal data-drift style="--d:2">${leadParagraph(s.text)}</div>
+      ${bigNumber(num(i + 3))}
+      </div>
+      ${photo(esc(imageSrc(imageOf(s), media)), esc(imageOf(s).alt ?? ''), creditHTML(imageOf(s), media))}`,
+  }));
+
+  // ---------- 6. Good to know ----------
+  const facts = [
+    // Icon names are written out in full so the icon font loader (vite.config.js) finds them.
+    [icon('wb_sunny'), 'Best time to visit', detail.facts.bestTime],
+    [icon('translate'), 'Language', detail.facts.languages],
+    [icon('payments'), 'Currency', detail.facts.currency],
+    [icon('schedule'), 'Time zone', city.timezone.replaceAll('_', ' ')],
+    [icon('history_edu'), 'Founded', detail.facts.founded],
+  ];
+  const know = slide({
+    id: 'ch-good-to-know', title: 'Good to know', tone: detail.sections.length % 2 ? 'light' : 'dark', layout: 'know', label: 'know-title',
+    bg: esc(imageSrc(extra, media)),
+    body: `
+      ${motifLayer(detail.motifs?.know)}
+      <div class="s-col">
+      ${titleFrame(`
+        <p class="kicker">Before you go</p>
+        <h2 id="know-title" class="s-title-m mb-0">Good to know</h2>`)}
+      <ul class="glance s-glance">
+        ${facts.map(([ic, k, v], i) => `<li data-reveal style="--d:${i + 1}">${ic}<span><small>${k}</small>${esc(v)}</span></li>`).join('')}
       </ul>
-    </section>
+      </div>
+      ${photo(esc(imageSrc(extra, media)), esc(extra.alt ?? ''), creditHTML(extra, media))}
+      <div class="s-card" data-reveal data-drift style="--d:3">
+        <h3 class="s-card-title">Local etiquette</h3>
+        <ul class="check-list">
+          ${detail.etiquette.map((t) => `<li class="do">${icon('check')}<span>${esc(t)}</span></li>`).join('')}
+        </ul>
+      </div>`,
+  });
 
-    <section class="panel-section px-0" aria-labelledby="lm-title">
-      <h2 id="lm-title" class="px-4 mb-1">Landmarks</h2>
-      <ul class="place-list">
-        ${landmarks.map((lm) => { const s = openStatus(lm.guide.hours, city.timezone); return `
-          <li class="place-item"><a class="place-row ps-4" href="${landmarkUrl(lm.id)}" data-lm="${esc(lm.id)}">
-            <img class="thumb" src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
-            <span class="grow"><span class="t-title-s">${esc(lm.name)}</span>
-              <span class="sub">${esc(lm.localName ?? '')}</span>
-              <span class="sub status ${s.state}">${esc(s.text)}</span></span>
-          </a>${saveButton(lm, 'icon')}</li>`; }).join('')}
-        ${(detail.planned ?? []).map((p) => `
-          <li><div class="place-row planned px-4">
-            <span class="thumb empty">${icon('hourglass_empty')}</span>
-            <span class="grow"><span class="t-title-s">${esc(p.name)}</span><span class="sub">Coming soon · ${esc(p.blurb)}</span></span>
-          </div></li>`).join('')}
-      </ul>
-      ${detail.planned?.length ? protoNote('only one landmark per place is built in this prototype. The landmarks marked "Coming soon" would get the same Time travel, Stories and Visit pages in the full version.', 'mx-4 mt-2') : ''}
-    </section>
+  $('#panel').innerHTML = deckHTML([cover, mapSlide, ...sections, know]);
+  $('.deck-after').innerHTML = `<div class="wrap">${creditsBlock('Opening hours are approximate. Always check official sources before you travel.')}</div>`;
 
-    ${detail.sections.map(section).join('')}
-
-    <section class="panel-section" aria-labelledby="etq-title">
-      <h2 id="etq-title">Local etiquette</h2>
-      <ul class="check-list">
-        ${detail.etiquette.map((t) => `<li class="do">${icon('check_circle')}<span>${esc(t)}</span></li>`).join('')}
-      </ul>
-    </section>
-    ${creditsBlock('Opening hours are approximate. Always check official sources before you travel.')}`;
-
-  // Satellite map of the landmarks.
-  $('#viewport').innerHTML = '<div class="map-fill" id="city-map" role="region" aria-label="Satellite map"></div>';
+  // ---------- Map of the landmarks ----------
   const map = createMap($('#city-map'), { lat: city.lat, lon: city.lon, zoom: 13, style: 'satellite' });
+  map.scrollWheelZoom.disable(); // the mouse wheel moves the slides; zoom with the buttons or by pinching
   const markers = new Map();
   for (const lm of landmarks) {
     const m = landmarkMarker(lm.lat, lm.lon, lm.name)
@@ -96,8 +176,11 @@ async function main() {
       .addTo(map);
     markers.set(lm.id, m);
   }
-  if (landmarks.length > 1) map.fitBounds(L.latLngBounds(landmarks.map((l) => [l.lat, l.lon])).pad(0.3));
-  else if (landmarks.length === 1) map.setView([landmarks[0].lat, landmarks[0].lon], 16);
+  const fit = () => {
+    if (landmarks.length > 1) map.fitBounds(L.latLngBounds(landmarks.map((l) => [l.lat, l.lon])).pad(0.3));
+    else if (landmarks.length === 1) map.setView([landmarks[0].lat, landmarks[0].lon], 16);
+  };
+  fit();
 
   // Hovering a landmark in the list highlights it on the map.
   $$('[data-lm]').forEach((row) => {
@@ -106,21 +189,7 @@ async function main() {
     row.addEventListener('mouseleave', () => m?.getElement()?.firstElementChild?.classList.remove('highlight'));
   });
 
-  // Readers can hide the map to give the text the whole width. Remembered for next time.
-  const main = $('#main');
-  const toggle = $('#map-toggle');
-  const setMap = (hidden) => {
-    main.classList.toggle('map-hidden', hidden);
-    toggle.setAttribute('aria-pressed', hidden);
-    $('span:not(.ms)', toggle).textContent = hidden ? 'Show map' : 'Hide map';
-    try { localStorage.setItem('atlas-map-hidden', hidden ? '1' : '0'); } catch { /* not saved */ }
-    if (!hidden) setTimeout(() => map.invalidateSize(), 0);
-  };
-  let saved = false;
-  try { saved = localStorage.getItem('atlas-map-hidden') === '1'; } catch { /* storage blocked */ }
-  setMap(saved);
-  toggle.addEventListener('click', () => setMap(!main.classList.contains('map-hidden')));
-
+  makeDeck($('#deck'), { onSettle: (i) => { if (i === 1) map.invalidateSize(); } });
   setInterval(() => { $('#city-time').textContent = localTime(city.timezone); }, 30_000);
 }
 

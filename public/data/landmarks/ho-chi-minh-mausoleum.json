@@ -6,8 +6,16 @@
   "lat": 21.03676,
   "lon": 105.83466,
   "summary": "The resting place of Vietnam's founding president, on Ba Đình Square where he declared independence in 1945. Vietnamese people come here as a national pilgrimage, and visitors follow strict rules of respect.",
-  "bestMonths": [3, 4, 10, 11, 12],
-  "tags": ["history"],
+  "bestMonths": [
+    3,
+    4,
+    10,
+    11,
+    12
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Lăng Bác - NKS.jpg",
     "alt": "The grey granite Ho Chi Minh Mausoleum on Ba Đình Square"
@@ -21,7 +29,12 @@
       "image": {
         "file": "Ba Dinh Square September 2nd, 1945.jpg",
         "alt": "The speakers' stage on Ba Đình Square, 2 September 1945"
-      }
+      },
+      "motifs": [
+        "microphone",
+        "scroll",
+        "chim-lac"
+      ]
     },
     {
       "year": 1954,
@@ -31,7 +44,12 @@
       "image": {
         "file": "Ho Chi Minh 1946.jpg",
         "alt": "Portrait of Ho Chi Minh in 1946"
-      }
+      },
+      "motifs": [
+        "stilt-house",
+        "carp",
+        "sandals"
+      ]
     },
     {
       "year": 1975,
@@ -41,7 +59,12 @@
       "image": {
         "file": "The Ho Chi Minh Mausoleum (12052708565).jpg",
         "alt": "The grey granite mausoleum with honour guards at its door"
-      }
+      },
+      "motifs": [
+        "colonnade",
+        "stones",
+        "lotus"
+      ]
     },
     {
       "year": 2013,
@@ -51,7 +74,12 @@
       "image": {
         "file": "Flag flown half-staff at the Ho Chi Minh Mausoleum for Vo Nguyen Giap's funeral.jpg",
         "alt": "Flag at half-mast in front of the mausoleum in 2013"
-      }
+      },
+      "motifs": [
+        "incense",
+        "lotus",
+        "van-may"
+      ]
     },
     {
       "year": 2024,
@@ -61,7 +89,12 @@
       "image": {
         "file": "Honour guards at Ho Chi Minh Mausoleum, Hanoi, 20240123 1133 3240.jpg",
         "alt": "Honour guards in white uniforms at the mausoleum"
-      }
+      },
+      "motifs": [
+        "flag",
+        "sunrise",
+        "chim-lac-2"
+      ]
     }
   ],
   "story": [
@@ -73,7 +106,12 @@
         "file": "Président Ho-chi-Minh lit la Proclamation-d'indépendance sur la place Ba-dinh le 2nd Sep 1945.jpg",
         "alt": "Ho Chi Minh reading the Proclamation of Independence on Ba Đình Square"
       },
-      "narration": "On the second of September 1945, a slim man in a khaki jacket stepped up to a wooden stage on this square. Ho Chi Minh began his Declaration of Independence with words borrowed from the United States: all men are created equal, with the right to life, liberty and the pursuit of happiness. He then quoted the French Declaration of the Rights of Man. He used his opponents' own ideals to argue for Vietnam's freedom. Independence Day, the second of September, is still Vietnam's national day."
+      "narration": "On the second of September 1945, a slim man in a khaki jacket stepped up to a wooden stage on this square. Ho Chi Minh began his Declaration of Independence with words borrowed from the United States: all men are created equal, with the right to life, liberty and the pursuit of happiness. He then quoted the French Declaration of the Rights of Man. He used his opponents' own ideals to argue for Vietnam's freedom. Independence Day, the second of September, is still Vietnam's national day.",
+      "motifs": [
+        "flag",
+        "microphone",
+        "van-may"
+      ]
     },
     {
       "id": "uncle-ho",
@@ -83,7 +121,12 @@
         "file": "Guards of the Ho Chi Minh Mausoleum.jpg",
         "alt": "Guards standing at attention at the mausoleum"
       },
-      "narration": "Many Vietnamese people call Ho Chi Minh Bác Hồ, Uncle Hồ. The name is warm and personal, the way you would speak of a respected older relative. That is why a visit here feels more like a pilgrimage than sightseeing. Families travel from distant provinces, schoolchildren come in uniform, and veterans wear their medals. Visitors walk past in silence, in two slow lines, hands at their sides. When you follow the dress code and the rules, you are showing respect to the people around you as well as to the place."
+      "narration": "Many Vietnamese people call Ho Chi Minh Bác Hồ, Uncle Hồ. The name is warm and personal, the way you would speak of a respected older relative. That is why a visit here feels more like a pilgrimage than sightseeing. Families travel from distant provinces, schoolchildren come in uniform, and veterans wear their medals. Visitors walk past in silence, in two slow lines, hands at their sides. When you follow the dress code and the rules, you are showing respect to the people around you as well as to the place.",
+      "motifs": [
+        "lotus",
+        "stilt-house",
+        "sandals"
+      ]
     },
     {
       "id": "wish",
@@ -93,7 +136,12 @@
         "file": "Hanoi Vietnam Mausoleum-of-Ho-Chi-Minh-02.jpg",
         "alt": "Honour guards marching past the mausoleum wall while a street sweeper works"
       },
-      "narration": "In his final testament, Ho Chi Minh asked to be cremated. He wanted his ashes divided between the north, the centre and the south of the country, and buried on hilltops where people could plant trees. After his death in 1969, with the country still at war, the leadership made a different choice. Following the example of Lenin in Moscow, they decided to preserve his body for the nation. Each year the mausoleum closes for a period of maintenance, so check the dates before you plan your visit."
+      "narration": "In his final testament, Ho Chi Minh asked to be cremated. He wanted his ashes divided between the north, the centre and the south of the country, and buried on hilltops where people could plant trees. After his death in 1969, with the country still at war, the leadership made a different choice. Following the example of Lenin in Moscow, they decided to preserve his body for the nation. Each year the mausoleum closes for a period of maintenance, so check the dates before you plan your visit.",
+      "motifs": [
+        "saplings",
+        "sunrise",
+        "chim-lac"
+      ]
     },
     {
       "id": "one-pillar",
@@ -103,7 +151,12 @@
         "file": "One Pillar Pagoda.jpg",
         "alt": "The One Pillar Pagoda rising from a lotus pond"
       },
-      "narration": "A few steps from the mausoleum stands one of Vietnam's most beloved temples. Legend says that King Lý Thái Tông, who had no son, dreamed that the Goddess of Mercy, Quan Âm, sat on a lotus flower and handed him a baby boy. Soon afterwards he married a young woman who gave him a son. In thanks, in 1049, he built a small pagoda on a single stone pillar in a pond, shaped like a lotus rising from the water. The pagoda you see today was rebuilt after it was destroyed in 1954, but many people still come here to pray for children and good health."
+      "narration": "A few steps from the mausoleum stands one of Vietnam's most beloved temples. Legend says that King Lý Thái Tông, who had no son, dreamed that the Goddess of Mercy, Quan Âm, sat on a lotus flower and handed him a baby boy. Soon afterwards he married a young woman who gave him a son. In thanks, in 1049, he built a small pagoda on a single stone pillar in a pond, shaped like a lotus rising from the water. The pagoda you see today was rebuilt after it was destroyed in 1954, but many people still come here to pray for children and good health.",
+      "motifs": [
+        "one-pillar",
+        "lotus-leaf",
+        "ripples"
+      ]
     }
   ],
   "guide": {
@@ -296,7 +349,36 @@
         "lon": 105.8355,
         "note": "About 1 km south. Founded in 1070."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "sunrise",
+        "flag"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "lotus"
+      ],
+      "etiquette": [
+        "non-la",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "lantern",
+        "flag",
+        "chim-lac"
+      ]
+    }
   },
-  "credits": "Opening times are approximate prototype data. Always check the official website before visiting."
+  "credits": "Opening times are approximate prototype data. Always check the official website before visiting.",
+  "motifs": {
+    "cover": [
+      "flag",
+      "lotus",
+      "chim-lac"
+    ]
+  }
 }

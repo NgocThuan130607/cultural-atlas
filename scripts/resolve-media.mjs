@@ -33,6 +33,8 @@ function collectFiles(node, set) {
 }
 
 const stripHtml = (s = '') => s.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+// Commons sometimes repeats the author ("Unknown authorUnknown author or not provided"); keep it once.
+const cleanArtist = (s) => s.replace(/\s*or not provided\b/i, '').replace(/^(.{4,}?)\s*\1/, '$1').trim();
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const norm = (s) => s.replace(/_/g, ' ').trim();
 
@@ -96,7 +98,7 @@ for (const video of [false, true]) {
         width: info.thumbwidth ?? info.width,
         height: info.thumbheight ?? info.height,
         page: info.descriptionurl,
-        artist: stripHtml(meta.Artist?.value) || 'Unknown author',
+        artist: cleanArtist(stripHtml(meta.Artist?.value)) || 'Unknown author',
         license: stripHtml(meta.LicenseShortName?.value) || 'See source',
         licenseUrl: meta.LicenseUrl?.value ?? null,
         ...(video ? { duration: Math.round(info.duration ?? 0), sources: videoSources(info) } : {}),

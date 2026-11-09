@@ -14,17 +14,34 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Hanoi sits on the Red River Delta in northern Vietnam. Its name, Hà Nội, means \"inside the rivers\". The city is dotted with lakes, from tiny ponds to the wide West Lake, and Hoàn Kiếm Lake marks the heart of the old town. Unlike the south of the country, Hanoi has four seasons: hot, rainy summers and cool, misty winters."
+      "text": "Hanoi sits on the Red River Delta in northern Vietnam. Its name, Hà Nội, means \"inside the rivers\". The city is dotted with lakes, from tiny ponds to the wide West Lake, and Hoàn Kiếm Lake marks the heart of the old town. Unlike the south of the country, Hanoi has four seasons: hot, rainy summers and cool, misty winters.",
+      "motifs": [
+        "willow",
+        "waves",
+        "sun",
+        "rain"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Emperor Lý Thái Tổ founded the city in 1010 as Thăng Long, \"Ascending Dragon\", after a legend of a dragon rising from the river. It was the royal capital for most of the next eight centuries, the capital of French Indochina from 1902, and the capital of independent Vietnam after 1945. In 2010 the city celebrated its thousandth birthday."
+      "text": "Emperor Lý Thái Tổ founded the city in 1010 as Thăng Long, \"Ascending Dragon\", after a legend of a dragon rising from the river. It was the royal capital for most of the next eight centuries, the capital of French Indochina from 1902, and the capital of independent Vietnam after 1945. In 2010 the city celebrated its thousandth birthday.",
+      "motifs": [
+        "dragon",
+        "khue-van-cac",
+        "drum"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "In the Old Quarter, streets still carry the names of the guilds that once worked there, such as Silk Street and Silver Street. Life happens on the pavement: people eat phở and bún chả on low plastic stools and sip egg coffee, a Hanoi invention. Water puppetry (múa rối nước), first performed in the flooded rice fields of the delta, is still staged by Hoàn Kiếm Lake."
+      "text": "In the Old Quarter, streets still carry the names of the guilds that once worked there, such as Silk Street and Silver Street. Life happens on the pavement: people eat phở and bún chả on low plastic stools and sip egg coffee, a Hanoi invention. Water puppetry (múa rối nước), first performed in the flooded rice fields of the delta, is still staged by Hoàn Kiếm Lake.",
+      "motifs": [
+        "pho",
+        "egg-coffee",
+        "water-puppet",
+        "stool"
+      ]
     }
   ],
   "etiquette": [
@@ -113,5 +130,23 @@
       "landmark": "ho-chi-minh-mausoleum",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "turtle-tower",
+      "the-huc",
+      "chim-lac",
+      "lotus"
+    ],
+    "map": [
+      "compass",
+      "lantern",
+      "chim-lac-2"
+    ],
+    "know": [
+      "non-la",
+      "tea",
+      "motorbikes"
+    ]
+  }
 }

@@ -316,8 +316,14 @@ a.status { text-decoration: none; &:hover { text-decoration: underline; } }
 .appbar {
   position: sticky; top: 0; z-index: 40; height: var(--appbar-h); display: flex; align-items: center; gap: .25rem;
   padding: 0 .75rem; background: var(--surface); border-bottom: 1px solid var(--outline-variant);
-  .brand { display: inline-flex; align-items: center; gap: .5rem; color: var(--on-surface); font-size: 1.125rem; font-weight: 500; padding: 0 .5rem; letter-spacing: -.005em;
-    .ms { color: var(--primary); font-size: 1.5rem; } }
+  .brand { align-items: center; gap: .5rem; color: var(--on-surface); font-size: 1.125rem; font-weight: 500; padding: 0 .5rem; letter-spacing: -.005em; text-decoration: none; white-space: nowrap; }
+  // Always in the top-left corner: straight back to the home page (seventh round of feedback)
+  .home-link { display: inline-flex; align-items: center; gap: .375rem; height: 40px; padding: 0 1rem 0 .75rem; margin-right: .25rem; border-radius: 20px; flex: none;
+    background: var(--primary-container); color: var(--on-primary-container); font-size: .875rem; font-weight: 600; text-decoration: none;
+    .ms { font-size: 1.375rem; }
+    &:hover { background: color-mix(in srgb, var(--primary-container) 85%, var(--on-primary-container)); color: var(--on-primary-container); }
+    &:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+  }
   .spacer { flex: 1; }
   .dropdown-menu { border: 0; box-shadow: var(--elev-2); background: var(--surface); border-radius: var(--radius-m); padding: .5rem 0; }
   .dropdown-item { padding: .5rem 1rem; color: var(--on-surface); &:hover { background: var(--surface-1); } small { color: var(--on-surface-variant); } }
@@ -412,7 +418,7 @@ a.status { text-decoration: none; &:hover { text-decoration: underline; } }
   }
   .compare-selects { display: flex; gap: .5rem; flex: 1; align-items: center; select { background: #3c4043; color: #e3e3e3; border: 0; border-radius: 8px; height: 36px; padding: 0 .5rem; min-width: 0; flex: 1; } }
 }
-@media (max-width: 575.98px) { .timebar .tick:not(.active):not(:first-child):not(:last-child) { display: none; } }
+@media (max-width: 575.98px) { .timebar .tick:not(.active) { display: none; } } // too narrow for more than the current year
 .viewport-credit { position: absolute; right: 12px; top: 10px; z-index: 3; font-size: .6875rem; color: rgba(255, 255, 255, .75); max-width: 60%; text-align: right; a { color: inherit; text-decoration: underline; } }
 
 .compare { position: absolute; inset: 0 0 96px; --pos: 50%; user-select: none;
@@ -590,13 +596,11 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
   border-bottom: 1px solid var(--outline-variant); padding-bottom: .25rem; transition: background-color .2s;
   .place-row { align-items: flex-start; }
   &.is-event { background: color-mix(in srgb, var(--primary) 7%, transparent); }
-  &.focused { box-shadow: inset 3px 0 var(--primary); }
-  &.is-empty .place-row { opacity: .6; }
+  &.focused { box-shadow: inset 4px 0 var(--primary); }
 }
 .world-text { display: block; margin: 2px 0; font-size: .8125rem; line-height: 1.4; color: var(--on-surface); }
-.now-badge { display: inline-block; margin-left: .375rem; padding: 1px 6px; border-radius: 6px; background: var(--primary); color: var(--on-primary); font-size: .6875rem; font-weight: 600; vertical-align: 1px; }
 .world-lm {
-  display: flex; align-items: center; gap: .5rem; margin: 0 1.25rem .5rem calc(1.25rem + 64px + .875rem);
+  display: flex; align-items: center; gap: .5rem; margin: 0 1.75rem .625rem calc(1.75rem + 64px + .875rem);
   font-size: .75rem; line-height: 1.35; color: var(--primary); text-decoration: none;
   > span:not(.ms) { flex: 1; }
   .ms { font-size: 1rem; }
@@ -768,17 +772,10 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
   .split.reading .panel-section { padding: 1.5rem 2.25rem; }
   .split.reading .m-tabs .m-tab { padding-block: .75rem .625rem; }
 }
-// "Hide map": the text takes the whole width, kept to a comfortable line length.
-.split.map-hidden { grid-template-columns: 1fr;
-  .viewport { display: none; }
-  .panel { border-right: 0; }
-  .panel > * { max-width: 860px; margin-inline: auto; }
-}
 @media (max-width: 991.98px) {
   .split.reading .viewport { height: 38vh; min-height: 240px; }
 }
 
-.map-toggle[aria-pressed="true"] { background: var(--primary-container); border-color: transparent; color: var(--on-primary-container); }
 
 // "At a glance" cards on the city page
 .glance { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .75rem;
@@ -807,39 +804,67 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
 .kcard .t-label .ms { font-size: 1rem; color: var(--closing); }
 
 .welcome {
-  width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 2rem 2rem 1.75rem; border: 0; border-radius: var(--radius-xl);
+  width: min(580px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 1.5rem 2rem 1.5rem; border: 0; border-radius: var(--radius-xl);
   background: var(--surface); color: var(--on-surface); box-shadow: var(--elev-3); text-align: center;
   &::backdrop { background: rgba(0, 0, 0, .55); backdrop-filter: blur(2px); }
   &[open] { animation: fade-up .3s var(--ease) both; }
   .welcome-close { position: absolute; top: 12px; right: 12px; }
-  .welcome-mark { font-size: 3rem; color: var(--primary); }
+  .welcome-mark { font-size: 2.5rem; color: var(--primary); }
   h2 { margin: .5rem 0; }
-  .welcome-lead { font-size: 1.0625rem; color: var(--on-surface-variant); margin: 0 auto 1.25rem; max-width: 44ch; }
+  .welcome-lead { font-size: 1.0625rem; color: var(--on-surface-variant); margin: 0 auto 1rem; max-width: 44ch; }
 }
-.welcome-steps { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .625rem; text-align: left;
-  li { display: flex; gap: .875rem; align-items: flex-start; padding: .75rem 1rem; border-radius: var(--radius-m); background: var(--surface-1);
+.welcome-steps { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: .5rem; text-align: left;
+  li { display: flex; gap: .875rem; align-items: flex-start; padding: .5rem 1rem; border-radius: var(--radius-m); background: var(--surface-1);
     font-size: .9375rem; line-height: 1.45; color: var(--on-surface-variant); }
   .ms { color: var(--primary); font-size: 1.5rem; flex: none; }
   strong { display: block; font-weight: 600; color: var(--on-surface); font-size: 1rem; }
 }
 .welcome-actions { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
 
-// Map options menu (borders and labels, tilt, point north), opening to the left of its button
 .earth-controls { position: fixed; }
-.map-menu { position: absolute; right: 52px; top: 0; min-width: 250px; padding: .375rem 0; border-radius: var(--radius-m);
-  &[hidden] { display: none; }
+
+// ---------------------------------------------------------------------------
+// Seventh round of feedback: the panel on the left leads, the globe waits
+// ---------------------------------------------------------------------------
+// A soft shade over the left of the globe, so the panel and its city names are read first.
+@media (min-width: 768px) {
+  body.earth::before { content: ""; position: fixed; inset: 0; z-index: 5; pointer-events: none;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .6) 0, rgba(0, 0, 0, .38) calc(var(--panel-w) + 24px), transparent calc(var(--panel-w) + 340px)); }
+  .kcard { box-shadow: 0 18px 48px rgba(0, 0, 0, .45), var(--elev-3); animation: kcard-in .7s var(--ease) .35s backwards; }
 }
-.menu-item {
-  display: flex; align-items: center; gap: .75rem; width: 100%; padding: .625rem 1rem; border: 0; background: none;
-  color: var(--on-surface); font-size: .9375rem; text-align: left;
-  &:hover, &:focus-visible { background: var(--surface-1); outline: none; }
-  .ms, .tilt-label { width: 1.5rem; text-align: center; color: var(--on-surface-variant); }
-  .tilt-label { font-weight: 700; font-size: .8125rem; }
-  &[aria-pressed="true"] .ms { color: var(--primary); }
-  &[aria-pressed="true"]::after { content: "\2713"; margin-left: auto; color: var(--primary); font-weight: 700; }
+@keyframes kcard-in { from { opacity: 0; transform: translateX(-32px); } }
+@media (prefers-reduced-motion: reduce) { .kcard { animation: none; } }
+
+// The panel is wider on the home page and its type larger, so it is what visitors read first.
+@media (min-width: 768px) { body.earth { --panel-w: clamp(440px, 36vw, 560px); } }
+.kcard { border-top: 4px solid var(--primary); }
+.intro-lead { padding: 1.75rem 1.75rem 1.25rem; }
+.intro-kicker { font-size: .875rem; font-weight: 600; letter-spacing: .01em; color: var(--primary); }
+.intro-title { font-weight: 700; font-size: clamp(2.25rem, 2.6vw, 2.75rem); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .75rem; color: var(--on-surface); }
+.intro-lead .intro-text { font-size: 1.125rem; line-height: 1.6; }
+.intro-lead .btn-m { height: 48px; padding-inline: 1.5rem; font-size: 1rem; }
+.kcard-title { font-weight: 700; font-size: 2.125rem; line-height: 1.15; letter-spacing: -.015em; color: var(--on-surface); }
+.kcard-body { padding: 1.25rem 1.75rem 1.5rem; font-size: 1.0625rem; }
+.kcard .list-heading { padding-inline: 1.75rem; font-size: .9375rem; }
+.kcard .place-row { padding-inline: 1.75rem; }
+
+// City rows in the panel: bigger photo and name, and a bar on the row you point at
+.city-row { position: relative; gap: 1.125rem; padding: .875rem 1.75rem;
+  .thumb { width: 88px; height: 88px; border-radius: var(--radius-m); }
+  .city-name { display: block; font-size: 1.375rem; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; color: var(--on-surface); }
+  .sub { font-size: .9375rem; }
+  &::before { content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--primary); transform: scaleY(0); transition: transform .2s var(--ease); }
+  &:hover::before, &:focus-visible::before { transform: scaleY(1); }
 }
-#map-options[aria-expanded="true"] { background: var(--primary-container); color: var(--on-primary-container); }
-.flat-mode #map-options { display: none; }
+.flat-city.hover i { background: #d93025; transform: scale(1.25); }
+
+// Welcome dialog: the Through time feature
+.welcome-time { display: flex; gap: 1rem; align-items: flex-start; margin: 0 0 1.25rem; padding: 1rem 1.125rem; text-align: left;
+  border: 2px solid var(--frame, #b9a37f); border-radius: var(--radius-m); background: color-mix(in srgb, var(--frame, #b9a37f) 12%, var(--surface));
+  .welcome-time-icon { font-size: 2rem; color: var(--primary); flex: none; }
+  h3 { font-size: 1.125rem; font-weight: 600; margin: 0 0 .25rem; }
+  p { font-size: .9375rem; line-height: 1.5; color: var(--on-surface-variant); margin: 0 0 .75rem; }
+}
 
 .earth-topright .trip-link { gap: .375rem; text-decoration: none;
   .trip-count { position: static; }
@@ -908,3 +933,733 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
   .discover-card { padding: 1.125rem; }
 }
 .appbar .discover-link[aria-current="page"] { background: var(--primary-container); color: var(--on-primary-container); }
+
+// ===========================================================================
+// Text that belongs with its pictures (second round of feedback):
+// one centred reading column, photo cards for the city's sections, and text blocks
+// that take their colours from the photo they describe.
+// ===========================================================================
+
+// One reading column, centred in the panel, so nothing hugs the left edge.
+$reading-col: calc(640px + 4.5rem);
+.split.reading {
+  .panel-section, .credits-block { max-width: $reading-col; margin-inline: auto; }
+  .panel-section + .panel-section { border-top: 0; padding-top: .5rem; }
+}
+.prose p, .lead-text { max-width: none; }
+
+// City hero: the photo fades into the page, with the name sitting where the two meet.
+.city-hero {
+  position: relative; aspect-ratio: 16 / 10; min-height: 300px; max-height: 460px; width: 100%; overflow: hidden; background: var(--surface-2);
+  img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  &::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(to bottom, transparent 28%, color-mix(in srgb, var(--surface) 72%, transparent) 62%, color-mix(in srgb, var(--surface) 94%, transparent) 82%, var(--surface) 100%);
+  }
+  .credit { position: absolute; top: 8px; right: 10px; z-index: 2; font-size: .6875rem; color: rgba(255, 255, 255, .92); text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+    a { color: inherit; text-decoration: underline; } }
+  .city-hero-text { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; max-width: $reading-col; margin-inline: auto; padding: 0 2.25rem .75rem; }
+  .crumb, .crumb a { color: var(--on-surface); }
+  h1 { font-size: clamp(2.25rem, 4vw, 3rem); font-weight: 500; letter-spacing: -.02em; }
+  .city-country { font-size: 1.0625rem; color: var(--on-surface-variant); font-weight: 500; }
+  .crumb, h1, .city-country { text-shadow: 0 0 14px var(--surface), 0 0 4px var(--surface); }
+}
+@media (max-width: 991.98px) { .city-hero .city-hero-text { padding-inline: 1.5rem; } }
+
+// Section cards: the photo melts into the card, and the heading starts where it fades out.
+.story-card { border-radius: var(--radius-l); overflow: hidden; background: var(--surface-1); }
+.story-card-img {
+  position: relative; margin: 0; aspect-ratio: 21 / 9; background: var(--surface-2);
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  &::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 45%, var(--surface-1) 100%); }
+  .credit { position: absolute; top: 8px; right: 10px; z-index: 1; max-width: 70%; text-align: right; font-size: .6875rem; color: rgba(255, 255, 255, .92); text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+    a { color: inherit; text-decoration: underline; } }
+}
+.story-card-body { position: relative; padding: 0 1.5rem 1.5rem; margin-top: -1.25rem;
+}
+.panel-section .story-card-body h2:not([class^="t-"]):not([class*=" t-"]) { font-size: 1.5rem; font-weight: 600; margin-bottom: .5rem; }
+.story-card-body {
+  p:last-child { margin-bottom: 0; }
+}
+.story-card-img + .story-card-body { margin-top: -1.75rem; }
+.story-card-body:first-child { padding-top: 1.25rem; margin-top: 0; }
+.kicker { margin: 0 0 .25rem; font-size: .875rem; font-weight: 600; letter-spacing: .01em; color: var(--primary); }
+.lead-sentence { font-size: 1.1875rem; font-weight: 450; line-height: 1.5; color: var(--on-surface); }
+
+// Landmark rows line up with the text instead of the panel edge.
+.inset-list { margin-inline: -.75rem;
+  .place-row { padding-inline: .75rem; border-radius: var(--radius-m); }
+  .place-item { padding-right: 0; }
+}
+
+// "Ambient" blocks: a heavily blurred copy of the photo sits behind the text, so both share one palette.
+// The overlay keeps contrast: text sits on at least 86% of the page colour.
+.ambient { position: relative; overflow: hidden; isolation: isolate; }
+.ambient-bg {
+  position: absolute; inset: -60px; z-index: -2; background: center / cover no-repeat;
+  filter: blur(40px) saturate(1.5); transform: scale(1.1); transition: background-image .5s ease;
+}
+.ambient::after { content: ""; position: absolute; inset: 0; z-index: -1; background: color-mix(in srgb, var(--surface) 86%, transparent); }
+.ambient + .panel-section { border-top: 0; }
+
+// Time travel: the era's text block
+#era-detail.swap { animation: fade-up .35s var(--ease) both; }
+.era-detail.swap { animation: none; }
+.era-head { display: flex; align-items: center; gap: 1rem; margin-bottom: .875rem; }
+.era-thumb { width: 76px; height: 76px; border-radius: var(--radius-m); object-fit: cover; flex: none; box-shadow: var(--elev-1); background: var(--surface-2); }
+.era-count { font-size: .8125rem; font-weight: 600; color: var(--on-surface-variant); }
+.era-detail .year { font-size: 2.75rem; }
+.panel-section h2.era-title:not([class^="t-"]):not([class*=" t-"]) { font-size: 1.375rem; font-weight: 600; line-height: 1.3; margin-bottom: .5rem; }
+.era-text { margin-bottom: 1rem; }
+.credit-line { display: flex; gap: .375rem; align-items: flex-start; font-size: .8125rem; line-height: 1.45; color: var(--on-surface-variant);
+  .ms { font-size: 1rem; margin-top: 2px; flex: none; }
+  a { color: inherit; text-decoration: underline; }
+}
+
+// Time travel: a caption on the big photo, so the picture says which era it is
+.era-caption {
+  position: absolute; left: 20px; top: 16px; z-index: 2; display: flex; flex-direction: column; gap: 2px;
+  max-width: min(60%, 440px); padding: .5rem 1rem .625rem; border-radius: var(--radius-m);
+  background: rgba(20, 22, 26, .55); backdrop-filter: blur(10px); color: #fff;
+  .era-year { position: static; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.05; text-shadow: none; }
+  .era-cap-title { font-size: .9375rem; font-weight: 500; line-height: 1.35; color: rgba(255, 255, 255, .92); }
+}
+
+// Stories: the chapter heading and transcript sit on the chapter's photo colours
+.story-ambient .transcript .sentence:hover { background: color-mix(in srgb, var(--on-surface) 6%, transparent); }
+
+// Stories: chapters as a strip of picture cards that scrolls sideways.
+.chapter-strip { display: flex; gap: .75rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .25rem .125rem .75rem; scrollbar-width: thin; }
+.chapter-card {
+  flex: 0 0 196px; scroll-snap-align: start; display: flex; flex-direction: column; padding: 0; overflow: hidden; text-align: left;
+  border: 1px solid var(--outline-variant); border-radius: var(--radius-m); background: var(--surface); color: var(--on-surface); transition: box-shadow .2s, border-color .2s;
+  &:hover { box-shadow: var(--elev-1); }
+  &.active { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+  &:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 50%, transparent); outline-offset: 2px; }
+}
+.chapter-card-img { position: relative; display: block; height: 124px; overflow: hidden; flex: none; background: var(--surface-2);
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .num { position: absolute; left: 8px; bottom: 8px; display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 8px; background: rgba(20, 22, 26, .72); color: #fff; font-size: .8125rem; font-weight: 700; .ms { font-size: 1rem; } }
+}
+.chapter-card-text { display: block; padding: .625rem .75rem .75rem; font-size: .9375rem; line-height: 1.35;
+  small { color: var(--on-surface-variant); font-size: .8125rem; }
+}
+.strip-arrows { display: flex; gap: .25rem; }
+
+.ticket-card { padding: 1.25rem; border-radius: var(--radius-l); background: var(--surface-1);
+  h3 { display: flex; align-items: center; gap: .5rem; .ms { color: var(--primary); } }
+}
+.inset-list .poi-row { padding-inline: .75rem; border-radius: var(--radius-m); }
+
+
+.story-card.ambient .story-card-body { margin-top: 0; padding-top: 1.25rem; }
+
+// ===========================================================================
+// Slides (fifth round of feedback), modelled on egymonuments.gov.eg: every part of the City,
+// Time travel, Stories and Visit pages is a full-screen slide. Scrolling moves the slides sideways and a
+// timeline along the bottom shows where you are. Behaviour: src/js/slides.js.
+// Wide screens: .deck.sideways (a 12 × 6 grid per slide). Phones, short windows and reduced motion:
+// the slides stack, one under another.
+// ===========================================================================
+// Ninth round: the colours of Vietnamese lacquer (sơn mài): lacquer black, son red and gold leaf, with
+// light slides on the cream of giấy dó paper. Titles are set in Be Vietnam Pro.
+:root {
+  --display: "Be Vietnam Pro", "Roboto Flex", system-ui, sans-serif;
+  --lac: #15100c;     // lacquer black
+  --lac-2: #2c1710;   // the deep brown-red that lacquer shows in the light
+  --son: #a8241c;     // son red (cinnabar)
+  --son-ink: #fbf3e4; // text on son red
+  --gold: #c8a24c;    // gold leaf
+  --bronze: #8a6a2c;  // gold drawn on cream, where gold itself would be too faint
+  --frame: var(--gold); // focus rings and other gold details
+  --paper: #efe6d3;   // light slides: giấy dó
+  --ink: var(--lac);  // dark slides
+  --sand: #f3ebdb;    // the cream panel on dark slides
+  --on-sand: #1f1710;
+  --bar-h: 96px;      // the timeline along the bottom
+}
+[data-bs-theme="dark"] {
+  --son: #c8392e;
+  --paper: #1d1612;
+  --ink: #0e0b08;
+  --sand: #2a1d15;
+  --on-sand: #f1e7d6;
+}
+
+.deck-page { background: var(--paper); }
+html.slides-snap { scroll-snap-type: y mandatory; }
+.deck { position: relative; }
+.deck-snap { display: none; position: absolute; left: 0; top: calc(var(--i) * var(--stick-h)); width: 1px; height: 1px; scroll-snap-align: start; scroll-margin-top: var(--appbar-h); }
+.deck-after { background: var(--paper); scroll-snap-align: end; }
+.wrap { max-width: 1180px; margin-inline: auto; padding-inline: 32px; }
+@media (max-width: 575.98px) { .wrap { padding-inline: 16px; } }
+
+.deck.sideways {
+  .deck-snap { display: block; }
+  .deck-stick { position: sticky; top: var(--appbar-h); height: var(--stick-h); overflow: clip; }
+  .deck-track { display: flex; height: 100%; will-change: transform; }
+  .slide { flex: 0 0 100%; height: 100%; overflow: clip; background: transparent; }
+  .slide > .s-bg { display: none; }
+  .slide-in {
+    height: 100%; max-width: 1440px; margin-inline: auto; display: grid; gap: 0 clamp(12px, 1.5vw, 24px);
+    grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(6, minmax(0, 1fr));
+    padding: clamp(20px, 4vh, 44px) clamp(24px, 4vw, 64px) var(--bar-h);
+  }
+}
+
+// ---------- Colours of a slide and of the cards on it ----------
+.slide {
+  --s-bg: var(--paper); --s-ink: #1f1710; --s-muted: #5b4e40; --s-band: #e4d8c1; --s-kicker: #8c1c14; --s-orn: var(--bronze); --dot-bg: var(--paper);
+  --card-bg: linear-gradient(160deg, var(--lac) 30%, var(--lac-2)); --card-ink: #f3eadb; --card-muted: #cdbfa8; --card-orn: var(--gold);
+  position: relative; isolation: isolate; overflow: clip; background: var(--s-bg); color: var(--s-ink);
+  font-size: 1.0625rem; line-height: 1.65;
+}
+.slide.tone-dark { --s-bg: var(--ink); --s-ink: #f3eadb; --s-muted: #d2c4ac; --s-band: #241812; --s-kicker: #e6c47c; --s-orn: var(--gold);
+  --card-bg: var(--sand); --card-ink: var(--on-sand); --card-muted: #574a3b; --card-orn: var(--bronze); }
+[data-bs-theme="dark"] .slide { --s-ink: #efe5d3; --s-muted: #c4b6a0; --s-band: #2a1d15; --s-kicker: #ee978b; --s-orn: var(--gold);
+  --card-bg: linear-gradient(160deg, #1a120d 30%, #34190f); --card-ink: #f3eadb; --card-muted: #cdbfa8; --card-orn: var(--gold); }
+[data-bs-theme="dark"] .slide.tone-dark { --s-band: #1a120d; --s-kicker: #e6c47c; --card-bg: var(--sand); --card-ink: var(--on-sand); --card-muted: #cdbfa8; --card-orn: var(--gold); }
+.slide .kicker { color: var(--s-kicker); }
+.slide .muted { color: var(--s-muted) !important; }
+.slide .crumb { color: var(--s-muted); a { color: inherit; } }
+.slide .title-sub { font-family: var(--display); font-weight: 500; font-size: 1.25rem; color: var(--s-muted); }
+.slide :focus-visible { outline: 3px solid var(--frame); outline-offset: 2px; }
+
+// ---------- Type ----------
+.s-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 4.1vw, 4rem); line-height: 1.04; letter-spacing: -.025em; margin: 0 0 .5rem;
+  &.long { font-size: clamp(2rem, 3.1vw, 3.125rem); } }
+.s-title-m { font-family: var(--display); font-weight: 700; font-size: clamp(1.875rem, 3.1vw, 3rem); line-height: 1.06; letter-spacing: -.02em; }
+.s-title-s { font-family: var(--display); font-weight: 700; font-size: clamp(1.3125rem, 1.8vw, 1.75rem); line-height: 1.2; letter-spacing: -.01em; }
+.s-year { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 4vw, 3.625rem); line-height: 1; letter-spacing: -.02em; margin: .125rem 0 .5rem; font-variant-numeric: lining-nums; }
+.s-card-title { display: flex; align-items: center; gap: .5rem; margin-bottom: .875rem; font-family: var(--display); font-size: clamp(1.25rem, 1.8vw, 1.5rem); font-weight: 700; letter-spacing: -.01em; .ms { font-size: 1.5rem; } }
+.slide .lead-sentence { display: block; margin-bottom: .5rem; font-family: var(--display); font-weight: 500; font-size: 1.25rem; line-height: 1.45; color: inherit; }
+// The large outlined numbers of earlier rounds are gone: the red seal by each title carries the number now.
+.s-num { display: none !important; }
+
+// ---------- Pieces ----------
+// The Vietnamese details (ninth round). Each is drawn as a mask, so it takes the colour around it:
+// - the band of tangent circles with a dot, from the rings of the Đông Sơn bronze drums;
+// - the 14-ray star from the centre of the drum's face (the timeline marker);
+// - a red seal (con dấu) beside each title, holding the slide's number.
+$drum-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M0 .5H14M0 13.5H14M0 7L4.4 4.6M9.6 9.4L14 7'/%3E%3Ccircle cx='7' cy='7' r='3.1'/%3E%3Ccircle cx='7' cy='7' r='1' fill='black' stroke='none'/%3E%3C/svg%3E");
+$drum-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='12,0.4 13.02,7.52 17.03,1.55 14.87,8.4 21.07,4.77 16.14,10 23.31,9.42 16.6,12 23.31,14.58 16.14,14 21.07,19.23 14.87,15.6 17.03,22.45 13.02,16.48 12,23.6 10.98,16.48 6.97,22.45 9.13,15.6 2.93,19.23 7.86,14 0.69,14.58 7.4,12 0.69,9.42 7.86,10 2.93,4.77 9.13,8.4 6.97,1.55 10.98,7.52'/%3E%3Ccircle cx='12' cy='12' r='2.6' fill='white'/%3E%3C/svg%3E");
+$drum-band-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M.5 0V14M13.5 0V14M7 0L4.6 4.4M9.4 9.6L7 14'/%3E%3Ccircle cx='7' cy='7' r='3.1'/%3E%3Ccircle cx='7' cy='7' r='1' fill='black' stroke='none'/%3E%3C/svg%3E");
+// A stamp is never perfectly inked: a fine speckle wears the seal's colour a little.
+$seal-wear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 2.3'/%3E%3C/filter%3E%3Crect width='60' height='60' filter='url(%23w)'/%3E%3C/svg%3E");
+// The faint fibres of giấy dó behind light slides
+$paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .32' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .12 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)'/%3E%3C/svg%3E");
+
+.drum-band { display: block; height: 14px; background: var(--s-orn, var(--gold)); -webkit-mask: $drum-band repeat-x left center / 14px 14px; mask: $drum-band repeat-x left center / 14px 14px; }
+
+// The title block: a red seal with the slide's number, the title, and a drum band under it. No box.
+.deck-track { counter-reset: slide; }
+.slide { counter-increment: slide; }
+.s-frame { position: relative; z-index: 3; padding: 0;
+  &::before { content: counter(slide, decimal-leading-zero); float: left; display: grid; place-items: center; width: 46px; height: 46px; margin: 0 14px 6px 0;
+    background: var(--son); color: var(--son-ink); font: 700 1.0625rem/1 var(--display); letter-spacing: .02em; font-variant-numeric: lining-nums tabular-nums;
+    box-shadow: inset 0 0 0 3px var(--son), inset 0 0 0 4.5px color-mix(in srgb, var(--son-ink) 85%, transparent);
+    rotate: -3deg; -webkit-mask: $seal-wear; mask: $seal-wear; }
+  > .kicker, > .crumb { display: flex; flex-wrap: wrap; align-items: center; column-gap: .25rem; min-height: 46px; margin-bottom: .375rem; }
+  > :is(h1, h2, .s-year, .s-title, .s-title-m, .s-title-s) { clear: both; }
+  &::after { content: ""; clear: both; display: block; height: 14px; max-width: 280px; margin-top: 1rem; background: var(--s-orn);
+    -webkit-mask: $drum-band repeat-x left center / 14px 14px; mask: $drum-band repeat-x left center / 14px 14px; }
+}
+.lay-cover .s-frame, .lay-cover-full .s-frame { color: #fff; --s-orn: var(--gold); }
+// A column holding the title and the panel under it
+.s-col { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; min-width: 0; min-height: 0;
+  > .s-frame { flex: none; }
+  > :nth-child(2) { flex: 0 1 auto; min-height: 0; margin: 1.5rem 0 0; }
+}
+.s-photo { position: relative; z-index: 2; margin: 0; overflow: hidden; background: var(--s-band);
+  img { width: 100%; height: 100%; object-fit: cover; display: block; scale: 1.18; }
+}
+// Photos, films and maps sit in a thin gold line, like a lacquer painting in its frame.
+.s-photo::after, .s-media::after, .s-stage::after { content: ""; position: absolute; inset: 9px; z-index: 3; border: 1px solid color-mix(in srgb, var(--gold) 80%, transparent); pointer-events: none; }
+.s-map { outline: 1px solid color-mix(in srgb, var(--gold) 75%, transparent); }
+.s-credit { position: absolute; right: 10px; bottom: 8px; z-index: 2; max-width: 80%; text-align: right; font-size: .6875rem; line-height: 1.3;
+  color: rgba(255, 255, 255, .92); text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+  a { color: inherit; text-decoration: underline; } }
+// A lacquer panel on light slides, a giấy dó panel on dark ones. No floating shadow: a fine inlaid
+// line just inside the edge, as on a lacquered box.
+.s-card { position: relative; z-index: 4; min-height: 0; overflow: auto; background: var(--card-bg); color: var(--card-ink);
+  padding: clamp(22px, 3.2vh, 38px) clamp(24px, 2.5vw, 42px);
+  p:last-child { margin-bottom: 0; }
+  .s-muted { color: var(--card-muted); }
+}
+.s-card:not(.s-list) a:not(.btn-m) { color: inherit; text-decoration: underline; }
+.slide .s-card:not(.s-list) { --open: #6dd58c; --closing: #ffb95c; --closed: #f2b8b5; --primary: #a8c7fa; }
+// Lists you work with (places, the map filters) sit on a plain surface card.
+.s-card:not(.s-list), .s-sand, .s-paper, .tip-card { outline: 1px solid color-mix(in srgb, var(--card-orn) 70%, transparent); outline-offset: -7px; }
+.s-card.s-list { background: var(--surface); color: var(--on-surface); padding: 1rem .75rem; border: 1px solid var(--outline-variant);
+  .s-muted { color: var(--on-surface-variant); padding-inline: .5rem; }
+  > .d-flex { padding: .25rem .5rem; }
+}
+.s-sand { position: relative; z-index: 4; min-height: 0; overflow: auto; background: var(--sand); color: var(--on-sand);
+  padding: clamp(22px, 3.2vh, 34px) clamp(24px, 2.5vw, 38px); --card-orn: var(--bronze);
+  .lead-text { color: inherit; font-size: 1.125rem; }
+  .meta-row { color: color-mix(in srgb, var(--on-sand) 80%, transparent); }
+  .proto-note { background: transparent; border-color: color-mix(in srgb, var(--on-sand) 35%, transparent); color: inherit; strong { color: inherit; } }
+}
+:root:not([data-bs-theme="dark"]) {
+  .s-sand, .slide.tone-dark .s-card:not(.s-list) { --open: #0f5a25; --closing: #6e4200; --closed: #8f1d17; --primary: #0842a0; }
+}
+[data-bs-theme="dark"] .s-sand { --primary: #a8c7fa; }
+.s-paper { position: relative; z-index: 4; min-height: 0; overflow: auto; background: var(--surface); color: var(--on-surface);
+  padding: clamp(20px, 3vh, 30px) clamp(22px, 2.3vw, 34px); font-size: .9375rem; --card-orn: var(--bronze); }
+[data-bs-theme="dark"] .s-paper { --card-orn: var(--gold); }
+.s-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+.slide .btn-m { border-radius: 0; }
+// The main action is son red; the others are outlined.
+.btn-frame { background: var(--son); color: var(--son-ink); &:hover, &:focus-visible { background: color-mix(in srgb, var(--son) 84%, #000); color: var(--son-ink); } }
+.btn-line { background: transparent; color: inherit; border-color: currentColor; &:hover { background: color-mix(in srgb, currentColor 12%, transparent); color: inherit; } }
+.btn-dark { background: var(--lac); color: #f3eadb; &:hover { background: #2e1d14; color: #fff; } }
+[data-bs-theme="dark"] .btn-dark { background: #f1e7d6; color: var(--lac); &:hover { background: #fff; color: var(--lac); } }
+
+// Covers: a blurred photo behind (landmarks) or the city's photo filling the screen
+// A blurred photo behind every slide (sixth round). Stacked, it sits inside its own slide; sideways, the
+// deck keeps one still layer per slide behind the moving row and cross-fades them (slides.js).
+.s-bg, .deck-bg > i { position: absolute; inset: -8%; z-index: -1; background: var(--ink) center / cover no-repeat; filter: blur(26px) saturate(.9); }
+.s-bg::after, .deck-bg > i::after { content: ""; position: absolute; inset: 0; }
+// The photo only tints the slide: lacquer black on dark slides, giấy dó (with its fibres) on light ones.
+.tone-dark > .s-bg::after, .deck-bg > .tone-dark::after { background: rgb(21 16 12 / .88); }
+.tone-light > .s-bg::after, .deck-bg > .tone-light::after { background: $paper-fibre, color-mix(in srgb, var(--paper) 87%, transparent); }
+[data-bs-theme="dark"] .tone-light > .s-bg::after, [data-bs-theme="dark"] .deck-bg > .tone-light::after { background: rgb(29 22 18 / .86); }
+.deck-bg { display: none; }
+.deck.sideways .deck-stick { background: var(--ink); }
+.deck.sideways .deck-bg { display: block; position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+  > i { inset: -10%; opacity: 0; visibility: hidden; will-change: opacity, translate; }
+}
+.deck.sideways .deck-track { position: relative; z-index: 1; }
+.s-fill { position: absolute; inset: 0; z-index: -1; margin: 0; overflow: hidden;
+  img { width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
+  &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 9, 8, .82), transparent 24%), linear-gradient(90deg, rgba(10, 9, 8, .88), rgba(10, 9, 8, .66) 40%, rgba(10, 9, 8, .1) 72%); }
+  .s-credit { top: 10px; bottom: auto; }
+}
+.s-media, .s-stage, .s-map { position: relative; z-index: 2; min-height: 0; overflow: hidden; background: #0e0f10; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; scale: 1.14; }
+.s-stage .story-stage video, .s-stage .story-stage iframe { height: calc(100% - 88px); }
+.s-media .era-caption { left: 16px; top: 14px; }
+.s-media .s-credit { top: 10px; bottom: auto; }
+.slide .transcript { font-size: 1rem; line-height: 1.7; }
+.slide.tone-dark { .type-history { color: #a8c7fa; } .type-legend { color: #d7aefb; } .type-culture { color: #f2b8b5; } }
+
+// Strips of cards that slide sideways (story chapters, local tips), with square ← → buttons
+.s-strip { position: relative; z-index: 5; min-width: 0; }
+.strip-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: .5rem; color: #fff;
+  // Over the photo the label sits on a small lacquer chip so it stays readable on a bright sky.
+  .kicker { color: #f0d79a; background: rgb(21 16 12 / .82); padding: .3125rem .75rem; }
+  .car-nav { background: rgb(21 16 12 / .82); } }
+.s-strip .chapter-strip { padding: .25rem .125rem .5rem; scrollbar-width: none; }
+.s-strip .chapter-card { flex: 0 0 236px; border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); border-radius: 0; box-shadow: none; transition: border-color .2s;
+  &:hover { border-color: var(--gold); }
+  .chapter-card-img { height: 108px; }
+}
+.car-nav { display: flex; flex: none;
+  button { width: 52px; height: 52px; border: 0; display: grid; place-items: center; transition: opacity .2s; }
+  button { width: 44px; height: 44px; background: transparent; color: inherit; border: 1px solid color-mix(in srgb, currentColor 55%, transparent); }
+  button + button { margin-left: -1px; }
+  button:hover:not(:disabled) { background: color-mix(in srgb, currentColor 14%, transparent); }
+  button:disabled { opacity: .35; }
+  button:focus-visible { outline: 3px solid var(--frame); outline-offset: 2px; }
+}
+.carousel { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+.tips-strip { display: flex; flex-direction: column; gap: .75rem; }
+.tip-row { display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem .25rem 1.25rem; }
+.tip-card { flex: 0 0 min(320px, 82%); scroll-snap-align: start; padding: 1.75rem; background: var(--card-bg); color: var(--card-ink);
+  .tip-icon { width: auto; height: auto; margin-bottom: .75rem; display: block; background: none !important; color: var(--son); .ms { font-size: 1.75rem; } }
+  h3 { font-family: var(--display); font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; }
+}
+
+// Lists inside slides
+.s-glance { margin-top: 1.25rem !important; margin-left: 0 !important; grid-template-columns: repeat(2, minmax(0, 1fr));
+  li { border-radius: 0; background: var(--surface); color: var(--on-surface); box-shadow: none; border: 1px solid var(--outline-variant); font-size: .9375rem; }
+}
+.s-card .check-list li { padding: .3125rem 0; }
+.poi-list .poi-row { padding-inline: .5rem; }
+.slide .place-row .thumb { border-radius: 0; }
+
+// ---------- Where each piece goes on a wide screen ----------
+.deck.sideways {
+  // Title frame at the top left, photo in the middle, text card overlapping the photo's right edge
+  .lay-feature {
+    .s-photo { grid-area: 1 / 1 / 7 / 8; }
+    .s-col { grid-area: 1 / 8 / 7 / 13; }
+    &.flip {
+      .s-photo { grid-area: 1 / 7 / 7 / 13; }
+      .s-col { grid-area: 1 / 1 / 7 / 6; }
+    }
+    .s-col > .s-num { flex: none; align-self: flex-end; margin: -.3em .25rem 0 0; z-index: 3; font-size: clamp(4.5rem, 8vw, 7.5rem); }
+    &.flip .s-col > .s-num { align-self: flex-start; margin: -.3em 0 0 .25rem; }
+  }
+  .lay-cover {
+    .s-col { grid-area: 1 / 1 / 7 / 6; }
+    .s-media { grid-area: 1 / 6 / 7 / 13; }
+  }
+  .cover-story {
+    .s-media { grid-area: 1 / 6 / 6 / 13; }
+    .s-strip { grid-area: 5 / 6 / 7 / 13; align-self: end; }
+  }
+  .cover-guide { .s-col { grid-area: 1 / 1 / 7 / 7; } .s-media { grid-area: 1 / 7 / 7 / 13; } }
+  .lay-cover-full .s-col { grid-area: 1 / 1 / 7 / 7; }
+  .lay-map {
+    .s-col { grid-area: 1 / 1 / 7 / 6; }
+    .s-map { grid-area: 1 / 6 / 7 / 13; }
+  }
+  .lay-story {
+    .s-stage { grid-area: 1 / 1 / 7 / 7; }
+    .s-col { grid-area: 1 / 8 / 7 / 13; }
+    &.flip {
+      .s-stage { grid-area: 1 / 7 / 7 / 13; }
+      .s-col { grid-area: 1 / 1 / 7 / 6; }
+    }
+  }
+  .lay-hours {
+    .s-col { grid-area: 1 / 1 / 7 / 6; }
+    .s-photo { grid-area: 1 / 6 / 6 / 13; }
+    .s-card { grid-area: 4 / 8 / 7 / 12; align-self: end; }
+  }
+  // Title over the photo on the left; one lacquer panel holding Do and Don't side by side on the right
+  .lay-etq {
+    .s-frame { grid-area: 1 / 1 / 3 / 6; align-self: start; }
+    .s-photo { grid-area: 3 / 1 / 7 / 6; }
+    .etq-panel { grid-area: 1 / 7 / 7 / 13; align-self: center; max-height: 100%; }
+  }
+  // Title, then the strip of tip cards under it
+  .lay-tips {
+    .s-frame { grid-area: 1 / 1 / 3 / 8; align-self: end; }
+    .s-strip { grid-area: 3 / 1 / 7 / 13; align-self: start; margin-top: 1.25rem; }
+  }
+  .lay-know {
+    .s-col { grid-area: 1 / 1 / 7 / 7; }
+    .s-photo { grid-area: 1 / 7 / 5 / 13; }
+    .s-card { grid-area: 3 / 8 / 7 / 13; align-self: end; max-height: 100%; }
+  }
+}
+.lay-story .s-num { display: none; }
+
+// ---------- Stacked (phones, short windows, reduced motion) ----------
+.deck:not(.sideways) {
+  .slide-in { display: flex; flex-direction: column; gap: 1.25rem; max-width: 880px; margin-inline: auto; padding: 40px 20px 48px; }
+  .s-num { display: none; }
+  .lay-feature .s-photo { order: -1; }
+  .s-col > :nth-child(2) { margin: 1.25rem 0 0; }
+  .s-photo { aspect-ratio: 4 / 3; }
+  .s-photo + .s-card, .s-photo + .s-sand { margin: -48px 0 0 20px; }
+  .s-photo + .etq-panel { margin: 0; }
+  .s-media { height: 60vh; min-height: 320px; }
+  .s-stage { height: 56vh; min-height: 300px; order: -1; }
+  .s-map { height: 60vh; min-height: 320px; }
+  .lay-cover-full .slide-in { min-height: calc(100vh - var(--appbar-h)); justify-content: center; }
+  .s-fill::after { background: rgba(10, 9, 8, .62); }
+  .strip-head { color: var(--s-ink); .kicker { color: var(--s-kicker); background: none; padding: 0; } .car-nav { background: none; } }
+  .deck-stick { padding-bottom: 56px; }
+}
+
+// ---------- Timeline along the bottom ----------
+.deck-bar { color: #1b1915; --bar-muted: #5a554c; --marker: #7a5c26; --dot-bg: var(--paper); }
+.deck-hint { margin: 0; display: flex; align-items: center; gap: .5rem; font-size: .8125rem; color: var(--bar-muted); transition: opacity .6s, visibility 0s; }
+.deck-bar.moved .deck-hint { opacity: 0; visibility: hidden; transition: opacity .6s, visibility 0s .6s; }
+.deck-timeline { position: relative; min-width: 0;
+  ol { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
+  button { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 30px 2px 4px; border: 0; background: none; color: var(--bar-muted);
+    font-size: .75rem; line-height: 1.25; text-align: center; cursor: pointer;
+    &:hover { color: inherit; }
+    &:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+    &[aria-current] { color: inherit; font-weight: 600; }
+  }
+  .dot { width: 13px; height: 13px; flex: none; border-radius: 50%; border: 2px solid currentColor; background: var(--dot-bg); transition: background-color .3s, transform .3s; }
+  [aria-current] .dot { background: currentColor; transform: scale(1.15); }
+  .lbl { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 100%; }
+}
+.deck-line { position: absolute; top: 35px; left: calc(50% / var(--n)); right: calc(50% / var(--n)); height: 2px; background: color-mix(in srgb, currentColor 30%, transparent); }
+.deck-fill { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--p, 0) / (var(--n) - 1) * 100%); background: currentColor; }
+// The marker is the star from the centre of a Đông Sơn drum.
+.deck-marker { position: absolute; top: 2px; left: calc((var(--p, 0) + .5) / var(--n) * 100%); transform: translateX(-50%); width: 24px; height: 24px; background: var(--marker);
+  -webkit-mask: $drum-star center / contain no-repeat; mask: $drum-star center / contain no-repeat; }
+.deck-pager { display: flex; align-items: center; gap: .375rem; font-family: var(--display); font-weight: 600; font-size: 1.5rem; line-height: 1;
+  button { width: 40px; height: 40px; display: grid; place-items: center; border: 0; background: none; color: inherit;
+    &:disabled { opacity: .3; }
+    &:hover:not(:disabled) { background: color-mix(in srgb, currentColor 10%, transparent); }
+    &:focus-visible { outline: 2px solid currentColor; }
+  }
+  .deck-count { display: flex; align-items: center; gap: .5rem; font-variant-numeric: lining-nums; }
+  .rule { width: 40px; height: 1.5px; background: currentColor; opacity: .6; }
+  .tot { color: var(--bar-muted); }
+}
+.deck.sideways .deck-bg::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--bar-h) + 40px);
+  background: linear-gradient(to top, color-mix(in srgb, var(--paper) 88%, transparent), transparent); transition: background .6s; }
+.deck.sideways .deck-stick[data-tone="dark"] .deck-bg::after { background: linear-gradient(to top, rgb(14 13 11 / .85), transparent); }
+.deck.sideways .deck-bar {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 20; height: var(--bar-h); pointer-events: none;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 800px) minmax(0, 1fr); align-items: center; gap: 1.5rem;
+  padding: 0 clamp(24px, 4vw, 64px) 4px;
+  > * { pointer-events: auto; }
+  .deck-timeline { grid-column: 2; }
+  .deck-pager { grid-column: 3; justify-self: end; }
+}
+.deck.sideways .deck-stick[data-tone="dark"] .deck-bar, [data-bs-theme="dark"] .deck.sideways .deck-bar { color: #f3eee4; --bar-muted: #cfc7b8; --marker: #dcc79f; }
+.deck.sideways .deck-stick[data-tone="dark"] .deck-bar { --dot-bg: var(--ink); }
+@media (max-width: 1199.98px) { .deck.sideways .deck-bar { grid-template-columns: 0 minmax(0, 1fr) auto; .deck-hint { display: none; } } }
+// Stacked: a compact bar fixed to the bottom of the screen
+.deck:not(.sideways) .deck-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; height: 56px; display: flex; align-items: center; gap: .25rem; padding: 0 .5rem;
+  background: color-mix(in srgb, var(--surface) 94%, transparent); backdrop-filter: blur(10px); border-top: 1px solid var(--outline-variant);
+  color: var(--on-surface); --bar-muted: var(--on-surface-variant); --dot-bg: var(--surface);
+  .deck-hint, .deck-marker, .lbl { display: none; }
+  .deck-timeline { flex: 1; button { padding: 14px 0; gap: 0; } }
+  .deck-line { top: 27px; }
+  .deck-pager { font-size: 1.125rem; gap: 0; .rule { width: 14px; } }
+}
+
+// ---------- Landmark page switcher ----------
+.lm-tabs { display: none; }
+@media (min-width: 900px) {
+  .appbar .lm-tabs { display: flex; gap: .25rem; margin-left: .75rem; }
+  .lm-tabs-page { display: none !important; }
+}
+.appbar .lm-tabs .m-tab { display: inline-flex; align-items: center; gap: .375rem; height: 40px; padding: 0 1rem; border-radius: 20px;
+  color: var(--on-surface-variant); font-size: .875rem; font-weight: 500; text-decoration: none; white-space: nowrap;
+  &:hover { background: var(--surface-1); color: var(--on-surface); }
+  &.active { background: var(--primary-container); color: var(--on-primary-container); }
+}
+@media (max-width: 1199.98px) { .appbar:has(.lm-tabs) .brand { display: none !important; } }
+@media (max-width: 575.98px) { .appbar .home-link { width: 40px; padding: 0; justify-content: center; margin-right: 0; .label { display: none; } } }
+.lm-tabs-page { position: sticky; top: var(--appbar-h); z-index: 30; justify-content: center; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(10px); }
+
+// ---------- Motion ----------
+// Pieces slide in from the side the first time their slide comes into view (only while slides.js runs).
+:root { --ease-soft: cubic-bezier(.22, .61, .36, 1); }
+// Pieces fade in and rise a little, one after another, each time their slide arrives (slides.js
+// removes .seen once a slide is off screen). Photos fade while their picture slowly zooms out.
+.slide [data-reveal] { transition: opacity 1.1s var(--ease-soft), transform 1.1s var(--ease-soft); transition-delay: calc(var(--d, 0) * 140ms); }
+.slide .s-num { transition: opacity 1.4s var(--ease-soft) .5s; }
+.slide .s-photo img, .slide .cover-img { transition: scale 1.8s var(--ease-soft); }
+.motion .slide:not(.seen) {
+  [data-reveal] { opacity: 0; transform: translateY(28px); transition-duration: .2s; transition-delay: 0s; }
+  .s-num { opacity: 0; transition: none; }
+  .s-photo img, .cover-img { scale: 1.3; transition: none; }
+}
+.slide .s-photo[data-reveal] { transition-duration: 1.2s; }
+.motion .slide:not(.seen) .s-photo[data-reveal] { transform: none; }
+.s-photo img, .cover-img, .s-fill img { will-change: translate; }
+@media (prefers-reduced-motion: reduce) {
+  .s-photo img, .cover-img, .s-fill img { scale: 1; }
+}
+// Transcript and credits inside a slide's card
+.s-card .transcript {
+  .sentence:hover { background: color-mix(in srgb, currentColor 14%, transparent); }
+  .sentence.current { background: var(--son); color: var(--son-ink); }
+  .sentence.spoken { color: var(--card-muted); }
+}
+.s-card .credit-line, .s-card .credit-line a { color: var(--card-muted); }
+.deck:not(.sideways) {
+  .deck-line { top: 20px; }
+}
+// Short windows (laptops at 720px): a little tighter so the cover's card fits without scrolling
+@media (max-height: 780px) {
+  .deck.sideways {
+    .s-sand .lead-text { font-size: 1rem; margin-bottom: .5rem; }
+    .s-sand .meta-row { margin-bottom: .5rem !important; }
+    .s-title.long { font-size: clamp(2rem, 3vw, 2.75rem); }
+    .s-num { display: none; }
+    .slide { font-size: 1rem; line-height: 1.6; }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Eighth round of feedback: a calmer Through time, and place names that stay put on hover
+// ---------------------------------------------------------------------------
+// Left list: this year's events first, older entries folded away, places with no record in one line.
+.world-head { padding-bottom: 1rem;
+  .intro-kicker { display: flex; align-items: center; gap: .375rem; .ms { font-size: 1.125rem; } }
+}
+.world-title { font-size: clamp(1.875rem, 2.2vw, 2.25rem); margin-bottom: .375rem; }
+.world-sub { font-size: 1rem; color: var(--on-surface-variant); }
+.world-group { color: var(--primary); font-weight: 600; }
+.world-name { display: flex; align-items: baseline; flex-wrap: wrap; gap: .125rem .5rem; font-size: 1.0625rem; font-weight: 600; line-height: 1.3; color: var(--on-surface); }
+.world-when { font-size: .8125rem; font-weight: 500; color: var(--on-surface-variant); font-variant-numeric: tabular-nums; }
+.world-row.is-event .world-when { color: var(--primary); font-weight: 600; }
+.world-row .world-text { font-size: .875rem; margin-top: .125rem; }
+.world-row.is-focus { box-shadow: inset 4px 0 var(--primary); }
+.world-row:hover { background: color-mix(in srgb, var(--primary) 10%, transparent); }
+// Busy years and the older entries: two lines of text each, so more places fit on screen.
+.world-list.dense .world-text, .world-list.compact .world-text {
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.world-list.compact {
+  .world-row { padding-bottom: 0; }
+  .place-row { padding-block: .5rem; align-items: center; }
+  .thumb { width: 48px; height: 48px; }
+  .world-text { color: var(--on-surface-variant); font-size: .8125rem; }
+}
+.world-more {
+  border-top: 1px solid var(--outline-variant);
+  > summary { display: flex; align-items: center; gap: .375rem; cursor: pointer; list-style: none; padding-block: .875rem; font-weight: 600; color: var(--on-surface);
+    &::-webkit-details-marker { display: none; }
+    .ms { font-size: 1.25rem; transition: transform .2s var(--ease); }
+    &:hover { background: color-mix(in srgb, var(--on-surface) 6%, transparent); }
+  }
+  &[open] > summary .ms { transform: rotate(180deg); }
+}
+.world-quiet { display: flex; gap: .625rem; align-items: flex-start; margin: 0; padding: 1rem 1.75rem; color: var(--on-surface-variant); font-size: .9375rem; line-height: 1.5;
+  .ms { font-size: 1.25rem; flex: none; }
+}
+.world-none { margin: 0; padding: .75rem 1.75rem 1.25rem; border-top: 1px solid var(--outline-variant); font-size: .8125rem; line-height: 1.5; color: var(--on-surface-variant); }
+
+// The floating card of the row you point at in the list
+.ycard.lit { opacity: 1; z-index: 1; box-shadow: 0 0 0 3px #fbbc04, 0 6px 18px rgba(0, 0, 0, .5); }
+
+// Name chip above the pin under the mouse (the other names don't move)
+.pin-tip {
+  position: fixed; left: 0; top: 0; z-index: 13; pointer-events: none; white-space: nowrap;
+  padding: 5px 10px; border-radius: 8px; background: rgba(20, 22, 26, .94); color: #fff;
+  font: 600 14px/1.2 "Roboto Flex", Roboto, sans-serif; box-shadow: 0 2px 10px rgba(0, 0, 0, .45);
+  &::after { content: ""; position: absolute; left: 50%; bottom: -5px; margin-left: -5px; border: 5px solid transparent; border-bottom: 0; border-top-color: rgba(20, 22, 26, .94); }
+}
+// 2D map: the name gets the same dark chip, without moving (box-shadow instead of padding),
+// and shows even where it was hidden to avoid overlaps.
+// Only the dot and a shown name catch the mouse, never the empty box around a hidden name.
+.flat-city { pointer-events: none; > i, > span { pointer-events: auto; } }
+.flat-city:hover > span, .flat-city.hover > span {
+  visibility: visible !important; display: inline !important;
+  background: rgba(20, 22, 26, .94); box-shadow: 0 0 0 5px rgba(20, 22, 26, .94); border-radius: 2px; text-shadow: none;
+}
+
+// ---------------------------------------------------------------------------
+// Ninth round: Etiquette as one lacquer panel, Do and Don't split by a drum band
+// ---------------------------------------------------------------------------
+.etq-panel { display: grid; grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr); gap: 0 clamp(18px, 2vw, 32px); align-content: start;
+  // Between the columns the band runs downwards, so it uses the same pattern turned on its side.
+  > .drum-band { height: auto; width: 14px; background: var(--card-orn);
+    -webkit-mask: $drum-band-v repeat-y center top / 14px 14px; mask: $drum-band-v repeat-y center top / 14px 14px; }
+  .s-card-title { margin-bottom: .625rem; }
+}
+.check-list li .ms { font-size: 1.25rem; }
+.slide .check-list .do .ms { color: var(--card-orn); }
+.slide .check-list .dont .ms { color: #e2685c; }
+.slide.tone-dark .check-list .dont .ms, :root:not([data-bs-theme="dark"]) .slide.tone-dark .check-list .dont .ms { color: var(--son); }
+@media (max-width: 899.98px), (max-height: 559.98px) {
+  .etq-panel { grid-template-columns: minmax(0, 1fr); gap: 1rem 0;
+    > .drum-band { width: 100%; height: 14px; -webkit-mask: $drum-band repeat-x left center / 14px 14px; mask: $drum-band repeat-x left center / 14px 14px; }
+  }
+}
+// Short windows (laptops at 720px): a smaller seal and tighter gaps, so the panels fit without scrolling
+@media (max-height: 780px) {
+  .deck.sideways {
+    .s-frame::before { width: 38px; height: 38px; margin-right: 12px; font-size: .9375rem; }
+    .s-frame > .kicker, .s-frame > .crumb { min-height: 38px; margin-bottom: .25rem; }
+    .s-frame::after { margin-top: .625rem; }
+    .s-col > :nth-child(2) { margin-top: 1rem; }
+    .lay-tips .s-strip { margin-top: .5rem; }
+    .tip-card { padding: 1.25rem 1.375rem; .tip-icon { margin-bottom: .375rem; } }
+  }
+}
+// Chapter cards are white on the dark story cover, so their type labels use the darker colours there.
+:root:not([data-bs-theme="dark"]) .slide.tone-dark .chapter-card {
+  .type-history { color: #0b57d0; } .type-legend { color: #8430ce; } .type-culture { color: #b3261e; }
+}
+
+// ---------------------------------------------------------------------------
+// Tenth round: symbol motifs on the slides (src/js/motifs.js), drawn like engravings on bronze: a bold outline,
+// finer inner lines and hatching, in a gold that shades from light to bronze. They draw themselves in layer by
+// layer when their slide arrives, catch a glint of light, drift with the slides, then keep slow movements of
+// their own. Only the slide in view moves; with reduced motion they are drawn and still.
+// ---------------------------------------------------------------------------
+.s-motifs { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none;
+  --orn-hi: #f4dc9c; --orn: #c9a24c; --orn-lo: #8f6a26; }
+// On cream the gold is darker, so the lines keep their weight against the paper
+.slide.tone-light .s-motifs { --orn-hi: #a07a30; --orn: #84621f; --orn-lo: #5a4214; }
+[data-bs-theme="dark"] .slide.tone-light .s-motifs, .lay-cover-full .s-motifs, .cover-story .s-motifs { --orn-hi: #f4dc9c; --orn: #c9a24c; --orn-lo: #8f6a26; }
+.motif { position: absolute; display: block;
+  &[hidden] { display: none; }
+  svg { display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: var(--g); stroke-width: var(--sw, 1.4); stroke-linecap: round; stroke-linejoin: round; }
+  .w2 { stroke-width: calc(var(--sw, 1.4) * 1.65); }
+  .w0 { stroke-width: calc(var(--sw, 1.4) * .55); }
+  .son { stroke: var(--son); }
+  .fill { fill: var(--g); stroke: none; }
+  .fill.son { fill: var(--son); }
+  .fill.gold { fill: #f2c94c; } // the yellow star of the flag
+  .fill.soft { opacity: .22; }
+  .dot { fill: var(--g); stroke: none; }
+  .dot.son { fill: var(--son); }
+}
+// A glint of light runs over the drawing once it is drawn (the drawing itself is the mask)
+.motif::after { content: ""; position: absolute; inset: 0; pointer-events: none; -webkit-mask: var(--mask) center / 100% 100% no-repeat; mask: var(--mask) center / 100% 100% no-repeat;
+  background: linear-gradient(115deg, transparent 38%, rgb(255 246 214 / .95) 50%, transparent 62%) no-repeat; background-size: 300% 100%; background-position: 100% 0; opacity: 0; }
+.slide.seen .motif::after { animation: m-glint 1.5s ease-in-out calc(2.7s + var(--d, 0) * .25s) 1 both; }
+@keyframes m-glint { from { background-position: 100% 0; opacity: 1; } to { background-position: 0 0; opacity: 1; } }
+
+// Drawing in, layer by layer: the bold outline, then the main lines, then the fine detail and hatching.
+// Each line is one unit long (pathLength="1"), so a dash of 1 hides it until the offset reaches 0.
+.motif svg :is(path, circle, ellipse):not(.fill):not(.dot) { stroke-dasharray: 1 1.001; stroke-dashoffset: 0;
+  transition: stroke-dashoffset var(--td, 1.5s) var(--ease-soft) calc(var(--t0, .75s) + var(--d, 0) * .2s); }
+.motif .w2 { --t0: .25s; --td: 1.4s; }
+.motif .w0 { --t0: 1.2s; --td: 1.7s; }
+.motif :is(.fill, .dot) { transition: opacity .9s ease calc(2.1s + var(--d, 0) * .2s); }
+.motion .slide:not(.seen) .motif {
+  svg :is(path, circle, ellipse):not(.fill):not(.dot) { stroke-dashoffset: 1; transition: none; }
+  :is(.fill, .dot) { opacity: 0; transition: none; }
+}
+
+// Their own slow movements, on the parts marked .lp / .lp2 / .lp3, starting once the drawing is done
+.motif :is(.lp, .lp2, .lp3) { transform-box: fill-box; transform-origin: 50% 50%; animation-duration: 5s; animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite; animation-direction: alternate; animation-delay: calc(2.4s + var(--d, 0) * .2s); }
+.slide:not(.seen) .motif :is(.lp, .lp2, .lp3) { animation-play-state: paused; }
+.loop-sway .lp { animation-name: m-sway; transform-origin: 50% 100%; }
+.loop-lotus { .lp { animation-name: m-petal-l; transform-origin: 100% 100%; } .lp2 { animation-name: m-petal-r; transform-origin: 0 100%; }
+  .lp3 { animation-name: m-breathe; transform-origin: 50% 100%; animation-duration: 4s; } }
+.loop-swing .lp { animation-name: m-swing; transform-origin: 50% 0; animation-duration: 4.4s; }
+.loop-lantern { .lp { animation-name: m-swing; transform-origin: 50% 0; animation-duration: 3.8s; }
+  .lp2 { animation-name: m-swing; transform-origin: 50% 0; animation-duration: 3.8s; animation-delay: calc(2.9s + var(--d, 0) * .2s); } }
+.loop-bob .lp { animation-name: m-bob; animation-duration: 4.2s; }
+.loop-glide .lp { animation-name: m-glide; animation-duration: 9s; }
+.loop-glide2 .lp { animation-name: m-glide2; animation-duration: 10s; }
+.loop-turn .lp { animation-name: m-turn; animation-duration: 70s; animation-timing-function: linear; animation-direction: normal; transform-box: view-box; transform-origin: 50px 50px; }
+.loop-turn-window .lp { animation-name: m-turn; animation-duration: 24s; animation-timing-function: linear; animation-direction: normal; }
+.loop-tick .lp { animation-name: m-tick; animation-duration: 6s; transform-box: view-box; transform-origin: 50px 50px; }
+.loop-ripple .lp { animation-name: m-ripple; animation-duration: 3.4s; }
+.loop-waves { .lp, .lp2, .lp3 { transform-box: view-box; animation-name: m-wave; animation-timing-function: linear; animation-direction: normal; }
+  .lp { animation-duration: 5s; } .lp2 { animation-duration: 7s; animation-direction: reverse; } .lp3 { animation-duration: 9s; } }
+.loop-fall { .lp, .lp2 { animation-name: m-fall; animation-duration: 1.4s; animation-timing-function: linear; animation-direction: normal; } .lp2 { animation-delay: calc(3.1s + var(--d, 0) * .2s); } }
+.loop-steam { .lp, .lp2, .lp3 { animation-name: m-steam; animation-duration: 3.4s; animation-timing-function: ease-out; animation-direction: normal; }
+  .lp2 { animation-delay: calc(3.5s + var(--d, 0) * .2s); } .lp3 { animation-delay: calc(4.6s + var(--d, 0) * .2s); } }
+.loop-rise .lp { animation-name: m-rise; animation-duration: 6s; }
+.loop-rise .lp2 { animation-name: m-sway; animation-duration: 2.6s; transform-origin: 0 50%; }
+.loop-rise-sun .lp { animation-name: m-rise-sun; animation-duration: 7s; }
+.loop-sound .lp { animation-name: m-sound; animation-duration: 1.4s; }
+.loop-leaf .lp { animation-name: m-leaf; transform-origin: 0 100%; animation-duration: 3s; }
+.loop-swim { .lp { animation-name: m-turn; animation-duration: 24s; animation-timing-function: linear; animation-direction: normal; transform-box: view-box; transform-origin: 50px 56px; }
+  .lp2 { animation-name: m-flick; animation-duration: .9s; transform-origin: 0 50%; } .lp3 { animation-name: m-flick; animation-duration: 1.1s; transform-origin: 100% 50%; } }
+.loop-grow { .lp { animation-name: m-grow; transform-origin: 50% 100%; animation-duration: 4.5s; }
+  .lp2 { animation-delay: calc(2.8s + var(--d, 0) * .2s); } .lp3 { animation-delay: calc(3.2s + var(--d, 0) * .2s); } }
+.loop-clock .lp { animation-name: m-turn; animation-duration: 12s; animation-timing-function: linear; animation-direction: normal; transform-box: view-box; transform-origin: 50px 50px; }
+.loop-flutter .lp { animation-name: m-flutter; transform-origin: 0 50%; animation-duration: 2.2s; }
+.loop-flow .lp { animation-name: m-flow; animation-duration: 3s; }
+.loop-shine .lp { animation-name: m-sound; animation-duration: 2.2s; }
+@keyframes m-sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+@keyframes m-petal-l { from { transform: rotate(3deg); } to { transform: rotate(-5deg); } }
+@keyframes m-petal-r { from { transform: rotate(-3deg); } to { transform: rotate(5deg); } }
+@keyframes m-breathe { from { transform: scale(.96); } to { transform: scale(1.04); } }
+@keyframes m-swing { from { transform: rotate(-7deg); } to { transform: rotate(7deg); } }
+@keyframes m-bob { from { transform: translateY(2px); } to { transform: translateY(-5px); } }
+@keyframes m-glide { from { transform: translate(-12px, 4px); } to { transform: translate(14px, -6px); } }
+@keyframes m-glide2 { from { transform: translate(12px, -4px); } to { transform: translate(-14px, 5px); } }
+@keyframes m-turn { to { transform: rotate(360deg); } }
+@keyframes m-tick { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+@keyframes m-ripple { from { transform: scale(.95); opacity: .6; } to { transform: scale(1.05); opacity: 1; } }
+@keyframes m-wave { from { transform: translateX(0); } to { transform: translateX(-24px); } }
+@keyframes m-fall { from { transform: translateY(-4px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(10px); opacity: 0; } }
+@keyframes m-steam { from { transform: translateY(6px); opacity: 0; } 35% { opacity: 1; } to { transform: translateY(-9px); opacity: 0; } }
+@keyframes m-rise { from { transform: translateY(4px); } to { transform: translateY(-5px); } }
+@keyframes m-rise-sun { from { transform: translateY(6px); } to { transform: translateY(-3px); } }
+@keyframes m-sound { from { opacity: .15; } to { opacity: 1; } }
+@keyframes m-leaf { from { transform: rotate(-10deg); } to { transform: rotate(8deg); } }
+@keyframes m-flick { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+@keyframes m-grow { from { transform: scaleY(.72); } to { transform: scaleY(1); } }
+@keyframes m-flutter { from { transform: skewY(-3deg) scaleX(.97); } to { transform: skewY(3deg) scaleX(1); } }
+@keyframes m-flow { from { transform: translateX(-6px); } to { transform: translateX(10px); } }
+@media (prefers-reduced-motion: reduce) {
+  .motif :is(.lp, .lp2, .lp3) { animation: none !important; }
+  .motif svg *, .motif :is(.fill, .dot) { transition: none !important; }
+  .motif::after { display: none; }
+}

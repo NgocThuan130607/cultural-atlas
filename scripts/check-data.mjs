@@ -3,6 +3,7 @@
 import { readFile, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MOTIFS } from '../src/js/motifs.js';
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'data');
 const read = async (p) => JSON.parse(await readFile(join(dataDir, p), 'utf8'));
@@ -29,6 +30,19 @@ const checkImage = (where, ref) => {
   if (!ref.alt) warn.push(`${where}: image has no alt text`);
 };
 
+// Every "motifs" list (the symbols drawn on a slide) may only name drawings that exist in src/js/motifs.js.
+const checkMotifs = (where, node) => {
+  if (Array.isArray(node)) return node.forEach((x, i) => checkMotifs(`${where}[${i}]`, x));
+  if (!node || typeof node !== 'object') return;
+  for (const [k, v] of Object.entries(node)) {
+    if (k !== 'motifs') { checkMotifs(`${where}.${k}`, v); continue; }
+    for (const list of Array.isArray(v) ? [v] : Object.values(v ?? {})) {
+      if (!Array.isArray(list)) { err(where, '"motifs" must be a list of names, or an object of lists'); continue; }
+      list.filter((m) => !MOTIFS[m]).forEach((m) => err(where, `unknown motif "${m}" (see src/js/motifs.js)`));
+    }
+  }
+};
+
 const { cities, collections = [{ id: 'world' }] } = await read('cities.json');
 const colIds = new Set(collections.map((c) => c.id));
 const ids = new Set();
@@ -48,8 +62,10 @@ for (const c of cities) {
   if (!(await exists(`cities/${c.id}.json`))) { err(w, `missing file cities/${c.id}.json`); continue; }
 
   const d = await read(`cities/${c.id}.json`);
+  checkMotifs(w, d);
   checkImage(`${w} hero`, d.hero);
   if (!d.sections?.length) err(w, 'needs at least one section');
+  d.sections?.forEach((s) => { if (s.image) checkImage(`${w} section "${s.id}"`, s.image); }); // optional; otherwise borrowed from the landmark
   for (const k of ['languages', 'currency', 'bestTime', 'founded']) if (!d.facts?.[k]) err(w, `facts.${k} missing`);
 
   // City timeline used by "The world in one year".
@@ -73,6 +89,7 @@ for (const c of cities) {
     const lw = `landmark "${lid}"`;
     if (!(await exists(`landmarks/${lid}.json`))) { err(lw, `missing file landmarks/${lid}.json`); continue; }
     const lm = await read(`landmarks/${lid}.json`);
+    checkMotifs(lw, lm);
     if (lm.id !== lid) err(lw, `"id" is "${lm.id}" but file name says "${lid}"`);
     if (lm.city !== c.id) err(lw, `"city" should be "${c.id}"`);
     if (!isCoord(lm.lat, lm.lon)) err(lw, 'invalid lat/lon');

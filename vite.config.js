@@ -13,7 +13,7 @@ export const PAGES = ['index', 'city', 'timetravel', 'stories', 'visit', 'trip',
 const cesiumVersion = JSON.parse(readFileSync(resolve(root, 'node_modules/cesium/package.json'), 'utf8')).version;
 
 /**
- * Loads Roboto Flex and Material Symbols from Google Fonts.
+ * Loads Roboto Flex (body text), Be Vietnam Pro (slide titles) and Material Symbols from Google Fonts.
  * Only the icons actually used in the code are requested, so the icon font stays tiny.
  * Icons are found by scanning for ms-class spans, icon(...) calls and `icon:` properties with literal names.
  */
@@ -37,7 +37,7 @@ function googleFonts() {
       return [
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' }, injectTo: 'head-prepend' },
         { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }, injectTo: 'head-prepend' },
-        { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&display=swap' }, injectTo: 'head' },
+        { tag: 'link', attrs: { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300..700&family=Be+Vietnam+Pro:wght@500;600;700;800&display=swap' }, injectTo: 'head' },
         { tag: 'link', attrs: { rel: 'stylesheet', href: `https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..500,0..1,0&icon_names=${icons}&display=block` }, injectTo: 'head' },
       ];
     },

@@ -59,6 +59,13 @@ export function landmarkUrl(id, page = 'time', extra = {}) {
 const usedImages = new Map();
 const mediaEntry = (ref, media) => media[ref?.file?.replace(/_/g, ' ')];
 
+/** Commons sometimes repeats the author ("Unknown authorUnknown author or not provided"); show it once. */
+export function cleanArtist(name = '') {
+  // A phrase repeated back to back at the start ("Unknown authorUnknown author, restored by …") is kept once.
+  const s = name.replace(/\s*or not provided\b/i, '').replace(/^(.{4,}?)\s*\1/, '$1').trim();
+  return s || 'Unknown author';
+}
+
 export function imageSrc(ref, media) {
   if (!ref) return '';
   if (ref.src) return ref.src;
@@ -71,7 +78,7 @@ export function creditHTML(ref, media) {
   const m = mediaEntry(ref, media);
   if (!m) return '';
   usedImages.set(ref.file, m);
-  return `${esc(m.artist)} · ${esc(m.license)} · <a href="${esc(m.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
+  return `${esc(cleanArtist(m.artist))} · ${esc(m.license)} · <a href="${esc(m.page)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
 }
 
 /** Marks an image as shown so it appears in the credits list, without printing an inline credit. */
@@ -84,7 +91,7 @@ export function noteImage(ref, media) {
 /** HTML block listing every Commons image shown on the page, with author and licence. */
 export function creditsBlock(disclaimer = '') {
   const items = [...usedImages.entries()].map(([file, m]) =>
-    `<li><a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(file.replace(/\.[a-z]+$/i, ''))}</a>, ${esc(m.artist)} (${esc(m.license)})</li>`).join('');
+    `<li><a href="${esc(m.page)}" target="_blank" rel="noopener">${esc(file.replace(/\.[a-z]+$/i, ''))}</a>, ${esc(cleanArtist(m.artist))} (${esc(m.license)})</li>`).join('');
   return `<footer class="credits-block">
     ${disclaimer ? `<p class="mb-2">${esc(disclaimer)}</p>` : ''}
     <details><summary>${[...usedImages.values()].some((m) => m.sources) ? 'Image and video' : 'Image'} credits (${usedImages.size})</summary><ul>${items}</ul></details>
