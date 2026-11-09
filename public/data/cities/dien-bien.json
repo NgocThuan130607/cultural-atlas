@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Điện Biên is in the far north-west, bordering Laos and China. At its heart is the Mường Thanh valley, the largest in the north-western mountains. It is about 20 km long and covered in rice fields, and the Nậm Rốm River runs through it."
+      "text": "Điện Biên is in the far north-west, bordering Laos and China. At its heart is the Mường Thanh valley, the largest in the north-western mountains. It is about 20 km long and covered in rice fields, and the Nậm Rốm River runs through it.",
+      "motifs": [
+        "terraces",
+        "waves",
+        "rice"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In the 18th century the rebel leader Hoàng Công Chất made the Mường Thanh valley his base. In 1953–1954 the French built a fortified camp here and were besieged and defeated by the Việt Minh. The battle ended French rule in Indochina and led to the Geneva Accords."
+      "text": "In the 18th century the rebel leader Hoàng Công Chất made the Mường Thanh valley his base. In 1953–1954 the French built a fortified camp here and were besieged and defeated by the Việt Minh. The battle ended French rule in Indochina and led to the Geneva Accords.",
+      "motifs": [
+        "a1-hill",
+        "bicycle-tho",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Thái people, both Black and White Thái, have farmed the valley for centuries. Their xòe dance, performed in a circle with linked hands, was listed by UNESCO in 2021. In March the hills turn white with ban (bauhinia) flowers, a symbol of the region in Thái love songs."
+      "text": "The Thái people, both Black and White Thái, have farmed the valley for centuries. Their xòe dance, performed in a circle with linked hands, was listed by UNESCO in 2021. In March the hills turn white with ban (bauhinia) flowers, a symbol of the region in Thái love songs.",
+      "motifs": [
+        "hoa-ban",
+        "brocade",
+        "stilt-house"
+      ]
     }
   ],
   "etiquette": [
@@ -75,5 +90,22 @@
       "landmark": "dien-bien-phu-battlefield",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "a1-hill",
+      "hoa-ban",
+      "terraces"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "hoa-ban"
+    ],
+    "know": [
+      "incense",
+      "hoa-ban",
+      "camera-no"
+    ]
+  }
 }

@@ -6,8 +6,19 @@
   "lat": 10.6823,
   "lon": 105.0801,
   "summary": "A temple at the foot of Sam mountain, near Châu Đốc, dedicated to the Lady of the Realm. Its festival draws millions of pilgrims each year.",
-  "bestMonths": [1, 2, 3, 4, 9, 10, 11, 12],
-  "tags": ["spiritual"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    9,
+    10,
+    11,
+    12
+  ],
+  "tags": [
+    "spiritual"
+  ],
   "hero": {
     "file": "Miếu Bà Chúa Xứ Núi Sam.jpg",
     "alt": "The temple of the Lady of the Realm"
@@ -21,7 +32,12 @@
       "image": {
         "file": "Nơi Bà Chúa Xứ Núi Sam ngự khi xưa.jpg",
         "alt": "Where the Lady once sat on the mountain"
-      }
+      },
+      "motifs": [
+        "stones",
+        "karst",
+        "incense"
+      ]
     },
     {
       "year": 1825,
@@ -31,7 +47,12 @@
       "image": {
         "file": "Mieuba2.jpg",
         "alt": "The temple"
-      }
+      },
+      "motifs": [
+        "ba-chua-xu",
+        "bamboo",
+        "sampan"
+      ]
     },
     {
       "year": 1972,
@@ -41,7 +62,12 @@
       "image": {
         "file": "Chau doc - chua ba chua xu - panoramio.jpg",
         "alt": "The temple at Châu Đốc"
-      }
+      },
+      "motifs": [
+        "ba-chua-xu",
+        "incense",
+        "lantern"
+      ]
     },
     {
       "year": 2024,
@@ -51,7 +77,12 @@
       "image": {
         "file": "Miếu Bà Chúa Xứ, bên trong.JPG",
         "alt": "Inside the temple"
-      }
+      },
+      "motifs": [
+        "ba-chua-xu",
+        "scroll",
+        "incense"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +92,12 @@
       "image": {
         "file": "Offrandes destinées à la Déesse \"Ba Chua Xu\" (Chau Doc, Vietnam) (6602143141).jpg",
         "alt": "Offerings to the Lady"
-      }
+      },
+      "motifs": [
+        "ba-chua-xu",
+        "incense",
+        "fruit-boat"
+      ]
     }
   ],
   "story": [
@@ -73,7 +109,12 @@
         "file": "Nơi Bà Chúa Xứ Núi Sam ngự khi xưa.jpg",
         "alt": "The old site on the mountain"
       },
-      "narration": "The legend says that villagers found the statue on the top of Sam mountain and wanted to bring it down to build it a proper temple. However many strong men tried, they could not lift it. Then a woman in a trance spoke for the Lady: nine young girls should carry her. The girls lifted the statue easily and carried it down the slope. At the foot of the mountain it suddenly became too heavy to move, and the villagers understood that the Lady had chosen her home. The temple stands on that spot."
+      "narration": "The legend says that villagers found the statue on the top of Sam mountain and wanted to bring it down to build it a proper temple. However many strong men tried, they could not lift it. Then a woman in a trance spoke for the Lady: nine young girls should carry her. The girls lifted the statue easily and carried it down the slope. At the foot of the mountain it suddenly became too heavy to move, and the villagers understood that the Lady had chosen her home. The temple stands on that spot.",
+      "motifs": [
+        "karst",
+        "stones",
+        "ba-chua-xu"
+      ]
     },
     {
       "id": "canal",
@@ -83,7 +124,12 @@
         "file": "Mieuba2.jpg",
         "alt": "The temple"
       },
-      "narration": "Near the temple is the tomb of Thoại Ngọc Hầu, a general of the Nguyễn emperors. Between 1819 and 1824 he oversaw the digging of the Vĩnh Tế canal, about 90 km long, along the border with Cambodia, using the labour of tens of thousands of people, many of whom died. The canal secured the border and opened the region to settlers. Emperor Minh Mạng named it after Thoại Ngọc Hầu's wife, Châu Thị Vĩnh Tế."
+      "narration": "Near the temple is the tomb of Thoại Ngọc Hầu, a general of the Nguyễn emperors. Between 1819 and 1824 he oversaw the digging of the Vĩnh Tế canal, about 90 km long, along the border with Cambodia, using the labour of tens of thousands of people, many of whom died. The canal secured the border and opened the region to settlers. Emperor Minh Mạng named it after Thoại Ngọc Hầu's wife, Châu Thị Vĩnh Tế.",
+      "motifs": [
+        "sampan",
+        "waves",
+        "stele"
+      ]
     },
     {
       "id": "festival",
@@ -93,7 +139,12 @@
         "file": "Miếu Bà Chúa Xứ, bên trong.JPG",
         "alt": "Inside the temple"
       },
-      "narration": "The great festival takes place from the 22nd to the 27th day of the fourth lunar month. At midnight, the statue is bathed with scented water and dressed in a new robe, while priests and elders perform ancient rites. There are processions, music and lion dances. Pilgrims come from across the south, and from abroad, many of them traders who believe the Lady brings prosperity. In 2024 UNESCO recognised the festival as heritage of humanity."
+      "narration": "The great festival takes place from the 22nd to the 27th day of the fourth lunar month. At midnight, the statue is bathed with scented water and dressed in a new robe, while priests and elders perform ancient rites. There are processions, music and lion dances. Pilgrims come from across the south, and from abroad, many of them traders who believe the Lady brings prosperity. In 2024 UNESCO recognised the festival as heritage of humanity.",
+      "motifs": [
+        "ba-chua-xu",
+        "lantern",
+        "drum"
+      ]
     }
   ],
   "guide": {
@@ -161,7 +212,36 @@
         "lon": 105.117,
         "note": "Restaurants and markets. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "ba-chua-xu",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "karst"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "fish",
+        "rice",
+        "fruit-boat"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ba-chua-xu",
+      "incense",
+      "karst"
+    ]
+  }
 }

@@ -6,8 +6,17 @@
   "lat": 11.3039,
   "lon": 106.1335,
   "summary": "The great temple of Cao Đài, a 20th-century Vietnamese faith that blends Buddhism, Confucianism, Taoism and Christianity. Respectful visitors may watch its services, held four times a day.",
-  "bestMonths": [1, 2, 3, 4, 12],
-  "tags": ["spiritual", "architecture"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    12
+  ],
+  "tags": [
+    "spiritual",
+    "architecture"
+  ],
   "hero": {
     "file": "Cao Dai Holy See (10037404444).jpg",
     "alt": "The Cao Đài Holy See"
@@ -21,7 +30,12 @@
       "image": {
         "file": "CaoDaiMain.jpg",
         "alt": "The Holy See"
-      }
+      },
+      "motifs": [
+        "cao-dai",
+        "scroll",
+        "lantern"
+      ]
     },
     {
       "year": 1933,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Cao Dai Holy See (10037445595).jpg",
         "alt": "The towers of the Holy See"
-      }
+      },
+      "motifs": [
+        "cao-dai",
+        "stones",
+        "scroll"
+      ]
     },
     {
       "year": 1955,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Tây Ninh Holy See main gate.jpg",
         "alt": "The main gate of the Holy See"
-      }
+      },
+      "motifs": [
+        "cao-dai",
+        "bell",
+        "flag"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Tempel Cao Dai Innenansicht Tay Ninh Vietnam.JPG",
         "alt": "Inside the Holy See"
-      }
+      },
+      "motifs": [
+        "cao-dai",
+        "bell",
+        "incense"
+      ]
     }
   ],
   "story": [
@@ -63,7 +92,12 @@
         "file": "Cao Dai eye.jpg",
         "alt": "The Divine Eye"
       },
-      "narration": "The symbol of Cao Đài is a single left eye, the Divine Eye, which appears on the temple's front and on the great globe inside. Cao Đài teaches that all religions come from the same source, and it honours Buddha, Confucius, Laozi and Jesus. Its saints include unexpected figures: a famous painting at the entrance shows the French writer Victor Hugo, the Chinese leader Sun Yat-sen and the Vietnamese poet Nguyễn Bỉnh Khiêm signing a covenant between God and humanity."
+      "narration": "The symbol of Cao Đài is a single left eye, the Divine Eye, which appears on the temple's front and on the great globe inside. Cao Đài teaches that all religions come from the same source, and it honours Buddha, Confucius, Laozi and Jesus. Its saints include unexpected figures: a famous painting at the entrance shows the French writer Victor Hugo, the Chinese leader Sun Yat-sen and the Vietnamese poet Nguyễn Bỉnh Khiêm signing a covenant between God and humanity.",
+      "motifs": [
+        "cao-dai",
+        "lantern",
+        "incense"
+      ]
     },
     {
       "id": "service",
@@ -73,7 +107,12 @@
         "file": "Cao Dai Temple Tay Ninh.JPG",
         "alt": "The Holy See during a service"
       },
-      "narration": "Just before noon, a drum and bells sound. Followers enter in lines, men on one side and women on the other, and kneel in rows according to rank. Dignitaries wear robes of yellow for Buddhism, blue for Taoism and red for Confucianism, and ordinary followers wear white. Musicians play traditional instruments and a choir chants. Visitors may watch from the upper gallery, in silence, without flash."
+      "narration": "Just before noon, a drum and bells sound. Followers enter in lines, men on one side and women on the other, and kneel in rows according to rank. Dignitaries wear robes of yellow for Buddhism, blue for Taoism and red for Confucianism, and ordinary followers wear white. Musicians play traditional instruments and a choir chants. Visitors may watch from the upper gallery, in silence, without flash.",
+      "motifs": [
+        "bell",
+        "war-drum",
+        "cao-dai"
+      ]
     },
     {
       "id": "ba-den",
@@ -83,7 +122,12 @@
         "file": "Quần thể chùa Thượng ở núi Bà Đen.png",
         "alt": "Pagodas on Bà Đen mountain"
       },
-      "narration": "Bà Đen means 'the Black Lady'. One legend tells of a beautiful young woman named Lý Thị Thiên Hương who often climbed the mountain to pray at a pagoda. Attacked by bandits, she threw herself from a cliff rather than be captured. Later she appeared to a monk in a dream, with darkened skin, and asked him to find her body. People built a shrine to her, and the mountain took her name. Pilgrims still climb, or now ride the cable car, to pray to her."
+      "narration": "Bà Đen means 'the Black Lady'. One legend tells of a beautiful young woman named Lý Thị Thiên Hương who often climbed the mountain to pray at a pagoda. Attacked by bandits, she threw herself from a cliff rather than be captured. Later she appeared to a monk in a dream, with darkened skin, and asked him to find her body. People built a shrine to her, and the mountain took her name. Pilgrims still climb, or now ride the cable car, to pray to her.",
+      "motifs": [
+        "karst",
+        "cloud-sea",
+        "incense"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +222,36 @@
         "lon": 106.36,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "cao-dai",
+        "bell"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "karst"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "rice",
+        "lotus",
+        "coffee-phin"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "cao-dai",
+      "bell",
+      "rice"
+    ]
+  }
 }

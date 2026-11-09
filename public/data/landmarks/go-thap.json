@@ -6,8 +6,20 @@
   "lat": 10.5974,
   "lon": 105.8249,
   "summary": "A mound in the Plain of Reeds where a religious centre of the ancient Óc Eo culture once stood. It was later a base of the 19th-century resistance against France.",
-  "bestMonths": [1, 2, 3, 4, 9, 10, 11, 12],
-  "tags": ["history", "nature"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    9,
+    10,
+    11,
+    12
+  ],
+  "tags": [
+    "history",
+    "nature"
+  ],
   "hero": {
     "file": "Khu di tich khao co Go thap,Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
     "alt": "The archaeological site of Gò Tháp"
@@ -21,7 +33,12 @@
       "image": {
         "file": "Ruins of Go Thap Muoi, Go Thap archaeological site.jpg",
         "alt": "Ruins at Gò Tháp"
-      }
+      },
+      "motifs": [
+        "go-thap",
+        "scroll",
+        "vase"
+      ]
     },
     {
       "year": 1862,
@@ -31,7 +48,12 @@
       "image": {
         "file": "Đền thờ Võ Duy Dương và Đốc Binh Kiều.jpg",
         "alt": "Temple to Thiên Hộ Dương and Đốc Binh Kiều"
-      }
+      },
+      "motifs": [
+        "go-thap",
+        "flag",
+        "stork"
+      ]
     },
     {
       "year": 2000,
@@ -41,7 +63,12 @@
       "image": {
         "file": "Nha trung bay bao ton , khu di tich khao co, Go thap,Tân Kiều, Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
         "alt": "The museum at Gò Tháp"
-      }
+      },
+      "motifs": [
+        "go-thap",
+        "stones",
+        "vase"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +78,12 @@
       "image": {
         "file": "Duong vao khu di tich Go thap, huyen Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
         "alt": "The road to Gò Tháp"
-      }
+      },
+      "motifs": [
+        "go-thap",
+        "lotus",
+        "lotus-leaf"
+      ]
     }
   ],
   "story": [
@@ -63,7 +95,12 @@
         "file": "Ruins of Go Thap Muoi, Go Thap archaeological site.jpg",
         "alt": "Ruins at Gò Tháp"
       },
-      "narration": "Long before Vietnamese settlers arrived, the Mekong Delta was home to Funan, one of the first kingdoms of South-East Asia, from about the 1st to the 7th century. Its people dug canals, traded with India and China, and worshipped Hindu gods and the Buddha. Archaeologists call their culture Óc Eo, after its port city in today's An Giang. At Gò Tháp they found temple foundations and gold leaves engraved with gods, buried as offerings. Most of Funan still lies under the mud of the delta."
+      "narration": "Long before Vietnamese settlers arrived, the Mekong Delta was home to Funan, one of the first kingdoms of South-East Asia, from about the 1st to the 7th century. Its people dug canals, traded with India and China, and worshipped Hindu gods and the Buddha. Archaeologists call their culture Óc Eo, after its port city in today's An Giang. At Gò Tháp they found temple foundations and gold leaves engraved with gods, buried as offerings. Most of Funan still lies under the mud of the delta.",
+      "motifs": [
+        "go-thap",
+        "vase",
+        "scroll"
+      ]
     },
     {
       "id": "resistance",
@@ -73,7 +110,12 @@
         "file": "Đền thờ Võ Duy Dương và Đốc Binh Kiều.jpg",
         "alt": "The temple to the resistance leaders"
       },
-      "narration": "In the 1860s, after the French had seized the eastern provinces of the south, Võ Duy Dương, known as Thiên Hộ Dương, gathered fighters in the Plain of Reeds. With his commander Đốc Binh Kiều, he built a fortified camp at Gò Tháp, where the floods made it almost impossible to reach. They fought the French for several years. Đốc Binh Kiều was killed in 1866, and the camp fell soon after. A temple at the site honours them both."
+      "narration": "In the 1860s, after the French had seized the eastern provinces of the south, Võ Duy Dương, known as Thiên Hộ Dương, gathered fighters in the Plain of Reeds. With his commander Đốc Binh Kiều, he built a fortified camp at Gò Tháp, where the floods made it almost impossible to reach. They fought the French for several years. Đốc Binh Kiều was killed in 1866, and the camp fell soon after. A temple at the site honours them both.",
+      "motifs": [
+        "flag",
+        "sampan",
+        "lotus"
+      ]
     },
     {
       "id": "lotus",
@@ -83,7 +125,12 @@
         "file": "Duong vao khu di tich Go thap, huyen Tháp Mười, Đồng Tháp, Việt Nam - panoramio.jpg",
         "alt": "Countryside at Gò Tháp"
       },
-      "narration": "A well-known folk verse says that the lotus of Tháp Mười is the most beautiful of all. In summer, pink and white flowers rise above the ponds of the Plain of Reeds. Farmers sell the seeds fresh or dried, cook the roots in salads, wrap rice in the leaves and make tea from the stamens. Restaurants in Đồng Tháp serve whole lotus menus, and boats take visitors out among the flowers at dawn, when they open."
+      "narration": "A well-known folk verse says that the lotus of Tháp Mười is the most beautiful of all. In summer, pink and white flowers rise above the ponds of the Plain of Reeds. Farmers sell the seeds fresh or dried, cook the roots in salads, wrap rice in the leaves and make tea from the stamens. Restaurants in Đồng Tháp serve whole lotus menus, and boats take visitors out among the flowers at dawn, when they open.",
+      "motifs": [
+        "lotus",
+        "lotus-leaf",
+        "stork"
+      ]
     }
   ],
   "guide": {
@@ -177,7 +224,36 @@
         "lon": 106.36,
         "note": "Buses to Hồ Chí Minh City."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "go-thap",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "lotus"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "lotus",
+        "fish",
+        "sampan"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "go-thap",
+      "lotus",
+      "stork"
+    ]
+  }
 }

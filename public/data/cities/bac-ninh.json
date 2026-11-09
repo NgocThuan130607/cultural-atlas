@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The old region of Kinh Bắc spreads across the flat delta north-east of Hà Nội, crossed by the Đuống and Cầu rivers. The former Bắc Giang province adds rolling hills to the east: Lục Ngạn, famous for lychees, and the western slopes of the Yên Tử range."
+      "text": "The old region of Kinh Bắc spreads across the flat delta north-east of Hà Nội, crossed by the Đuống and Cầu rivers. The former Bắc Giang province adds rolling hills to the east: Lục Ngạn, famous for lychees, and the western slopes of the Yên Tử range.",
+      "motifs": [
+        "rice",
+        "waves",
+        "buffalo"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Under Chinese rule, Luy Lâu was the capital of the province of Giao Chỉ and one of the first centres of Buddhism in the region. Lý Công Uẩn, who founded the Lý dynasty in 1009, was born in this region. In March 1884 the French captured the citadel of Bắc Ninh. Today the province is one of Vietnam's largest manufacturing centres."
+      "text": "Under Chinese rule, Luy Lâu was the capital of the province of Giao Chỉ and one of the first centres of Buddhism in the region. Lý Công Uẩn, who founded the Lý dynasty in 1009, was born in this region. In March 1884 the French captured the citadel of Bắc Ninh. Today the province is one of Vietnam's largest manufacturing centres.",
+      "motifs": [
+        "dau-tower",
+        "scroll",
+        "citadel-gate"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Bắc Ninh is the home of quan họ, a style of call-and-response folk singing listed by UNESCO in 2009. The village of Đông Hồ still makes colourful woodblock prints for the new year, using natural colours on paper made from tree bark and coated with ground seashells."
+      "text": "Bắc Ninh is the home of quan họ, a style of call-and-response folk singing listed by UNESCO in 2009. The village of Đông Hồ still makes colourful woodblock prints for the new year, using natural colours on paper made from tree bark and coated with ground seashells.",
+      "motifs": [
+        "quan-ho",
+        "dong-ho",
+        "lute"
+      ]
     }
   ],
   "etiquette": [
@@ -69,5 +84,22 @@
       "landmark": "dau-pagoda",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "dau-tower",
+      "quan-ho",
+      "dong-ho"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "temple-roof"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "quan-ho"
+    ]
+  }
 }

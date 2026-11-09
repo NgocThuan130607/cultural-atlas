@@ -6,8 +6,18 @@
   "lat": 21.1511,
   "lon": 106.3276,
   "summary": "Two sacred sites in the hills of Chí Linh: Kiếp Bạc temple to General Trần Hưng Đạo, and Côn Sơn pagoda, where the scholar Nguyễn Trãi spent his last years.",
-  "bestMonths": [5, 6, 9, 10, 11],
-  "tags": ["spiritual", "history", "nature"],
+  "bestMonths": [
+    5,
+    6,
+    9,
+    10,
+    11
+  ],
+  "tags": [
+    "spiritual",
+    "history",
+    "nature"
+  ],
   "hero": {
     "file": "Den kiep bac.jpg",
     "alt": "Kiếp Bạc temple"
@@ -21,7 +31,12 @@
       "image": {
         "file": "Den kiep bac.jpg",
         "alt": "Kiếp Bạc temple"
-      }
+      },
+      "motifs": [
+        "stakes",
+        "junk",
+        "war-drum"
+      ]
     },
     {
       "year": 1300,
@@ -31,7 +46,12 @@
       "image": {
         "file": "Tượng đồng Trần Hưng Đạo tại đền Kiếp Bạc.jpg",
         "alt": "Bronze statue of Trần Hưng Đạo at Kiếp Bạc"
-      }
+      },
+      "motifs": [
+        "kiep-bac",
+        "incense",
+        "flag"
+      ]
     },
     {
       "year": 1437,
@@ -41,7 +61,12 @@
       "image": {
         "file": "Chua Con son.jpg",
         "alt": "Côn Sơn pagoda"
-      }
+      },
+      "motifs": [
+        "pine",
+        "scroll",
+        "kiep-bac"
+      ]
     },
     {
       "year": 1904,
@@ -51,7 +76,12 @@
       "image": {
         "file": "Kiếp Bạc temple in 1904.jpg",
         "alt": "Kiếp Bạc temple in 1904"
-      }
+      },
+      "motifs": [
+        "old-camera",
+        "kiep-bac",
+        "pine"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +91,12 @@
       "image": {
         "file": "Con Son Kiep Bac Haiduong.jpg",
         "alt": "The Côn Sơn – Kiếp Bạc area"
-      }
+      },
+      "motifs": [
+        "kiep-bac",
+        "incense",
+        "lantern"
+      ]
     }
   ],
   "story": [
@@ -73,7 +108,12 @@
         "file": "Tượng đồng Trần Hưng Đạo tại đền Kiếp Bạc.jpg",
         "alt": "Statue of Trần Hưng Đạo"
       },
-      "narration": "When the Mongol armies of Kublai Khan invaded, Vietnam faced the largest empire on Earth. Trần Hưng Đạo urged his officers to fight in a famous proclamation that is still studied in schools. A story says that when the emperor asked whether they should surrender to save the people, he answered: 'If Your Majesty wishes to surrender, first cut off my head.' Three times, in 1258, 1285 and 1288, the invaders were driven back, the last time on the Bạch Đằng River."
+      "narration": "When the Mongol armies of Kublai Khan invaded, Vietnam faced the largest empire on Earth. Trần Hưng Đạo urged his officers to fight in a famous proclamation that is still studied in schools. A story says that when the emperor asked whether they should surrender to save the people, he answered: 'If Your Majesty wishes to surrender, first cut off my head.' Three times, in 1258, 1285 and 1288, the invaders were driven back, the last time on the Bạch Đằng River.",
+      "motifs": [
+        "war-drum",
+        "stakes",
+        "flag"
+      ]
     },
     {
       "id": "saint",
@@ -83,7 +123,12 @@
         "file": "TranHungDao altar.jpg",
         "alt": "Altar to Trần Hưng Đạo"
       },
-      "narration": "After his death, Trần Hưng Đạo was honoured not only as a hero but as a protective spirit. People call him Đức Thánh Trần, Saint Trần, and believe he can drive away illness and evil spirits. His image is found in temples all over the country, and in the Mother Goddess religion mediums are possessed by him in trance rituals. At Kiếp Bạc, pilgrims ask him for protection, and many take home a blessed seal, printed in red, for luck."
+      "narration": "After his death, Trần Hưng Đạo was honoured not only as a hero but as a protective spirit. People call him Đức Thánh Trần, Saint Trần, and believe he can drive away illness and evil spirits. His image is found in temples all over the country, and in the Mother Goddess religion mediums are possessed by him in trance rituals. At Kiếp Bạc, pilgrims ask him for protection, and many take home a blessed seal, printed in red, for luck.",
+      "motifs": [
+        "kiep-bac",
+        "incense",
+        "lantern"
+      ]
     },
     {
       "id": "poet",
@@ -93,7 +138,12 @@
         "file": "Denthonguyentrai.jpg",
         "alt": "Temple to Nguyễn Trãi"
       },
-      "narration": "Nguyễn Trãi wrote Lê Lợi's proclamation of victory over the Ming in 1428, one of the great texts of Vietnamese history. Later, out of favour at court, he retired to Côn Sơn, where his grandfather had lived. In 'The Song of Côn Sơn' he describes the murmur of the stream, the pines like a green canopy and the stones like mats to sleep on. His end was tragic: in 1442 he was accused of killing the young emperor and executed with his family. He was cleared of all blame decades later."
+      "narration": "Nguyễn Trãi wrote Lê Lợi's proclamation of victory over the Ming in 1428, one of the great texts of Vietnamese history. Later, out of favour at court, he retired to Côn Sơn, where his grandfather had lived. In 'The Song of Côn Sơn' he describes the murmur of the stream, the pines like a green canopy and the stones like mats to sleep on. His end was tragic: in 1442 he was accused of killing the young emperor and executed with his family. He was cleared of all blame decades later.",
+      "motifs": [
+        "scroll",
+        "pine",
+        "bamboo"
+      ]
     }
   ],
   "guide": {
@@ -188,7 +238,36 @@
         "lon": 106.6881,
         "note": "Port city, trains to Hà Nội."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "kiep-bac",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "pine"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "pine",
+        "pho",
+        "rice"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "kiep-bac",
+      "pine",
+      "incense"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Nghệ An is Vietnam's largest province by area. The Lam River flows from the Laos border through forests and valleys to the coastal city of Vinh and the sea. Pù Mát National Park protects the forests of the west."
+      "text": "Nghệ An is Vietnam's largest province by area. The Lam River flows from the Laos border through forests and valleys to the coastal city of Vinh and the sea. Pù Mát National Park protects the forests of the west.",
+      "motifs": [
+        "waves",
+        "rice",
+        "karst"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In 722 Mai Thúc Loan rose against Tang rule here. Emperor Quang Trung planned a capital at Vinh in 1788. Nghệ An produced famous patriots: Phan Bội Châu, born in Nam Đàn in 1867, and Ho Chi Minh, born nearby in 1890. In 1930–31 peasants here rose in the 'Nghệ Tĩnh Soviets'. Vinh was almost flattened by bombing and rebuilt after the war."
+      "text": "In 722 Mai Thúc Loan rose against Tang rule here. Emperor Quang Trung planned a capital at Vinh in 1788. Nghệ An produced famous patriots: Phan Bội Châu, born in Nam Đàn in 1867, and Ho Chi Minh, born nearby in 1890. In 1930–31 peasants here rose in the 'Nghệ Tĩnh Soviets'. Vinh was almost flattened by bombing and rebuilt after the war.",
+      "motifs": [
+        "scroll",
+        "flag",
+        "thatch-house"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The people of Nghệ An are known for their strong accent, their love of learning and their stubborn spirit. Ví and giặm folk songs, sung while working, are on UNESCO's list. Eel soup (súp lươn) is the local speciality."
+      "text": "The people of Nghệ An are known for their strong accent, their love of learning and their stubborn spirit. Ví and giặm folk songs, sung while working, are on UNESCO's list. Eel soup (súp lươn) is the local speciality.",
+      "motifs": [
+        "lute",
+        "rice",
+        "loom"
+      ]
     }
   ],
   "etiquette": [
@@ -75,5 +90,22 @@
       "landmark": "kim-lien",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "thatch-house",
+      "lotus",
+      "scroll"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "lotus"
+    ],
+    "know": [
+      "incense",
+      "lotus",
+      "sandals"
+    ]
+  }
 }

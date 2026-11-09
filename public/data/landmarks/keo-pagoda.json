@@ -6,8 +6,15 @@
   "lat": 20.3606,
   "lon": 106.2972,
   "summary": "A 17th-century Buddhist pagoda in the Red River delta, famous for its three-storey wooden bell tower.",
-  "bestMonths": [7, 8, 10],
-  "tags": ["spiritual", "architecture"],
+  "bestMonths": [
+    7,
+    8,
+    10
+  ],
+  "tags": [
+    "spiritual",
+    "architecture"
+  ],
   "hero": {
     "file": "Chuakeothaibinh.jpg",
     "alt": "Keo Pagoda"
@@ -21,7 +28,12 @@
       "image": {
         "file": "Chua Keo 2.jpg",
         "alt": "A hall of Keo Pagoda"
-      }
+      },
+      "motifs": [
+        "keo-bell",
+        "scroll",
+        "waves"
+      ]
     },
     {
       "year": 1630,
@@ -31,7 +43,12 @@
       "image": {
         "file": "Chua Keo 3.jpg",
         "alt": "The halls of Keo Pagoda"
-      }
+      },
+      "motifs": [
+        "keo-bell",
+        "waves",
+        "stones"
+      ]
     },
     {
       "year": 1962,
@@ -41,7 +58,12 @@
       "image": {
         "file": "Chua Keo 5.jpg",
         "alt": "Wooden details of the pagoda"
-      }
+      },
+      "motifs": [
+        "keo-bell",
+        "flag",
+        "scroll"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +73,12 @@
       "image": {
         "file": "Chua Keo 7.jpg",
         "alt": "The bell tower of Keo Pagoda"
-      }
+      },
+      "motifs": [
+        "keo-bell",
+        "bell",
+        "incense"
+      ]
     }
   ],
   "story": [
@@ -63,7 +90,12 @@
         "file": "Chua Keo 2.jpg",
         "alt": "A hall of Keo Pagoda"
       },
-      "narration": "Keo Pagoda honours Không Lộ, a Zen master of the Lý dynasty. The stories say he came from a family of fishermen, gave up his nets to study Buddhism and became the emperor's spiritual adviser. Legends credit him with healing the sick and with supernatural powers. Fishermen and farmers of the delta pray to him for good harvests and safe journeys, and his statue is carried in procession at the pagoda's festival."
+      "narration": "Keo Pagoda honours Không Lộ, a Zen master of the Lý dynasty. The stories say he came from a family of fishermen, gave up his nets to study Buddhism and became the emperor's spiritual adviser. Legends credit him with healing the sick and with supernatural powers. Fishermen and farmers of the delta pray to him for good harvests and safe journeys, and his statue is carried in procession at the pagoda's festival.",
+      "motifs": [
+        "fish",
+        "sampan",
+        "keo-bell"
+      ]
     },
     {
       "id": "tower",
@@ -73,7 +105,12 @@
         "file": "Chua Keo 7.jpg",
         "alt": "The bell tower"
       },
-      "narration": "The bell tower at the back of the pagoda is a masterpiece of traditional carpentry. Its three tiers of curved roofs rest on wooden pillars, connected by beams fitted together with mortise-and-tenon joints and wooden pegs. Large bronze bells hang inside. The whole pagoda shows the same craftsmanship: carved dragons, clouds and lotuses on the beams, and long covered corridors linking the halls."
+      "narration": "The bell tower at the back of the pagoda is a masterpiece of traditional carpentry. Its three tiers of curved roofs rest on wooden pillars, connected by beams fitted together with mortise-and-tenon joints and wooden pegs. Large bronze bells hang inside. The whole pagoda shows the same craftsmanship: carved dragons, clouds and lotuses on the beams, and long covered corridors linking the halls.",
+      "motifs": [
+        "keo-bell",
+        "bell",
+        "stones"
+      ]
     },
     {
       "id": "festival",
@@ -83,7 +120,12 @@
         "file": "Chua Keo 5.jpg",
         "alt": "Keo Pagoda"
       },
-      "narration": "Keo Pagoda holds two festivals: one in spring, and a larger one in autumn, in the middle of the ninth lunar month. Teams of villagers race long boats on the river and compete to cook rice in clay pots over small fires, sometimes while carrying the pots on poles. There are processions, games and singing. The festival marks the anniversary of the death of Không Lộ, and also celebrates the end of the rice harvest."
+      "narration": "Keo Pagoda holds two festivals: one in spring, and a larger one in autumn, in the middle of the ninth lunar month. Teams of villagers race long boats on the river and compete to cook rice in clay pots over small fires, sometimes while carrying the pots on poles. There are processions, games and singing. The festival marks the anniversary of the death of Không Lộ, and also celebrates the end of the rice harvest.",
+      "motifs": [
+        "sampan",
+        "keo-bell",
+        "lantern"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +220,36 @@
         "lon": 106.07,
         "note": "Fruit in July–August. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "keo-bell",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "rice"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "rice",
+        "lotus",
+        "pho"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "keo-bell",
+      "lotus",
+      "rice"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Đồng Tháp lies along the Tiền River, the northern arm of the Mekong. Its north is part of Đồng Tháp Mười, the Plain of Reeds, a vast wetland that floods every autumn. Tràm Chim National Park protects cranes and wild rice there. The former Tiền Giang province adds Mỹ Tho and the fruit islands near the sea."
+      "text": "The new Đồng Tháp lies along the Tiền River, the northern arm of the Mekong. Its north is part of Đồng Tháp Mười, the Plain of Reeds, a vast wetland that floods every autumn. Tràm Chim National Park protects cranes and wild rice there. The former Tiền Giang province adds Mỹ Tho and the fruit islands near the sea.",
+      "motifs": [
+        "lotus-leaf",
+        "stork",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In the first centuries CE the area was part of Funan, an early kingdom of the Mekong, and its religious centre at Gò Tháp has been excavated. In 1679 Chinese Ming loyalists settled at Mỹ Tho. In 1785, Nguyễn Huệ destroyed a Siamese fleet at Rạch Gầm–Xoài Mút on the Tiền River. In the 1860s, resistance leaders fought the French from the marshes of Gò Tháp."
+      "text": "In the first centuries CE the area was part of Funan, an early kingdom of the Mekong, and its religious centre at Gò Tháp has been excavated. In 1679 Chinese Ming loyalists settled at Mỹ Tho. In 1785, Nguyễn Huệ destroyed a Siamese fleet at Rạch Gầm–Xoài Mút on the Tiền River. In the 1860s, resistance leaders fought the French from the marshes of Gò Tháp.",
+      "motifs": [
+        "go-thap",
+        "scroll",
+        "lotus"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Lotus is the symbol of Đồng Tháp: its seeds, roots and leaves are eaten, and the flowers fill the ponds in summer. The flower village of Sa Đéc supplies the delta at Tết. Mỹ Tho is famous for its noodle soup, hủ tiếu Mỹ Tho."
+      "text": "Lotus is the symbol of Đồng Tháp: its seeds, roots and leaves are eaten, and the flowers fill the ponds in summer. The flower village of Sa Đéc supplies the delta at Tết. Mỹ Tho is famous for its noodle soup, hủ tiếu Mỹ Tho.",
+      "motifs": [
+        "lotus",
+        "lotus-leaf",
+        "sampan"
+      ]
     }
   ],
   "etiquette": [
@@ -79,5 +94,22 @@
       "landmark": "go-thap",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "go-thap",
+      "lotus",
+      "stork"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "lotus"
+    ],
+    "know": [
+      "lotus",
+      "sampan",
+      "non-la"
+    ]
+  }
 }

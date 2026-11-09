@@ -6,8 +6,17 @@
   "lat": 17.0039,
   "lon": 107.0514,
   "summary": "A bridge over the Bến Hải River, on the 17th parallel, which split Vietnam in two from 1954 to 1975.",
-  "bestMonths": [3, 4, 5, 6, 7, 8],
-  "tags": ["history"],
+  "bestMonths": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Benhairiver1.jpg",
     "alt": "The Bến Hải River and Hiền Lương Bridge"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Benhairiver1.jpg",
         "alt": "The Bến Hải River"
-      }
+      },
+      "motifs": [
+        "hien-luong",
+        "waves",
+        "scroll"
+      ]
     },
     {
       "year": 1957,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Cột cờ giới tuyến1.JPG",
         "alt": "The flagpole on the north bank"
-      }
+      },
+      "motifs": [
+        "flag",
+        "hien-luong",
+        "microphone"
+      ]
     },
     {
       "year": 1967,
@@ -41,7 +60,12 @@
       "image": {
         "file": "17th para taken from N of river.JPG",
         "alt": "The river seen from the north bank"
-      }
+      },
+      "motifs": [
+        "hien-luong",
+        "stones",
+        "incense"
+      ]
     },
     {
       "year": 1975,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Tour of the DMZ, Vietnam (17100711821).jpg",
         "alt": "Hiền Lương Bridge"
-      }
+      },
+      "motifs": [
+        "hien-luong",
+        "flag",
+        "chim-lac"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +90,12 @@
       "image": {
         "file": "Tượng đài Khát vọng thống nhất non sông.JPG",
         "alt": "The monument to reunification"
-      }
+      },
+      "motifs": [
+        "hien-luong",
+        "incense",
+        "lotus"
+      ]
     }
   ],
   "story": [
@@ -73,7 +107,12 @@
         "file": "Benhairiver1.jpg",
         "alt": "The Bến Hải River"
       },
-      "narration": "When the war against France ended in 1954, the peace agreement signed in Geneva drew a temporary line across Vietnam at the 17th parallel. Troops were to regroup on either side until national elections in 1956. The elections never took place. For twenty-one years the narrow Bến Hải River separated two states, and the Hiền Lương Bridge, under 200 metres long, separated families who could see each other across the water but not meet."
+      "narration": "When the war against France ended in 1954, the peace agreement signed in Geneva drew a temporary line across Vietnam at the 17th parallel. Troops were to regroup on either side until national elections in 1956. The elections never took place. For twenty-one years the narrow Bến Hải River separated two states, and the Hiền Lương Bridge, under 200 metres long, separated families who could see each other across the water but not meet.",
+      "motifs": [
+        "hien-luong",
+        "waves",
+        "scroll"
+      ]
     },
     {
       "id": "flag",
@@ -83,7 +122,12 @@
         "file": "Người mẹ vá cờ Hiền Lương.JPG",
         "alt": "Statue of the mother mending the flag"
       },
-      "narration": "On the north bank stood a tall flagpole, and on the south bank another. The flags were targets, torn by wind and gunfire. People of the Vĩnh Linh area, many of them women, sewed and mended the northern flag again and again, sometimes at night, so that it would fly every morning. A statue of a mother mending the flag now stands near the bridge. The flagpole on the north bank has been rebuilt, and a large flag flies there today."
+      "narration": "On the north bank stood a tall flagpole, and on the south bank another. The flags were targets, torn by wind and gunfire. People of the Vĩnh Linh area, many of them women, sewed and mended the northern flag again and again, sometimes at night, so that it would fly every morning. A statue of a mother mending the flag now stands near the bridge. The flagpole on the north bank has been rebuilt, and a large flag flies there today.",
+      "motifs": [
+        "flag",
+        "hien-luong",
+        "loom"
+      ]
     },
     {
       "id": "vinh-moc",
@@ -93,7 +137,12 @@
         "file": "17th para taken from N of river.JPG",
         "alt": "The area north of the river"
       },
-      "narration": "North of the river, the village of Vĩnh Mốc was bombed almost every day. Its people dug tunnels about two kilometres long, on three levels, down to more than 20 metres underground. Families lived there for years, with small rooms, wells and a meeting hall. Children were born in the tunnels. Today visitors can walk through them, bending low, and come out at exits facing the sea."
+      "narration": "North of the river, the village of Vĩnh Mốc was bombed almost every day. Its people dug tunnels about two kilometres long, on three levels, down to more than 20 metres underground. Families lived there for years, with small rooms, wells and a meeting hall. Children were born in the tunnels. Today visitors can walk through them, bending low, and come out at exits facing the sea.",
+      "motifs": [
+        "cave",
+        "stones",
+        "lantern"
+      ]
     }
   ],
   "guide": {
@@ -195,7 +244,36 @@
         "lon": 107.1,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "hien-luong",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "hien-luong"
+      ],
+      "etiquette": [
+        "incense",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "fish",
+        "waves",
+        "sampan"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "hien-luong",
+      "flag",
+      "waves"
+    ]
+  }
 }

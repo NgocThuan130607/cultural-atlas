@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Rome grew up beside the River Tiber, on and around its famous seven hills, about 25 km from the sea. The Vatican City, the world's smallest independent country, sits entirely inside the city. Summers are hot and dry, and the winters are mild."
+      "text": "Rome grew up beside the River Tiber, on and around its famous seven hills, about 25 km from the sea. The Vatican City, the world's smallest independent country, sits entirely inside the city. Summers are hot and dry, and the winters are mild.",
+      "motifs": [
+        "waves",
+        "olive",
+        "sun"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Legend says Romulus founded Rome in 753 BCE. It became the centre of a Republic, then of an Empire that stretched from Britain to Egypt. For centuries afterwards it was the city of the popes, and since 1871 it has been the capital of a united Italy. Ancient ruins, medieval churches and Baroque squares stand side by side."
+      "text": "Legend says Romulus founded Rome in 753 BCE. It became the centre of a Republic, then of an Empire that stretched from Britain to Egypt. For centuries afterwards it was the city of the popes, and since 1871 it has been the capital of a united Italy. Ancient ruins, medieval churches and Baroque squares stand side by side.",
+      "motifs": [
+        "roman-arch",
+        "amphora",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Romans live in the piazza. They drink an espresso standing at the bar, take an evening stroll (the passeggiata) and meet friends for aperitivo before dinner. Hundreds of free public drinking fountains, called nasoni or \"big noses\", still carry cool water across the city."
+      "text": "Romans live in the piazza. They drink an espresso standing at the bar, take an evening stroll (the passeggiata) and meet friends for aperitivo before dinner. Hundreds of free public drinking fountains, called nasoni or \"big noses\", still carry cool water across the city.",
+      "motifs": [
+        "fountain",
+        "amphora",
+        "olive"
+      ]
     }
   ],
   "etiquette": [
@@ -112,5 +127,22 @@
       "landmark": "colosseum",
       "era": 5
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "colosseum",
+      "roman-arch",
+      "olive"
+    ],
+    "map": [
+      "compass",
+      "roman-arch",
+      "route"
+    ],
+    "know": [
+      "fountain",
+      "roman-arch",
+      "olive"
+    ]
+  }
 }

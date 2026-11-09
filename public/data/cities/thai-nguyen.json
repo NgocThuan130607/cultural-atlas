@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Thái Nguyên lies where the Red River delta meets the northern mountains. The Cầu River runs through its rolling midlands, which are covered in tea. To the north, the former Bắc Kạn province is a land of forests and limestone, with Ba Bể Lake at its heart."
+      "text": "Thái Nguyên lies where the Red River delta meets the northern mountains. The Cầu River runs through its rolling midlands, which are covered in tea. To the north, the former Bắc Kạn province is a land of forests and limestone, with Ba Bể Lake at its heart.",
+      "motifs": [
+        "tea-leaves",
+        "karst",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In August 1917, soldiers at the Thái Nguyên garrison mutinied against the French and held the town for several days. From 1947 the forests of Định Hóa became the 'ATK' safe zone, the hidden headquarters of the government during the war against France. In the 1960s Thái Nguyên became the home of Vietnam's first steelworks."
+      "text": "In August 1917, soldiers at the Thái Nguyên garrison mutinied against the French and held the town for several days. From 1947 the forests of Định Hóa became the 'ATK' safe zone, the hidden headquarters of the government during the war against France. In the 1960s Thái Nguyên became the home of Vietnam's first steelworks.",
+      "motifs": [
+        "flag",
+        "scroll",
+        "bamboo"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Tân Cương green tea, grown on the hills west of the city, is considered among the best in Vietnam. Tea is served at every visit and every negotiation. In the hills and around Ba Bể, the Tày and Nùng keep their stilt houses, their 'then' songs and the music of the tính lute."
+      "text": "Tân Cương green tea, grown on the hills west of the city, is considered among the best in Vietnam. Tea is served at every visit and every negotiation. In the hills and around Ba Bể, the Tày and Nùng keep their stilt houses, their 'then' songs and the music of the tính lute.",
+      "motifs": [
+        "tea",
+        "tea-leaves",
+        "stilt-house"
+      ]
     }
   ],
   "etiquette": [
@@ -72,5 +87,22 @@
       "landmark": "ba-be-lake",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ba-be",
+      "tea-leaves",
+      "karst"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "tea-leaves"
+    ],
+    "know": [
+      "tea",
+      "stilt-house",
+      "sandals"
+    ]
+  }
 }

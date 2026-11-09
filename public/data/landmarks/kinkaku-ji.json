@@ -6,8 +6,16 @@
   "lat": 35.03937,
   "lon": 135.72924,
   "summary": "A Zen temple whose upper two floors are covered in gold leaf and reflected in a mirror-like pond. It was rebuilt after a young monk burned it down in 1950.",
-  "bestMonths": [3, 4, 11],
-  "tags": ["spiritual", "architecture", "nature"],
+  "bestMonths": [
+    3,
+    4,
+    11
+  ],
+  "tags": [
+    "spiritual",
+    "architecture",
+    "nature"
+  ],
   "featured": true,
   "hero": {
     "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
@@ -22,7 +30,12 @@
       "image": {
         "file": "Yoshimitsu Ashikaga.jpg",
         "alt": "Portrait of the shogun Ashikaga Yoshimitsu"
-      }
+      },
+      "motifs": [
+        "kinkaku",
+        "scroll",
+        "pine"
+      ]
     },
     {
       "year": 1408,
@@ -32,7 +45,12 @@
       "image": {
         "file": "Kyoto Rokuon-ji Kinkaku-ji a17.jpg",
         "alt": "The golden pavilion and its phoenix framed by snowy pine branches"
-      }
+      },
+      "motifs": [
+        "kinkaku",
+        "torii",
+        "bell"
+      ]
     },
     {
       "year": 1885,
@@ -42,7 +60,12 @@
       "image": {
         "file": "Kusakabe Kimbei 1337 Kinkakuji.JPG",
         "alt": "Meiji-era photograph of Kinkaku-ji by Kusakabe Kimbei"
-      }
+      },
+      "motifs": [
+        "old-camera",
+        "kinkaku",
+        "maple"
+      ]
     },
     {
       "year": 1950,
@@ -52,7 +75,12 @@
       "image": {
         "file": "Burned Kinkaku.jpg",
         "alt": "The burned remains of Kinkaku-ji in 1950"
-      }
+      },
+      "motifs": [
+        "incense",
+        "kinkaku",
+        "maple"
+      ]
     },
     {
       "year": 1955,
@@ -62,7 +90,12 @@
       "image": {
         "file": "Kinkakuji (Golden Pavilion), Kyoto, Japan - 34036736784.jpg",
         "alt": "The rebuilt golden pavilion"
-      }
+      },
+      "motifs": [
+        "kinkaku",
+        "sparkle",
+        "sakura"
+      ]
     },
     {
       "year": 1994,
@@ -72,7 +105,12 @@
       "image": {
         "file": "Kyōko-chi Pond at Kinkaku-ji Frozen on January 1, 2011.jpg",
         "alt": "Kinkaku-ji in snow with the pond frozen, 1 January 2011"
-      }
+      },
+      "motifs": [
+        "kinkaku",
+        "scroll",
+        "sakura"
+      ]
     },
     {
       "year": 2026,
@@ -82,7 +120,12 @@
       "image": {
         "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
         "alt": "Kinkaku-ji reflected in the pond today"
-      }
+      },
+      "motifs": [
+        "kinkaku",
+        "ripples",
+        "maple"
+      ]
     }
   ],
   "story": [
@@ -94,7 +137,12 @@
         "file": "Golden Pavilion Kinkaku-ji water mirror 2024.jpg",
         "alt": "The Golden Pavilion"
       },
-      "narration": "Look closely and you will see that each floor of the pavilion is built in a different style. The ground floor, left in natural wood, follows the palace style of the imperial court. The second floor follows the style of samurai houses. The top floor is built like a Zen Buddhist hall. Together they show Yoshimitsu's world: a shogun who combined the elegance of the court, the power of the warrior class and the spirit of Zen. On the roof stands a golden phoenix, the bird of good fortune."
+      "narration": "Look closely and you will see that each floor of the pavilion is built in a different style. The ground floor, left in natural wood, follows the palace style of the imperial court. The second floor follows the style of samurai houses. The top floor is built like a Zen Buddhist hall. Together they show Yoshimitsu's world: a shogun who combined the elegance of the court, the power of the warrior class and the spirit of Zen. On the roof stands a golden phoenix, the bird of good fortune.",
+      "motifs": [
+        "kinkaku",
+        "fan",
+        "scroll"
+      ]
     },
     {
       "id": "mirror-pond",
@@ -104,7 +152,12 @@
         "file": "Kyoto Rokuon-ji Kinkaku-ji c14.jpg",
         "alt": "Kinkaku-ji reflected in the mirror pond on a snowy day"
       },
-      "narration": "The garden is a stroll garden, designed to be walked through slowly, revealing new views at every turn. Its pond, the Kyōko-chi, or mirror pond, has small islands topped with pines. Some are said to represent the lands of the world, others the crane and the tortoise, symbols of long life. Behind it all rise the forested hills of northern Kyoto. Japanese garden makers call this technique shakkei, borrowed scenery, using the landscape beyond the walls as part of the design."
+      "narration": "The garden is a stroll garden, designed to be walked through slowly, revealing new views at every turn. Its pond, the Kyōko-chi, or mirror pond, has small islands topped with pines. Some are said to represent the lands of the world, others the crane and the tortoise, symbols of long life. Behind it all rise the forested hills of northern Kyoto. Japanese garden makers call this technique shakkei, borrowed scenery, using the landscape beyond the walls as part of the design.",
+      "motifs": [
+        "kinkaku",
+        "ripples",
+        "pine"
+      ]
     },
     {
       "id": "mishima",
@@ -114,7 +167,12 @@
         "file": "Kawabata Ryūshi - Kinkakuji-Temple on Fire.jpg",
         "alt": "Kawabata Ryūshi's painting of Kinkaku-ji on fire"
       },
-      "narration": "Why would a monk destroy the most beautiful building he knew? In 1956 the writer Yukio Mishima turned the true story of the 1950 fire into a novel, The Temple of the Golden Pavilion. In the book, a lonely young monk becomes obsessed with the temple's beauty until he feels he can only be free if it no longer exists. The novel became one of the most famous works of modern Japanese literature, and it made the Golden Pavilion a symbol of beauty that is both perfect and fragile."
+      "narration": "Why would a monk destroy the most beautiful building he knew? In 1956 the writer Yukio Mishima turned the true story of the 1950 fire into a novel, The Temple of the Golden Pavilion. In the book, a lonely young monk becomes obsessed with the temple's beauty until he feels he can only be free if it no longer exists. The novel became one of the most famous works of modern Japanese literature, and it made the Golden Pavilion a symbol of beauty that is both perfect and fragile.",
+      "motifs": [
+        "scroll",
+        "incense",
+        "kinkaku"
+      ]
     },
     {
       "id": "land-boat-pine",
@@ -124,7 +182,12 @@
         "file": "Kyoto Rokuon-ji Kinkaku-ji c18.jpg",
         "alt": "Pines in the garden of Kinkaku-ji dusted with snow"
       },
-      "narration": "Near the abbot's quarters grows one of the three most famous pines in Kyoto, the Rikushū-no-matsu, or Land Boat Pine. Its branches have been trained for centuries into the shape of a sailing ship. Legend says it began as a tiny bonsai that Yoshimitsu himself looked after and later planted in the ground. Look out too for your entrance ticket. It is not an ordinary ticket but an ofuda, a paper charm for good fortune and safety at home. Many visitors keep it."
+      "narration": "Near the abbot's quarters grows one of the three most famous pines in Kyoto, the Rikushū-no-matsu, or Land Boat Pine. Its branches have been trained for centuries into the shape of a sailing ship. Legend says it began as a tiny bonsai that Yoshimitsu himself looked after and later planted in the ground. Look out too for your entrance ticket. It is not an ordinary ticket but an ofuda, a paper charm for good fortune and safety at home. Many visitors keep it.",
+      "motifs": [
+        "pine",
+        "sampan",
+        "kinkaku"
+      ]
     }
   ],
   "guide": {
@@ -247,7 +310,36 @@
         "lon": 135.7182,
         "note": "About 20 minutes' walk west."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "kinkaku",
+        "maple"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "torii"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "fan"
+      ],
+      "tips": [
+        "matcha",
+        "sakura",
+        "maple"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting.",
+  "motifs": {
+    "cover": [
+      "kinkaku",
+      "maple",
+      "torii"
+    ]
+  }
 }

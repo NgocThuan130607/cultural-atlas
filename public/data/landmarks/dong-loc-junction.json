@@ -6,8 +6,18 @@
   "lat": 18.447,
   "lon": 105.628,
   "summary": "A crossroads on the wartime supply route that was bombed thousands of times in 1968. A memorial honours ten young volunteers who died here.",
-  "bestMonths": [2, 3, 4, 5, 6, 7, 8],
-  "tags": ["history"],
+  "bestMonths": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Nga Ba Dong Loc.jpg",
     "alt": "The Đồng Lộc junction memorial"
@@ -21,7 +31,12 @@
       "image": {
         "file": "Nga Ba Dong Loc.jpg",
         "alt": "The Đồng Lộc junction"
-      }
+      },
+      "motifs": [
+        "mountain-road",
+        "dong-loc",
+        "flag"
+      ]
     },
     {
       "year": 1968,
@@ -31,7 +46,12 @@
       "image": {
         "file": "Tượng đài.jpg",
         "alt": "The memorial statue at Đồng Lộc"
-      }
+      },
+      "motifs": [
+        "dong-loc",
+        "incense",
+        "hoa-ban"
+      ]
     },
     {
       "year": 1996,
@@ -41,7 +61,12 @@
       "image": {
         "file": "Nga Ba Dong Loc.jpg",
         "alt": "The memorial site"
-      }
+      },
+      "motifs": [
+        "stele",
+        "dong-loc",
+        "incense"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +76,12 @@
       "image": {
         "file": "Lighting incense at the Dong Loc Junction memorial.jpg",
         "alt": "Lighting incense at the memorial"
-      }
+      },
+      "motifs": [
+        "dong-loc",
+        "incense",
+        "peach"
+      ]
     }
   ],
   "story": [
@@ -63,7 +93,12 @@
         "file": "Tượng đài.jpg",
         "alt": "The memorial statue"
       },
-      "narration": "Squad 4 of the volunteer youth at Đồng Lộc was made up of ten young women from the villages nearby. Their job was to keep the road open: filling bomb craters, defusing unexploded bombs and guiding trucks at night. On the afternoon of 24 July 1968, a bomb fell close to their shelter, killing all ten. They were buried together on the hill above the junction. Their letters and diaries, kept in the museum, show how young they were: they wrote about their families, their friends and the future they hoped for."
+      "narration": "Squad 4 of the volunteer youth at Đồng Lộc was made up of ten young women from the villages nearby. Their job was to keep the road open: filling bomb craters, defusing unexploded bombs and guiding trucks at night. On the afternoon of 24 July 1968, a bomb fell close to their shelter, killing all ten. They were buried together on the hill above the junction. Their letters and diaries, kept in the museum, show how young they were: they wrote about their families, their friends and the future they hoped for.",
+      "motifs": [
+        "dong-loc",
+        "incense",
+        "non-la"
+      ]
     },
     {
       "id": "kieu",
@@ -73,7 +108,12 @@
         "file": "Thiencambeach.jpg",
         "alt": "The coast of Hà Tĩnh"
       },
-      "narration": "Nguyễn Du, born in 1765 into a family of mandarins from Tiên Điền, wrote The Tale of Kiều, the masterpiece of Vietnamese literature. In more than 3,000 lines of six-eight verse, it tells of a beautiful, talented young woman who sells herself to save her family and suffers fifteen years of misfortune. Vietnamese people quote it like proverbs, and fortune-tellers even used it to tell the future. His memorial at Tiên Điền attracts visitors from across the country."
+      "narration": "Nguyễn Du, born in 1765 into a family of mandarins from Tiên Điền, wrote The Tale of Kiều, the masterpiece of Vietnamese literature. In more than 3,000 lines of six-eight verse, it tells of a beautiful, talented young woman who sells herself to save her family and suffers fifteen years of misfortune. Vietnamese people quote it like proverbs, and fortune-tellers even used it to tell the future. His memorial at Tiên Điền attracts visitors from across the country.",
+      "motifs": [
+        "scroll",
+        "lute",
+        "stele"
+      ]
     },
     {
       "id": "hong-linh",
@@ -83,7 +123,12 @@
         "file": "Nga Ba Dong Loc.jpg",
         "alt": "The hills of Hà Tĩnh"
       },
-      "narration": "The Hồng Lĩnh range near the coast is said to have ninety-nine peaks. A legend tells that a flock of a hundred great birds flew south looking for a place to settle. When they reached this land, they liked it so much that they stopped and turned into mountains. But one bird was missing, so the range has only ninety-nine peaks. People say that is why the province never had a king."
+      "narration": "The Hồng Lĩnh range near the coast is said to have ninety-nine peaks. A legend tells that a flock of a hundred great birds flew south looking for a place to settle. When they reached this land, they liked it so much that they stopped and turned into mountains. But one bird was missing, so the range has only ninety-nine peaks. People say that is why the province never had a king.",
+      "motifs": [
+        "chim-lac",
+        "karst",
+        "cloud-sea"
+      ]
     }
   ],
   "guide": {
@@ -177,7 +222,36 @@
         "lon": 106.11,
         "note": "Seafood. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "dong-loc",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "incense"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "incense",
+        "rice",
+        "tea"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "dong-loc",
+      "incense",
+      "hoa-ban"
+    ]
+  }
 }

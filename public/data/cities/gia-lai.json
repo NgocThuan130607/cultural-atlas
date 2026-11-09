@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Gia Lai stretches from the sea at Quy Nhơn, in the former Bình Định province, west over the An Khê Pass to the basalt plateau of Pleiku. The highlands are covered in coffee, pepper and rubber, and the crater lake of Biển Hồ lies just north of Pleiku."
+      "text": "The new Gia Lai stretches from the sea at Quy Nhơn, in the former Bình Định province, west over the An Khê Pass to the basalt plateau of Pleiku. The highlands are covered in coffee, pepper and rubber, and the crater lake of Biển Hồ lies just north of Pleiku.",
+      "motifs": [
+        "waves",
+        "coffee-phin",
+        "karst"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Around the year 1000, Vijaya, near Quy Nhơn, became the capital of the Cham kingdom; it fell to Đại Việt in 1471. In 1771 three brothers from Tây Sơn launched a rebellion that overthrew the rulers of both north and south and drove out Siamese and Qing armies. The highlands around Pleiku saw major battles in the American war, including Ia Drang in 1965."
+      "text": "Around the year 1000, Vijaya, near Quy Nhơn, became the capital of the Cham kingdom; it fell to Đại Việt in 1471. In 1771 three brothers from Tây Sơn launched a rebellion that overthrew the rulers of both north and south and drove out Siamese and Qing armies. The highlands around Pleiku saw major battles in the American war, including Ia Drang in 1965.",
+      "motifs": [
+        "tay-son-drum",
+        "war-drum",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Bình Định is known for its martial arts and for tuồng, classical opera. The Jarai and Ba Na of the highlands play gongs at their festivals, a tradition listed by UNESCO. Cham towers still stand around Quy Nhơn."
+      "text": "Bình Định is known for its martial arts and for tuồng, classical opera. The Jarai and Ba Na of the highlands play gongs at their festivals, a tradition listed by UNESCO. Cham towers still stand around Quy Nhơn.",
+      "motifs": [
+        "gongs",
+        "longhouse",
+        "brocade"
+      ]
     }
   ],
   "etiquette": [
@@ -85,5 +100,22 @@
       "landmark": "quang-trung-museum",
       "era": 5
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "tay-son-drum",
+      "longhouse",
+      "gongs"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "tay-son-drum"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "gongs"
+    ]
+  }
 }

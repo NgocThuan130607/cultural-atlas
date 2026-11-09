@@ -6,8 +6,14 @@
   "lat": 21.3836,
   "lon": 103.0218,
   "summary": "The valley where Vietnamese forces besieged and defeated the French army in 1954, ending French rule in Indochina. Hills, bunkers and a museum keep the story.",
-  "bestMonths": [3, 9, 10],
-  "tags": ["history"],
+  "bestMonths": [
+    3,
+    9,
+    10
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Victory in Battle of Dien Bien Phu.jpg",
     "alt": "Soldiers raise the flag over the French command bunker in 1954"
@@ -21,7 +27,12 @@
       "image": {
         "file": "French M24s atr Dien Bien Phu.jpg",
         "alt": "French tanks at Điện Biên Phủ"
-      }
+      },
+      "motifs": [
+        "a1-hill",
+        "terraces",
+        "cloud-sea"
+      ]
     },
     {
       "year": 1954,
@@ -31,7 +42,12 @@
       "image": {
         "file": "Dân công dân tộc vận chuyển hàng ra mặt trận.jpg",
         "alt": "Porters carrying supplies to the front"
-      }
+      },
+      "motifs": [
+        "bicycle-tho",
+        "a1-hill",
+        "mountain-road"
+      ]
     },
     {
       "year": 1954,
@@ -41,7 +57,12 @@
       "image": {
         "file": "Victory in Battle of Dien Bien Phu.jpg",
         "alt": "Raising the flag over the command bunker"
-      }
+      },
+      "motifs": [
+        "a1-hill",
+        "flag",
+        "hoa-ban"
+      ]
     },
     {
       "year": 2014,
@@ -51,7 +72,12 @@
       "image": {
         "file": "Captured French artillery at the Dien Bien Phu Museum.jpg",
         "alt": "Captured French artillery at the museum"
-      }
+      },
+      "motifs": [
+        "scroll",
+        "a1-hill",
+        "stele"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +87,12 @@
       "image": {
         "file": "The Victory Monument of Dien Bien Phu (front).jpg",
         "alt": "The Điện Biên Phủ Victory Monument"
-      }
+      },
+      "motifs": [
+        "stele",
+        "hoa-ban",
+        "flag"
+      ]
     }
   ],
   "story": [
@@ -73,7 +104,12 @@
         "file": "Phao phong khong To Vinh Dien.JPG",
         "alt": "An anti-aircraft gun at Điện Biên Phủ"
       },
-      "narration": "The French believed no one could bring heavy artillery through the jungle and over the mountains around the valley. The Vietnamese did it by hand. Teams of soldiers hauled guns up steep slopes with ropes, a few hundred metres a night. A story told in every Vietnamese school is about Tô Vĩnh Diện, a soldier who, when a rope snapped, threw himself under the wheel of a gun to stop it rolling down the slope. When the bombardment began on 13 March, the guns were firing from hidden positions high above the French camp."
+      "narration": "The French believed no one could bring heavy artillery through the jungle and over the mountains around the valley. The Vietnamese did it by hand. Teams of soldiers hauled guns up steep slopes with ropes, a few hundred metres a night. A story told in every Vietnamese school is about Tô Vĩnh Diện, a soldier who, when a rope snapped, threw himself under the wheel of a gun to stop it rolling down the slope. When the bombardment began on 13 March, the guns were firing from hidden positions high above the French camp.",
+      "motifs": [
+        "mountain-road",
+        "bicycle-tho",
+        "karst"
+      ]
     },
     {
       "id": "bicycles",
@@ -83,7 +119,12 @@
         "file": "Dân công dân tộc vận chuyển hàng ra mặt trận.jpg",
         "alt": "Porters carrying supplies"
       },
-      "narration": "Behind the soldiers came an army of porters, many of them farmers and young women from the delta and the mountains. They carried rice, ammunition and medicine for hundreds of kilometres along jungle tracks, mostly at night to avoid French aircraft. Many pushed bicycles strengthened with bamboo and wood. Loaded with more than 200 kilograms each, the bicycles were steered by a pole tied to the handlebars. Supplying the siege was as much a victory as the fighting itself."
+      "narration": "Behind the soldiers came an army of porters, many of them farmers and young women from the delta and the mountains. They carried rice, ammunition and medicine for hundreds of kilometres along jungle tracks, mostly at night to avoid French aircraft. Many pushed bicycles strengthened with bamboo and wood. Loaded with more than 200 kilograms each, the bicycles were steered by a pole tied to the handlebars. Supplying the siege was as much a victory as the fighting itself.",
+      "motifs": [
+        "bicycle-tho",
+        "rice",
+        "carrying-pole"
+      ]
     },
     {
       "id": "bunker",
@@ -93,7 +134,12 @@
         "file": "Dien Bien Phu 1954 French prisoners.jpg",
         "alt": "French prisoners after the battle"
       },
-      "narration": "By early May, the French held only a small area around their command post. On the afternoon of 7 May, Vietnamese soldiers reached the bunker of General Christian de Castries and raised a flag over it. That evening the firing stopped. More than ten thousand French and colonial soldiers were taken prisoner. The next day, peace talks on Indochina began in Geneva. Today you can climb down into a reconstruction of the bunker, and walk the trenches of A1 Hill, where some of the hardest fighting took place."
+      "narration": "By early May, the French held only a small area around their command post. On the afternoon of 7 May, Vietnamese soldiers reached the bunker of General Christian de Castries and raised a flag over it. That evening the firing stopped. More than ten thousand French and colonial soldiers were taken prisoner. The next day, peace talks on Indochina began in Geneva. Today you can climb down into a reconstruction of the bunker, and walk the trenches of A1 Hill, where some of the hardest fighting took place.",
+      "motifs": [
+        "flag",
+        "a1-hill",
+        "hoa-ban"
+      ]
     }
   ],
   "guide": {
@@ -196,7 +242,36 @@
         "lon": 103.008,
         "note": "Flights to Hà Nội."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "a1-hill",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "hoa-ban"
+      ],
+      "etiquette": [
+        "incense",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "rice",
+        "hoa-ban",
+        "stilt-house"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "a1-hill",
+      "hoa-ban",
+      "flag"
+    ]
+  }
 }

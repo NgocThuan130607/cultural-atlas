@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Đồng Nai lies on the river of the same name, just north-east of Hồ Chí Minh City. Its north is covered by the forest of Cát Tiên National Park and the Trị An reservoir. The former Bình Phước adds red-soil uplands of rubber, cashew and pepper along the Cambodian border."
+      "text": "Đồng Nai lies on the river of the same name, just north-east of Hồ Chí Minh City. Its north is covered by the forest of Cát Tiên National Park and the Trị An reservoir. The former Bình Phước adds red-soil uplands of rubber, cashew and pepper along the Cambodian border.",
+      "motifs": [
+        "waves",
+        "bamboo",
+        "elephant"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In 1679, Chinese refugees loyal to the fallen Ming dynasty were allowed to settle on Cù lao Phố, an island near Biên Hòa, which became the busiest port of the south. In 1698 the Nguyễn lords set up Trấn Biên here. In 1715 they built the south's first Temple of Literature. The French took Biên Hòa in 1861, and the American war brought a huge air base."
+      "text": "In 1679, Chinese refugees loyal to the fallen Ming dynasty were allowed to settle on Cù lao Phố, an island near Biên Hòa, which became the busiest port of the south. In 1698 the Nguyễn lords set up Trấn Biên here. In 1715 they built the south's first Temple of Literature. The French took Biên Hòa in 1861, and the American war brought a huge air base.",
+      "motifs": [
+        "junk",
+        "scroll",
+        "stele"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Biên Hòa is known for its glazed pottery and its stone carving at Bửu Long. The S'tiêng and Chơ Ro peoples keep their gong music and traditions in the uplands. Đồng Nai's fruit orchards supply the city with pomelos and durians."
+      "text": "Biên Hòa is known for its glazed pottery and its stone carving at Bửu Long. The S'tiêng and Chơ Ro peoples keep their gong music and traditions in the uplands. Đồng Nai's fruit orchards supply the city with pomelos and durians.",
+      "motifs": [
+        "vase",
+        "gongs",
+        "stele"
+      ]
     }
   ],
   "etiquette": [
@@ -83,5 +98,22 @@
       "landmark": "tran-bien-temple-of-literature",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "tran-bien",
+      "vase",
+      "stele"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "tran-bien"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "vase"
+    ]
+  }
 }

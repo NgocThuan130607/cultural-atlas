@@ -6,8 +6,16 @@
   "lat": 18.6799,
   "lon": 105.552,
   "summary": "The villages where Ho Chi Minh was born and spent his childhood, with simple thatched houses kept as they were in the 1890s.",
-  "bestMonths": [5, 6, 7, 8],
-  "tags": ["history", "local-life"],
+  "bestMonths": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "tags": [
+    "history",
+    "local-life"
+  ],
   "hero": {
     "file": "Kim Lien Monuments Park.JPG",
     "alt": "The Kim Liên relic site"
@@ -21,7 +29,12 @@
       "image": {
         "file": "Kim Lien Monuments Park.JPG",
         "alt": "The Kim Liên relic site"
-      }
+      },
+      "motifs": [
+        "thatch-house",
+        "lotus",
+        "sun"
+      ]
     },
     {
       "year": 1901,
@@ -31,7 +44,12 @@
       "image": {
         "file": "Mâm gỗ tại nhà cụ Phó bảng Nguyễn Sinh Sắc - Khu di tích lịch sử Kim Liên.jpg",
         "alt": "A wooden tray in the family house"
-      }
+      },
+      "motifs": [
+        "thatch-house",
+        "scroll",
+        "lotus"
+      ]
     },
     {
       "year": 1911,
@@ -41,7 +59,12 @@
       "image": {
         "file": "Ho Chi Minh 1946.jpg",
         "alt": "Ho Chi Minh in 1946"
-      }
+      },
+      "motifs": [
+        "junk",
+        "waves",
+        "scroll"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +74,12 @@
       "image": {
         "file": "Kim Lien Monuments Park.JPG",
         "alt": "Kim Liên today"
-      }
+      },
+      "motifs": [
+        "thatch-house",
+        "incense",
+        "lotus"
+      ]
     }
   ],
   "story": [
@@ -63,7 +91,12 @@
         "file": "Mâm gỗ tại nhà cụ Phó bảng Nguyễn Sinh Sắc - Khu di tích lịch sử Kim Liên.jpg",
         "alt": "In the family house"
       },
-      "narration": "Ho Chi Minh's father, Nguyễn Sinh Sắc, was a poor scholar who studied for years to pass the imperial exams. His mother, Hoàng Thị Loan, wove cloth to support the family; she died in Huế in 1901. The boy learned Chinese characters from his father and grandfather, and grew up hearing villagers talk about the French conquest. His father later refused to serve as a mandarin under the French. The simple houses at Kim Liên show how modestly the family lived."
+      "narration": "Ho Chi Minh's father, Nguyễn Sinh Sắc, was a poor scholar who studied for years to pass the imperial exams. His mother, Hoàng Thị Loan, wove cloth to support the family; she died in Huế in 1901. The boy learned Chinese characters from his father and grandfather, and grew up hearing villagers talk about the French conquest. His father later refused to serve as a mandarin under the French. The simple houses at Kim Liên show how modestly the family lived.",
+      "motifs": [
+        "scroll",
+        "thatch-house",
+        "loom"
+      ]
     },
     {
       "id": "phan-boi-chau",
@@ -73,7 +106,12 @@
         "file": "Kim Lien Monuments Park.JPG",
         "alt": "Kim Liên"
       },
-      "narration": "Nam Đàn district produced two of the great figures of Vietnam's independence movement. Phan Bội Châu, born here in 1867, founded the Đông Du ('Go East') movement in 1905, sending young Vietnamese to study in Japan. He believed modern education would free the country. The young Nguyễn Sinh Cung knew of him, but chose a different path: he went west, to France, to learn how the colonisers thought."
+      "narration": "Nam Đàn district produced two of the great figures of Vietnam's independence movement. Phan Bội Châu, born here in 1867, founded the Đông Du ('Go East') movement in 1905, sending young Vietnamese to study in Japan. He believed modern education would free the country. The young Nguyễn Sinh Cung knew of him, but chose a different path: he went west, to France, to learn how the colonisers thought.",
+      "motifs": [
+        "scroll",
+        "stele",
+        "lotus"
+      ]
     },
     {
       "id": "vi-giam",
@@ -83,7 +121,12 @@
         "file": "Bãi biển Cửa Lò..jpg",
         "alt": "The coast of Nghệ An"
       },
-      "narration": "In the fields, on the boats and at the looms of Nghệ An and Hà Tĩnh, people sang ví and giặm. Ví are slow, free songs, often sung back and forth between groups of men and women. Giặm have a steadier rhythm and tell stories or give advice. They were sung by ordinary people at work, in the local dialect, about love, hardship and home. UNESCO listed them in 2014, and clubs in villages across the two provinces keep them alive."
+      "narration": "In the fields, on the boats and at the looms of Nghệ An and Hà Tĩnh, people sang ví and giặm. Ví are slow, free songs, often sung back and forth between groups of men and women. Giặm have a steadier rhythm and tell stories or give advice. They were sung by ordinary people at work, in the local dialect, about love, hardship and home. UNESCO listed them in 2014, and clubs in villages across the two provinces keep them alive.",
+      "motifs": [
+        "lute",
+        "loom",
+        "rice"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +221,36 @@
         "lon": 105.72,
         "note": "Seafood and beach. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "thatch-house",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "lotus"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "rice",
+        "lotus",
+        "tea"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "thatch-house",
+      "lotus",
+      "incense"
+    ]
+  }
 }

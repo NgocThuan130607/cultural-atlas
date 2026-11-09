@@ -6,8 +6,21 @@
   "lat": 12.2653,
   "lon": 109.1956,
   "summary": "Brick temple towers on a hill above the Cái River, built by the Cham between the 8th and 13th centuries to honour Po Nagar, the mother goddess of the land.",
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8],
-  "tags": ["spiritual", "history", "architecture"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tags": [
+    "spiritual",
+    "history",
+    "architecture"
+  ],
   "hero": {
     "file": "Po Nagar Nha Trang Vietnam.JPG",
     "alt": "The Po Nagar towers"
@@ -21,7 +34,12 @@
       "image": {
         "file": "Champa Po Nagar Nha Trang.jpg",
         "alt": "The Cham towers of Po Nagar"
-      }
+      },
+      "motifs": [
+        "po-nagar",
+        "junk",
+        "scroll"
+      ]
     },
     {
       "year": 817,
@@ -31,7 +49,12 @@
       "image": {
         "file": "Templo Po Nagar 13.jpg",
         "alt": "The main tower"
-      }
+      },
+      "motifs": [
+        "po-nagar",
+        "incense",
+        "stones"
+      ]
     },
     {
       "year": 1653,
@@ -41,7 +64,12 @@
       "image": {
         "file": "Durga ornament Po Nagar.jpg",
         "alt": "Carved decoration at Po Nagar"
-      }
+      },
+      "motifs": [
+        "po-nagar",
+        "incense",
+        "lotus"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +79,12 @@
       "image": {
         "file": "Templo Po Nagar 18.jpg",
         "alt": "Po Nagar today"
-      }
+      },
+      "motifs": [
+        "po-nagar",
+        "lute",
+        "incense"
+      ]
     }
   ],
   "story": [
@@ -63,7 +96,12 @@
         "file": "Templo Po Nagar 13.jpg",
         "alt": "The main tower"
       },
-      "narration": "The Vietnamese tell that an old couple on Đại An mountain found a little girl in their melon garden and raised her as their own. One day she turned into a log of fragrant agarwood and floated away across the sea to the north, where a prince found the log, saw the girl appear, and married her. Later she returned to her homeland with her children, taught people to farm and weave, and finally rose to the sky. People built the towers to worship her as Thiên Y A Na, the mother of the land."
+      "narration": "The Vietnamese tell that an old couple on Đại An mountain found a little girl in their melon garden and raised her as their own. One day she turned into a log of fragrant agarwood and floated away across the sea to the north, where a prince found the log, saw the girl appear, and married her. Later she returned to her homeland with her children, taught people to farm and weave, and finally rose to the sky. People built the towers to worship her as Thiên Y A Na, the mother of the land.",
+      "motifs": [
+        "po-nagar",
+        "lotus",
+        "incense"
+      ]
     },
     {
       "id": "two-peoples",
@@ -73,7 +111,12 @@
         "file": "Champa Po Nagar Nha Trang.jpg",
         "alt": "The towers"
       },
-      "narration": "For the Chăm, Po Nagar is Yang Ino Po Nagar, the mother goddess who created the land and the agarwood tree. For the Vietnamese who settled here later, she became Thiên Y A Na, and her cult spread up and down the central coast. At the festival each spring, Chăm dancers and Vietnamese mediums perform in the same courtyard, and fishermen bring offerings for good catches. Few places show so clearly how two cultures came to share one sacred site."
+      "narration": "For the Chăm, Po Nagar is Yang Ino Po Nagar, the mother goddess who created the land and the agarwood tree. For the Vietnamese who settled here later, she became Thiên Y A Na, and her cult spread up and down the central coast. At the festival each spring, Chăm dancers and Vietnamese mediums perform in the same courtyard, and fishermen bring offerings for good catches. Few places show so clearly how two cultures came to share one sacred site.",
+      "motifs": [
+        "po-nagar",
+        "incense",
+        "cham-pot"
+      ]
     },
     {
       "id": "pottery",
@@ -83,7 +126,12 @@
         "file": "Ganesh Tempel Po Nagar Nha Trang.jpg",
         "alt": "Carvings at Po Nagar"
       },
-      "narration": "In the village of Bàu Trúc, in the former Ninh Thuận province, Chăm women make pottery the way their ancestors did. They do not use a potter's wheel. Instead, the potter walks backwards around the clay, shaping it with her hands and simple tools. The pots are fired in the open under straw and wood, which gives them their reddish, smoky colours. UNESCO listed the craft in 2022 as heritage in urgent need of safeguarding."
+      "narration": "In the village of Bàu Trúc, in the former Ninh Thuận province, Chăm women make pottery the way their ancestors did. They do not use a potter's wheel. Instead, the potter walks backwards around the clay, shaping it with her hands and simple tools. The pots are fired in the open under straw and wood, which gives them their reddish, smoky colours. UNESCO listed the craft in 2022 as heritage in urgent need of safeguarding.",
+      "motifs": [
+        "cham-pot",
+        "carrying-pole",
+        "sun"
+      ]
     },
     {
       "id": "film-dance",
@@ -93,7 +141,12 @@
         "file": "Danco en Po Nagar.webm",
         "alt": "Video of women in white dancing with clay jars balanced on their heads in front of a Po Nagar tower"
       },
-      "narration": "Filmed in November 2013 in front of the Po Nagar towers in Nha Trang. Women in white dresses dance while balancing clay water jars on their heads, a dance from the Cham tradition. Performances like this are held at the temple for visitors, beside the brick towers the Cham built more than a thousand years ago."
+      "narration": "Filmed in November 2013 in front of the Po Nagar towers in Nha Trang. Women in white dresses dance while balancing clay water jars on their heads, a dance from the Cham tradition. Performances like this are held at the temple for visitors, beside the brick towers the Cham built more than a thousand years ago.",
+      "motifs": [
+        "po-nagar",
+        "lute",
+        "lantern"
+      ]
     }
   ],
   "guide": {
@@ -195,7 +248,36 @@
         "lon": 109.182,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "po-nagar",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "basket-boat"
+      ],
+      "etiquette": [
+        "incense",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "basket-boat",
+        "fish",
+        "waves"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "po-nagar",
+      "incense",
+      "waves"
+    ]
+  }
 }

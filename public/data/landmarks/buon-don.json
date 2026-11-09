@@ -6,8 +6,17 @@
   "lat": 12.8828,
   "lon": 107.7896,
   "summary": "A village on the Serepok River, once famous for catching and training wild elephants. Today it is a place to learn about M'nông and Lao culture and the elephants of the Yok Đôn forest.",
-  "bestMonths": [1, 2, 3, 11, 12],
-  "tags": ["nature", "local-life"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    11,
+    12
+  ],
+  "tags": [
+    "nature",
+    "local-life"
+  ],
   "hero": {
     "file": "Srepok Ban Don.JPG",
     "alt": "The Serepok River at Buôn Đôn"
@@ -21,7 +30,12 @@
       "image": {
         "file": "DKoehl Buon Don elephant hunter cemetry 2011.jpg",
         "alt": "The cemetery of the elephant hunters"
-      }
+      },
+      "motifs": [
+        "elephant",
+        "longhouse",
+        "scroll"
+      ]
     },
     {
       "year": 1991,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Yokdon01.JPG",
         "alt": "Forest in Yok Đôn National Park"
-      }
+      },
+      "motifs": [
+        "elephant",
+        "stork",
+        "pine"
+      ]
     },
     {
       "year": 2020,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Voi ở Bản Đôn.jpg",
         "alt": "Elephants at Buôn Đôn"
-      }
+      },
+      "motifs": [
+        "elephant",
+        "saplings",
+        "sun"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Srepok Ban Don.JPG",
         "alt": "The Serepok River"
-      }
+      },
+      "motifs": [
+        "elephant",
+        "waves",
+        "bamboo"
+      ]
     }
   ],
   "story": [
@@ -63,7 +92,12 @@
         "file": "DKoehl Buon Don elephant hunter cemetry 2011.jpg",
         "alt": "The cemetery"
       },
-      "narration": "The most famous man in Buôn Đôn's history was Y Thu Knul, known as Khunjunob. Born in the 19th century, he is said to have caught hundreds of wild elephants in his long life. Stories say he caught a rare white elephant and gave it to the King of Siam, who honoured him with the title Khunjunob, 'king of elephant hunters'. His tomb stands in the village cemetery, where the graves of hunters are decorated with carved wooden figures."
+      "narration": "The most famous man in Buôn Đôn's history was Y Thu Knul, known as Khunjunob. Born in the 19th century, he is said to have caught hundreds of wild elephants in his long life. Stories say he caught a rare white elephant and gave it to the King of Siam, who honoured him with the title Khunjunob, 'king of elephant hunters'. His tomb stands in the village cemetery, where the graves of hunters are decorated with carved wooden figures.",
+      "motifs": [
+        "elephant",
+        "scroll",
+        "longhouse"
+      ]
     },
     {
       "id": "blessing",
@@ -73,7 +107,12 @@
         "file": "DKoehl Buon Don Mnong elephant blessing ceremony 2012.jpg",
         "alt": "A M'nông elephant blessing ceremony"
       },
-      "narration": "For the M'nông, an elephant is part of the family. When a new elephant was captured, or before a long journey, the owners held a ceremony to ask the spirits to keep it healthy. A shaman offered rice wine, a chicken or a pig, and spoke to the elephant and the spirits together. The ceremony is still held today, and visitors are sometimes invited to watch. It shows the bond between people and the great animals of the forest."
+      "narration": "For the M'nông, an elephant is part of the family. When a new elephant was captured, or before a long journey, the owners held a ceremony to ask the spirits to keep it healthy. A shaman offered rice wine, a chicken or a pig, and spoke to the elephant and the spirits together. The ceremony is still held today, and visitors are sometimes invited to watch. It shows the bond between people and the great animals of the forest.",
+      "motifs": [
+        "elephant",
+        "gongs",
+        "incense"
+      ]
     },
     {
       "id": "coffee",
@@ -83,7 +122,12 @@
         "file": "Lak Lake.jpg",
         "alt": "Lắk Lake"
       },
-      "narration": "The French brought coffee to the Central Highlands in the early 20th century, and the red basalt soil around Buôn Ma Thuột proved perfect for it. Most of what grows here is robusta: strong and bitter. Vietnamese drink it dripped slowly through a small metal filter, the phin, often with sweetened condensed milk, hot or over ice. In February and March the coffee trees flower white, and the air smells of jasmine."
+      "narration": "The French brought coffee to the Central Highlands in the early 20th century, and the red basalt soil around Buôn Ma Thuột proved perfect for it. Most of what grows here is robusta: strong and bitter. Vietnamese drink it dripped slowly through a small metal filter, the phin, often with sweetened condensed milk, hot or over ice. In February and March the coffee trees flower white, and the air smells of jasmine.",
+      "motifs": [
+        "coffee-phin",
+        "tea-leaves",
+        "sun"
+      ]
     }
   ],
   "guide": {
@@ -179,7 +223,36 @@
         "lon": 108.0378,
         "note": "Airport and buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "elephant",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "bamboo"
+      ],
+      "etiquette": [
+        "camera-no",
+        "elephant",
+        "sandals"
+      ],
+      "tips": [
+        "coffee-phin",
+        "longhouse",
+        "bamboo"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "elephant",
+      "longhouse",
+      "gongs"
+    ]
+  }
 }

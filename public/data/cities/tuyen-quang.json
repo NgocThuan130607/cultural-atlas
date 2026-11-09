@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Tuyên Quang stretches from the forested valleys of the Lô and Gâm rivers up to Vietnam's northern tip. Its northern half, the former Hà Giang province, is a high limestone plateau of jagged peaks and deep gorges, crossed by some of the country's most dramatic mountain roads."
+      "text": "Tuyên Quang stretches from the forested valleys of the Lô and Gâm rivers up to Vietnam's northern tip. Its northern half, the former Hà Giang province, is a high limestone plateau of jagged peaks and deep gorges, crossed by some of the country's most dramatic mountain roads.",
+      "motifs": [
+        "karst",
+        "mountain-road",
+        "cloud-sea"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "During the 1940s the forests around Tân Trào sheltered the leaders of the independence movement. In August 1945 the National Congress met there and launched the August Revolution, and during the war against France the area was part of the hidden 'safe zone'. The border highlands to the north saw heavy fighting with China in the 1980s."
+      "text": "During the 1940s the forests around Tân Trào sheltered the leaders of the independence movement. In August 1945 the National Congress met there and launched the August Revolution, and during the war against France the area was part of the hidden 'safe zone'. The border highlands to the north saw heavy fighting with China in the 1980s.",
+      "motifs": [
+        "flag",
+        "scroll",
+        "bamboo"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "More than twenty ethnic groups live here, including the Tày, Hmong, Dao, Nùng and Lô Lô. Weekly markets in the mountains are social events as much as trading days. Tuyên Quang city is famous for its Mid-Autumn lantern festival, and Tày 'then' singing, recognised by UNESCO, is still performed at village ceremonies."
+      "text": "More than twenty ethnic groups live here, including the Tày, Hmong, Dao, Nùng and Lô Lô. Weekly markets in the mountains are social events as much as trading days. Tuyên Quang city is famous for its Mid-Autumn lantern festival, and Tày 'then' singing, recognised by UNESCO, is still performed at village ceremonies.",
+      "motifs": [
+        "star-lantern",
+        "brocade",
+        "horse"
+      ]
     }
   ],
   "etiquette": [
@@ -83,5 +98,22 @@
       "landmark": "dong-van-karst-plateau",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "dong-van",
+      "star-lantern",
+      "karst"
+    ],
+    "map": [
+      "compass",
+      "mountain-road",
+      "karst"
+    ],
+    "know": [
+      "stilt-house",
+      "tea",
+      "maize"
+    ]
+  }
 }

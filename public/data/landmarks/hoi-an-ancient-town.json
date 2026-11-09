@@ -6,8 +6,17 @@
   "lat": 15.8775,
   "lon": 108.3275,
   "summary": "A small trading port on the Thu Bồn River. Its wooden shophouses, assembly halls and Japanese bridge survive from the 17th–19th centuries, and it is a UNESCO World Heritage Site.",
-  "bestMonths": [2, 3, 4, 5],
-  "tags": ["local-life", "architecture", "history"],
+  "bestMonths": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "tags": [
+    "local-life",
+    "architecture",
+    "history"
+  ],
   "featured": true,
   "hero": {
     "file": "Phố cổ Hội An - NKS.jpg",
@@ -22,7 +31,12 @@
       "image": {
         "file": "Giao Chi quoc dich mau do hai do.jpg",
         "alt": "Japanese scroll of a trading voyage to Hội An"
-      }
+      },
+      "motifs": [
+        "junk",
+        "chua-cau",
+        "scroll"
+      ]
     },
     {
       "year": 1719,
@@ -32,7 +46,12 @@
       "image": {
         "file": "Cau Nhat Ban (2).jpg",
         "alt": "The Japanese covered bridge"
-      }
+      },
+      "motifs": [
+        "chua-cau",
+        "lantern",
+        "scroll"
+      ]
     },
     {
       "year": 1793,
@@ -42,7 +61,12 @@
       "image": {
         "file": "A voyage to Cochinchina in the years 1792 and 1793 - Faifo.jpg",
         "alt": "Faifo in 1793"
-      }
+      },
+      "motifs": [
+        "old-camera",
+        "junk",
+        "chua-cau"
+      ]
     },
     {
       "year": 1906,
@@ -52,7 +76,12 @@
       "image": {
         "file": "Tourane, 1907-1916 - Ligne de Tourane à Faifoo, National Archives Centre 1 Hà Nội 04.jpg",
         "alt": "The Tourane–Faifo tramway"
-      }
+      },
+      "motifs": [
+        "train",
+        "sampan",
+        "chua-cau"
+      ]
     },
     {
       "year": 1999,
@@ -62,7 +91,12 @@
       "image": {
         "file": "HoiAnOldQuarter.jpg",
         "alt": "The old quarter"
-      }
+      },
+      "motifs": [
+        "chua-cau",
+        "scroll",
+        "lantern"
+      ]
     },
     {
       "year": 2026,
@@ -72,7 +106,12 @@
       "image": {
         "file": "Dem ram Hoi An 2006.jpg",
         "alt": "Hội An on a full-moon night"
-      }
+      },
+      "motifs": [
+        "lantern",
+        "chua-cau",
+        "sampan"
+      ]
     }
   ],
   "story": [
@@ -84,7 +123,12 @@
         "file": "Cau Nhat Ban (2).jpg",
         "alt": "The Japanese covered bridge"
       },
-      "narration": "A legend says that a huge monster called Mamazu lived beneath the earth. Its head was in India, its tail in Japan and its back under Vietnam. Whenever it moved, earthquakes and floods struck. The Japanese merchants of Hội An built the covered bridge like a sword driven into its back, to keep it still. A small temple on the bridge, guarded by statues of a dog and a monkey, honours a spirit who protects the town from floods."
+      "narration": "A legend says that a huge monster called Mamazu lived beneath the earth. Its head was in India, its tail in Japan and its back under Vietnam. Whenever it moved, earthquakes and floods struck. The Japanese merchants of Hội An built the covered bridge like a sword driven into its back, to keep it still. A small temple on the bridge, guarded by statues of a dog and a monkey, honours a spirit who protects the town from floods.",
+      "motifs": [
+        "dragon",
+        "chua-cau",
+        "fish"
+      ]
     },
     {
       "id": "halls",
@@ -94,7 +138,12 @@
         "file": "Hoi quan Phuoc Kien.jpg",
         "alt": "The Fujian Assembly Hall"
       },
-      "narration": "Chinese merchants in Hội An grouped together by home province, and each community built an assembly hall: Fujian, Cantonese, Hainan and others. These halls were temples, meeting rooms and social clubs at once. After the fall of the Ming dynasty in the 17th century, many Chinese loyalists settled here for good and married local women. Their descendants became known as the Minh Hương. The Fujian hall, with its bright gate and incense coils, honours Thiên Hậu, the goddess of the sea."
+      "narration": "Chinese merchants in Hội An grouped together by home province, and each community built an assembly hall: Fujian, Cantonese, Hainan and others. These halls were temples, meeting rooms and social clubs at once. After the fall of the Ming dynasty in the 17th century, many Chinese loyalists settled here for good and married local women. Their descendants became known as the Minh Hương. The Fujian hall, with its bright gate and incense coils, honours Thiên Hậu, the goddess of the sea.",
+      "motifs": [
+        "temple-roof",
+        "lantern",
+        "incense"
+      ]
     },
     {
       "id": "lanterns",
@@ -104,7 +153,12 @@
         "file": "Dem ram Hoi An 2006.jpg",
         "alt": "Hội An on a full-moon night"
       },
-      "narration": "On the 14th day of every lunar month, when the moon is full, Hội An's old town turns down its electric lights. Silk lanterns of every colour glow along the streets, and children sell paper candles that visitors set floating on the river for luck. Lantern-making is a local craft: bamboo frames are bent by hand and covered with silk, and many workshops welcome visitors who want to make their own."
+      "narration": "On the 14th day of every lunar month, when the moon is full, Hội An's old town turns down its electric lights. Silk lanterns of every colour glow along the streets, and children sell paper candles that visitors set floating on the river for luck. Lantern-making is a local craft: bamboo frames are bent by hand and covered with silk, and many workshops welcome visitors who want to make their own.",
+      "motifs": [
+        "lantern",
+        "lotus",
+        "sampan"
+      ]
     },
     {
       "id": "film-market",
@@ -114,7 +168,12 @@
         "file": "HoiAn Market.webm",
         "alt": "Handheld video walking through the stalls of Hội An market"
       },
-      "narration": "A walk through the market in Hội An, filmed by a visitor. Stallholders sit among bowls, baskets and trays of fresh food, and shoppers squeeze through the narrow lanes. The central market stands on the riverside at the edge of the old town, where traders have bought and sold for centuries. Come early in the morning, when it is busiest and coolest."
+      "narration": "A walk through the market in Hội An, filmed by a visitor. Stallholders sit among bowls, baskets and trays of fresh food, and shoppers squeeze through the narrow lanes. The central market stands on the riverside at the edge of the old town, where traders have bought and sold for centuries. Come early in the morning, when it is busiest and coolest.",
+      "motifs": [
+        "carrying-pole",
+        "fruit-boat",
+        "non-la"
+      ]
     }
   ],
   "guide": {
@@ -190,7 +249,36 @@
         "lon": 108.1994,
         "note": "45 minutes by car."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "lantern",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "lantern"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "lantern"
+      ],
+      "tips": [
+        "pho",
+        "lantern",
+        "basket-boat"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "chua-cau",
+      "lantern",
+      "sampan"
+    ]
+  }
 }

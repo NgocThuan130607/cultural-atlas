@@ -9,25 +9,12 @@
 // detail and hatching. "son" is drawn in son red, "fill" is a filled area ("soft": faint), "dot" a filled point.
 // Parts with class "lp", "lp2", "lp3" carry the idle movements. "@" in an id is replaced by the drawing's own id.
 
-const f = (v) => +v.toFixed(1);
-const each = (n, fn) => Array.from({ length: n }, (_, i) => fn(i)).join('');
-const polar = (cx, cy, r, a) => [f(cx + r * Math.cos(a)), f(cy + r * Math.sin(a))];
-
-/** Parallel lines across a box, for hatching: "/" and "\" diagonals, "-" across, "|" down. */
-function lines(x0, y0, x1, y1, step, dir) {
-  const h = y1 - y0, out = [];
-  if (dir === '-') for (let y = y0; y <= y1; y += step) out.push(`M${f(x0)} ${f(y)}H${f(x1)}`);
-  else if (dir === '|') for (let x = x0; x <= x1; x += step) out.push(`M${f(x)} ${f(y0)}V${f(y1)}`);
-  else for (let x = x0 - h; x <= x1; x += step) out.push(dir === '/' ? `M${f(x)} ${f(y1)}L${f(x + h)} ${f(y0)}` : `M${f(x)} ${f(y0)}L${f(x + h)} ${f(y1)}`);
-  return out.join('');
-}
-/** Hatching clipped to a shape, like the shading of an engraving. */
-const hatch = (id, shape, box, step = 2.4, dir = '/') =>
-  `<clipPath id="@${id}"><path d="${shape}"/></clipPath><path class="w0 hatch" clip-path="url(#@${id})" d="${lines(...box, step, dir)}"/>`;
-/** Small arcs in rows, for scales and feathers. */
-const scales = (pts, r = 2.2) => pts.map(([x, y]) => `M${f(x - r)} ${f(y)}a${r} ${r} 0 0 0 ${f(2 * r)} 0`).join('');
-/** A steam or smoke curl rising from (x, y). */
-const curl = (x, y, h = 26, s = 1) => `M${x} ${y}q${-5 * s} ${-h * 0.25} 0 ${-h * 0.5}t0 ${-h * 0.5}`;
+import { f, each, polar, hatch, scales, curl } from './motif-art/helpers.js';
+import { WORLD } from './motif-art/world.js';
+import { NORTH } from './motif-art/north.js';
+import { CENTRAL } from './motif-art/central.js';
+import { SOUTH } from './motif-art/south.js';
+import { THEMES } from './motif-art/themes.js';
 
 // The Lý dragon of Thăng Long ("Ascending Dragon"): a slim, scaled, snake-like body in S-curves rising from the
 // river, a crest of flame-like mane, the mouth reaching for a pearl. The body is worked out from a centre line.
@@ -342,6 +329,9 @@ const M = {
 // The same bird, flying the other way
 M['chim-lac-2'] = { loop: 'glide2', svg: `<g transform="translate(100 0) scale(-1 1)">${M['chim-lac'].svg}</g>` };
 
+// The drawings for the other places: each landmark's own drawing, and shared drawings by region and theme
+Object.assign(M, THEMES, WORLD, NORTH, CENTRAL, SOUTH);
+
 export const MOTIFS = M;
 
 // Different depths, so the motifs drift at different speeds while the slides move
@@ -359,7 +349,7 @@ export function motifLayer(list) {
     // The same drawing as a mask, for the glint of light that runs over the gold once it is drawn
     const mask = `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round'>${m.svg.replaceAll('@', 'k').replace(/class="[^"]*\b(fill|dot)\b[^"]*"/g, 'fill="black" stroke="none"').replace(/class="[^"]*"/g, '')}</svg>`)}")`;
     return `<span class="motif m-${key} loop-${m.loop}${i === 0 ? ' hero' : ''}" data-drift="${DRIFT[i % DRIFT.length]}" style="--d:${i}; --mask:${mask.replaceAll('"', '&quot;')}">
-      <svg viewBox="0 0 100 100" focusable="false" style="--g:url(#${id}-g)"><defs><linearGradient id="${id}-g" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="90" y2="100">
+      <svg viewBox="0 0 100 100" focusable="false" style="--g:url(#${id}-gold)"><defs><linearGradient id="${id}-gold" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="90" y2="100">
       <stop offset="0" style="stop-color:var(--orn-hi)"/><stop offset=".5" style="stop-color:var(--orn)"/><stop offset="1" style="stop-color:var(--orn-lo)"/></linearGradient></defs>${art}</svg></span>`;
   }).join('')}</div>`;
 }
@@ -423,7 +413,7 @@ export function placeMotifs(root, { stacked = false, bottom = 0 } = {}) {
             if (hard.some((h) => overlap(box, h) > 0)) continue;
             if (placed.some((p) => gap(box, p) < 14)) continue;
             const hidden = soft.reduce((s, r) => s + overlap(box, r), 0) / area(box);
-            if (hidden > 0.35) continue;
+            if (hidden > 0.3) continue;
             const clear = Math.min(140, ...hard.map((h) => gap(box, h)), ...placed.map((p) => gap(box, p) * 0.9));
             const score = clear - hidden * 120 - gap(box, near) * 0.6 + (placed.length ? Math.min(...placed.map((p) => gap(box, p))) * 0.15 : 0);
             if (!best || score > best.score) best = { x, y, size, box, score };

@@ -6,8 +6,16 @@
   "lat": 11.942,
   "lon": 108.455,
   "summary": "An Art Deco railway station from 1938, at the end of a rack railway that once climbed from the coast. Today a short heritage line runs to the village of Trại Mát.",
-  "bestMonths": [1, 2, 3, 12],
-  "tags": ["architecture", "history"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    12
+  ],
+  "tags": [
+    "architecture",
+    "history"
+  ],
   "hero": {
     "file": "Da Lat train station 37.jpg",
     "alt": "Đà Lạt railway station"
@@ -21,7 +29,12 @@
       "image": {
         "file": "Xuan Huong Lake 11.jpg",
         "alt": "Xuân Hương Lake in Đà Lạt"
-      }
+      },
+      "motifs": [
+        "pine",
+        "cloud-sea",
+        "scroll"
+      ]
     },
     {
       "year": 1932,
@@ -31,7 +44,12 @@
       "image": {
         "file": "Dalat railway station (28706757664).jpg",
         "alt": "An old train at Đà Lạt station"
-      }
+      },
+      "motifs": [
+        "train",
+        "mountain-road",
+        "pine"
+      ]
     },
     {
       "year": 1938,
@@ -41,7 +59,12 @@
       "image": {
         "file": "Nhà ga Đà Lạt.jpg",
         "alt": "The station building"
-      }
+      },
+      "motifs": [
+        "dalat-station",
+        "pine",
+        "sun"
+      ]
     },
     {
       "year": 1972,
@@ -51,7 +74,12 @@
       "image": {
         "file": "Rail cars at Dalat Station.JPG",
         "alt": "Old railway cars at the station"
-      }
+      },
+      "motifs": [
+        "train",
+        "scroll",
+        "stones"
+      ]
     },
     {
       "year": 1991,
@@ -61,7 +89,12 @@
       "image": {
         "file": "Dalat Railroad car.JPG",
         "alt": "A railway car at Đà Lạt"
-      }
+      },
+      "motifs": [
+        "train",
+        "dalat-station",
+        "pine"
+      ]
     },
     {
       "year": 2026,
@@ -71,7 +104,12 @@
       "image": {
         "file": "Da Lat train station 37.jpg",
         "alt": "Đà Lạt railway station today"
-      }
+      },
+      "motifs": [
+        "dalat-station",
+        "peach",
+        "train"
+      ]
     }
   ],
   "story": [
@@ -83,7 +121,12 @@
         "file": "Xuan Huong Lake 11.jpg",
         "alt": "Xuân Hương Lake"
       },
-      "narration": "Alexandre Yersin was a Swiss-born French doctor, famous for discovering the bacterium that causes plague in 1894. He settled in Nha Trang and loved to explore the mountains. In 1893, travelling with local guides, he reached the high, cool grasslands of Langbiang. He wrote that the plateau would make an ideal sanatorium. The French authorities agreed, and Đà Lạt grew into a resort of villas, lakes and pine forests. Yersin's name is still honoured in the city, on a school, a street and a park."
+      "narration": "Alexandre Yersin was a Swiss-born French doctor, famous for discovering the bacterium that causes plague in 1894. He settled in Nha Trang and loved to explore the mountains. In 1893, travelling with local guides, he reached the high, cool grasslands of Langbiang. He wrote that the plateau would make an ideal sanatorium. The French authorities agreed, and Đà Lạt grew into a resort of villas, lakes and pine forests. Yersin's name is still honoured in the city, on a school, a street and a park.",
+      "motifs": [
+        "scroll",
+        "pine",
+        "sun"
+      ]
     },
     {
       "id": "rack",
@@ -93,7 +136,12 @@
         "file": "Dalat locomotive boiler.JPG",
         "alt": "An old locomotive at Đà Lạt"
       },
-      "narration": "Building a railway from the coast up to 1,500 metres was a huge challenge. Engineers used a rack system on the steepest slopes, near the Krông Pha pass: a toothed rail between the normal rails, gripped by a cog wheel under the locomotive. Swiss-built engines pulled trains up gradients far steeper than a normal railway can handle. In the 1990s, a Swiss heritage railway bought back some of these locomotives and restored them to run in the Alps."
+      "narration": "Building a railway from the coast up to 1,500 metres was a huge challenge. Engineers used a rack system on the steepest slopes, near the Krông Pha pass: a toothed rail between the normal rails, gripped by a cog wheel under the locomotive. Swiss-built engines pulled trains up gradients far steeper than a normal railway can handle. In the 1990s, a Swiss heritage railway bought back some of these locomotives and restored them to run in the Alps.",
+      "motifs": [
+        "train",
+        "mountain-road",
+        "stones"
+      ]
     },
     {
       "id": "name",
@@ -103,7 +151,12 @@
         "file": "Nhà ga Đà Lạt.jpg",
         "alt": "The station"
       },
-      "narration": "The name Đà Lạt is thought to come from the K'Ho language: 'đạ' means water or stream, and Lạt is the name of a local people, so it means 'the stream of the Lạt'. The French added a Latin motto whose initials spell the city's name: 'Dat Aliis Laetitiam Aliis Temperiem', 'it gives joy to some, freshness to others'. Whether or not the motto came first, it has stuck, and it still describes the city's appeal."
+      "narration": "The name Đà Lạt is thought to come from the K'Ho language: 'đạ' means water or stream, and Lạt is the name of a local people, so it means 'the stream of the Lạt'. The French added a Latin motto whose initials spell the city's name: 'Dat Aliis Laetitiam Aliis Temperiem', 'it gives joy to some, freshness to others'. Whether or not the motto came first, it has stuck, and it still describes the city's appeal.",
+      "motifs": [
+        "waterfall",
+        "pine",
+        "peach"
+      ]
     }
   ],
   "guide": {
@@ -205,7 +258,36 @@
         "lon": 108.367,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "dalat-station",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "pine"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "coffee-phin",
+        "peach",
+        "pine"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "dalat-station",
+      "train",
+      "pine"
+    ]
+  }
 }

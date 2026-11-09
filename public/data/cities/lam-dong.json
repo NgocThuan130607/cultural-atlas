@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Lâm Đồng runs from the cool Lâm Viên plateau, where Đà Lạt lies at about 1,500 m among pine forests, down to the sea. The former Đắk Nông adds volcanic caves and waterfalls, now a UNESCO Global Geopark. The former Bình Thuận adds the coast, with the red and white sand dunes of Mũi Né and the fishing port of Phan Thiết."
+      "text": "The new Lâm Đồng runs from the cool Lâm Viên plateau, where Đà Lạt lies at about 1,500 m among pine forests, down to the sea. The former Đắk Nông adds volcanic caves and waterfalls, now a UNESCO Global Geopark. The former Bình Thuận adds the coast, with the red and white sand dunes of Mũi Né and the fishing port of Phan Thiết.",
+      "motifs": [
+        "pine",
+        "waterfall",
+        "dunes"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In 1893 the scientist Alexandre Yersin explored the Langbiang plateau, and the French later built Đà Lạt as a mountain resort. A rack railway climbed up from the coast in 1932, and the last emperor, Bảo Đại, had a summer palace here. In 1910 the young Ho Chi Minh taught at a school in Phan Thiết before leaving Vietnam."
+      "text": "In 1893 the scientist Alexandre Yersin explored the Langbiang plateau, and the French later built Đà Lạt as a mountain resort. A rack railway climbed up from the coast in 1932, and the last emperor, Bảo Đại, had a summer palace here. In 1910 the young Ho Chi Minh taught at a school in Phan Thiết before leaving Vietnam.",
+      "motifs": [
+        "train",
+        "dalat-station",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Đà Lạt is famous for flowers, strawberries, artichoke tea and French villas. The K'Ho people of the plateau keep their gong traditions. Phan Thiết is one of the homes of Vietnamese fish sauce, and dragon fruit grows on the coastal plain."
+      "text": "Đà Lạt is famous for flowers, strawberries, artichoke tea and French villas. The K'Ho people of the plateau keep their gong traditions. Phan Thiết is one of the homes of Vietnamese fish sauce, and dragon fruit grows on the coastal plain.",
+      "motifs": [
+        "peach",
+        "gongs",
+        "coffee-phin"
+      ]
     }
   ],
   "etiquette": [
@@ -84,5 +99,22 @@
       "landmark": "da-lat-railway-station",
       "era": 5
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "dalat-station",
+      "pine",
+      "train"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "pine"
+    ],
+    "know": [
+      "pine",
+      "coffee-phin",
+      "non-la"
+    ]
+  }
 }

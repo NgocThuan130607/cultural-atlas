@@ -6,8 +6,16 @@
   "lat": 20.2557,
   "lon": 105.9156,
   "summary": "Limestone towers, caves and rivers where boats glide through flooded valleys. It is a UNESCO World Heritage Site for both its nature and its history.",
-  "bestMonths": [2, 3, 5, 6],
-  "tags": ["nature", "spiritual"],
+  "bestMonths": [
+    2,
+    3,
+    5,
+    6
+  ],
+  "tags": [
+    "nature",
+    "spiritual"
+  ],
   "featured": true,
   "hero": {
     "file": "Trang An - 04.jpg",
@@ -22,7 +30,12 @@
       "image": {
         "file": "Trang An - 05.jpg",
         "alt": "Limestone cliffs at Tràng An"
-      }
+      },
+      "motifs": [
+        "cave",
+        "karst",
+        "fish"
+      ]
     },
     {
       "year": 968,
@@ -32,7 +45,12 @@
       "image": {
         "file": "Dinh Bo Linh Shrine, Hoa Lư, Ninh Bình, Vietnam, 20240203 1458 5685.jpg",
         "alt": "The temple of King Đinh Bộ Lĩnh at Hoa Lư"
-      }
+      },
+      "motifs": [
+        "citadel-gate",
+        "karst",
+        "flag"
+      ]
     },
     {
       "year": 1010,
@@ -42,7 +60,12 @@
       "image": {
         "file": "Festival of Dinh and Le kings at Hoa Lu.JPG",
         "alt": "The festival of the Đinh and Lê kings at Hoa Lư"
-      }
+      },
+      "motifs": [
+        "trang-an",
+        "scroll",
+        "temple-roof"
+      ]
     },
     {
       "year": 2014,
@@ -52,7 +75,12 @@
       "image": {
         "file": "Vietnam, Ninh Binh, Limestone mountains, panoramic view from above.jpg",
         "alt": "Limestone mountains seen from above"
-      }
+      },
+      "motifs": [
+        "trang-an",
+        "karst",
+        "stork"
+      ]
     },
     {
       "year": 2026,
@@ -62,7 +90,12 @@
       "image": {
         "file": "Tam Coc Sailing.jpg",
         "alt": "A rowing boat at Tam Cốc"
-      }
+      },
+      "motifs": [
+        "trang-an",
+        "sampan",
+        "cave"
+      ]
     }
   ],
   "story": [
@@ -74,7 +107,12 @@
         "file": "Dinh Bo Linh Shrine, Hoa Lư, Ninh Bình, Vietnam, 20240203 1458 5685.jpg",
         "alt": "The temple of Đinh Bộ Lĩnh"
       },
-      "narration": "Đinh Bộ Lĩnh grew up poor, herding buffalo. The story goes that he led the other village boys in mock battles, using reeds as flags, and the children carried him like a king. As a young man in the 960s, when twelve warlords were fighting over the land, he defeated them one by one and united the country. In 968 he declared himself emperor of Đại Cồ Việt, with his capital at Hoa Lư, close to the hills where he had played as a child."
+      "narration": "Đinh Bộ Lĩnh grew up poor, herding buffalo. The story goes that he led the other village boys in mock battles, using reeds as flags, and the children carried him like a king. As a young man in the 960s, when twelve warlords were fighting over the land, he defeated them one by one and united the country. In 968 he declared himself emperor of Đại Cồ Việt, with his capital at Hoa Lư, close to the hills where he had played as a child.",
+      "motifs": [
+        "buffalo",
+        "flag",
+        "karst"
+      ]
     },
     {
       "id": "feet",
@@ -84,7 +122,12 @@
         "file": "Muaxuantamcoc.jpg",
         "alt": "Boats in the rice fields at Tam Cốc"
       },
-      "narration": "At Tam Cốc and Tràng An, many of the boats are rowed by women from the local villages. Some row with their feet, leaning back and pushing the oars with their legs, which lets them rest their arms on the long trips. The boats pass through caves so low that passengers have to duck, and through valleys where the only sounds are the oars and the birds. In early June the rice fields along the river turn gold."
+      "narration": "At Tam Cốc and Tràng An, many of the boats are rowed by women from the local villages. Some row with their feet, leaning back and pushing the oars with their legs, which lets them rest their arms on the long trips. The boats pass through caves so low that passengers have to duck, and through valleys where the only sounds are the oars and the birds. In early June the rice fields along the river turn gold.",
+      "motifs": [
+        "sampan",
+        "trang-an",
+        "non-la"
+      ]
     },
     {
       "id": "heritage",
@@ -94,7 +137,12 @@
         "file": "Trang An - 05.jpg",
         "alt": "Limestone cliffs at Tràng An"
       },
-      "narration": "Tràng An is one of only a few sites in Asia listed by UNESCO for both nature and culture. Its limestone towers were shaped over millions of years. Inside its caves, archaeologists have found tools, shells and animal bones left by people who lived here as the sea level rose after the last Ice Age. Later, the same landscape sheltered Vietnam's first imperial capital. Few places show so clearly how people and landscape shaped each other."
+      "narration": "Tràng An is one of only a few sites in Asia listed by UNESCO for both nature and culture. Its limestone towers were shaped over millions of years. Inside its caves, archaeologists have found tools, shells and animal bones left by people who lived here as the sea level rose after the last Ice Age. Later, the same landscape sheltered Vietnam's first imperial capital. Few places show so clearly how people and landscape shaped each other.",
+      "motifs": [
+        "karst",
+        "cave",
+        "stork"
+      ]
     }
   ],
   "guide": {
@@ -197,7 +245,36 @@
         "lon": 105.976,
         "note": "Trains to Hà Nội. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "karst",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "sampan"
+      ],
+      "etiquette": [
+        "incense",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "karst",
+        "sampan",
+        "rice"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "trang-an",
+      "karst",
+      "sampan"
+    ]
+  }
 }

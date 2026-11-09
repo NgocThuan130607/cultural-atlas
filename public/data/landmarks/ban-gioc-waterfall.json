@@ -6,8 +6,13 @@
   "lat": 22.8559,
   "lon": 106.7225,
   "summary": "One of the largest waterfalls in Asia. The Quây Sơn River spills over limestone in wide tiers here, on the border between Vietnam and China.",
-  "bestMonths": [9, 10],
-  "tags": ["nature"],
+  "bestMonths": [
+    9,
+    10
+  ],
+  "tags": [
+    "nature"
+  ],
   "hero": {
     "file": "Bangioc9tam.jpg",
     "alt": "The tiers of the Bản Giốc waterfall"
@@ -21,7 +26,12 @@
       "image": {
         "file": "Thác Bản Giốc.jpg",
         "alt": "Water pouring over the limestone steps"
-      }
+      },
+      "motifs": [
+        "ban-gioc",
+        "karst",
+        "stones"
+      ]
     },
     {
       "year": 2009,
@@ -31,7 +41,12 @@
       "image": {
         "file": "DeTianPuBu.jpg",
         "alt": "The falls seen from the Chinese side"
-      }
+      },
+      "motifs": [
+        "ban-gioc",
+        "flag",
+        "scroll"
+      ]
     },
     {
       "year": 2018,
@@ -41,7 +56,12 @@
       "image": {
         "file": "Ban Gioc - Detian Falls2.jpg",
         "alt": "The Bản Giốc–Detian falls"
-      }
+      },
+      "motifs": [
+        "karst",
+        "cave",
+        "ban-gioc"
+      ]
     },
     {
       "year": 2023,
@@ -51,7 +71,12 @@
       "image": {
         "file": "Ban Gioc Panorama .jpg",
         "alt": "Panorama of the falls"
-      }
+      },
+      "motifs": [
+        "ban-gioc",
+        "route",
+        "compass"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +86,12 @@
       "image": {
         "file": "Bangioc9tam.jpg",
         "alt": "The tiers of the Bản Giốc waterfall"
-      }
+      },
+      "motifs": [
+        "ban-gioc",
+        "sampan",
+        "waterfall"
+      ]
     }
   ],
   "story": [
@@ -73,7 +103,12 @@
         "file": "Ban Gioc Panorama .jpg",
         "alt": "The green valleys of Cao Bằng"
       },
-      "narration": "In January 1941, a man in his fifties crossed the mountains from China into Cao Bằng. It was Nguyễn Ái Quốc, soon to be known as Ho Chi Minh, coming home after thirty years abroad. He lived in a small cave at Pác Bó, near the border, sleeping on a bed of planks and working at a stone table by the stream. He named the stream after Lenin and a nearby mountain after Karl Marx. From here he organised the Việt Minh, the movement that would declare independence four years later."
+      "narration": "In January 1941, a man in his fifties crossed the mountains from China into Cao Bằng. It was Nguyễn Ái Quốc, soon to be known as Ho Chi Minh, coming home after thirty years abroad. He lived in a small cave at Pác Bó, near the border, sleeping on a bed of planks and working at a stone table by the stream. He named the stream after Lenin and a nearby mountain after Karl Marx. From here he organised the Việt Minh, the movement that would declare independence four years later.",
+      "motifs": [
+        "cave",
+        "scroll",
+        "stilt-house"
+      ]
     },
     {
       "id": "nguom-ngao",
@@ -83,7 +118,12 @@
         "file": "Thác Bản Giốc.jpg",
         "alt": "Limestone around Bản Giốc"
       },
-      "narration": "A few kilometres from the waterfall lies a large cave called Ngườm Ngao. In the Tày language the name means 'tiger cave'. The story goes that tigers once lived there and villagers did not dare to enter. Today a path leads through chambers of stalactites and stalagmites that local people have named after the shapes they see in them: a field of rice terraces, a golden curtain, a pair of hands at prayer."
+      "narration": "A few kilometres from the waterfall lies a large cave called Ngườm Ngao. In the Tày language the name means 'tiger cave'. The story goes that tigers once lived there and villagers did not dare to enter. Today a path leads through chambers of stalactites and stalagmites that local people have named after the shapes they see in them: a field of rice terraces, a golden curtain, a pair of hands at prayer.",
+      "motifs": [
+        "cave",
+        "karst",
+        "stones"
+      ]
     },
     {
       "id": "chestnuts",
@@ -93,7 +133,12 @@
         "file": "DeTianPuBu.jpg",
         "alt": "Mountains along the border"
       },
-      "narration": "Ask anyone in the north what to bring back from Cao Bằng and they will say chestnuts from Trùng Khánh. They are small and sweet, roasted in the autumn by roadside sellers. Cao Bằng also has its own way of eating bánh cuốn, the thin steamed rice rolls. Here they come with a bowl of hot bone broth instead of a cold dipping sauce, a breakfast made for cold mountain mornings."
+      "narration": "Ask anyone in the north what to bring back from Cao Bằng and they will say chestnuts from Trùng Khánh. They are small and sweet, roasted in the autumn by roadside sellers. Cao Bằng also has its own way of eating bánh cuốn, the thin steamed rice rolls. Here they come with a bowl of hot bone broth instead of a cold dipping sauce, a breakfast made for cold mountain mornings.",
+      "motifs": [
+        "pho",
+        "stilt-house",
+        "rice"
+      ]
     }
   ],
   "guide": {
@@ -196,7 +241,36 @@
         "lon": 106.721,
         "note": "Grilled snacks and drinks. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "ban-gioc",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "karst"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "karst"
+      ],
+      "tips": [
+        "pho",
+        "sampan",
+        "karst"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ban-gioc",
+      "karst",
+      "sampan"
+    ]
+  }
 }

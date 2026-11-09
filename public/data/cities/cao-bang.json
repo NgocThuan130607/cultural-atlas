@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Cao Bằng sits on the Chinese border in the far north-east. Its green valleys are walled by limestone peaks, and its rivers, such as the Quây Sơn, run clear between them. The province is a UNESCO Global Geopark, Non Nước Cao Bằng, known for its caves, waterfalls and rock formations."
+      "text": "Cao Bằng sits on the Chinese border in the far north-east. Its green valleys are walled by limestone peaks, and its rivers, such as the Quây Sơn, run clear between them. The province is a UNESCO Global Geopark, Non Nước Cao Bằng, known for its caves, waterfalls and rock formations.",
+      "motifs": [
+        "karst",
+        "waterfall",
+        "cave"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "After losing Thăng Long in 1592, the Mạc dynasty held out in Cao Bằng until 1677. In January 1941 Ho Chi Minh crossed the border near Pác Bó and returned to Vietnam after thirty years abroad. He lived and worked in a cave there while preparing the independence movement. In 1950 the Border Campaign drove French forces from the region."
+      "text": "After losing Thăng Long in 1592, the Mạc dynasty held out in Cao Bằng until 1677. In January 1941 Ho Chi Minh crossed the border near Pác Bó and returned to Vietnam after thirty years abroad. He lived and worked in a cave there while preparing the independence movement. In 1950 the Border Campaign drove French forces from the region.",
+      "motifs": [
+        "cave",
+        "scroll",
+        "citadel-gate"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Tày and Nùng peoples make up most of the population. Their stilt houses, 'then' songs and the tính lute are part of daily and ritual life. Cao Bằng is known for its chestnuts from Trùng Khánh, and for a breakfast of thin steamed rice rolls (bánh cuốn) served with a bowl of bone broth."
+      "text": "The Tày and Nùng peoples make up most of the population. Their stilt houses, 'then' songs and the tính lute are part of daily and ritual life. Cao Bằng is known for its chestnuts from Trùng Khánh, and for a breakfast of thin steamed rice rolls (bánh cuốn) served with a bowl of bone broth.",
+      "motifs": [
+        "lute",
+        "stilt-house",
+        "brocade"
+      ]
     }
   ],
   "etiquette": [
@@ -74,5 +89,22 @@
       "landmark": "ban-gioc-waterfall",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ban-gioc",
+      "karst",
+      "waterfall"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "karst"
+    ],
+    "know": [
+      "stilt-house",
+      "sandals",
+      "camera-no"
+    ]
+  }
 }

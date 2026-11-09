@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Vietnam's largest city spreads along the Saigon River, on the edge of the Mekong Delta. Its south reaches the sea through the Cần Giờ mangrove forest. Since 2025 it has also included the factories and new towns of Bình Dương, the port and beaches of Vũng Tàu, and the Côn Đảo islands."
+      "text": "Vietnam's largest city spreads along the Saigon River, on the edge of the Mekong Delta. Its south reaches the sea through the Cần Giờ mangrove forest. Since 2025 it has also included the factories and new towns of Bình Dương, the port and beaches of Vũng Tàu, and the Côn Đảo islands.",
+      "motifs": [
+        "waves",
+        "sampan",
+        "lighthouse"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Once a Khmer trading post called Prey Nokor, the area came under Vietnamese rule in 1698. Nguyễn Ánh built a citadel at Gia Định in 1790, and the French captured Saigon in 1859, making it the capital of their colony of Cochinchina. From 1955 it was the capital of South Vietnam. On 30 April 1975 the war ended here, and in 1976 the city took the name of Ho Chi Minh."
+      "text": "Once a Khmer trading post called Prey Nokor, the area came under Vietnamese rule in 1698. Nguyễn Ánh built a citadel at Gia Định in 1790, and the French captured Saigon in 1859, making it the capital of their colony of Cochinchina. From 1955 it was the capital of South Vietnam. On 30 April 1975 the war ended here, and in 1976 the city took the name of Ho Chi Minh.",
+      "motifs": [
+        "citadel-gate",
+        "scroll",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Saigon never stops: motorbikes, street food, cafés on every corner and markets open from dawn to night. Chợ Lớn is the heart of the Chinese community. Đờn ca tài tử, the chamber music of the south, is on UNESCO's list, and cải lương opera grew out of it."
+      "text": "Saigon never stops: motorbikes, street food, cafés on every corner and markets open from dawn to night. Chợ Lớn is the heart of the Chinese community. Đờn ca tài tử, the chamber music of the south, is on UNESCO's list, and cải lương opera grew out of it.",
+      "motifs": [
+        "pho",
+        "coffee-phin",
+        "motorbikes"
+      ]
     }
   ],
   "etiquette": [
@@ -86,5 +101,22 @@
       "landmark": "independence-palace",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "independence-palace",
+      "motorbikes",
+      "coffee-phin"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "motorbikes"
+    ],
+    "know": [
+      "motorbikes",
+      "stool",
+      "coffee-phin"
+    ]
+  }
 }

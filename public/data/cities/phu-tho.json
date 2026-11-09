@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Phú Thọ lies where the northern mountains meet the Red River delta. Near Việt Trì, the 'city of the confluence', the Red, Lô and Đà rivers join. The former Vĩnh Phúc province includes the Tam Đảo mountains. The former Hòa Bình province is the land of the Mường people, and the great reservoir of the Hòa Bình dam lies there."
+      "text": "Phú Thọ lies where the northern mountains meet the Red River delta. Near Việt Trì, the 'city of the confluence', the Red, Lô and Đà rivers join. The former Vĩnh Phúc province includes the Tam Đảo mountains. The former Hòa Bình province is the land of the Mường people, and the great reservoir of the Hòa Bình dam lies there.",
+      "motifs": [
+        "waves",
+        "rice",
+        "karst"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Vietnamese tradition places the kingdom of Văn Lang and its Hùng Kings here, and archaeologists have found rich Bronze Age sites around Việt Trì. In the 1920s, excavations in the caves of Hòa Bình gave the world the name 'Hoabinhian' for a prehistoric culture of South-East Asia. The Hòa Bình dam on the Đà River, completed in 1994, was once the largest in South-East Asia."
+      "text": "Vietnamese tradition places the kingdom of Văn Lang and its Hùng Kings here, and archaeologists have found rich Bronze Age sites around Việt Trì. In the 1920s, excavations in the caves of Hòa Bình gave the world the name 'Hoabinhian' for a prehistoric culture of South-East Asia. The Hòa Bình dam on the Đà River, completed in 1994, was once the largest in South-East Asia.",
+      "motifs": [
+        "drum",
+        "chim-lac",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The worship of the Hùng Kings and the xoan singing of Phú Thọ villages are both on UNESCO's lists. The Mường people of Hòa Bình are known for their gong music, their stilt houses and an epic poem about the creation of the world."
+      "text": "The worship of the Hùng Kings and the xoan singing of Phú Thọ villages are both on UNESCO's lists. The Mường people of Hòa Bình are known for their gong music, their stilt houses and an epic poem about the creation of the world.",
+      "motifs": [
+        "banh-chung",
+        "lute",
+        "hung-temple"
+      ]
     }
   ],
   "etiquette": [
@@ -89,5 +104,22 @@
       "landmark": "hung-temple",
       "era": 5
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "hung-temple",
+      "drum",
+      "banh-chung"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "temple-roof"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "sandals"
+    ]
+  }
 }

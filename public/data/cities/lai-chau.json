@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Lai Châu is one of Vietnam's most mountainous provinces. The Hoàng Liên Sơn range rises along its eastern edge, and the Đà River cuts through deep valleys in the west. The Ô Quy Hồ Pass, one of the highest roads in the country, crosses the range towards Sa Pa."
+      "text": "Lai Châu is one of Vietnam's most mountainous provinces. The Hoàng Liên Sơn range rises along its eastern edge, and the Đà River cuts through deep valleys in the west. The Ô Quy Hồ Pass, one of the highest roads in the country, crosses the range towards Sa Pa.",
+      "motifs": [
+        "mountain-road",
+        "cloud-sea",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The upland valleys were long ruled by Thái lords. The French created a province here in 1909. In 2004 the old province was divided: its southern part became Điện Biên, and the new Lai Châu got a newly built capital in the Tam Đường valley. Large hydropower dams on the Đà River have since changed the landscape."
+      "text": "The upland valleys were long ruled by Thái lords. The French created a province here in 1909. In 2004 the old province was divided: its southern part became Điện Biên, and the new Lai Châu got a newly built capital in the Tam Đường valley. Large hydropower dams on the Đà River have since changed the landscape.",
+      "motifs": [
+        "scroll",
+        "stilt-house",
+        "horse"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Many peoples live here, including the Thái, Hmong, Dao and Hà Nhì, as well as some of the smallest ethnic groups in Vietnam, such as the Si La and Mảng. Tea is grown on the high slopes around Tam Đường."
+      "text": "Many peoples live here, including the Thái, Hmong, Dao and Hà Nhì, as well as some of the smallest ethnic groups in Vietnam, such as the Si La and Mảng. Tea is grown on the high slopes around Tam Đường.",
+      "motifs": [
+        "brocade",
+        "tea-leaves",
+        "loom"
+      ]
     }
   ],
   "etiquette": [
@@ -58,5 +73,22 @@
       "landmark": "o-quy-ho-pass",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "o-quy-ho",
+      "cloud-sea",
+      "tea-leaves"
+    ],
+    "map": [
+      "compass",
+      "mountain-road",
+      "route"
+    ],
+    "know": [
+      "cloud-sea",
+      "non-la",
+      "tea"
+    ]
+  }
 }

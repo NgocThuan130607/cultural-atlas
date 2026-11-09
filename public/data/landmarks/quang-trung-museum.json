@@ -6,8 +6,19 @@
   "lat": 13.9206,
   "lon": 108.9208,
   "summary": "A museum on the site of the Tây Sơn brothers' home. It tells the story of the peasant rebellion that toppled two ruling houses and defeated two foreign armies.",
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8],
-  "tags": ["history"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Tượng đài Quang Trung tại Bảo tàng Quang Trung.JPG",
     "alt": "Statue of Quang Trung at the museum"
@@ -21,7 +32,12 @@
       "image": {
         "file": "Nhac Brothers.JPG",
         "alt": "The three Tây Sơn brothers"
-      }
+      },
+      "motifs": [
+        "tay-son-drum",
+        "flag",
+        "scroll"
+      ]
     },
     {
       "year": 1785,
@@ -31,7 +47,12 @@
       "image": {
         "file": "Tàu chiến tây Sơn.jpg",
         "alt": "A model of a Tây Sơn warship"
-      }
+      },
+      "motifs": [
+        "war-drum",
+        "sampan",
+        "waves"
+      ]
     },
     {
       "year": 1789,
@@ -41,7 +62,12 @@
       "image": {
         "file": "Súng thần công thời Tây Sơn.jpg",
         "alt": "A Tây Sơn cannon"
-      }
+      },
+      "motifs": [
+        "peach",
+        "tay-son-drum",
+        "flag"
+      ]
     },
     {
       "year": 1802,
@@ -51,7 +77,12 @@
       "image": {
         "file": "Bia mộ tổ.jpg",
         "alt": "The tomb stele of the Tây Sơn ancestors"
-      }
+      },
+      "motifs": [
+        "scroll",
+        "seal",
+        "stele"
+      ]
     },
     {
       "year": 1978,
@@ -61,7 +92,12 @@
       "image": {
         "file": "Bảo Tàng Quang Trung.JPG",
         "alt": "The Quang Trung Museum"
-      }
+      },
+      "motifs": [
+        "tay-son-drum",
+        "scroll",
+        "stones"
+      ]
     },
     {
       "year": 2026,
@@ -71,7 +107,12 @@
       "image": {
         "file": "Tượng đài Quang Trung tại Bảo tàng Quang Trung.JPG",
         "alt": "Statue of Quang Trung"
-      }
+      },
+      "motifs": [
+        "tay-son-drum",
+        "war-drum",
+        "lute"
+      ]
     }
   ],
   "story": [
@@ -83,7 +124,12 @@
         "file": "Nhac Brothers.JPG",
         "alt": "The three Tây Sơn brothers"
       },
-      "narration": "In the 18th century Vietnam was divided between the Trịnh lords in the north and the Nguyễn lords in the south, and peasants suffered from taxes and famine. In 1771 three brothers from the hamlet of Tây Sơn gathered followers in the hills. Their army grew rapidly. Within fifteen years they had overthrown the Nguyễn in the south and the Trịnh in the north. The middle brother, Nguyễn Huệ, proved one of the greatest military commanders in Vietnamese history."
+      "narration": "In the 18th century Vietnam was divided between the Trịnh lords in the north and the Nguyễn lords in the south, and peasants suffered from taxes and famine. In 1771 three brothers from the hamlet of Tây Sơn gathered followers in the hills. Their army grew rapidly. Within fifteen years they had overthrown the Nguyễn in the south and the Trịnh in the north. The middle brother, Nguyễn Huệ, proved one of the greatest military commanders in Vietnamese history.",
+      "motifs": [
+        "tay-son-drum",
+        "flag",
+        "rice"
+      ]
     },
     {
       "id": "march",
@@ -93,7 +139,12 @@
         "file": "Súng thần công thời Tây Sơn.jpg",
         "alt": "A Tây Sơn cannon"
       },
-      "narration": "When a Qing army of tens of thousands occupied Thăng Long in late 1788, Quang Trung marched north with astonishing speed. A popular story says his soldiers moved in groups of three: two carried the third in a hammock, so that one could always rest, and they marched day and night. He celebrated Tết early with his troops and promised they would celebrate properly in the capital. On the fifth day of the new year of 1789, after the battle of Ngọc Hồi–Đống Đa, he rode into Thăng Long, his gown reportedly blackened by gunpowder."
+      "narration": "When a Qing army of tens of thousands occupied Thăng Long in late 1788, Quang Trung marched north with astonishing speed. A popular story says his soldiers moved in groups of three: two carried the third in a hammock, so that one could always rest, and they marched day and night. He celebrated Tết early with his troops and promised they would celebrate properly in the capital. On the fifth day of the new year of 1789, after the battle of Ngọc Hồi–Đống Đa, he rode into Thăng Long, his gown reportedly blackened by gunpowder.",
+      "motifs": [
+        "war-drum",
+        "horse",
+        "peach"
+      ]
     },
     {
       "id": "drums",
@@ -103,7 +154,12 @@
         "file": "Trống trận thời Tây Sơn.jpg",
         "alt": "Tây Sơn war drums"
       },
-      "narration": "The Tây Sơn army is remembered for its war drums, played in sets with powerful, rolling rhythms that signalled attacks and lifted morale. Today, troupes in Bình Định perform the drums at festivals. The province is also famous for its martial arts, practised with bare hands, swords and sticks. A local saying claims that in Bình Định even the girls can fight. Martial arts schools still train children in the villages around the museum."
+      "narration": "The Tây Sơn army is remembered for its war drums, played in sets with powerful, rolling rhythms that signalled attacks and lifted morale. Today, troupes in Bình Định perform the drums at festivals. The province is also famous for its martial arts, practised with bare hands, swords and sticks. A local saying claims that in Bình Định even the girls can fight. Martial arts schools still train children in the villages around the museum.",
+      "motifs": [
+        "tay-son-drum",
+        "war-drum",
+        "lute"
+      ]
     }
   ],
   "guide": {
@@ -198,7 +254,36 @@
         "lon": 109.2237,
         "note": "Airport, trains and buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "tay-son-drum",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "tay-son-drum"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "rice",
+        "pho",
+        "tay-son-drum"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "tay-son-drum",
+      "war-drum",
+      "flag"
+    ]
+  }
 }

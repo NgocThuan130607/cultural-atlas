@@ -6,8 +6,17 @@
   "lat": 23.2786,
   "lon": 105.3632,
   "summary": "A UNESCO Global Geopark of grey limestone peaks on Vietnam's northern border. The Hmong, Lô Lô and other peoples here grow maize in pockets of soil between the rocks.",
-  "bestMonths": [3, 4, 10, 11],
-  "tags": ["nature", "adventure", "local-life"],
+  "bestMonths": [
+    3,
+    4,
+    10,
+    11
+  ],
+  "tags": [
+    "nature",
+    "adventure",
+    "local-life"
+  ],
   "hero": {
     "file": "Bãi đá mặt trăng Đồng Văn - NKS.jpg",
     "alt": "Grey limestone rocks on the Đồng Văn plateau"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Bãi đá mặt trăng Đồng Văn - NKS.jpg",
         "alt": "Jagged grey limestone on the plateau"
-      }
+      },
+      "motifs": [
+        "karst",
+        "stones",
+        "waves"
+      ]
     },
     {
       "year": 1910,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Dinh thự vua Mèo họ Vương - Vuong’s Palace, Đồng Văn.jpg",
         "alt": "The Vương family mansion at Sà Phìn"
-      }
+      },
+      "motifs": [
+        "stilt-house",
+        "pine",
+        "stones"
+      ]
     },
     {
       "year": 1959,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Đèo Mã Pì Lèng.jpg",
         "alt": "The Mã Pì Lèng Pass above the Nho Quế River"
-      }
+      },
+      "motifs": [
+        "mountain-road",
+        "stones",
+        "flag"
+      ]
     },
     {
       "year": 2010,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Turtle Hill @SaPhin HaGiang Vietnam.jpg",
         "alt": "Karst hills around Sà Phìn"
-      }
+      },
+      "motifs": [
+        "dong-van",
+        "karst",
+        "brocade"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +90,12 @@
       "image": {
         "file": "Cột Cờ.jpg",
         "alt": "The Lũng Cú flag tower"
-      }
+      },
+      "motifs": [
+        "dong-van",
+        "mountain-road",
+        "flag"
+      ]
     }
   ],
   "story": [
@@ -73,7 +107,12 @@
         "file": "SaPhin HaGiang Vietnam.JPG",
         "alt": "A valley on the Đồng Văn plateau"
       },
-      "narration": "Once a year, on the 27th day of the third lunar month, the village of Khâu Vai near Mèo Vạc holds a market unlike any other. The story behind it tells of a young man and a young woman from two different peoples who fell in love but could not marry, because their families and clans were against it. Rather than start a feud, they agreed to part, and to meet again once a year on the same day. Today couples, old friends and former sweethearts still travel across the mountains to meet at the love market, to talk, sing and remember."
+      "narration": "Once a year, on the 27th day of the third lunar month, the village of Khâu Vai near Mèo Vạc holds a market unlike any other. The story behind it tells of a young man and a young woman from two different peoples who fell in love but could not marry, because their families and clans were against it. Rather than start a feud, they agreed to part, and to meet again once a year on the same day. Today couples, old friends and former sweethearts still travel across the mountains to meet at the love market, to talk, sing and remember.",
+      "motifs": [
+        "brocade",
+        "horse",
+        "maize"
+      ]
     },
     {
       "id": "happiness-road",
@@ -83,7 +122,12 @@
         "file": "Đèo Mã Pì Lèng.jpg",
         "alt": "The road over the Mã Pì Lèng Pass"
       },
-      "narration": "Until the 1960s, the only way to cross the plateau was on foot or by horse, along narrow trails above sheer drops. Between 1959 and 1965, thousands of young volunteers built a road from Hà Giang to Đồng Văn and Mèo Vạc. On the cliffs of Mã Pì Lèng, workers hung from ropes and cut the rock with hammers, chisels and explosives. Several lost their lives. People named it the Road of Happiness, because it finally connected the highland villages with the rest of the country."
+      "narration": "Until the 1960s, the only way to cross the plateau was on foot or by horse, along narrow trails above sheer drops. Between 1959 and 1965, thousands of young volunteers built a road from Hà Giang to Đồng Văn and Mèo Vạc. On the cliffs of Mã Pì Lèng, workers hung from ropes and cut the rock with hammers, chisels and explosives. Several lost their lives. People named it the Road of Happiness, because it finally connected the highland villages with the rest of the country.",
+      "motifs": [
+        "mountain-road",
+        "stones",
+        "karst"
+      ]
     },
     {
       "id": "stone-houses",
@@ -93,7 +137,12 @@
         "file": "Turtle Hill @SaPhin HaGiang Vietnam.jpg",
         "alt": "Karst hills and fields near Sà Phìn"
       },
-      "narration": "On this plateau there is more stone than soil. Hmong farmers plant maize in small pockets of earth between the rocks, sometimes carrying soil up the slopes in baskets. They build thick walls of rammed earth to keep their houses warm, and fences of piled stone around them. Maize is food, animal feed and the base of the strong corn wine that is shared at every market and celebration. Visiting in October, you may also see the hillsides turn pink and white with buckwheat flowers."
+      "narration": "On this plateau there is more stone than soil. Hmong farmers plant maize in small pockets of earth between the rocks, sometimes carrying soil up the slopes in baskets. They build thick walls of rammed earth to keep their houses warm, and fences of piled stone around them. Maize is food, animal feed and the base of the strong corn wine that is shared at every market and celebration. Visiting in October, you may also see the hillsides turn pink and white with buckwheat flowers.",
+      "motifs": [
+        "maize",
+        "karst",
+        "stones"
+      ]
     }
   ],
   "guide": {
@@ -169,7 +218,36 @@
         "lon": 104.9839,
         "note": "Start of the loop. Buses to Hà Nội."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "karst",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "mountain-road"
+      ],
+      "etiquette": [
+        "camera-no",
+        "brocade",
+        "sandals"
+      ],
+      "tips": [
+        "maize",
+        "brocade",
+        "horse"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "dong-van",
+      "karst",
+      "maize"
+    ]
+  }
 }

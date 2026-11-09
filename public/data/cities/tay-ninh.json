@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Tây Ninh stretches across the plains between Hồ Chí Minh City and Cambodia. Bà Đen, the 'Black Lady' mountain, rises alone from the flat land; at almost 1,000 m it is the highest peak in the south. The former Long An province adds the rice fields and canals of the Vàm Cỏ rivers and part of the Plain of Reeds."
+      "text": "The new Tây Ninh stretches across the plains between Hồ Chí Minh City and Cambodia. Bà Đen, the 'Black Lady' mountain, rises alone from the flat land; at almost 1,000 m it is the highest peak in the south. The former Long An province adds the rice fields and canals of the Vàm Cỏ rivers and part of the Plain of Reeds.",
+      "motifs": [
+        "karst",
+        "rice",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Tây Ninh is the home of Cao Đài, a religion founded in 1926, whose Holy See was built between the 1930s and 1955. The area saw heavy fighting in the wars of the 20th century. Long An, crossed by the main roads into the Mekong Delta, has long been a gateway between Saigon and the delta."
+      "text": "Tây Ninh is the home of Cao Đài, a religion founded in 1926, whose Holy See was built between the 1930s and 1955. The area saw heavy fighting in the wars of the 20th century. Long An, crossed by the main roads into the Mekong Delta, has long been a gateway between Saigon and the delta.",
+      "motifs": [
+        "cao-dai",
+        "scroll",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Cao Đài followers dressed in white, and its colourful temples, are a familiar sight here. Bà Đen mountain draws pilgrims, especially at Tết. Tây Ninh is famous for shrimp salt (muối tôm) and for the dew-dried rice paper of Trảng Bàng."
+      "text": "Cao Đài followers dressed in white, and its colourful temples, are a familiar sight here. Bà Đen mountain draws pilgrims, especially at Tết. Tây Ninh is famous for shrimp salt (muối tôm) and for the dew-dried rice paper of Trảng Bàng.",
+      "motifs": [
+        "cao-dai",
+        "karst",
+        "bell"
+      ]
     }
   ],
   "etiquette": [
@@ -65,5 +80,22 @@
       "landmark": "cao-dai-holy-see",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "cao-dai",
+      "karst",
+      "rice"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "cao-dai"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "sandals"
+    ]
+  }
 }

@@ -6,8 +6,15 @@
   "lat": 16.4694,
   "lon": 107.5778,
   "summary": "The walled palace city of the Nguyễn emperors, Vietnam's last dynasty, inside the great citadel on the Perfume River.",
-  "bestMonths": [2, 3, 4],
-  "tags": ["history", "architecture"],
+  "bestMonths": [
+    2,
+    3,
+    4
+  ],
+  "tags": [
+    "history",
+    "architecture"
+  ],
   "featured": true,
   "hero": {
     "file": "Đại nội.jpg",
@@ -22,7 +29,12 @@
       "image": {
         "file": "Emperor Gia Long.jpg",
         "alt": "Emperor Gia Long"
-      }
+      },
+      "motifs": [
+        "citadel-gate",
+        "ngo-mon",
+        "scroll"
+      ]
     },
     {
       "year": 1833,
@@ -32,7 +44,12 @@
       "image": {
         "file": "Ngọ Môn Huế - NKS.jpg",
         "alt": "The Meridian Gate"
-      }
+      },
+      "motifs": [
+        "ngo-mon",
+        "flag",
+        "sun"
+      ]
     },
     {
       "year": 1926,
@@ -42,7 +59,12 @@
       "image": {
         "file": "Enthronement of Emperor Bảo Đại 001.jpg",
         "alt": "The enthronement of Bảo Đại"
-      }
+      },
+      "motifs": [
+        "seal",
+        "ngo-mon",
+        "urn"
+      ]
     },
     {
       "year": 1945,
@@ -52,7 +74,12 @@
       "image": {
         "file": "Ngo Mon Gate (7351192986).jpg",
         "alt": "The Meridian Gate"
-      }
+      },
+      "motifs": [
+        "seal",
+        "flag",
+        "ngo-mon"
+      ]
     },
     {
       "year": 1968,
@@ -62,7 +89,12 @@
       "image": {
         "file": "Hue - Citadel - Royal Enclosure 01.JPG",
         "alt": "Inside the Imperial City"
-      }
+      },
+      "motifs": [
+        "ngo-mon",
+        "stones",
+        "incense"
+      ]
     },
     {
       "year": 1993,
@@ -72,7 +104,12 @@
       "image": {
         "file": "Hiển Lâm Các - Đại Nội Huế(1).jpg",
         "alt": "Hiển Lâm Các pavilion"
-      }
+      },
+      "motifs": [
+        "ngo-mon",
+        "lotus",
+        "stele"
+      ]
     }
   ],
   "story": [
@@ -84,7 +121,12 @@
         "file": "Ngo Mon Gate (7351192986).jpg",
         "alt": "The Meridian Gate"
       },
-      "narration": "In August 1945, as the August Revolution swept the country, Emperor Bảo Đại decided to give up the throne. On 30 August, at the Meridian Gate, he read his abdication before a large crowd. He is remembered for saying that he would rather be a citizen of an independent country than the king of an enslaved one. He handed the golden seal and the sword of the dynasty to representatives of the new government. The 143 years of the Nguyễn dynasty, and two thousand years of monarchy in Vietnam, came to an end."
+      "narration": "In August 1945, as the August Revolution swept the country, Emperor Bảo Đại decided to give up the throne. On 30 August, at the Meridian Gate, he read his abdication before a large crowd. He is remembered for saying that he would rather be a citizen of an independent country than the king of an enslaved one. He handed the golden seal and the sword of the dynasty to representatives of the new government. The 143 years of the Nguyễn dynasty, and two thousand years of monarchy in Vietnam, came to an end.",
+      "motifs": [
+        "seal",
+        "flag",
+        "ngo-mon"
+      ]
     },
     {
       "id": "urns",
@@ -94,7 +136,12 @@
         "file": "Cửu đỉnh Huế.jpg",
         "alt": "The nine dynastic urns"
       },
-      "narration": "In front of the Thế Miếu, the temple of the Nguyễn emperors, stand nine huge bronze urns, cast under Emperor Minh Mạng in the 1830s. Each is named after an emperor, and their sides are decorated with images of Vietnam: its mountains, rivers, seas, animals, plants and weapons. Together they form a kind of encyclopedia of the country in bronze, meant to show that the dynasty would last as long as the land itself."
+      "narration": "In front of the Thế Miếu, the temple of the Nguyễn emperors, stand nine huge bronze urns, cast under Emperor Minh Mạng in the 1830s. Each is named after an emperor, and their sides are decorated with images of Vietnam: its mountains, rivers, seas, animals, plants and weapons. Together they form a kind of encyclopedia of the country in bronze, meant to show that the dynasty would last as long as the land itself.",
+      "motifs": [
+        "urn",
+        "ngo-mon",
+        "seal"
+      ]
     },
     {
       "id": "nha-nhac",
@@ -104,7 +151,12 @@
         "file": "Đại nội.jpg",
         "alt": "The Imperial City"
       },
-      "narration": "Nhã nhạc, 'elegant music', was played at court ceremonies, coronations and offerings to Heaven. Orchestras of drums, flutes, string instruments and gongs accompanied ritual dances. When the monarchy ended, the musicians scattered and the music almost disappeared. In 2003 UNESCO listed it as heritage of humanity, and today it is performed again in the restored theatre of the Imperial City."
+      "narration": "Nhã nhạc, 'elegant music', was played at court ceremonies, coronations and offerings to Heaven. Orchestras of drums, flutes, string instruments and gongs accompanied ritual dances. When the monarchy ended, the musicians scattered and the music almost disappeared. In 2003 UNESCO listed it as heritage of humanity, and today it is performed again in the restored theatre of the Imperial City.",
+      "motifs": [
+        "lute",
+        "drum",
+        "ngo-mon"
+      ]
     },
     {
       "id": "film-aerial",
@@ -114,7 +166,12 @@
         "file": "Aerial view hoang thanh hue video.webm",
         "alt": "Drone video over the Imperial City of Huế, showing gates, courtyards and lawns along its central axis"
       },
-      "narration": "This drone film, made in September 2024, flies over the Imperial City of Huế. From above you can see how carefully it was planned: square walls and moats, with the most important gates, courtyards and halls lined up along one central axis. The Nguyễn emperors began building it in 1804. The whole citadel faces the Perfume River and Ngự Bình hill, a position chosen by geomancy. The video has no sound."
+      "narration": "This drone film, made in September 2024, flies over the Imperial City of Huế. From above you can see how carefully it was planned: square walls and moats, with the most important gates, courtyards and halls lined up along one central axis. The Nguyễn emperors began building it in 1804. The whole citadel faces the Perfume River and Ngự Bình hill, a position chosen by geomancy. The video has no sound.",
+      "motifs": [
+        "old-camera",
+        "ngo-mon",
+        "lotus"
+      ]
     }
   ],
   "guide": {
@@ -217,7 +274,36 @@
         "lon": 107.5778,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "ngo-mon",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "sampan"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "pho",
+        "lotus",
+        "non-la"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ngo-mon",
+      "urn",
+      "lotus"
+    ]
+  }
 }

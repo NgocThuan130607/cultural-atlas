@@ -6,8 +6,17 @@
   "lat": 9.918,
   "lon": 106.307,
   "summary": "A square lake ringed by ancient trees outside Trà Vinh, beside one of the oldest Khmer pagodas in the Mekong Delta. It is the heart of Khmer festivals each year.",
-  "bestMonths": [1, 2, 3, 4, 12],
-  "tags": ["spiritual", "local-life"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    12
+  ],
+  "tags": [
+    "spiritual",
+    "local-life"
+  ],
   "hero": {
     "file": "Ao Bà Om, Trà Vinh.jpg",
     "alt": "Ao Bà Om lake"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Chùa Âng.jpg",
         "alt": "Âng Pagoda"
-      }
+      },
+      "motifs": [
+        "khmer-pagoda",
+        "incense",
+        "bell"
+      ]
     },
     {
       "year": 1800,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Cổ thụ ở ao Bà Ôm.jpg",
         "alt": "An old tree at Ao Bà Om"
-      }
+      },
+      "motifs": [
+        "mangrove",
+        "ripples",
+        "khmer-pagoda"
+      ]
     },
     {
       "year": 1997,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Bảo tàng văn hóa dân tộc Khmer tỉnh Trà Vinh.jpg",
         "alt": "The museum of Khmer culture"
-      }
+      },
+      "motifs": [
+        "lute",
+        "khmer-pagoda",
+        "vase"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Ao Bà Om.jpg",
         "alt": "Ao Bà Om"
-      }
+      },
+      "motifs": [
+        "ngo-boat",
+        "star-lantern",
+        "ripples"
+      ]
     }
   ],
   "story": [
@@ -63,7 +92,12 @@
         "file": "Ao Bà Om, Trà Vinh.jpg",
         "alt": "Ao Bà Om lake"
       },
-      "narration": "Long ago, the legend says, the men and women of the area argued about which of them should propose marriage. They agreed on a contest: each side would dig a pond in one night, and whoever dug the bigger one would win. The women, led by a clever woman named Om, raised a lantern on a tall pole in the middle of the night. The men thought it was the morning star, stopped work and went to sleep. The women kept digging, and their pond was far larger. Since then, the story goes, the men have had to propose. The women's pond became Ao Bà Om, 'Lady Om's pond'."
+      "narration": "Long ago, the legend says, the men and women of the area argued about which of them should propose marriage. They agreed on a contest: each side would dig a pond in one night, and whoever dug the bigger one would win. The women, led by a clever woman named Om, raised a lantern on a tall pole in the middle of the night. The men thought it was the morning star, stopped work and went to sleep. The women kept digging, and their pond was far larger. Since then, the story goes, the men have had to propose. The women's pond became Ao Bà Om, 'Lady Om's pond'.",
+      "motifs": [
+        "ripples",
+        "sun",
+        "khmer-pagoda"
+      ]
     },
     {
       "id": "ok-om-bok",
@@ -73,7 +107,12 @@
         "file": "Ao Bà Om.jpg",
         "alt": "Ao Bà Om"
       },
-      "narration": "On the full moon of the tenth month of the Khmer calendar, the Khmer of the delta thank the moon for the harvest. Families set out offerings of fruit, coconuts and cốm dẹp, flattened sticky rice, and children are fed handfuls of it while making wishes. Lanterns are floated on the water. In Trà Vinh and Sóc Trăng, the festival also brings races of ngo boats, long and narrow, paddled by dozens of rowers to the beat of drums."
+      "narration": "On the full moon of the tenth month of the Khmer calendar, the Khmer of the delta thank the moon for the harvest. Families set out offerings of fruit, coconuts and cốm dẹp, flattened sticky rice, and children are fed handfuls of it while making wishes. Lanterns are floated on the water. In Trà Vinh and Sóc Trăng, the festival also brings races of ngo boats, long and narrow, paddled by dozens of rowers to the beat of drums.",
+      "motifs": [
+        "ngo-boat",
+        "star-lantern",
+        "lute"
+      ]
     },
     {
       "id": "pagoda",
@@ -83,7 +122,12 @@
         "file": "Chùa Âng.jpg",
         "alt": "Âng Pagoda"
       },
-      "narration": "Khmer pagodas follow Theravada Buddhism, like those of Cambodia and Thailand. Âng Pagoda has steep, layered roofs, mythical bird-women carved on the pillars, and wall paintings of the life of the Buddha. Traditionally, Khmer boys spend some time as novice monks, learning to read and write Khmer and to follow the Buddha's teachings. The pagoda is also a school and a meeting place for the whole community."
+      "narration": "Khmer pagodas follow Theravada Buddhism, like those of Cambodia and Thailand. Âng Pagoda has steep, layered roofs, mythical bird-women carved on the pillars, and wall paintings of the life of the Buddha. Traditionally, Khmer boys spend some time as novice monks, learning to read and write Khmer and to follow the Buddha's teachings. The pagoda is also a school and a meeting place for the whole community.",
+      "motifs": [
+        "khmer-pagoda",
+        "bell",
+        "incense"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +222,36 @@
         "lon": 106.3456,
         "note": "Buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "khmer-pagoda",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "coconut"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "camera-no"
+      ],
+      "tips": [
+        "coconut",
+        "fruit-boat",
+        "rice"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "khmer-pagoda",
+      "ripples",
+      "ngo-boat"
+    ]
+  }
 }

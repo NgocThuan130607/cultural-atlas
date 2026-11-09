@@ -6,8 +6,17 @@
   "lat": 22.3533,
   "lon": 103.7644,
   "summary": "One of Vietnam's 'four great passes'. The road climbs to about 2,000 m across the Hoàng Liên Sơn range between Lai Châu and Sa Pa, often above a sea of cloud.",
-  "bestMonths": [3, 4, 9, 10, 11],
-  "tags": ["nature", "adventure"],
+  "bestMonths": [
+    3,
+    4,
+    9,
+    10,
+    11
+  ],
+  "tags": [
+    "nature",
+    "adventure"
+  ],
   "hero": {
     "file": "O Quy Ho pass.jpg",
     "alt": "The road over the Ô Quy Hồ Pass"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Đèo Ô Quy Hồ 1.JPG",
         "alt": "Mountain slopes on the pass"
-      }
+      },
+      "motifs": [
+        "horse",
+        "mountain-road",
+        "cloud-sea"
+      ]
     },
     {
       "year": 2004,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Đèo Ô Quy Hồ 2.JPG",
         "alt": "The winding road across the pass"
-      }
+      },
+      "motifs": [
+        "mountain-road",
+        "route",
+        "o-quy-ho"
+      ]
     },
     {
       "year": 2015,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Đồi chè Ô Quý Hồ.jpg",
         "alt": "Tea plantations on the slopes of the pass"
-      }
+      },
+      "motifs": [
+        "tea-leaves",
+        "o-quy-ho",
+        "motorbikes"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Sunset on O Quy Ho pass.jpg",
         "alt": "Sunset on the Ô Quy Hồ Pass"
-      }
+      },
+      "motifs": [
+        "o-quy-ho",
+        "cloud-sea",
+        "sun"
+      ]
     }
   ],
   "story": [
@@ -63,7 +92,12 @@
         "file": "O Quy Ho pass.jpg",
         "alt": "The road over the pass"
       },
-      "narration": "Vietnamese travellers speak of the 'four great passes' of the northern mountains: Mã Pì Lèng in Hà Giang, Khau Phạ in Yên Bái, Pha Đin between Sơn La and Điện Biên, and Ô Quy Hồ here. Ô Quy Hồ is the longest of them, winding for around 50 kilometres. At the top, the weather on the two sides can be completely different: sun on the Lai Châu side, thick fog towards Sa Pa."
+      "narration": "Vietnamese travellers speak of the 'four great passes' of the northern mountains: Mã Pì Lèng in Hà Giang, Khau Phạ in Yên Bái, Pha Đin between Sơn La and Điện Biên, and Ô Quy Hồ here. Ô Quy Hồ is the longest of them, winding for around 50 kilometres. At the top, the weather on the two sides can be completely different: sun on the Lai Châu side, thick fog towards Sa Pa.",
+      "motifs": [
+        "mountain-road",
+        "karst",
+        "cloud-sea"
+      ]
     },
     {
       "id": "name",
@@ -73,7 +107,12 @@
         "file": "Sunset on O Quy Ho pass.jpg",
         "alt": "Sunset on the pass"
       },
-      "narration": "Nobody agrees on where the name Ô Quy Hồ comes from. One popular story links it to the call of a mountain bird heard in the mist, which sounds like the words of the name. Local people also simply call the summit Trạm Tôn, after an old way station. Whatever its origin, the name has become a symbol of the wild north-west for a generation of Vietnamese travellers."
+      "narration": "Nobody agrees on where the name Ô Quy Hồ comes from. One popular story links it to the call of a mountain bird heard in the mist, which sounds like the words of the name. Local people also simply call the summit Trạm Tôn, after an old way station. Whatever its origin, the name has become a symbol of the wild north-west for a generation of Vietnamese travellers.",
+      "motifs": [
+        "chim-lac",
+        "cloud-sea",
+        "pine"
+      ]
     },
     {
       "id": "small-peoples",
@@ -83,7 +122,12 @@
         "file": "Laichautown.jpg",
         "alt": "Lai Châu town"
       },
-      "narration": "Lai Châu is home to several of Vietnam's 54 officially recognised ethnic groups. Some, such as the Si La and Mảng, number only a few thousand people. They live in remote valleys near the borders with China and Laos, and keep their own languages, dress and ceremonies. Visitors who travel beyond the main road may be welcomed into their villages, but should go with a local guide who speaks the language."
+      "narration": "Lai Châu is home to several of Vietnam's 54 officially recognised ethnic groups. Some, such as the Si La and Mảng, number only a few thousand people. They live in remote valleys near the borders with China and Laos, and keep their own languages, dress and ceremonies. Visitors who travel beyond the main road may be welcomed into their villages, but should go with a local guide who speaks the language.",
+      "motifs": [
+        "brocade",
+        "loom",
+        "stilt-house"
+      ]
     }
   ],
   "guide": {
@@ -159,7 +203,36 @@
         "lon": 103.8438,
         "note": "Nearest tourist town."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "cloud-sea",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "mountain-road"
+      ],
+      "etiquette": [
+        "camera-no",
+        "non-la",
+        "cloud-sea"
+      ],
+      "tips": [
+        "tea-leaves",
+        "maize",
+        "horse"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "o-quy-ho",
+      "cloud-sea",
+      "mountain-road"
+    ]
+  }
 }

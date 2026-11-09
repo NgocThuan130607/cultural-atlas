@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Hải Phòng is northern Vietnam's main seaport, on the Cấm River near the coast. Its territory includes Cát Bà island and the beaches of Đồ Sơn. Inland, the former Hải Dương province adds rice plains and the wooded hills of Chí Linh."
+      "text": "Hải Phòng is northern Vietnam's main seaport, on the Cấm River near the coast. Its territory includes Cát Bà island and the beaches of Đồ Sơn. Inland, the former Hải Dương province adds rice plains and the wooded hills of Chí Linh.",
+      "motifs": [
+        "waves",
+        "junk",
+        "karst"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Tradition says the settlement was founded by Lê Chân, a woman general of the Trưng Sisters. In 938 Ngô Quyền won independence on the Bạch Đằng River nearby. The French built a modern port here, which became a city in 1888. In November 1946 French warships shelled Hải Phòng, a step towards full-scale war. In 1972 the United States mined its harbour."
+      "text": "Tradition says the settlement was founded by Lê Chân, a woman general of the Trưng Sisters. In 938 Ngô Quyền won independence on the Bạch Đằng River nearby. The French built a modern port here, which became a city in 1888. In November 1946 French warships shelled Hải Phòng, a step towards full-scale war. In 1972 the United States mined its harbour.",
+      "motifs": [
+        "stakes",
+        "kiep-bac",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Hải Phòng is called the 'city of flame trees' for its red phượng blossoms in early summer. The city is known for its strong local accent, its love of football and food such as crab noodle soup (bánh đa cua). The hills of Chí Linh hold two of the most sacred sites of the Trần dynasty."
+      "text": "Hải Phòng is called the 'city of flame trees' for its red phượng blossoms in early summer. The city is known for its strong local accent, its love of football and food such as crab noodle soup (bánh đa cua). The hills of Chí Linh hold two of the most sacred sites of the Trần dynasty.",
+      "motifs": [
+        "flame-tree",
+        "pho",
+        "waves"
+      ]
     }
   ],
   "etiquette": [
@@ -87,5 +102,22 @@
       "landmark": "con-son-kiep-bac",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "kiep-bac",
+      "flame-tree",
+      "junk"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "flame-tree"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "flame-tree"
+    ]
+  }
 }

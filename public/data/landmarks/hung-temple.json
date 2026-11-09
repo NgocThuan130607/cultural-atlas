@@ -6,8 +6,15 @@
   "lat": 21.3655,
   "lon": 105.3246,
   "summary": "Temples on Nghĩa Lĩnh mountain dedicated to the Hùng Kings, the legendary founders of the first Vietnamese kingdom. Every spring, millions come to honour them.",
-  "bestMonths": [2, 3, 4],
-  "tags": ["spiritual", "history"],
+  "bestMonths": [
+    2,
+    3,
+    4
+  ],
+  "tags": [
+    "spiritual",
+    "history"
+  ],
   "hero": {
     "file": "Mausoleum of Hung King.JPG",
     "alt": "The tomb of the Hùng King on Nghĩa Lĩnh mountain"
@@ -21,7 +28,12 @@
       "image": {
         "file": "Đền Hùng, Đền Giếng.jpg",
         "alt": "The Well Temple at the foot of the mountain"
-      }
+      },
+      "motifs": [
+        "drum",
+        "chim-lac",
+        "rice"
+      ]
     },
     {
       "year": 1470,
@@ -31,7 +43,12 @@
       "image": {
         "file": "Đền Hùng, đền Trung.jpg",
         "alt": "The Middle Temple"
-      }
+      },
+      "motifs": [
+        "scroll",
+        "hung-temple",
+        "dragon"
+      ]
     },
     {
       "year": 1917,
@@ -41,7 +58,12 @@
       "image": {
         "file": "Thuong temple.JPG",
         "alt": "The Upper Temple"
-      }
+      },
+      "motifs": [
+        "hung-temple",
+        "incense",
+        "flag"
+      ]
     },
     {
       "year": 1954,
@@ -51,7 +73,12 @@
       "image": {
         "file": "Cổng đền Hùng (Phú Thọ).jpg",
         "alt": "The gate of the temple complex"
-      }
+      },
+      "motifs": [
+        "flag",
+        "hung-temple",
+        "saplings"
+      ]
     },
     {
       "year": 2012,
@@ -61,7 +88,12 @@
       "image": {
         "file": "Đền Hùng, đền Hạ.jpg",
         "alt": "The Lower Temple"
-      }
+      },
+      "motifs": [
+        "hung-temple",
+        "scroll",
+        "lute"
+      ]
     },
     {
       "year": 2026,
@@ -71,7 +103,12 @@
       "image": {
         "file": "Trung tâm lễ hội đền Hùng 18-09-2015 1.jpg",
         "alt": "The festival centre at the foot of the mountain"
-      }
+      },
+      "motifs": [
+        "hung-temple",
+        "banh-chung",
+        "incense"
+      ]
     }
   ],
   "story": [
@@ -83,7 +120,12 @@
         "file": "Đền Hùng, Đền Giếng.jpg",
         "alt": "The Well Temple"
       },
-      "narration": "Long ago, the legend says, Lạc Long Quân, a dragon lord of the sea, married Âu Cơ, a fairy of the mountains. She gave birth to a sac of one hundred eggs, which hatched into one hundred sons. But a dragon and a fairy could not live together for long. Fifty sons followed their father down to the sea, and fifty went with their mother into the mountains. The eldest of these became the first Hùng King. That is why Vietnamese people call each other đồng bào, 'born from the same sac'."
+      "narration": "Long ago, the legend says, Lạc Long Quân, a dragon lord of the sea, married Âu Cơ, a fairy of the mountains. She gave birth to a sac of one hundred eggs, which hatched into one hundred sons. But a dragon and a fairy could not live together for long. Fifty sons followed their father down to the sea, and fifty went with their mother into the mountains. The eldest of these became the first Hùng King. That is why Vietnamese people call each other đồng bào, 'born from the same sac'.",
+      "motifs": [
+        "dragon",
+        "chim-lac",
+        "karst"
+      ]
     },
     {
       "id": "cakes",
@@ -93,7 +135,12 @@
         "file": "Đền Hùng, đền Hạ.jpg",
         "alt": "The Lower Temple"
       },
-      "narration": "One Hùng King wanted to choose an heir, and asked his sons to bring him the finest dish for the new year. The princes searched land and sea for rare delicacies. The youngest, Lang Liêu, was poor. In a dream he was told to make cakes from the rice that feeds the people: a square one, bánh chưng, for the earth, and a round one, bánh giầy, for the sky. The king tasted them, understood their meaning, and made Lang Liêu his heir. Families still make bánh chưng every Lunar New Year."
+      "narration": "One Hùng King wanted to choose an heir, and asked his sons to bring him the finest dish for the new year. The princes searched land and sea for rare delicacies. The youngest, Lang Liêu, was poor. In a dream he was told to make cakes from the rice that feeds the people: a square one, bánh chưng, for the earth, and a round one, bánh giầy, for the sky. The king tasted them, understood their meaning, and made Lang Liêu his heir. Families still make bánh chưng every Lunar New Year.",
+      "motifs": [
+        "banh-chung",
+        "rice",
+        "scroll"
+      ]
     },
     {
       "id": "xoan",
@@ -103,7 +150,12 @@
         "file": "Trung tâm lễ hội đền Hùng 18-09-2015 1.jpg",
         "alt": "The festival centre"
       },
-      "narration": "In a few villages near Việt Trì, people have sung xoan for centuries at the start of each new year. It was performed in communal houses to honour the Hùng Kings and the village spirits, with drums and clappers, slow ritual songs and lively dances. By the early 2000s only a handful of elderly singers remained. UNESCO listed xoan as heritage in urgent need of safeguarding in 2011. Young people took up the songs, and in 2017 it was moved to the main list as a tradition that had been saved."
+      "narration": "In a few villages near Việt Trì, people have sung xoan for centuries at the start of each new year. It was performed in communal houses to honour the Hùng Kings and the village spirits, with drums and clappers, slow ritual songs and lively dances. By the early 2000s only a handful of elderly singers remained. UNESCO listed xoan as heritage in urgent need of safeguarding in 2011. Young people took up the songs, and in 2017 it was moved to the main list as a tradition that had been saved.",
+      "motifs": [
+        "lute",
+        "drum",
+        "incense"
+      ]
     }
   ],
   "guide": {
@@ -206,7 +258,36 @@
         "lon": 105.4019,
         "note": "Trains and buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "hung-temple",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "hung-temple"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "banh-chung",
+        "incense",
+        "rice"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "hung-temple",
+      "drum",
+      "incense"
+    ]
+  }
 }

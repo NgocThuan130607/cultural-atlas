@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Lạng Sơn lies on the main route between Hà Nội and China. Limestone valleys and the Kỳ Cùng River run through it; unusually, the river flows north into China. Mẫu Sơn mountain (about 1,500 m) is one of the few places in Vietnam where snow sometimes falls."
+      "text": "Lạng Sơn lies on the main route between Hà Nội and China. Limestone valleys and the Kỳ Cùng River run through it; unusually, the river flows north into China. Mẫu Sơn mountain (about 1,500 m) is one of the few places in Vietnam where snow sometimes falls.",
+      "motifs": [
+        "karst",
+        "waves",
+        "cloud-sea"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Invading armies from the north usually came through Lạng Sơn, and the narrow valley of Chi Lăng saw some of Vietnam's most famous ambushes. In 1885, French troops fell back from Lạng Sơn after a defeat by Qing forces, which brought down the French government in Paris. In 1979 the town was badly damaged in the border war with China."
+      "text": "Invading armies from the north usually came through Lạng Sơn, and the narrow valley of Chi Lăng saw some of Vietnam's most famous ambushes. In 1885, French troops fell back from Lạng Sơn after a defeat by Qing forces, which brought down the French government in Paris. In 1979 the town was badly damaged in the border war with China.",
+      "motifs": [
+        "chi-lang",
+        "citadel-gate",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Tày and Nùng are the largest groups. Their markets, then songs and spring festivals fill the calendar. Lạng Sơn is famous for its roast pork flavoured with mắc mật leaves, and for the legend of Tô Thị, a woman turned to stone while waiting for her husband to return from war."
+      "text": "The Tày and Nùng are the largest groups. Their markets, then songs and spring festivals fill the calendar. Lạng Sơn is famous for its roast pork flavoured with mắc mật leaves, and for the legend of Tô Thị, a woman turned to stone while waiting for her husband to return from war.",
+      "motifs": [
+        "lute",
+        "brocade",
+        "horse"
+      ]
     }
   ],
   "etiquette": [
@@ -68,5 +83,22 @@
       "landmark": "chi-lang-pass",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "chi-lang",
+      "karst",
+      "flag"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "karst"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "camera-no"
+    ]
+  }
 }

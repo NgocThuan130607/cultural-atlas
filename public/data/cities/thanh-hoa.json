@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Thanh Hóa is the largest province of the north-central coast. The Mã and Chu rivers flow from the mountains on the Laos border across a wide plain to the sea, where Sầm Sơn is one of the country's oldest beach resorts."
+      "text": "Thanh Hóa is the largest province of the north-central coast. The Mã and Chu rivers flow from the mountains on the Laos border across a wide plain to the sea, where Sầm Sơn is one of the country's oldest beach resorts.",
+      "motifs": [
+        "waves",
+        "rice",
+        "karst"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The Bronze Age Đông Sơn culture takes its name from a village here, where archaeologists found bronze drums in the 1920s. In 248 CE Lady Triệu led an uprising against Chinese rule. In 1397 Hồ Quý Ly built a stone citadel here, and in 1418 Lê Lợi launched his war of independence from Lam Sơn. The Nguyễn and Trịnh families who later ruled Vietnam also came from Thanh Hóa."
+      "text": "The Bronze Age Đông Sơn culture takes its name from a village here, where archaeologists found bronze drums in the 1920s. In 248 CE Lady Triệu led an uprising against Chinese rule. In 1397 Hồ Quý Ly built a stone citadel here, and in 1418 Lê Lợi launched his war of independence from Lam Sơn. The Nguyễn and Trịnh families who later ruled Vietnam also came from Thanh Hóa.",
+      "motifs": [
+        "drum",
+        "ho-gate",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Thanh Hóa is known for nem chua (fermented pork rolls), for its dialect, and for the Mường and Thái villages of its western hills. People here are proud that so many of Vietnam's kings came from their province."
+      "text": "Thanh Hóa is known for nem chua (fermented pork rolls), for its dialect, and for the Mường and Thái villages of its western hills. People here are proud that so many of Vietnam's kings came from their province.",
+      "motifs": [
+        "carrying-pole",
+        "rice",
+        "stilt-house"
+      ]
     }
   ],
   "etiquette": [
@@ -84,5 +99,22 @@
       "landmark": "ho-citadel",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ho-gate",
+      "drum",
+      "rice"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "ho-gate"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "rice"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Quảng Ninh is Vietnam's north-east corner, between the sea and the Chinese border at Móng Cái. Its coast is scattered with around 2,000 limestone islands in Hạ Long and Bái Tử Long bays. Inland lie coal mines and the forested Yên Tử mountains."
+      "text": "Quảng Ninh is Vietnam's north-east corner, between the sea and the Chinese border at Móng Cái. Its coast is scattered with around 2,000 limestone islands in Hạ Long and Bái Tử Long bays. Inland lie coal mines and the forested Yên Tử mountains.",
+      "motifs": [
+        "karst",
+        "waves",
+        "junk"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The Bạch Đằng River, on the province's western edge, saw Vietnam's most famous naval victories, including Trần Hưng Đạo's defeat of the Mongol fleet in 1288. Around 1300, Emperor Trần Nhân Tông became a monk on Yên Tử and founded the Trúc Lâm school of Zen. From the late 19th century the French dug coal at Hòn Gai and Cẩm Phả, and mining is still a major industry."
+      "text": "The Bạch Đằng River, on the province's western edge, saw Vietnam's most famous naval victories, including Trần Hưng Đạo's defeat of the Mongol fleet in 1288. Around 1300, Emperor Trần Nhân Tông became a monk on Yên Tử and founded the Trúc Lâm school of Zen. From the late 19th century the French dug coal at Hòn Gai and Cẩm Phả, and mining is still a major industry.",
+      "motifs": [
+        "stakes",
+        "junk",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Yên Tử is a pilgrimage mountain, climbed by hundreds of thousands of people each spring. The fishing families of the bay once lived in floating villages. The coal-mining towns have their own proud working culture, and Hạ Long's squid cakes (chả mực) are famous across the country."
+      "text": "Yên Tử is a pilgrimage mountain, climbed by hundreds of thousands of people each spring. The fishing families of the bay once lived in floating villages. The coal-mining towns have their own proud working culture, and Hạ Long's squid cakes (chả mực) are famous across the country.",
+      "motifs": [
+        "temple-roof",
+        "incense",
+        "junk"
+      ]
     }
   ],
   "etiquette": [
@@ -72,5 +87,22 @@
       "landmark": "ha-long-bay",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ha-long",
+      "junk",
+      "karst"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "junk"
+    ],
+    "know": [
+      "karst",
+      "sampan",
+      "camera-no"
+    ]
+  }
 }

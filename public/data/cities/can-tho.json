@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Cần Thơ is the largest city of the Mekong Delta, on the Hậu River, the southern arm of the Mekong. Canals and orchards surround it. The former Sóc Trăng and Hậu Giang provinces add rice fields, the coast and large Khmer communities."
+      "text": "Cần Thơ is the largest city of the Mekong Delta, on the Hậu River, the southern arm of the Mekong. Canals and orchards surround it. The former Sóc Trăng and Hậu Giang provinces add rice fields, the coast and large Khmer communities.",
+      "motifs": [
+        "sampan",
+        "waves",
+        "coconut"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In 1739, Mạc Thiên Tứ, ruler of Hà Tiên, set up a district here called Trấn Giang. Under the French, Cần Thơ grew into the rice-trading capital of the delta. In 2007 part of a bridge under construction across the Hậu River collapsed, killing 54 workers. When it opened in 2010 it ended the ferry crossing."
+      "text": "In 1739, Mạc Thiên Tứ, ruler of Hà Tiên, set up a district here called Trấn Giang. Under the French, Cần Thơ grew into the rice-trading capital of the delta. In 2007 part of a bridge under construction across the Hậu River collapsed, killing 54 workers. When it opened in 2010 it ended the ferry crossing.",
+      "motifs": [
+        "scroll",
+        "junk",
+        "rice"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Life in Cần Thơ revolves around the water: floating markets, boat cafés and riverside restaurants. Đờn ca tài tử music is played at weddings and parties. In Sóc Trăng, the Khmer Bat Pagoda and the Clay Pagoda are famous, and bánh pía cakes are the local speciality."
+      "text": "Life in Cần Thơ revolves around the water: floating markets, boat cafés and riverside restaurants. Đờn ca tài tử music is played at weddings and parties. In Sóc Trăng, the Khmer Bat Pagoda and the Clay Pagoda are famous, and bánh pía cakes are the local speciality.",
+      "motifs": [
+        "moon-lute",
+        "floating-market",
+        "pho"
+      ]
     }
   ],
   "etiquette": [
@@ -74,5 +89,22 @@
       "landmark": "cai-rang-floating-market",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "floating-market",
+      "sampan",
+      "fruit-boat"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "floating-market"
+    ],
+    "know": [
+      "sampan",
+      "non-la",
+      "fruit-boat"
+    ]
+  }
 }

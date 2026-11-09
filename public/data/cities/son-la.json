@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Sơn La is a land of high plateaux and deep river valleys in the north-west. The Mộc Châu plateau, about 1,000 m up, is covered in tea, dairy pastures and fruit orchards. The Đà River runs through the province, now held back by the Sơn La dam, one of the largest hydropower plants in South-East Asia. At Tà Xùa, a narrow ridge rises above a sea of cloud."
+      "text": "Sơn La is a land of high plateaux and deep river valleys in the north-west. The Mộc Châu plateau, about 1,000 m up, is covered in tea, dairy pastures and fruit orchards. The Đà River runs through the province, now held back by the Sơn La dam, one of the largest hydropower plants in South-East Asia. At Tà Xùa, a narrow ridge rises above a sea of cloud.",
+      "motifs": [
+        "tea-leaves",
+        "waves",
+        "cloud-sea"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Sơn La was ruled for centuries by Thái lords. In 1908 the French built a prison on Khau Cả hill, which later held many leaders of the independence movement. In 2012 the Sơn La hydropower plant was completed on the Đà River, flooding valleys and moving tens of thousands of people to new villages."
+      "text": "Sơn La was ruled for centuries by Thái lords. In 1908 the French built a prison on Khau Cả hill, which later held many leaders of the independence movement. In 2012 the Sơn La hydropower plant was completed on the Đà River, flooding valleys and moving tens of thousands of people to new villages.",
+      "motifs": [
+        "son-la-prison",
+        "scroll",
+        "peach"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Thái people are the largest group. Their stilt houses, embroidered scarves and the xòe dance are seen at every festival. Mộc Châu is famous across Vietnam for fresh milk, tea and the white plum blossom that covers the hills in early spring."
+      "text": "The Thái people are the largest group. Their stilt houses, embroidered scarves and the xòe dance are seen at every festival. Mộc Châu is famous across Vietnam for fresh milk, tea and the white plum blossom that covers the hills in early spring.",
+      "motifs": [
+        "peach",
+        "brocade",
+        "stilt-house"
+      ]
     }
   ],
   "etiquette": [
@@ -70,5 +85,22 @@
       "landmark": "son-la-prison",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "son-la-prison",
+      "peach",
+      "tea-leaves"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "peach"
+    ],
+    "know": [
+      "stilt-house",
+      "sandals",
+      "peach"
+    ]
+  }
 }

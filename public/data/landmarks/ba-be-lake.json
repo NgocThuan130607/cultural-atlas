@@ -6,8 +6,17 @@
   "lat": 22.4053,
   "lon": 105.6153,
   "summary": "Vietnam's largest natural freshwater lake, held between limestone mountains in Ba Bể National Park, with Tày villages of stilt houses along its shores.",
-  "bestMonths": [3, 4, 5, 9, 10, 11],
-  "tags": ["nature"],
+  "bestMonths": [
+    3,
+    4,
+    5,
+    9,
+    10,
+    11
+  ],
+  "tags": [
+    "nature"
+  ],
   "hero": {
     "file": "Babenp 2007 01 3.jpg",
     "alt": "Ba Bể Lake between forested mountains"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Ba Be Lake 6464.jpg",
         "alt": "The long lake between limestone hills"
-      }
+      },
+      "motifs": [
+        "karst",
+        "ba-be",
+        "waves"
+      ]
     },
     {
       "year": 1992,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Ba Be Lake 2.jpg",
         "alt": "Forest and water in Ba Bể National Park"
-      }
+      },
+      "motifs": [
+        "ba-be",
+        "pine",
+        "stork"
+      ]
     },
     {
       "year": 2011,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Ba Be Lake 3.jpg",
         "alt": "Calm water on Ba Bể Lake"
-      }
+      },
+      "motifs": [
+        "ba-be",
+        "fish",
+        "stork"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +75,12 @@
       "image": {
         "file": "Ba Be Lake 9.jpg",
         "alt": "Boats on Ba Bể Lake"
-      }
+      },
+      "motifs": [
+        "stilt-house",
+        "sampan",
+        "ba-be"
+      ]
     }
   ],
   "story": [
@@ -63,7 +92,12 @@
         "file": "Ba Be Lake 8.jpg",
         "alt": "A small island in Ba Bể Lake"
       },
-      "narration": "Long ago, the story goes, there was a village festival in this valley. An old beggar covered in sores came asking for food, and everyone turned him away except a poor widow and her children, who shared their rice with him. Before he left, he warned her that a flood was coming, and gave her a grain of rice and two husks. That night water burst from the ground and swallowed the village, and the valley became a lake. The widow sheltered on a patch of land that stayed above the water. A small islet in the lake is still called Pò Giá Mải, the Widow's Island."
+      "narration": "Long ago, the story goes, there was a village festival in this valley. An old beggar covered in sores came asking for food, and everyone turned him away except a poor widow and her children, who shared their rice with him. Before he left, he warned her that a flood was coming, and gave her a grain of rice and two husks. That night water burst from the ground and swallowed the village, and the valley became a lake. The widow sheltered on a patch of land that stayed above the water. A small islet in the lake is still called Pò Giá Mải, the Widow's Island.",
+      "motifs": [
+        "ba-be",
+        "stilt-house",
+        "waves"
+      ]
     },
     {
       "id": "pac-ngoi",
@@ -73,7 +107,12 @@
         "file": "Ba Be Lake 9.jpg",
         "alt": "Boats on Ba Bể Lake"
       },
-      "narration": "On the southern shore, the Tày village of Pác Ngòi is a cluster of wooden stilt houses among rice fields. Families live upstairs, and the space underneath was traditionally used for animals and tools. Many houses now welcome guests for the night, serving fish from the lake, bamboo-tube rice and local wine. In the evenings you may hear 'then' singing, accompanied by the long-necked tính lute. This ritual music was listed by UNESCO in 2019."
+      "narration": "On the southern shore, the Tày village of Pác Ngòi is a cluster of wooden stilt houses among rice fields. Families live upstairs, and the space underneath was traditionally used for animals and tools. Many houses now welcome guests for the night, serving fish from the lake, bamboo-tube rice and local wine. In the evenings you may hear 'then' singing, accompanied by the long-necked tính lute. This ritual music was listed by UNESCO in 2019.",
+      "motifs": [
+        "stilt-house",
+        "rice",
+        "loom"
+      ]
     },
     {
       "id": "puong",
@@ -83,7 +122,12 @@
         "file": "Ba Be Lake 2.jpg",
         "alt": "Forest and water in Ba Bể National Park"
       },
-      "narration": "The Năng River flows into the lake from the north. To get there it passes straight through a mountain, in a huge cave called Puông. Boats glide beneath its ceiling, where colonies of bats live among the stalactites. Further on, the river tumbles over the rocks of the Đầu Đẳng waterfall. A day on the water, moving between cave, river and lake, is the classic way to see the national park."
+      "narration": "The Năng River flows into the lake from the north. To get there it passes straight through a mountain, in a huge cave called Puông. Boats glide beneath its ceiling, where colonies of bats live among the stalactites. Further on, the river tumbles over the rocks of the Đầu Đẳng waterfall. A day on the water, moving between cave, river and lake, is the classic way to see the national park.",
+      "motifs": [
+        "cave",
+        "sampan",
+        "karst"
+      ]
     }
   ],
   "guide": {
@@ -186,7 +230,36 @@
         "lon": 105.72,
         "note": "Nearest town and buses. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "sampan",
+        "ba-be"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "sampan"
+      ],
+      "etiquette": [
+        "camera-no",
+        "stilt-house",
+        "sandals"
+      ],
+      "tips": [
+        "fish",
+        "sampan",
+        "tea"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ba-be",
+      "karst",
+      "sampan"
+    ]
+  }
 }

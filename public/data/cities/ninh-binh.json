@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Ninh Bình is where the limestone mountains of the north reach the sea plain. Towers of karst rise straight out of rice fields and rivers at Tràng An and Tam Cốc. Cúc Phương, Vietnam's first national park, protects old forest in the west. The former Nam Định and Hà Nam provinces add flat rice lands and the coast."
+      "text": "Ninh Bình is where the limestone mountains of the north reach the sea plain. Towers of karst rise straight out of rice fields and rivers at Tràng An and Tam Cốc. Cúc Phương, Vietnam's first national park, protects old forest in the west. The former Nam Định and Hà Nam provinces add flat rice lands and the coast.",
+      "motifs": [
+        "karst",
+        "sampan",
+        "rice"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In 968 Đinh Bộ Lĩnh united the country and made Hoa Lư, hidden among the limestone, its capital. It stayed the capital until 1010. Nam Định was the home region of the Trần dynasty, who built a second capital, Thiên Trường, there. Under the French, Nam Định grew into a textile city. Phát Diệm Cathedral, finished in 1899, shows how Catholicism took root in the delta."
+      "text": "In 968 Đinh Bộ Lĩnh united the country and made Hoa Lư, hidden among the limestone, its capital. It stayed the capital until 1010. Nam Định was the home region of the Trần dynasty, who built a second capital, Thiên Trường, there. Under the French, Nam Định grew into a textile city. Phát Diệm Cathedral, finished in 1899, shows how Catholicism took root in the delta.",
+      "motifs": [
+        "citadel-gate",
+        "scroll",
+        "buffalo"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Bái Đính is one of the largest pagoda complexes in Vietnam. Phủ Dầy in Nam Định is the centre of the worship of the Mother Goddesses, listed by UNESCO in 2016. Nam Định also claims to be the birthplace of phở."
+      "text": "Bái Đính is one of the largest pagoda complexes in Vietnam. Phủ Dầy in Nam Định is the centre of the worship of the Mother Goddesses, listed by UNESCO in 2016. Nam Định also claims to be the birthplace of phở.",
+      "motifs": [
+        "temple-roof",
+        "church",
+        "incense"
+      ]
     }
   ],
   "etiquette": [
@@ -85,5 +100,22 @@
       "landmark": "trang-an",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "trang-an",
+      "karst",
+      "sampan"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "karst"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "camera-no"
+    ]
+  }
 }

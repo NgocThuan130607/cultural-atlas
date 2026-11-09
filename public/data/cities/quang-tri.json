@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Quảng Trị includes the former Quảng Bình province. It runs from the Hoành Sơn pass in the north to near Huế, at Vietnam's narrowest point. The limestone of Phong Nha–Kẻ Bàng hides some of the world's largest caves. Further south, the Bến Hải River flows to the sea along the 17th parallel."
+      "text": "The new Quảng Trị includes the former Quảng Bình province. It runs from the Hoành Sơn pass in the north to near Huế, at Vietnam's narrowest point. The limestone of Phong Nha–Kẻ Bàng hides some of the world's largest caves. Further south, the Bến Hải River flows to the sea along the 17th parallel.",
+      "motifs": [
+        "cave",
+        "karst",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In the 17th century, the Nguyễn lords built long walls near Đồng Hới against the Trịnh in the north. From 1954 to 1975, the Bến Hải River was the line dividing North and South Vietnam, and the area around it saw some of the war's heaviest fighting, including the 81-day battle for the Quảng Trị citadel in 1972."
+      "text": "In the 17th century, the Nguyễn lords built long walls near Đồng Hới against the Trịnh in the north. From 1954 to 1975, the Bến Hải River was the line dividing North and South Vietnam, and the area around it saw some of the war's heaviest fighting, including the 81-day battle for the Quảng Trị citadel in 1972.",
+      "motifs": [
+        "hien-luong",
+        "flag",
+        "waves"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "La Vang, a Marian shrine, draws Catholic pilgrims from across Vietnam. The Bru-Vân Kiều people live in the western mountains. Đồng Hới is known for fresh seafood and cháo canh noodle soup."
+      "text": "La Vang, a Marian shrine, draws Catholic pilgrims from across Vietnam. The Bru-Vân Kiều people live in the western mountains. Đồng Hới is known for fresh seafood and cháo canh noodle soup.",
+      "motifs": [
+        "church",
+        "incense",
+        "cave"
+      ]
     }
   ],
   "etiquette": [
@@ -78,5 +93,22 @@
       "landmark": "hien-luong-bridge",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "hien-luong",
+      "cave",
+      "waves"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "waves"
+    ],
+    "know": [
+      "incense",
+      "camera-no",
+      "sandals"
+    ]
+  }
 }

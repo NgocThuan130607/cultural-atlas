@@ -6,8 +6,17 @@
   "lat": 41.8902,
   "lon": 12.4922,
   "summary": "The largest amphitheatre of the Roman world, where around 50,000 spectators watched gladiators and wild-animal hunts. It later became a fortress, a quarry and a Christian shrine.",
-  "bestMonths": [4, 5, 6, 9, 10],
-  "tags": ["history", "architecture"],
+  "bestMonths": [
+    4,
+    5,
+    6,
+    9,
+    10
+  ],
+  "tags": [
+    "history",
+    "architecture"
+  ],
   "featured": true,
   "hero": {
     "file": "Colosseo 2020.jpg",
@@ -22,7 +31,12 @@
       "image": {
         "file": "Jean-Leon Gerome Pollice Verso.jpg",
         "alt": "Jean-Léon Gérôme's 1872 painting of gladiators in the Colosseum"
-      }
+      },
+      "motifs": [
+        "colosseum",
+        "scroll",
+        "olive"
+      ]
     },
     {
       "year": 90,
@@ -32,7 +46,12 @@
       "image": {
         "file": "Colosseum hypogeum.JPG",
         "alt": "The underground tunnels of the Colosseum"
-      }
+      },
+      "motifs": [
+        "colosseum",
+        "stones",
+        "lantern"
+      ]
     },
     {
       "year": 1349,
@@ -42,7 +61,12 @@
       "image": {
         "file": "Giovanni Battista Piranesi - Views of Rome- The Colosseum - 1922.225 - Cleveland Museum of Art.jpg",
         "alt": "Piranesi's 18th-century etching of the ruined Colosseum"
-      }
+      },
+      "motifs": [
+        "stones",
+        "colosseum",
+        "scroll"
+      ]
     },
     {
       "year": 1749,
@@ -52,7 +76,12 @@
       "image": {
         "file": "Cole Thomas Interior of the Colosseum Rome 1832.jpg",
         "alt": "Thomas Cole's 1832 painting of the Colosseum interior with a cross"
-      }
+      },
+      "motifs": [
+        "colosseum",
+        "incense",
+        "olive"
+      ]
     },
     {
       "year": 1850,
@@ -62,7 +91,12 @@
       "image": {
         "file": "Colosseum 19th century.jpg",
         "alt": "Painting of the ruined Colosseum beside the Arch of Constantine"
-      }
+      },
+      "motifs": [
+        "colosseum",
+        "lantern",
+        "sun"
+      ]
     },
     {
       "year": 2026,
@@ -72,7 +106,12 @@
       "image": {
         "file": "Colosseo 2020.jpg",
         "alt": "The Colosseum today"
-      }
+      },
+      "motifs": [
+        "colosseum",
+        "roman-arch",
+        "sun"
+      ]
     }
   ],
   "story": [
@@ -84,7 +123,12 @@
         "file": "Colosseum Interior 1 (15005911295).jpg",
         "alt": "Inside the Colosseum"
       },
-      "narration": "The Roman poet Juvenal complained that the people wanted only two things: bread and circuses. Emperors gave both. A day at the Colosseum was free, a gift from the emperor that showed off his power and generosity. Spectators passed through numbered arches, still visible above the entrances today, to their places. On hot days, sailors from the Roman navy stretched huge canvas awnings over the seats to give shade. Morning shows featured exotic animals from across the empire, and gladiators fought in the afternoon."
+      "narration": "The Roman poet Juvenal complained that the people wanted only two things: bread and circuses. Emperors gave both. A day at the Colosseum was free, a gift from the emperor that showed off his power and generosity. Spectators passed through numbered arches, still visible above the entrances today, to their places. On hot days, sailors from the Roman navy stretched huge canvas awnings over the seats to give shade. Morning shows featured exotic animals from across the empire, and gladiators fought in the afternoon.",
+      "motifs": [
+        "amphora",
+        "colosseum",
+        "olive"
+      ]
     },
     {
       "id": "while-stands",
@@ -94,7 +138,12 @@
         "file": "Jodocus Sebastiaen van den Abeele - View of the Colosseum in Rome.jpg",
         "alt": "Painting of the Colosseum in Rome"
       },
-      "narration": "The Romans called it the Flavian Amphitheatre, after the family of emperors who built it. The name Colosseum probably came later, from the Colossus, a giant bronze statue of Nero that once stood nearby. In the Middle Ages, pilgrims repeated a prophecy linked to the English monk Bede. While the Colosseum stands, Rome shall stand. When the Colosseum falls, Rome shall fall. And when Rome falls, the world will fall with it. Battered by earthquakes and stone thieves, the building has never quite fallen."
+      "narration": "The Romans called it the Flavian Amphitheatre, after the family of emperors who built it. The name Colosseum probably came later, from the Colossus, a giant bronze statue of Nero that once stood nearby. In the Middle Ages, pilgrims repeated a prophecy linked to the English monk Bede. While the Colosseum stands, Rome shall stand. When the Colosseum falls, Rome shall fall. And when Rome falls, the world will fall with it. Battered by earthquakes and stone thieves, the building has never quite fallen.",
+      "motifs": [
+        "colosseum",
+        "scroll",
+        "sun"
+      ]
     },
     {
       "id": "gladiators",
@@ -104,7 +153,12 @@
         "file": "Jean-Leon Gerome Pollice Verso (cropped).jpg",
         "alt": "Detail of Gérôme's painting Pollice Verso"
       },
-      "narration": "Most gladiators were slaves or prisoners of war, but some free men volunteered for the fame and the prize money. They trained in schools such as the Ludus Magnus, whose ruins you can still see beside the Colosseum. Gladiators were expensive to train, so not every fight ended in death. A defeated fighter could be spared if the crowd and the emperor wished it. The famous thumbs-down gesture comes largely from this 1872 painting by Jean-Léon Gérôme. What Roman crowds actually did with their thumbs is still debated."
+      "narration": "Most gladiators were slaves or prisoners of war, but some free men volunteered for the fame and the prize money. They trained in schools such as the Ludus Magnus, whose ruins you can still see beside the Colosseum. Gladiators were expensive to train, so not every fight ended in death. A defeated fighter could be spared if the crowd and the emperor wished it. The famous thumbs-down gesture comes largely from this 1872 painting by Jean-Léon Gérôme. What Roman crowds actually did with their thumbs is still debated.",
+      "motifs": [
+        "colosseum",
+        "roman-arch",
+        "scroll"
+      ]
     },
     {
       "id": "light",
@@ -114,7 +168,12 @@
         "file": "Franz Ludwig Catel - Parti af Colosseum i måneskin.jpg",
         "alt": "Painting of the Colosseum by moonlight"
       },
-      "narration": "Today the Colosseum carries new meanings. Every Good Friday, the Pope leads the Way of the Cross here by torchlight, a tradition that draws crowds from around the world. And since the year 2000, the monument has been lit up in gold each time a country abolishes the death penalty. A place once famous for violent death now stands as a symbol for the value of human life."
+      "narration": "Today the Colosseum carries new meanings. Every Good Friday, the Pope leads the Way of the Cross here by torchlight, a tradition that draws crowds from around the world. And since the year 2000, the monument has been lit up in gold each time a country abolishes the death penalty. A place once famous for violent death now stands as a symbol for the value of human life.",
+      "motifs": [
+        "colosseum",
+        "lantern",
+        "olive"
+      ]
     },
     {
       "id": "film-inside",
@@ -124,7 +183,12 @@
         "file": "Inside Colosseum.webm",
         "alt": "Video looking across the inside of the Colosseum, its tiers and the arena floor"
       },
-      "narration": "A short look around the inside of the Colosseum, filmed in 2017. You can see the tiers where around fifty thousand spectators once sat. Most of the wooden arena floor has gone, so the underground passages beneath it, called the hypogeum, lie open to the sky. Animals, fighters and stage scenery waited down there before being lifted up through trapdoors into the arena."
+      "narration": "A short look around the inside of the Colosseum, filmed in 2017. You can see the tiers where around fifty thousand spectators once sat. Most of the wooden arena floor has gone, so the underground passages beneath it, called the hypogeum, lie open to the sky. Animals, fighters and stage scenery waited down there before being lifted up through trapdoors into the arena.",
+      "motifs": [
+        "old-camera",
+        "colosseum",
+        "roman-arch"
+      ]
     }
   ],
   "guide": {
@@ -304,7 +368,36 @@
         "lon": 12.4932,
         "note": "Free drinking water."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "colosseum",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "roman-arch"
+      ],
+      "etiquette": [
+        "camera-no",
+        "fountain",
+        "sandals"
+      ],
+      "tips": [
+        "amphora",
+        "olive",
+        "fountain"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check the official website before visiting.",
+  "motifs": {
+    "cover": [
+      "colosseum",
+      "roman-arch",
+      "olive"
+    ]
+  }
 }

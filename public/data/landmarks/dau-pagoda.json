@@ -6,8 +6,14 @@
   "lat": 21.0372,
   "lon": 106.0416,
   "summary": "One of the oldest Buddhist centres in Vietnam, in the old citadel of Luy Lâu. It is dedicated to the goddess of clouds and rain.",
-  "bestMonths": [2, 3],
-  "tags": ["spiritual", "architecture"],
+  "bestMonths": [
+    2,
+    3
+  ],
+  "tags": [
+    "spiritual",
+    "architecture"
+  ],
   "hero": {
     "file": "ChuaDau ToanCanh.JPG",
     "alt": "Dâu Pagoda"
@@ -21,7 +27,12 @@
       "image": {
         "file": "ChuaDau PhapVu.JPG",
         "alt": "A Buddhist statue at Dâu Pagoda"
-      }
+      },
+      "motifs": [
+        "dau-tower",
+        "lotus",
+        "scroll"
+      ]
     },
     {
       "year": 1313,
@@ -31,7 +42,12 @@
       "image": {
         "file": "Tượng Mạc Đĩnh Chi.jpeg",
         "alt": "Statue of Mạc Đĩnh Chi"
-      }
+      },
+      "motifs": [
+        "temple-roof",
+        "scroll",
+        "bell"
+      ]
     },
     {
       "year": 1700,
@@ -41,7 +57,12 @@
       "image": {
         "file": "ChuaDau Thap.JPG",
         "alt": "The Hòa Phong tower"
-      }
+      },
+      "motifs": [
+        "dau-tower",
+        "bell",
+        "stones"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +72,12 @@
       "image": {
         "file": "ChuaDau Chinh.JPG",
         "alt": "The main hall of Dâu Pagoda"
-      }
+      },
+      "motifs": [
+        "rain",
+        "dau-tower",
+        "incense"
+      ]
     }
   ],
   "story": [
@@ -63,7 +89,12 @@
         "file": "ChuaDau PhapVan.JPG",
         "alt": "The statue of Pháp Vân"
       },
-      "narration": "Long ago, the legend says, a young woman named Man Nương lived near Luy Lâu and served an Indian monk called Khâu Đà La. She gave birth to a daughter, whom the monk placed inside a hollow tree. Years later, a storm brought the tree down into the river, and it floated to the citadel. People carved it into four statues: the goddesses of clouds, rain, thunder and lightning. The four pagodas that house them have been prayed to for rain ever since. Dâu Pagoda holds Pháp Vân, the goddess of clouds."
+      "narration": "Long ago, the legend says, a young woman named Man Nương lived near Luy Lâu and served an Indian monk called Khâu Đà La. She gave birth to a daughter, whom the monk placed inside a hollow tree. Years later, a storm brought the tree down into the river, and it floated to the citadel. People carved it into four statues: the goddesses of clouds, rain, thunder and lightning. The four pagodas that house them have been prayed to for rain ever since. Dâu Pagoda holds Pháp Vân, the goddess of clouds.",
+      "motifs": [
+        "rain",
+        "cloud-sea",
+        "dau-tower"
+      ]
     },
     {
       "id": "luy-lau",
@@ -73,7 +104,12 @@
         "file": "ChuaDau PhapVu.JPG",
         "alt": "A statue at Dâu Pagoda"
       },
-      "narration": "Two thousand years ago, the citadel of Luy Lâu stood here, surrounded by earthen walls. It was the seat of the Chinese governors of Giao Chỉ, the best known being Shi Xie (Sĩ Nhiếp in Vietnamese), who ruled around 200 CE. Merchants arrived by river and by sea, and with them came Buddhist monks from India. Some historians think Luy Lâu was a centre of Buddhism even before the faith became widespread in China. Traces of the old walls can still be seen near the pagoda."
+      "narration": "Two thousand years ago, the citadel of Luy Lâu stood here, surrounded by earthen walls. It was the seat of the Chinese governors of Giao Chỉ, the best known being Shi Xie (Sĩ Nhiếp in Vietnamese), who ruled around 200 CE. Merchants arrived by river and by sea, and with them came Buddhist monks from India. Some historians think Luy Lâu was a centre of Buddhism even before the faith became widespread in China. Traces of the old walls can still be seen near the pagoda.",
+      "motifs": [
+        "citadel-gate",
+        "scroll",
+        "stones"
+      ]
     },
     {
       "id": "quan-ho",
@@ -83,7 +119,12 @@
         "file": "Trung tâm văn hóa Kinh Bắc.jpg",
         "alt": "Kinh Bắc"
       },
-      "narration": "Quan họ is sung by pairs of men and women, called liền anh and liền chị, from different villages. They answer each other in song, matching tune and rhyme, sometimes from boats on a pond. The singers wear traditional dress: turbans and long gowns for the men, and wide flat hats and layered áo tứ thân for the women. There are hundreds of melodies. At the Lim festival each spring, the hillside and the ponds fill with singers."
+      "narration": "Quan họ is sung by pairs of men and women, called liền anh and liền chị, from different villages. They answer each other in song, matching tune and rhyme, sometimes from boats on a pond. The singers wear traditional dress: turbans and long gowns for the men, and wide flat hats and layered áo tứ thân for the women. There are hundreds of melodies. At the Lim festival each spring, the hillside and the ponds fill with singers.",
+      "motifs": [
+        "quan-ho",
+        "sampan",
+        "lute"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +219,36 @@
         "lon": 106.0763,
         "note": "Buses and trains."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "dau-tower",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "dau-tower"
+      ],
+      "etiquette": [
+        "incense",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "quan-ho",
+        "dong-ho",
+        "rice"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "dau-tower",
+      "bell",
+      "lotus"
+    ]
+  }
 }

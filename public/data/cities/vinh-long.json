@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new Vĩnh Long covers the islands and peninsulas between the arms of the Mekong. The former Bến Tre province is a land of coconut groves. Vĩnh Long itself is a land of orchards and brick kilns, and the former Trà Vinh reaches the sea."
+      "text": "The new Vĩnh Long covers the islands and peninsulas between the arms of the Mekong. The former Bến Tre province is a land of coconut groves. Vĩnh Long itself is a land of orchards and brick kilns, and the former Trà Vinh reaches the sea.",
+      "motifs": [
+        "coconut",
+        "fruit-boat",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The Nguyễn lords set up Long Hồ, today's Vĩnh Long, in 1732 to govern the new southern lands. In 1867 Phan Thanh Giản, unable to resist the French, handed over the western provinces and took his own life. In January 1960 the Đồng Khởi uprising broke out in Bến Tre. Trà Vinh has one of the largest Khmer communities in Vietnam."
+      "text": "The Nguyễn lords set up Long Hồ, today's Vĩnh Long, in 1732 to govern the new southern lands. In 1867 Phan Thanh Giản, unable to resist the French, handed over the western provinces and took his own life. In January 1960 the Đồng Khởi uprising broke out in Bến Tre. Trà Vinh has one of the largest Khmer communities in Vietnam.",
+      "motifs": [
+        "khmer-pagoda",
+        "scroll",
+        "junk"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Trà Vinh alone has well over a hundred Khmer Theravada pagodas, with monks in saffron robes. The Khmer festivals of Chol Chnam Thmay (new year) and Ok Om Bok (moon festival) fill the calendar. Bến Tre is famous for coconut candy, and Vĩnh Long for its pottery kilns along the Mang Thít River."
+      "text": "Trà Vinh alone has well over a hundred Khmer Theravada pagodas, with monks in saffron robes. The Khmer festivals of Chol Chnam Thmay (new year) and Ok Om Bok (moon festival) fill the calendar. Bến Tre is famous for coconut candy, and Vĩnh Long for its pottery kilns along the Mang Thít River.",
+      "motifs": [
+        "ngo-boat",
+        "khmer-pagoda",
+        "star-lantern"
+      ]
     }
   ],
   "etiquette": [
@@ -69,5 +84,22 @@
       "landmark": "ao-ba-om",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "khmer-pagoda",
+      "coconut",
+      "fruit-boat"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "coconut"
+    ],
+    "know": [
+      "khmer-pagoda",
+      "incense",
+      "sandals"
+    ]
+  }
 }

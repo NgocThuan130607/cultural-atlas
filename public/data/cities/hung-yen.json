@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Hưng Yên lies in the heart of the Red River delta, a flat land of rice fields, orchards and villages. The former Thái Bình province stretches to the sea between the Red and Thái Bình rivers, and is one of the country's great rice bowls."
+      "text": "Hưng Yên lies in the heart of the Red River delta, a flat land of rice fields, orchards and villages. The former Thái Bình province stretches to the sea between the Red and Thái Bình rivers, and is one of the country's great rice bowls.",
+      "motifs": [
+        "rice",
+        "buffalo",
+        "waves"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In the 17th century, Phố Hiến near today's Hưng Yên city was the busiest river port of the north. A saying ranked it second only to the capital: 'first the capital, second Phố Hiến'. Merchants from China, Japan and the Netherlands traded there. The Trần family, who ruled Vietnam from 1225, came from the Thái Bình area, where their temples and tombs still stand."
+      "text": "In the 17th century, Phố Hiến near today's Hưng Yên city was the busiest river port of the north. A saying ranked it second only to the capital: 'first the capital, second Phố Hiến'. Merchants from China, Japan and the Netherlands traded there. The Trần family, who ruled Vietnam from 1225, came from the Thái Bình area, where their temples and tombs still stand.",
+      "motifs": [
+        "junk",
+        "scroll",
+        "bell"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Hưng Yên's 'cage longans' (nhãn lồng) were once sent as tribute to the royal court. Thái Bình is known for chèo, a traditional folk opera, and for water puppetry. Village festivals across the delta still feature boat races and rice-cooking contests."
+      "text": "Hưng Yên's 'cage longans' (nhãn lồng) were once sent as tribute to the royal court. Thái Bình is known for chèo, a traditional folk opera, and for water puppetry. Village festivals across the delta still feature boat races and rice-cooking contests.",
+      "motifs": [
+        "water-puppet",
+        "lute",
+        "rice"
+      ]
     }
   ],
   "etiquette": [
@@ -78,5 +93,22 @@
       "landmark": "keo-pagoda",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "keo-bell",
+      "rice",
+      "lotus"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "rice"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "rice"
+    ]
+  }
 }

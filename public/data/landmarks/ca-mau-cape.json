@@ -6,8 +6,17 @@
   "lat": 8.6317,
   "lon": 104.7139,
   "summary": "The southern tip of mainland Vietnam, where mangrove forests grow out into the sea and the coastline keeps changing.",
-  "bestMonths": [1, 2, 3, 4, 12],
-  "tags": ["nature", "adventure"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    12
+  ],
+  "tags": [
+    "nature",
+    "adventure"
+  ],
   "hero": {
     "file": "MũiCàMau.jpg",
     "alt": "Cà Mau Cape"
@@ -21,7 +30,12 @@
       "image": {
         "file": "Mudflats in Dat Mui.jpg",
         "alt": "Mudflats at Đất Mũi"
-      }
+      },
+      "motifs": [
+        "mangrove",
+        "waves",
+        "fish"
+      ]
     },
     {
       "year": 1700,
@@ -31,7 +45,12 @@
       "image": {
         "file": "Carte marine anonyme portugaise de la péninsule de Ca Mau et du delta du Mékong - btv1b532875781 (1 of 2).jpg",
         "alt": "A Portuguese sea chart of the Cà Mau peninsula"
-      }
+      },
+      "motifs": [
+        "junk",
+        "compass",
+        "scroll"
+      ]
     },
     {
       "year": 2003,
@@ -41,7 +60,12 @@
       "image": {
         "file": "Rhizophora apiculata in Dat Mui, Vietnam.jpg",
         "alt": "Mangroves at Đất Mũi"
-      }
+      },
+      "motifs": [
+        "mangrove",
+        "stork",
+        "fish"
+      ]
     },
     {
       "year": 2009,
@@ -51,7 +75,12 @@
       "image": {
         "file": "A wooden fence in mudflats in Dat Mui.jpg",
         "alt": "A fence on the mudflats"
-      }
+      },
+      "motifs": [
+        "mangrove",
+        "stork",
+        "scroll"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +90,12 @@
       "image": {
         "file": "Tuongdaimuicamau.jpg",
         "alt": "The monument at Cà Mau Cape"
-      }
+      },
+      "motifs": [
+        "ca-mau-cape",
+        "waves",
+        "sun"
+      ]
     }
   ],
   "story": [
@@ -73,7 +107,12 @@
         "file": "Mudflats in Dat Mui.jpg",
         "alt": "Mudflats"
       },
-      "narration": "Cà Mau's coastline is never still. On some shores, mud settles among the mangrove roots and the land creeps out into the sea year after year. On others, waves and rising seas wear the coast away, and whole rows of trees fall into the water. Local people plant mangroves and build bamboo fences in the mud to hold the land. At the cape, standing on ground that did not exist a few generations ago, you can see the Mekong Delta being made."
+      "narration": "Cà Mau's coastline is never still. On some shores, mud settles among the mangrove roots and the land creeps out into the sea year after year. On others, waves and rising seas wear the coast away, and whole rows of trees fall into the water. Local people plant mangroves and build bamboo fences in the mud to hold the land. At the cape, standing on ground that did not exist a few generations ago, you can see the Mekong Delta being made.",
+      "motifs": [
+        "mangrove",
+        "waves",
+        "fish"
+      ]
     },
     {
       "id": "prince",
@@ -83,7 +122,12 @@
         "file": "Bạc Liêu windpower farm.jpg",
         "alt": "The coast of Bạc Liêu"
       },
-      "narration": "In the early 20th century, Trần Trinh Huy, the son of a hugely rich landowner in Bạc Liêu, became famous as the 'Bạc Liêu prince' for his extravagance. Stories about him are told all over the south. In the best known, a woman at a party dropped something in the dark, and he lit a banknote to help her search for it. Many of these tales are exaggerated, but his family's grand house still stands in Bạc Liêu."
+      "narration": "In the early 20th century, Trần Trinh Huy, the son of a hugely rich landowner in Bạc Liêu, became famous as the 'Bạc Liêu prince' for his extravagance. Stories about him are told all over the south. In the best known, a woman at a party dropped something in the dark, and he lit a banknote to help her search for it. Many of these tales are exaggerated, but his family's grand house still stands in Bạc Liêu.",
+      "motifs": [
+        "scroll",
+        "moon-lute",
+        "lantern"
+      ]
     },
     {
       "id": "song",
@@ -93,7 +137,12 @@
         "file": "Tuongdaimuicamau.jpg",
         "alt": "The monument at the cape"
       },
-      "narration": "In 1919, the Bạc Liêu musician Cao Văn Lầu wrote 'Dạ cổ hoài lang', 'Hearing the night drum, missing my husband'. It tells of a wife waiting for a husband who has gone far away. Musicians took up its melody and stretched it into vọng cổ, the slow, moving tune at the heart of cải lương opera and of the đờn ca tài tử music that UNESCO listed in 2013. Today no wedding or gathering in the south is complete without it."
+      "narration": "In 1919, the Bạc Liêu musician Cao Văn Lầu wrote 'Dạ cổ hoài lang', 'Hearing the night drum, missing my husband'. It tells of a wife waiting for a husband who has gone far away. Musicians took up its melody and stretched it into vọng cổ, the slow, moving tune at the heart of cải lương opera and of the đờn ca tài tử music that UNESCO listed in 2013. Today no wedding or gathering in the south is complete without it.",
+      "motifs": [
+        "moon-lute",
+        "drum",
+        "lantern"
+      ]
     }
   ],
   "guide": {
@@ -194,7 +243,36 @@
         "lon": 105.1524,
         "note": "Airport and buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "ca-mau-cape",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "mangrove"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "fish",
+        "sampan",
+        "mangrove"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ca-mau-cape",
+      "mangrove",
+      "waves"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Hà Tĩnh is a narrow strip between the Trường Sơn mountains and the sea. The Hồng Lĩnh range, said to have 99 peaks, rises near the coast, and beaches such as Thiên Cầm line the shore."
+      "text": "Hà Tĩnh is a narrow strip between the Trường Sơn mountains and the sea. The Hồng Lĩnh range, said to have 99 peaks, rises near the coast, and beaches such as Thiên Cầm line the shore.",
+      "motifs": [
+        "karst",
+        "waves",
+        "rice"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "Nguyễn Du, the author of The Tale of Kiều, came from a family of Tiên Điền in this province. From 1885 Phan Đình Phùng led a long resistance against the French from the mountains of Vũ Quang. During the American war, the province's roads were part of the supply route to the South and were bombed heavily."
+      "text": "Nguyễn Du, the author of The Tale of Kiều, came from a family of Tiên Điền in this province. From 1885 Phan Đình Phùng led a long resistance against the French from the mountains of Vũ Quang. During the American war, the province's roads were part of the supply route to the South and were bombed heavily.",
+      "motifs": [
+        "scroll",
+        "stele",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Hà Tĩnh shares the ví and giặm folk songs with Nghệ An. It is proud of its poets and scholars, and of kẹo cu đơ, a candy of peanuts and molasses between rice crackers."
+      "text": "Hà Tĩnh shares the ví and giặm folk songs with Nghệ An. It is proud of its poets and scholars, and of kẹo cu đơ, a candy of peanuts and molasses between rice crackers.",
+      "motifs": [
+        "scroll",
+        "lute",
+        "rice"
+      ]
     }
   ],
   "etiquette": [
@@ -63,5 +78,22 @@
       "landmark": "dong-loc-junction",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "dong-loc",
+      "incense",
+      "hoa-ban"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "incense"
+    ],
+    "know": [
+      "incense",
+      "hoa-ban",
+      "camera-no"
+    ]
+  }
 }

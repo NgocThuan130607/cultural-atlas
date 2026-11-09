@@ -6,8 +6,18 @@
   "lat": 22.3364,
   "lon": 103.8438,
   "summary": "A misty hill town at about 1,500 m in the Hoàng Liên Sơn mountains. The French founded it as a summer resort, and rice terraces of Hmong, Dao and Giáy villages surround it.",
-  "bestMonths": [3, 4, 5, 9, 10],
-  "tags": ["nature", "adventure", "local-life"],
+  "bestMonths": [
+    3,
+    4,
+    5,
+    9,
+    10
+  ],
+  "tags": [
+    "nature",
+    "adventure",
+    "local-life"
+  ],
   "featured": true,
   "hero": {
     "file": "Sa Pa.jpg",
@@ -22,7 +32,12 @@
       "image": {
         "file": "Environs de Chapa (1926).jpg",
         "alt": "The countryside around Sa Pa in the 1920s"
-      }
+      },
+      "motifs": [
+        "sapa",
+        "train",
+        "pine"
+      ]
     },
     {
       "year": 1926,
@@ -32,7 +47,12 @@
       "image": {
         "file": "Nha tho Da , Sapa vietnam - panoramio.jpg",
         "alt": "The stone church of Sa Pa"
-      }
+      },
+      "motifs": [
+        "church",
+        "terraces",
+        "horse"
+      ]
     },
     {
       "year": 1993,
@@ -42,7 +62,12 @@
       "image": {
         "file": "Cầu Mây Alley, Sa Pa.jpg",
         "alt": "A street in Sa Pa"
-      }
+      },
+      "motifs": [
+        "sapa",
+        "terraces",
+        "brocade"
+      ]
     },
     {
       "year": 2016,
@@ -52,7 +77,12 @@
       "image": {
         "file": "Fansipan Cable Car and Sa Pa.jpg",
         "alt": "The Fansipan cable car above Sa Pa"
-      }
+      },
+      "motifs": [
+        "cloud-sea",
+        "mountain-road",
+        "sapa"
+      ]
     },
     {
       "year": 2026,
@@ -62,7 +92,12 @@
       "image": {
         "file": "Rice terraces in Sapa, Vietnam.jpg",
         "alt": "Rice terraces near Sa Pa"
-      }
+      },
+      "motifs": [
+        "terraces",
+        "cloud-sea",
+        "church"
+      ]
     }
   ],
   "story": [
@@ -74,7 +109,12 @@
         "file": "Cầu Mây Alley, Sa Pa.jpg",
         "alt": "A street in Sa Pa"
       },
-      "narration": "Around Sa Pa, each valley is home to different peoples. Black Hmong women wear jackets of hemp dyed deep blue with indigo, which often stains their hands. The Red Dao are known for their red headscarves and for their herbal baths, made from dozens of forest plants. The Giáy and Tày build their houses lower down, near the rivers. All of them farm rice on terraces they have carved into the slopes over many generations, and carefully feed water from one terrace to the next."
+      "narration": "Around Sa Pa, each valley is home to different peoples. Black Hmong women wear jackets of hemp dyed deep blue with indigo, which often stains their hands. The Red Dao are known for their red headscarves and for their herbal baths, made from dozens of forest plants. The Giáy and Tày build their houses lower down, near the rivers. All of them farm rice on terraces they have carved into the slopes over many generations, and carefully feed water from one terrace to the next.",
+      "motifs": [
+        "brocade",
+        "loom",
+        "terraces"
+      ]
     },
     {
       "id": "chapa",
@@ -84,7 +124,12 @@
         "file": "Environs de Chapa (1926).jpg",
         "alt": "The countryside around Sa Pa in the 1920s"
       },
-      "narration": "In the early 20th century the French were looking for cool places to rest away from the heat of the delta. The railway to Lào Cai, which opened in 1906, made the mountains reachable. On a plateau about 1,500 metres high they found Chapa, as they called it, and built villas, a church and hotels. For a few decades it was the summer retreat of the north. Most of the villas were lost in the wars that followed, but the town's layout and its stone church still recall that time."
+      "narration": "In the early 20th century the French were looking for cool places to rest away from the heat of the delta. The railway to Lào Cai, which opened in 1906, made the mountains reachable. On a plateau about 1,500 metres high they found Chapa, as they called it, and built villas, a church and hotels. For a few decades it was the summer retreat of the north. Most of the villas were lost in the wars that followed, but the town's layout and its stone church still recall that time.",
+      "motifs": [
+        "church",
+        "train",
+        "pine"
+      ]
     },
     {
       "id": "fansipan",
@@ -94,7 +139,12 @@
         "file": "Fansipan summit 2 in sunrise.jpg",
         "alt": "The summit of Fansipan at sunrise"
       },
-      "narration": "The name Fansipan is said to come from local words that mean 'the giant, tottering rock'. For a long time the peak was respected and rarely climbed. Today a cable car carries visitors up the mountain, and the final steps to the summit marker pass temples and Buddha statues built in recent years. On a clear morning you can see an ocean of cloud below you, with the Hoàng Liên Sơn ridges rising out of it like islands."
+      "narration": "The name Fansipan is said to come from local words that mean 'the giant, tottering rock'. For a long time the peak was respected and rarely climbed. Today a cable car carries visitors up the mountain, and the final steps to the summit marker pass temples and Buddha statues built in recent years. On a clear morning you can see an ocean of cloud below you, with the Hoàng Liên Sơn ridges rising out of it like islands.",
+      "motifs": [
+        "cloud-sea",
+        "karst",
+        "stones"
+      ]
     }
   ],
   "guide": {
@@ -170,7 +220,36 @@
         "lon": 103.966,
         "note": "Trains to Hà Nội. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "church",
+        "terraces"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "terraces"
+      ],
+      "etiquette": [
+        "camera-no",
+        "terraces",
+        "brocade"
+      ],
+      "tips": [
+        "terraces",
+        "brocade",
+        "horse"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "sapa",
+      "terraces",
+      "cloud-sea"
+    ]
+  }
 }

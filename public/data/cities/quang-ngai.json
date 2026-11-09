@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Quảng Ngãi runs from the coast, with its fishing ports and the volcanic island of Lý Sơn, up into the Central Highlands. The former Kon Tum province includes the Ngọc Linh mountains, home of a rare wild ginseng, and the upper Sê San River."
+      "text": "Quảng Ngãi runs from the coast, with its fishing ports and the volcanic island of Lý Sơn, up into the Central Highlands. The former Kon Tum province includes the Ngọc Linh mountains, home of a rare wild ginseng, and the upper Sê San River.",
+      "motifs": [
+        "ly-son",
+        "waves",
+        "basket-boat"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The Iron Age Sa Huỳnh culture is named after a site on this coast. From the 17th century, sailors from Lý Sơn served in the Hoàng Sa flotilla, which travelled to the Paracel Islands. On 16 March 1968, American soldiers massacred hundreds of villagers at Sơn Mỹ (My Lai). In 2009 Vietnam's first oil refinery opened at Dung Quất."
+      "text": "The Iron Age Sa Huỳnh culture is named after a site on this coast. From the 17th century, sailors from Lý Sơn served in the Hoàng Sa flotilla, which travelled to the Paracel Islands. On 16 March 1968, American soldiers massacred hundreds of villagers at Sơn Mỹ (My Lai). In 2009 Vietnam's first oil refinery opened at Dung Quất.",
+      "motifs": [
+        "junk",
+        "scroll",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Ba Na and Xơ Đăng peoples of Kon Tum live in villages around tall communal houses (nhà rông), and their gong music is part of UNESCO-listed Central Highlands culture. Quảng Ngãi is known for malt candy (mạch nha) and for Lý Sơn garlic."
+      "text": "The Ba Na and Xơ Đăng peoples of Kon Tum live in villages around tall communal houses (nhà rông), and their gong music is part of UNESCO-listed Central Highlands culture. Quảng Ngãi is known for malt candy (mạch nha) and for Lý Sơn garlic.",
+      "motifs": [
+        "longhouse",
+        "gongs",
+        "brocade"
+      ]
     }
   ],
   "etiquette": [
@@ -72,5 +87,22 @@
       "landmark": "ly-son-island",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ly-son",
+      "longhouse",
+      "gongs"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "waves"
+    ],
+    "know": [
+      "waves",
+      "sun",
+      "non-la"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Đà Nẵng sits on a wide bay where the Hàn River meets the sea, between the Hải Vân Pass and the Sơn Trà peninsula. The former Quảng Nam province adds the old port of Hội An on the Thu Bồn River, the Cham sanctuary of Mỹ Sơn, and mountains to the west."
+      "text": "Đà Nẵng sits on a wide bay where the Hàn River meets the sea, between the Hải Vân Pass and the Sơn Trà peninsula. The former Quảng Nam province adds the old port of Hội An on the Thu Bồn River, the Cham sanctuary of Mỹ Sơn, and mountains to the west.",
+      "motifs": [
+        "waves",
+        "basket-boat",
+        "sun"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "From the 4th century, Cham kings built temples at Mỹ Sơn. From the 16th century Hội An was an international port. In 1858 French and Spanish warships attacked Đà Nẵng, the beginning of the French conquest. In 1965 the first American combat troops landed here. Since the 2000s Đà Nẵng has grown into one of Vietnam's most modern cities."
+      "text": "From the 4th century, Cham kings built temples at Mỹ Sơn. From the 16th century Hội An was an international port. In 1858 French and Spanish warships attacked Đà Nẵng, the beginning of the French conquest. In 1965 the first American combat troops landed here. Since the 2000s Đà Nẵng has grown into one of Vietnam's most modern cities.",
+      "motifs": [
+        "po-nagar",
+        "junk",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Mì Quảng, turmeric noodles with a little rich broth, is the dish of the region. Bài chòi, a card game sung by village performers, is on UNESCO's list. In Hội An, silk lanterns, tailors and old family houses keep the trading town alive."
+      "text": "Mì Quảng, turmeric noodles with a little rich broth, is the dish of the region. Bài chòi, a card game sung by village performers, is on UNESCO's list. In Hội An, silk lanterns, tailors and old family houses keep the trading town alive.",
+      "motifs": [
+        "lantern",
+        "pho",
+        "cham-pot"
+      ]
     }
   ],
   "etiquette": [
@@ -92,5 +107,22 @@
       "landmark": "hoi-an-ancient-town",
       "era": 5
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "chua-cau",
+      "lantern",
+      "basket-boat"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "lantern"
+    ],
+    "know": [
+      "lantern",
+      "non-la",
+      "sandals"
+    ]
+  }
 }

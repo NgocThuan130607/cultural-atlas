@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Đắk Lắk spreads across a basalt plateau in the Central Highlands, crossed by the Serepok River and dotted with waterfalls and lakes. Yok Đôn National Park protects dry forest on the border with Cambodia. The former Phú Yên province adds the coast, with the basalt columns of Gành Đá Đĩa and Mũi Điện, Vietnam's easternmost point."
+      "text": "Đắk Lắk spreads across a basalt plateau in the Central Highlands, crossed by the Serepok River and dotted with waterfalls and lakes. Yok Đôn National Park protects dry forest on the border with Cambodia. The former Phú Yên province adds the coast, with the basalt columns of Gành Đá Đĩa and Mũi Điện, Vietnam's easternmost point.",
+      "motifs": [
+        "waterfall",
+        "waves",
+        "coffee-phin"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The highlands were the land of the Ê Đê, M'nông and Jarai peoples. The French created the province of Darlac in 1904 and later planted coffee and rubber. On 10 March 1975, the attack on Buôn Ma Thuột opened the campaign that ended the war. Coffee farming boomed from the 1990s, and Vietnam became one of the world's largest coffee exporters."
+      "text": "The highlands were the land of the Ê Đê, M'nông and Jarai peoples. The French created the province of Darlac in 1904 and later planted coffee and rubber. On 10 March 1975, the attack on Buôn Ma Thuột opened the campaign that ended the war. Coffee farming boomed from the 1990s, and Vietnam became one of the world's largest coffee exporters.",
+      "motifs": [
+        "elephant",
+        "coffee-phin",
+        "scroll"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Ê Đê live in long houses on stilts, sometimes dozens of metres long, shared by an extended family; property passes down the female line. Gong music fills their festivals. Buôn Ma Thuột holds a coffee festival, and coffee is drunk strong and sweet, dripped through a metal phin filter."
+      "text": "The Ê Đê live in long houses on stilts, sometimes dozens of metres long, shared by an extended family; property passes down the female line. Gong music fills their festivals. Buôn Ma Thuột holds a coffee festival, and coffee is drunk strong and sweet, dripped through a metal phin filter.",
+      "motifs": [
+        "longhouse",
+        "gongs",
+        "brocade"
+      ]
     }
   ],
   "etiquette": [
@@ -74,5 +89,22 @@
       "landmark": "buon-don",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "elephant",
+      "coffee-phin",
+      "gongs"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "elephant"
+    ],
+    "know": [
+      "coffee-phin",
+      "stilt-house",
+      "sandals"
+    ]
+  }
 }

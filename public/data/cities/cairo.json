@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Cairo lies on the Nile, just south of where the river fans out into its delta. Greater Cairo is one of the largest urban areas in Africa and the Arab world. The climate is desert: hot, sunny and almost rainless. The Giza pyramids stand where the green river valley meets the Western Desert."
+      "text": "Cairo lies on the Nile, just south of where the river fans out into its delta. Greater Cairo is one of the largest urban areas in Africa and the Arab world. The climate is desert: hot, sunny and almost rainless. The Giza pyramids stand where the green river valley meets the Western Desert.",
+      "motifs": [
+        "felucca",
+        "papyrus",
+        "sun"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "People have lived here for thousands of years. Ancient Memphis, Egypt's first capital, lies a little to the south. The Fatimid dynasty founded al-Qāhira, \"the Victorious\", in 969 CE, next to the older town of Fustat. Medieval Cairo grew into a great centre of Islamic learning and trade, and its historic core is now a UNESCO World Heritage Site."
+      "text": "People have lived here for thousands of years. Ancient Memphis, Egypt's first capital, lies a little to the south. The Fatimid dynasty founded al-Qāhira, \"the Victorious\", in 969 CE, next to the older town of Fustat. Medieval Cairo grew into a great centre of Islamic learning and trade, and its historic core is now a UNESCO World Heritage Site.",
+      "motifs": [
+        "minaret",
+        "scroll",
+        "scarab"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "Cairo is loud, warm and sociable. Neighbourhood coffeehouses (ahwa) stay busy late into the night, the Khan el-Khalili bazaar has traded since the 14th century, and the call to prayer rings out from hundreds of minarets five times a day. Egyptians are known for their humour and their hospitality towards guests."
+      "text": "Cairo is loud, warm and sociable. Neighbourhood coffeehouses (ahwa) stay busy late into the night, the Khan el-Khalili bazaar has traded since the 14th century, and the call to prayer rings out from hundreds of minarets five times a day. Egyptians are known for their humour and their hospitality towards guests.",
+      "motifs": [
+        "minaret",
+        "lantern",
+        "croissant"
+      ]
     }
   ],
   "etiquette": [
@@ -115,5 +130,22 @@
       "landmark": "pyramids-of-giza",
       "era": 6
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "pyramids",
+      "felucca",
+      "papyrus"
+    ],
+    "map": [
+      "compass",
+      "felucca",
+      "route"
+    ],
+    "know": [
+      "minaret",
+      "sun",
+      "fountain"
+    ]
+  }
 }

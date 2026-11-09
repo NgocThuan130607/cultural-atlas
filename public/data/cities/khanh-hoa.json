@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Khánh Hòa has some of Vietnam's finest bays: Vân Phong, Nha Trang and Cam Ranh, with dozens of islands. The former Ninh Thuận province to the south is the driest part of the country, with sand dunes, vineyards and the forests of Núi Chúa National Park."
+      "text": "Khánh Hòa has some of Vietnam's finest bays: Vân Phong, Nha Trang and Cam Ranh, with dozens of islands. The former Ninh Thuận province to the south is the driest part of the country, with sand dunes, vineyards and the forests of Núi Chúa National Park.",
+      "motifs": [
+        "waves",
+        "basket-boat",
+        "dunes"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "This coast was the heart of Champa. Kauthara, around Nha Trang, and Panduranga, in Ninh Thuận, were two of its regions. Vietnamese lords took Kauthara in 1653, and Panduranga was fully absorbed in 1832. In 1891 the French-Swiss scientist Alexandre Yersin settled in Nha Trang, where he later founded a research institute."
+      "text": "This coast was the heart of Champa. Kauthara, around Nha Trang, and Panduranga, in Ninh Thuận, were two of its regions. Vietnamese lords took Kauthara in 1653, and Panduranga was fully absorbed in 1832. In 1891 the French-Swiss scientist Alexandre Yersin settled in Nha Trang, where he later founded a research institute.",
+      "motifs": [
+        "po-nagar",
+        "scroll",
+        "junk"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "The Chăm of Ninh Thuận still worship at their brick towers, and celebrate the Katê festival each autumn. The Chăm potters of Bàu Trúc shape pots by walking around them, without a wheel; UNESCO listed the craft in 2022. Nha Trang is known for seafood and for bird's-nest soup."
+      "text": "The Chăm of Ninh Thuận still worship at their brick towers, and celebrate the Katê festival each autumn. The Chăm potters of Bàu Trúc shape pots by walking around them, without a wheel; UNESCO listed the craft in 2022. Nha Trang is known for seafood and for bird's-nest soup.",
+      "motifs": [
+        "cham-pot",
+        "po-nagar",
+        "brocade"
+      ]
     }
   ],
   "etiquette": [
@@ -75,5 +90,22 @@
       "landmark": "po-nagar",
       "era": 3
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "po-nagar",
+      "basket-boat",
+      "waves"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "po-nagar"
+    ],
+    "know": [
+      "waves",
+      "sun",
+      "sandals"
+    ]
+  }
 }

@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "Cà Mau is Vietnam's southernmost province, a flat peninsula of mangroves, canals and the peat forest of U Minh. At the tip, Mũi Cà Mau, mud carried by the sea collects among mangrove roots. The former Bạc Liêu province adds salt fields, shrimp farms and wind turbines standing in the sea."
+      "text": "Cà Mau is Vietnam's southernmost province, a flat peninsula of mangroves, canals and the peat forest of U Minh. At the tip, Mũi Cà Mau, mud carried by the sea collects among mangrove roots. The former Bạc Liêu province adds salt fields, shrimp farms and wind turbines standing in the sea.",
+      "motifs": [
+        "mangrove",
+        "waves",
+        "sampan"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "The French created Bạc Liêu province in 1882. In 1919 the Bạc Liêu musician Cao Văn Lầu composed 'Dạ cổ hoài lang', which grew into vọng cổ, the heart of southern opera. During the wars of the 20th century, the U Minh forest was a resistance base."
+      "text": "The French created Bạc Liêu province in 1882. In 1919 the Bạc Liêu musician Cao Văn Lầu composed 'Dạ cổ hoài lang', which grew into vọng cổ, the heart of southern opera. During the wars of the 20th century, the U Minh forest was a resistance base.",
+      "motifs": [
+        "scroll",
+        "moon-lute",
+        "flag"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "People of the far south are known for their easy-going generosity. Bạc Liêu is proud of its music and of the legends of its playboy 'prince'. Cà Mau is famous for crabs, shrimp and dried fish."
+      "text": "People of the far south are known for their easy-going generosity. Bạc Liêu is proud of its music and of the legends of its playboy 'prince'. Cà Mau is famous for crabs, shrimp and dried fish.",
+      "motifs": [
+        "moon-lute",
+        "mangrove",
+        "fish"
+      ]
     }
   ],
   "etiquette": [
@@ -74,5 +89,22 @@
       "landmark": "ca-mau-cape",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ca-mau-cape",
+      "mangrove",
+      "windmill"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "mangrove"
+    ],
+    "know": [
+      "mangrove",
+      "sampan",
+      "non-la"
+    ]
+  }
 }

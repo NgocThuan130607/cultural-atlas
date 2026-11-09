@@ -14,17 +14,32 @@
     {
       "id": "geography",
       "title": "Geography",
-      "text": "The new An Giang runs from the Mekong where it enters Vietnam from Cambodia to the Gulf of Thailand. Inland are the Seven Mountains (Bảy Núi), rare hills in the flat delta, and the Trà Sư melaleuca forest. The former Kiên Giang province adds the coast, Hà Tiên and the islands of Phú Quốc."
+      "text": "The new An Giang runs from the Mekong where it enters Vietnam from Cambodia to the Gulf of Thailand. Inland are the Seven Mountains (Bảy Núi), rare hills in the flat delta, and the Trà Sư melaleuca forest. The former Kiên Giang province adds the coast, Hà Tiên and the islands of Phú Quốc.",
+      "motifs": [
+        "karst",
+        "waves",
+        "rice"
+      ]
     },
     {
       "id": "history",
       "title": "History",
-      "text": "In the first centuries CE, the port city of Óc Eo traded with India, China and even the Roman Empire. In 1708 the Chinese adventurer Mạc Cửu placed Hà Tiên under the Nguyễn lords. Between 1819 and 1824 tens of thousands of workers dug the Vĩnh Tế canal along the border. In April 1978 Khmer Rouge troops massacred villagers at Ba Chúc."
+      "text": "In the first centuries CE, the port city of Óc Eo traded with India, China and even the Roman Empire. In 1708 the Chinese adventurer Mạc Cửu placed Hà Tiên under the Nguyễn lords. Between 1819 and 1824 tens of thousands of workers dug the Vĩnh Tế canal along the border. In April 1978 Khmer Rouge troops massacred villagers at Ba Chúc.",
+      "motifs": [
+        "go-thap",
+        "scroll",
+        "stele"
+      ]
     },
     {
       "id": "culture",
       "title": "Culture",
-      "text": "An Giang is a meeting place of peoples: Vietnamese, Khmer, Chinese and Chăm Muslims, whose mosques stand along the river near Châu Đốc. Châu Đốc is famous for its fermented fish (mắm), and Phú Quốc for its fish sauce and pepper."
+      "text": "An Giang is a meeting place of peoples: Vietnamese, Khmer, Chinese and Chăm Muslims, whose mosques stand along the river near Châu Đốc. Châu Đốc is famous for its fermented fish (mắm), and Phú Quốc for its fish sauce and pepper.",
+      "motifs": [
+        "minaret",
+        "ba-chua-xu",
+        "incense"
+      ]
     }
   ],
   "etiquette": [
@@ -75,5 +90,22 @@
       "landmark": "ba-chua-xu-temple",
       "era": 4
     }
-  ]
+  ],
+  "motifs": {
+    "cover": [
+      "ba-chua-xu",
+      "karst",
+      "minaret"
+    ],
+    "map": [
+      "compass",
+      "route",
+      "karst"
+    ],
+    "know": [
+      "temple-roof",
+      "incense",
+      "sandals"
+    ]
+  }
 }

@@ -6,8 +6,16 @@
   "lat": 10.005,
   "lon": 105.746,
   "summary": "A wholesale market on the water, where boats loaded with fruit and vegetables gather at dawn. Each boat hangs samples of its goods from a tall pole.",
-  "bestMonths": [1, 2, 3, 4, 12],
-  "tags": ["local-life"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    4,
+    12
+  ],
+  "tags": [
+    "local-life"
+  ],
   "featured": true,
   "hero": {
     "file": "Một cảnh ở chợ nổi Cái Răng.jpg",
@@ -22,7 +30,12 @@
       "image": {
         "file": "Cai rang3.jpg",
         "alt": "Boats on the river at Cái Răng"
-      }
+      },
+      "motifs": [
+        "floating-market",
+        "sampan",
+        "rice"
+      ]
     },
     {
       "year": 2010,
@@ -32,7 +45,12 @@
       "image": {
         "file": "Can Tho Bridge.jpg",
         "alt": "The Cần Thơ bridge"
-      }
+      },
+      "motifs": [
+        "seine-bridge",
+        "sampan",
+        "waves"
+      ]
     },
     {
       "year": 2016,
@@ -42,7 +60,12 @@
       "image": {
         "file": "Cai Rang Floating Market 1.jpg",
         "alt": "The floating market"
-      }
+      },
+      "motifs": [
+        "floating-market",
+        "scroll",
+        "fruit-boat"
+      ]
     },
     {
       "year": 2026,
@@ -52,7 +75,12 @@
       "image": {
         "file": "Một cảnh ở chợ nổi Cái Răng.jpg",
         "alt": "The floating market today"
-      }
+      },
+      "motifs": [
+        "floating-market",
+        "sunrise",
+        "pho"
+      ]
     }
   ],
   "story": [
@@ -64,7 +92,12 @@
         "file": "Cai Rang Floating Market 5.jpg",
         "alt": "Boats with poles of goods"
       },
-      "narration": "On a floating market, there is no shouting of prices. Instead, each boat ties samples of what it sells to the top of a tall bamboo pole, called a cây bẹo: a few pineapples, a bunch of bananas, a watermelon, a sweet potato. Buyers can see from a distance what each boat offers and paddle over. The big boats are wholesalers, selling to smaller traders who take the goods to land markets and shops. Deals are done boat to boat, by hand."
+      "narration": "On a floating market, there is no shouting of prices. Instead, each boat ties samples of what it sells to the top of a tall bamboo pole, called a cây bẹo: a few pineapples, a bunch of bananas, a watermelon, a sweet potato. Buyers can see from a distance what each boat offers and paddle over. The big boats are wholesalers, selling to smaller traders who take the goods to land markets and shops. Deals are done boat to boat, by hand.",
+      "motifs": [
+        "floating-market",
+        "fruit-boat",
+        "sun"
+      ]
     },
     {
       "id": "breakfast",
@@ -74,7 +107,12 @@
         "file": "Cho noi (Cai Rang, Can Tho).JPG",
         "alt": "The market"
       },
-      "narration": "Between the big boats, small sampans weave back and forth selling breakfast. A woman cooks hủ tiếu noodle soup in a pot on her boat and passes the bowl across without spilling a drop. Another sells iced coffee, sweet cakes or sliced pineapple on a stick. Eating a bowl of soup while rocking gently among the boats at sunrise is the best way to understand life in the delta."
+      "narration": "Between the big boats, small sampans weave back and forth selling breakfast. A woman cooks hủ tiếu noodle soup in a pot on her boat and passes the bowl across without spilling a drop. Another sells iced coffee, sweet cakes or sliced pineapple on a stick. Eating a bowl of soup while rocking gently among the boats at sunrise is the best way to understand life in the delta.",
+      "motifs": [
+        "pho",
+        "sampan",
+        "coffee-phin"
+      ]
     },
     {
       "id": "bridge",
@@ -84,7 +122,12 @@
         "file": "Can Tho Bridge.jpg",
         "alt": "The Cần Thơ bridge"
       },
-      "narration": "For generations, travellers had to wait for ferries to cross the wide Hậu River at Cần Thơ. A great cable-stayed bridge was planned to replace them. In September 2007, during construction, part of an approach span collapsed, killing 54 workers, one of the worst construction disasters in Vietnam's history. The bridge opened in 2010, and ended the long queues for the ferry."
+      "narration": "For generations, travellers had to wait for ferries to cross the wide Hậu River at Cần Thơ. A great cable-stayed bridge was planned to replace them. In September 2007, during construction, part of an approach span collapsed, killing 54 workers, one of the worst construction disasters in Vietnam's history. The bridge opened in 2010, and ended the long queues for the ferry.",
+      "motifs": [
+        "seine-bridge",
+        "sampan",
+        "scroll"
+      ]
     }
   ],
   "guide": {
@@ -178,7 +221,36 @@
         "lon": 105.712,
         "note": "Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "sunrise",
+        "floating-market"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "sampan"
+      ],
+      "etiquette": [
+        "camera-no",
+        "non-la",
+        "sampan"
+      ],
+      "tips": [
+        "pho",
+        "fruit-boat",
+        "coconut"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "floating-market",
+      "fruit-boat",
+      "sampan"
+    ]
+  }
 }

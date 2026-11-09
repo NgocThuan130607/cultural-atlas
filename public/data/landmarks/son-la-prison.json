@@ -6,8 +6,16 @@
   "lat": 21.327,
   "lon": 103.9118,
   "summary": "A French colonial prison on Khau Cả hill, where many leaders of the independence movement were held. Today it is a museum and memorial.",
-  "bestMonths": [1, 2, 3, 10, 11],
-  "tags": ["history"],
+  "bestMonths": [
+    1,
+    2,
+    3,
+    10,
+    11
+  ],
+  "tags": [
+    "history"
+  ],
   "hero": {
     "file": "Nhatusonla.jpg",
     "alt": "The gate of Sơn La Prison"
@@ -21,7 +29,12 @@
       "image": {
         "file": "Nhatusonla.jpg",
         "alt": "The gate of Sơn La Prison"
-      }
+      },
+      "motifs": [
+        "son-la-prison",
+        "karst",
+        "stones"
+      ]
     },
     {
       "year": 1930,
@@ -31,7 +44,12 @@
       "image": {
         "file": "Nhà tù Sơn La - panoramio.jpg",
         "alt": "Cells inside Sơn La Prison"
-      }
+      },
+      "motifs": [
+        "son-la-prison",
+        "scroll",
+        "flag"
+      ]
     },
     {
       "year": 1944,
@@ -41,7 +59,12 @@
       "image": {
         "file": "Nhà tù Sơn La - panoramio (1).jpg",
         "alt": "The prison yard"
-      }
+      },
+      "motifs": [
+        "peach",
+        "son-la-prison",
+        "incense"
+      ]
     },
     {
       "year": 2026,
@@ -51,7 +74,12 @@
       "image": {
         "file": "Nhatusonla.jpg",
         "alt": "Sơn La Prison today"
-      }
+      },
+      "motifs": [
+        "son-la-prison",
+        "scroll",
+        "peach"
+      ]
     }
   ],
   "story": [
@@ -63,7 +91,12 @@
         "file": "Nhà tù Sơn La - panoramio (1).jpg",
         "alt": "The prison yard"
       },
-      "narration": "Tô Hiệu was a young revolutionary from the delta who was sent to Sơn La in the late 1930s. Inside the prison he helped organise the other prisoners, teaching and keeping up their morale, even as tuberculosis weakened him. He died in 1944, aged just 32. A peach tree beside the prison, said to have been planted by him, is still cared for today. When it flowers each spring, visitors and schoolchildren come to see it, as a reminder of those who did not live to see independence."
+      "narration": "Tô Hiệu was a young revolutionary from the delta who was sent to Sơn La in the late 1930s. Inside the prison he helped organise the other prisoners, teaching and keeping up their morale, even as tuberculosis weakened him. He died in 1944, aged just 32. A peach tree beside the prison, said to have been planted by him, is still cared for today. When it flowers each spring, visitors and schoolchildren come to see it, as a reminder of those who did not live to see independence.",
+      "motifs": [
+        "peach",
+        "son-la-prison",
+        "incense"
+      ]
     },
     {
       "id": "school",
@@ -73,7 +106,12 @@
         "file": "Nhà tù Sơn La - panoramio.jpg",
         "alt": "Cells inside the prison"
       },
-      "narration": "Prisoners at Sơn La turned their cells into classrooms. Those who could read taught those who could not. They studied politics, history and foreign languages, and copied texts by hand. They even produced a secret handwritten newspaper called Suối Reo, 'the singing stream', passed from cell to cell. For many young men from villages across the country, the prison became the place where they received an education."
+      "narration": "Prisoners at Sơn La turned their cells into classrooms. Those who could read taught those who could not. They studied politics, history and foreign languages, and copied texts by hand. They even produced a secret handwritten newspaper called Suối Reo, 'the singing stream', passed from cell to cell. For many young men from villages across the country, the prison became the place where they received an education.",
+      "motifs": [
+        "scroll",
+        "lantern",
+        "son-la-prison"
+      ]
     },
     {
       "id": "moc-chau",
@@ -83,7 +121,12 @@
         "file": "Sống lưng khủng long Tà Xùa.jpg",
         "alt": "Mountains of Sơn La"
       },
-      "narration": "A couple of hours from the prison, the Mộc Châu plateau has a completely different mood. A state dairy farm was founded there in 1958, and Mộc Châu milk is now sold all over Vietnam. Tea gardens cover the hills in neat green rows. In January and February, plum and peach trees flower across the plateau, and families from Hà Nội drive up to see the white and pink blossom and buy fresh yoghurt by the roadside."
+      "narration": "A couple of hours from the prison, the Mộc Châu plateau has a completely different mood. A state dairy farm was founded there in 1958, and Mộc Châu milk is now sold all over Vietnam. Tea gardens cover the hills in neat green rows. In January and February, plum and peach trees flower across the plateau, and families from Hà Nội drive up to see the white and pink blossom and buy fresh yoghurt by the roadside.",
+      "motifs": [
+        "tea-leaves",
+        "peach",
+        "cloud-sea"
+      ]
     }
   ],
   "guide": {
@@ -179,7 +222,36 @@
         "lon": 104.63,
         "note": "Tea, dairy and blossom. Approximate."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "son-la-prison",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "peach"
+      ],
+      "etiquette": [
+        "incense",
+        "camera-no",
+        "sandals"
+      ],
+      "tips": [
+        "tea-leaves",
+        "peach",
+        "stilt-house"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "son-la-prison",
+      "peach",
+      "stones"
+    ]
+  }
 }

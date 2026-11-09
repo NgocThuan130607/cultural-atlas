@@ -6,8 +6,18 @@
   "lat": 20.0781,
   "lon": 105.6047,
   "summary": "A stone citadel built in a few months in 1397, of huge cut blocks fitted without mortar. It is a UNESCO World Heritage Site.",
-  "bestMonths": [4, 5, 6, 9, 10, 11],
-  "tags": ["history", "architecture"],
+  "bestMonths": [
+    4,
+    5,
+    6,
+    9,
+    10,
+    11
+  ],
+  "tags": [
+    "history",
+    "architecture"
+  ],
   "hero": {
     "file": "Tay Do castle South gate.JPG",
     "alt": "The south gate of the Hồ citadel"
@@ -21,7 +31,12 @@
       "image": {
         "file": "Tay Do castle South gate.JPG",
         "alt": "The south gate"
-      }
+      },
+      "motifs": [
+        "ho-gate",
+        "stones",
+        "scroll"
+      ]
     },
     {
       "year": 1400,
@@ -31,7 +46,12 @@
       "image": {
         "file": "Cổng Bắc thành nhà Hồ .jpg",
         "alt": "The north gate"
-      }
+      },
+      "motifs": [
+        "seal",
+        "ho-gate",
+        "scroll"
+      ]
     },
     {
       "year": 1407,
@@ -41,7 +61,12 @@
       "image": {
         "file": "Tay Do castle East gate.JPG",
         "alt": "The east gate"
-      }
+      },
+      "motifs": [
+        "ho-gate",
+        "flag",
+        "stones"
+      ]
     },
     {
       "year": 2011,
@@ -51,7 +76,12 @@
       "image": {
         "file": "Ho dynasty's citadel, Vietnam.jpg",
         "alt": "The walls of the citadel"
-      }
+      },
+      "motifs": [
+        "ho-gate",
+        "scroll",
+        "sun"
+      ]
     },
     {
       "year": 2026,
@@ -61,7 +91,12 @@
       "image": {
         "file": "Cổng Nam.jpg",
         "alt": "The south gate today"
-      }
+      },
+      "motifs": [
+        "ho-gate",
+        "rice",
+        "buffalo"
+      ]
     }
   ],
   "story": [
@@ -73,7 +108,12 @@
         "file": "Cổng Bắc thành nhà Hồ .jpg",
         "alt": "The north gate"
       },
-      "narration": "Hồ Quý Ly was one of the most daring rulers in Vietnamese history. Before and after taking the throne, he introduced paper money, limited how much land the nobles could own, reformed exams and promoted writing in the Vietnamese script, chữ Nôm. Many of the old aristocracy hated him for ending the Trần dynasty. His reign was short: in 1407 the Ming invaded, and he and his son were captured. Historians still argue whether he was a usurper or a reformer ahead of his time."
+      "narration": "Hồ Quý Ly was one of the most daring rulers in Vietnamese history. Before and after taking the throne, he introduced paper money, limited how much land the nobles could own, reformed exams and promoted writing in the Vietnamese script, chữ Nôm. Many of the old aristocracy hated him for ending the Trần dynasty. His reign was short: in 1407 the Ming invaded, and he and his son were captured. Historians still argue whether he was a usurper or a reformer ahead of his time.",
+      "motifs": [
+        "seal",
+        "scroll",
+        "ho-gate"
+      ]
     },
     {
       "id": "stones",
@@ -83,7 +123,12 @@
         "file": "Tay Do castle South gate.JPG",
         "alt": "The south gate"
       },
-      "narration": "The walls of Tây Đô are made of limestone blocks cut so precisely that they stand without mortar. Some weigh more than ten tonnes. The south gate has three arches whose stones are shaped and fitted so well that they have stood for over 600 years. How the builders quarried, moved and lifted the blocks so fast, without modern tools, still impresses engineers."
+      "narration": "The walls of Tây Đô are made of limestone blocks cut so precisely that they stand without mortar. Some weigh more than ten tonnes. The south gate has three arches whose stones are shaped and fitted so well that they have stood for over 600 years. How the builders quarried, moved and lifted the blocks so fast, without modern tools, still impresses engineers.",
+      "motifs": [
+        "stones",
+        "ho-gate",
+        "scroll"
+      ]
     },
     {
       "id": "nam-giao",
@@ -93,7 +138,12 @@
         "file": "12-gieng vua-dan te nam giao.JPG",
         "alt": "Remains of the Nam Giao altar"
       },
-      "narration": "In 1402, Hồ Hán Thương, Hồ Quý Ly's son and successor, built a Nam Giao altar on a hill south of the citadel, where the emperor made offerings to Heaven and Earth. Archaeologists uncovered its terraces and a stone-lined royal well in the 2010s. The altar shows that the Hồ, though they ruled only seven years, built a capital with all the rituals of an empire."
+      "narration": "In 1402, Hồ Hán Thương, Hồ Quý Ly's son and successor, built a Nam Giao altar on a hill south of the citadel, where the emperor made offerings to Heaven and Earth. Archaeologists uncovered its terraces and a stone-lined royal well in the 2010s. The altar shows that the Hồ, though they ruled only seven years, built a capital with all the rituals of an empire.",
+      "motifs": [
+        "stele",
+        "sun",
+        "incense"
+      ]
     }
   ],
   "guide": {
@@ -189,7 +239,36 @@
         "lon": 105.7852,
         "note": "Trains and buses."
       }
-    ]
+    ],
+    "motifs": {
+      "hours": [
+        "clock",
+        "ho-gate",
+        "sun"
+      ],
+      "around": [
+        "compass",
+        "route",
+        "rice"
+      ],
+      "etiquette": [
+        "camera-no",
+        "sandals",
+        "non-la"
+      ],
+      "tips": [
+        "rice",
+        "carrying-pole",
+        "stones"
+      ]
+    }
   },
-  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting."
+  "credits": "Opening times and prices are approximate prototype data. Always check locally before visiting.",
+  "motifs": {
+    "cover": [
+      "ho-gate",
+      "stones",
+      "rice"
+    ]
+  }
 }
