@@ -50,6 +50,10 @@ export const WORLD = {
   antenna: { loop: 'sound', svg: `<path class="w2" d="M30 96L50 20L70 96"/><path class="w0" d="M36 74H64M40 58H60M44 42H56M36 74L60 58M64 74L40 58M40 58L56 42M60 58L44 42"/>
     <path class="w2" d="M50 20V8"/><circle class="w2" cx="50" cy="6" r="3"/><path class="w2" d="M22 96H78"/>
     <g class="lp"><path d="M62 6Q68 12 62 18M38 6Q32 12 38 18"/><path class="w0" d="M70 0Q80 12 70 24M30 0Q20 12 30 24M78 -4Q92 12 78 28M22 -4Q8 12 22 28"/></g>` },
+  // A flag on its pole, in gold line only, for the pages outside Vietnam (the red flag with the gold star is Vietnam's)
+  banner: { loop: 'flutter', svg: `<path class="w2" d="M20 10V96"/><path class="w0" d="M23 12V94"/><path class="w2" d="M10 96H34M14 92H30"/><circle class="w2" cx="21.5" cy="7.5" r="3.2"/>
+    <g class="lp"><path class="fill soft" d="M23 14Q38 6 52 14T80 14V48Q66 56 52 48T23 48Z"/><path class="w2" d="M23 14Q38 6 52 14T80 14V48Q66 56 52 48T23 48Z"/>
+    <path d="M42 12Q44 30 42 51M61 13Q63 30 61 50"/><path class="w0" d="M32 11Q34 30 32 50M51 13Q53 30 51 50M70 13Q71 30 70 50"/></g>` },
 
   // ---------- Cairo ----------
   // The three pyramids of Giza and the Sphinx before them, on the desert's edge

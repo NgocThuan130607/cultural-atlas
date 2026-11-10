@@ -1,4 +1,4 @@
-// Symbol motifs on the slides (tenth round of user feedback, pilot: Hà Nội and the Hồ Chí Minh Mausoleum).
+// Symbol motifs on the slides (tenth round of user feedback; captions added in the twelfth).
 // Each motif is a gold drawing in the manner of an engraving on bronze: a bold outline, finer inner lines and
 // hatching, in a gold that shades from light to bronze. It draws itself in, layer by layer, when its slide
 // arrives, catches a glint of light, drifts against the sideways movement of the slides, then keeps a slow
@@ -15,6 +15,7 @@ import { NORTH } from './motif-art/north.js';
 import { CENTRAL } from './motif-art/central.js';
 import { SOUTH } from './motif-art/south.js';
 import { THEMES } from './motif-art/themes.js';
+import { CAPTIONS } from './motif-art/captions.js';
 
 // The Lý dragon of Thăng Long ("Ascending Dragon"): a slim, scaled, snake-like body in S-curves rising from the
 // river, a crest of flame-like mane, the mouth reaching for a pearl. The body is worked out from a centre line.
@@ -338,19 +339,30 @@ export const MOTIFS = M;
 const DRIFT = [1.9, -1.3, 2.4, -0.8, 1.4, -1.7];
 let uid = 0;
 
-/** The layer of motifs for one slide: `list` is an array of motif names, the first one shown larger. */
+const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ESC[c]);
+
+/** The name and one-sentence caption of a motif (twelfth round): what a screen reader says for it. */
+export const captionOf = (key) => CAPTIONS[key] ?? ['', ''];
+
+/**
+ * The layer of motifs for one slide: `list` is an array of motif names, the first one shown larger.
+ * Each motif is a button named after what it shows, with its caption as the description (for screen readers);
+ * clicking it redraws the drawing (src/js/motif-redraw.js).
+ */
 export function motifLayer(list) {
   if (!list?.length) return '';
-  return `<div class="s-motifs" aria-hidden="true">${list.map((key, i) => {
+  return `<div class="s-motifs" role="group" aria-label="Symbols on this slide">${list.map((key, i) => {
     const m = M[key];
     if (!m) return '';
+    const [name, line] = captionOf(key);
     const id = `m${++uid}`;
     const art = m.svg.replaceAll('@', `${id}-`).replace(/<(path|circle|ellipse|line|polyline|rect)\b/g, '<$1 pathLength="1"');
     // The same drawing as a mask, for the glint of light that runs over the gold once it is drawn
     const mask = `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round'>${m.svg.replaceAll('@', 'k').replace(/class="[^"]*\b(fill|dot)\b[^"]*"/g, 'fill="black" stroke="none"').replace(/class="[^"]*"/g, '')}</svg>`)}")`;
-    return `<span class="motif m-${key} loop-${m.loop}${i === 0 ? ' hero' : ''}" data-drift="${DRIFT[i % DRIFT.length]}" style="--d:${i}; --mask:${mask.replaceAll('"', '&quot;')}">
-      <svg viewBox="0 0 100 100" focusable="false" style="--g:url(#${id}-gold)"><defs><linearGradient id="${id}-gold" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="90" y2="100">
-      <stop offset="0" style="stop-color:var(--orn-hi)"/><stop offset=".5" style="stop-color:var(--orn)"/><stop offset="1" style="stop-color:var(--orn-lo)"/></linearGradient></defs>${art}</svg></span>`;
+    return `<button type="button" class="motif m-${key} loop-${m.loop}${i === 0 ? ' hero' : ''}" data-motif="${key}" aria-label="${esc(name)}" aria-describedby="${id}-cap" data-drift="${DRIFT[i % DRIFT.length]}" style="--d:${i}; --mask:${mask.replaceAll('"', '&quot;')}">
+      <svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" style="--g:url(#${id}-gold)"><defs><linearGradient id="${id}-gold" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="90" y2="100">
+      <stop offset="0" style="stop-color:var(--orn-hi)"/><stop offset=".5" style="stop-color:var(--orn)"/><stop offset="1" style="stop-color:var(--orn-lo)"/></linearGradient></defs>${art}</svg><span class="visually-hidden" id="${id}-cap">${esc(line)}</span></button>`;
   }).join('')}</div>`;
 }
 
@@ -359,8 +371,8 @@ export function motifLayer(list) {
 // furthest from the text, the buttons, the timeline and the other motifs. It may tuck a little behind a photo or
 // a panel (they sit above it), but most of it stays in view. If no place is free it is drawn smaller, or left out.
 
-const HARD = '.s-frame > *, .s-actions, .strip-head, .car-nav, .chip, button, a.btn-m, .meta-row, .playerbar';
-const SOFT = '.s-card, .s-sand, .s-paper, .s-photo, .s-media, .s-stage, .s-map, .s-strip, .glance, .tip-row';
+export const HARD = '.s-frame > *, .s-actions, .strip-head, .car-nav, .chip, button, a.btn-m, .meta-row, .playerbar';
+export const SOFT = '.s-card, .s-sand, .s-paper, .s-photo, .s-media, .s-stage, .s-map, .s-strip, .glance, .tip-row';
 
 function textBox(el) {
   const range = document.createRange();

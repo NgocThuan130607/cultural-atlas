@@ -846,6 +846,9 @@ details.season { border-top: 1px solid var(--outline-variant); padding: .5rem 0;
 .kcard-title { font-weight: 700; font-size: 2.125rem; line-height: 1.15; letter-spacing: -.015em; color: var(--on-surface); }
 .kcard-body { padding: 1.25rem 1.75rem 1.5rem; font-size: 1.0625rem; }
 .kcard .list-heading { padding-inline: 1.75rem; font-size: .9375rem; }
+// The landing panel lists every place in two sections, World and Vietnam (the atlas on screen first)
+.kcard .list-section { padding: 1.25rem 1.75rem .25rem; font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; color: var(--on-surface); }
+.kcard .list-section ~ .list-section { margin-top: .75rem; border-top: 1px solid var(--outline-variant); padding-top: 1.5rem; }
 .kcard .place-row { padding-inline: 1.75rem; }
 
 // City rows in the panel: bigger photo and name, and a bar on the row you point at
@@ -1663,3 +1666,27 @@ $paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   .motif svg *, .motif :is(.fill, .dot) { transition: none !important; }
   .motif::after { display: none; }
 }
+
+// ---------------------------------------------------------------------------
+// Twelfth round: clicking or tapping a motif (or Enter on one reached with Tab) redraws it: the lines vanish,
+// draw themselves in again layer by layer and the glint runs over the gold. Behaviour: src/js/motif-redraw.js.
+// ---------------------------------------------------------------------------
+.motif { margin: 0; padding: 0; border: 0; border-radius: 50%; background: none; color: inherit; font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  svg { transition: filter .25s ease; }
+  // it glows under the mouse, and when reached with Tab
+  &:is(.is-hot, :focus-visible) svg { filter: drop-shadow(0 0 5px color-mix(in srgb, var(--orn-hi) 65%, transparent)); }
+  &:focus-visible { outline: 1.5px dashed var(--orn); outline-offset: 2px; }
+}
+// The drawings sit behind transparent columns, so the pointer over one is found by motif-redraw.js
+html.motif-pointer, html.motif-pointer * { cursor: pointer !important; }
+
+// Redrawing: the lines vanish at once, then draw in again, faster than the first time
+.motif.replay svg :is(path, circle, ellipse):not(.fill):not(.dot) { stroke-dashoffset: 1; transition: none; }
+.motif.replay :is(.fill, .dot) { opacity: 0; transition: none; }
+.motif.redraw { --d: 0 !important; }
+.motif.redraw svg :is(path, circle, ellipse) { --t0: .3s; --td: .9s; }
+.motif.redraw .w2 { --t0: 0s; --td: .8s; }
+.motif.redraw .w0 { --t0: .6s; --td: .9s; }
+.motif.redraw :is(.fill, .dot) { transition-delay: .9s; }
+@media (prefers-reduced-motion: reduce) { .motif svg { transition: none; } }

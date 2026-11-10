@@ -10,6 +10,7 @@
 // another instead, and the timeline stays as a compact bar along the bottom.
 import { $, $$, esc, icon, prefersReducedMotion } from './common.js';
 import { placeMotifs } from './motifs.js';
+import { motifRedraw } from './motif-redraw.js';
 
 const wideScreen = matchMedia('(min-width: 900px) and (min-height: 560px)');
 const lessMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -73,6 +74,8 @@ export function makeDeck(root, { onSettle } = {}) {
   const bar = $('.deck-bar', root);
   const slides = $$('.slide', track);
   const n = slides.length;
+  // The symbol motifs come last in each slide, so Tab reaches them after the slide's own content.
+  $$('.s-motifs', track).forEach((layer) => layer.parentElement.append(layer));
 
   bar.innerHTML = `
     <p class="deck-hint">${icon('swipe')}<span>Scroll or use the ← → keys</span></p>
@@ -346,6 +349,7 @@ export function makeDeck(root, { onSettle } = {}) {
   refresh();
   layout();
   document.fonts?.ready.then(placeSoon);
+  if ($('.s-motifs', track)) motifRedraw(root);
   slides[0].classList.add('seen');
   // A link to a part of the page (city.html?id=paris#ch-history) opens that slide.
   const fromHash = slides.findIndex((s) => location.hash && s.id === decodeURIComponent(location.hash.slice(1)));

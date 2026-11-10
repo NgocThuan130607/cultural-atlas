@@ -306,7 +306,8 @@ async function main() {
   function selectCity(id, { fly = true } = {}) {
     const c = cityById.get(id);
     if (!c) return;
-    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false });
+    // switching atlas rewrites the hash once its moments have loaded, so the place is written again after it
+    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false }).then(() => writeHash(id));
     if (yearMode) exitYearMode({ quiet: true });
     renderCity(c);
     if (fly) nav.city(c);
@@ -316,7 +317,7 @@ async function main() {
     const lm = lmById.get(id);
     if (!lm) return;
     const c = cityById.get(lm.city);
-    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false });
+    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false }).then(() => writeHash(id));
     if (yearMode) exitYearMode({ quiet: true });
     renderLandmark(lm);
     if (fly) nav.landmark(lm);
@@ -1070,7 +1071,6 @@ async function main() {
 
   function renderIntro() {
     const col = colById.get(set) ?? {};
-    const list = visibleCities();
     const row = (c) => `
       <li><button class="place-row city-row" type="button" data-action="city" data-id="${esc(c.id)}">
         <img class="thumb" src="${esc(imageSrc(cityDetails[c.id]?.hero, media))}" alt="" loading="lazy">
@@ -1078,13 +1078,22 @@ async function main() {
           <span class="sub">${c.region ? `${esc(c.kind ?? 'Province')} · ${esc(lmById.get(c.landmarks[0])?.name ?? '')}` : `${esc(c.country)} · ${esc(c.continent)}`}</span></span>
         ${icon('chevron_right', 'muted')}
       </button></li>`;
-    // Atlases with groups (Vietnam: North / Central / South) list their places under headings.
-    const body = col.groups
-      ? col.groups.map((g) => {
-        const items = list.filter((c) => c.region === g);
-        return items.length ? `<p class="list-heading mb-0">${esc(g)} · ${items.length}</p><ul class="place-list">${items.map(row).join('')}</ul>` : '';
-      }).join('')
-      : `<p class="list-heading mb-0">${list.length} cities</p><ul class="place-list">${list.map(row).join('')}</ul>`;
+    // Every place is listed, under one section per atlas (World, Vietnam), the atlas on screen first. A place
+    // in several atlases (Hà Nội) is listed once, under its most local one. Atlases with groups (Vietnam:
+    // North / Central / South) list their places under those headings.
+    const homeSet = (c) => collections.filter((k) => inSet(c, k.id)).at(-1)?.id ?? collections[0].id;
+    const ordered = [col, ...collections.filter((k) => k.id !== set)];
+    const body = ordered.map((k) => {
+      const items = cities.filter((c) => homeSet(c) === k.id);
+      if (!items.length) return '';
+      const groups = k.groups
+        ? k.groups.map((g) => {
+          const inG = items.filter((c) => c.region === g);
+          return inG.length ? `<p class="list-heading mb-0">${esc(g)} · ${inG.length}</p><ul class="place-list">${inG.map(row).join('')}</ul>` : '';
+        }).join('')
+        : `<ul class="place-list">${items.map(row).join('')}</ul>`;
+      return `<h2 class="list-section mb-0">${esc(k.label)} · ${items.length}</h2>${groups}`;
+    }).join('');
     show(`
       <div class="intro-head intro-lead">
         <div class="d-flex justify-content-between align-items-start gap-2">

@@ -4,6 +4,7 @@ import { readFile, access } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { MOTIFS } from '../src/js/motifs.js';
+import { CAPTIONS } from '../src/js/motif-art/captions.js';
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'data');
 const read = async (p) => JSON.parse(await readFile(join(dataDir, p), 'utf8'));
@@ -42,6 +43,16 @@ const checkMotifs = (where, node) => {
     }
   }
 };
+
+// Every drawing has a caption (its name and one sentence), which screen readers say for it.
+for (const key of Object.keys(MOTIFS)) {
+  const c = CAPTIONS[key];
+  if (!c) { err('src/js/motif-art/captions.js', `no caption for motif "${key}"`); continue; }
+  const [name, line] = c;
+  if (!name || name.length > 42) err('src/js/motif-art/captions.js', `"${key}": the name must be 1-42 characters`);
+  if (!line || line.length > 150) err('src/js/motif-art/captions.js', `"${key}": the sentence must be 1-150 characters`);
+}
+Object.keys(CAPTIONS).filter((k) => !MOTIFS[k]).forEach((k) => err('src/js/motif-art/captions.js', `caption for unknown motif "${k}"`));
 
 const { cities, collections = [{ id: 'world' }] } = await read('cities.json');
 const colIds = new Set(collections.map((c) => c.id));
