@@ -10,7 +10,7 @@ import {
   Cartesian3, Cartesian2, Color, LabelStyle, VerticalOrigin, HorizontalOrigin, NearFarScalar,
   DistanceDisplayCondition, HeightReference, ScreenSpaceEventHandler, ScreenSpaceEventType,
   BoundingSphere, HeadingPitchRange, Math as CMath, Cartographic, defined,
-  SceneTransforms, CallbackProperty,
+  SceneTransforms, CallbackProperty, Matrix4, Transforms, PolylineGlowMaterialProperty, ArcType, EllipsoidGeodesic, EasingFunction,
 } from 'cesium';
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import {
@@ -19,8 +19,9 @@ import {
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
-import { saveButton } from '../trip.js';
+import '../trip.js'; // keeps the count on the My trip button up to date
 import { initWelcome } from '../home-ui.js';
+import { createShip, TRAVEL } from '../ship.js';
 import { isGoodMonth, thisMonth, MONTHS } from '../season.js';
 
 const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
@@ -271,6 +272,7 @@ async function main() {
   // `nav` moves the view: the 3D globe when WebGL works, otherwise a 2D satellite map.
   // Everything else (card, search, landmark strip, buttons) works the same with either.
   let nav = null;
+  let ship = null; // the Lạc ship (src/js/ship.js), started once there is a view
   let viewer = null;
   let startError = null;
   try {
@@ -302,30 +304,114 @@ async function main() {
     else if (fly) nav.home();
   }
 
+  // ----- The place last chosen -----
+  // Kept for the session, so the Lạc ship (src/js/ship.js) starts over it after a visit to a city's or landmark's
+  // page. The gold thread between places (thirteenth round) is now the ship's trail (fifteenth round).
+  const LAST_KEY = 'atlas-last-place';
+  let lastPlace = null;
+  try { lastPlace = JSON.parse(sessionStorage.getItem(LAST_KEY) ?? 'null'); } catch { /* no storage: start afresh */ }
+
+  // ----- The Lạc ship (fifteenth round): hovers over the part of the globe in view, flies to the city chosen -----
+  /** The part of the screen left free by the panel, the buttons and the landmark strip. */
+  const freeArea = () => {
+    const desktop = matchMedia('(min-width: 768px)').matches;
+    const open = !kcard.classList.contains('collapsed');
+    return {
+      left: desktop && open ? kcard.getBoundingClientRect().right + 16 : 12,
+      top: desktop ? 76 : 128,
+      right: innerWidth - (desktop ? 84 : 12),
+      bottom: desktop ? innerHeight - ($('#voyager').offsetHeight + 110) : innerHeight - (open ? kcard.offsetHeight + 16 : 24),
+    };
+  };
+  ship = createShip({ view: () => nav, area: freeArea, avoid: () => (yearMode ? [] : visibleCities()), start: lastPlace });
+  function arrive(id, at) {
+    const place = { id, lon: at.lon, lat: at.lat };
+    lastPlace = place;
+    try { sessionStorage.setItem(LAST_KEY, JSON.stringify(place)); } catch { /* fine */ }
+  }
+
+  // ----- Diving into a place (thirteenth round) -----
+  // A link from the card to a city's or landmark's page first sends the camera down towards the place, then
+  // opens the page; the page's photo then grows out of the card's photo (src/inline/view-transitions.js).
+  const PAGE_LINK = /(?:^|\/)(city|timetravel|stories|visit)\.html$/;
+  function diveTo(a, e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return false;
+    const url = new URL(a.href, location.href);
+    if (!PAGE_LINK.test(url.pathname)) return false;
+    const id = url.searchParams.get('id');
+    const place = cityById.get(id) ?? lmById.get(id);
+    if (!place) return false;
+    // The photo that will grow into the next page: the row's own picture in Through time, else the card's
+    $$('[data-vt-hero]').forEach((el) => el.removeAttribute('data-vt-hero'));
+    a.closest('.world-row')?.querySelector('img.thumb')?.setAttribute('data-vt-hero', '');
+    arrive(id, place);
+    if (reduced || !nav.dive) return false; // the page opens at once
+    e.preventDefault();
+    ship?.flyTo(place, { duration: 0.9, hoverAlt: cityById.has(id) ? 2_400 : 300, land: false }); // if it isn't there already
+    document.body.classList.add('diving');
+    let gone = false;
+    const go = () => { if (!gone) { gone = true; location.href = a.href; } };
+    nav.dive(place, go);
+    setTimeout(go, 1300); // never wait longer than this
+    return true;
+  }
+  // Coming back with the Back button (from the browser's page cache): lift the camera out again.
+  addEventListener('pageshow', (e) => {
+    if (!e.persisted || !document.body.classList.contains('diving')) return;
+    document.body.classList.remove('diving');
+    const at = lastPlace && (cityById.get(lastPlace.id) ?? lmById.get(lastPlace.id));
+    if (at) (cityById.has(at.id) ? nav.city : nav.landmark)(at);
+  });
+
+  // ----- A landmark opens its Time travel page straight away (fourteenth round) -----
+  // There is no landmark card on the globe any more: choosing a landmark anywhere (a city's card, the strip
+  // along the bottom, a pin, the search) dives down to it and opens its Time travel page. `fromEl` is the
+  // picture that was clicked, which grows into the page's cover (src/inline/view-transitions.js).
+  function openLandmark(id, fromEl = null) {
+    const lm = lmById.get(id);
+    if (!lm) return;
+    const c = cityById.get(lm.city);
+    if (yearMode) exitYearMode({ quiet: true });
+    $$('[data-vt-hero]').forEach((el) => el.removeAttribute('data-vt-hero'));
+    fromEl?.setAttribute('data-vt-hero', '');
+    arrive(id, lm);
+    writeHash(c.id); // coming back, the globe shows the landmark's city
+    const url = landmarkUrl(id, 'time');
+    if (reduced || !nav.dive) { location.href = url; return; }
+    ship?.flyTo(lm, { duration: 0.9, hoverAlt: 300, land: false });
+    document.body.classList.add('diving');
+    let gone = false;
+    const go = () => { if (!gone) { gone = true; location.href = url; } };
+    nav.dive(lm, go);
+    setTimeout(go, 1300); // never wait longer than this
+  }
+  /** A link to a landmark on the globe (index.html#<landmark>): its city's card, the camera over the landmark. */
+  function focusLandmark(id) {
+    const lm = lmById.get(id);
+    if (!lm) return;
+    selectCity(lm.city, { fly: false });
+    nav.landmark(lm);
+  }
+
   // ----- Selection (updates card, view and URL hash) -----
   function selectCity(id, { fly = true } = {}) {
     const c = cityById.get(id);
     if (!c) return;
+    arrive(id, c);
+    const wasYear = yearMode;
     // switching atlas rewrites the hash once its moments have loaded, so the place is written again after it
     if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false }).then(() => writeHash(id));
     if (yearMode) exitYearMode({ quiet: true });
     renderCity(c);
-    if (fly) nav.city(c);
-    writeHash(id);
-  }
-  function selectLandmark(id, { fly = true } = {}) {
-    const lm = lmById.get(id);
-    if (!lm) return;
-    const c = cityById.get(lm.city);
-    if (!inSet(c)) setCollection(collectionsOf(c)[0], { fly: false }).then(() => writeHash(id));
-    if (yearMode) exitYearMode({ quiet: true });
-    renderLandmark(lm);
-    if (fly) nav.landmark(lm);
+    // The ship flies to the city in exactly the time the camera takes, pulling the gold thread behind it.
+    const secs = fly ? nav.city(c) : null;
+    ship?.flyTo(c, { duration: secs ?? 2.4, trail: !wasYear });
     writeHash(id);
   }
   function goIntro() {
     renderIntro();
     writeHash();
+    ship?.cruise();
   }
 
   // ----- Knowledge card events -----
@@ -346,6 +432,8 @@ async function main() {
   kcard.addEventListener('pointerleave', () => lightRow(null));
   kcard.addEventListener('focusin', (e) => lightRow(rowId(e)));
   kcard.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link && diveTo(link, e)) return;
     // Remember whether "Earlier history" is open, so it stays that way when the year changes.
     const more = e.target.closest('.world-more > summary');
     if (more) earlierOpen = !more.parentElement.open;
@@ -353,7 +441,7 @@ async function main() {
     if (!t) return;
     const { action, id } = t.dataset;
     if (action === 'city') selectCity(id);
-    if (action === 'landmark') selectLandmark(id);
+    if (action === 'landmark') openLandmark(id, t.querySelector('img'));
     if (action === 'intro') { goIntro(); nav.home(); }
     if (action === 'close') kcard.classList.add('collapsed');
     if (action === 'year-city') focusYearCity(id);
@@ -361,16 +449,47 @@ async function main() {
   });
   $('#voyager').addEventListener('click', (e) => {
     const b = e.target.closest('[data-landmark]');
-    if (b) selectLandmark(b.dataset.landmark);
+    if (b) openLandmark(b.dataset.landmark, b.querySelector('img'));
   });
 
   // ----- Buttons shared by both views -----
   $('#home-btn').addEventListener('click', () => { if (yearMode) exitYearMode({ quiet: true }); goIntro(); nav.home(); });
   $('#zoom-in').addEventListener('click', () => nav.zoomIn());
+
+  // ----- Turning the globe (fourteenth round): two buttons, the ← → keys, or dragging -----
+  // The line "Drag or use ← → to turn the globe" fades once the globe has been turned; the buttons stay.
+  const globeHint = $('#globe-hint');
+  const turned = () => globeHint.classList.add('moved');
+  const turnButton = (btn, dir) => {
+    let timer = 0;
+    const stop = () => clearInterval(timer);
+    btn.addEventListener('pointerdown', (e) => {
+      if (e.button !== 0) return;
+      nav.turn?.(dir);
+      turned();
+      clearInterval(timer);
+      timer = setInterval(() => nav.turn?.(dir), 600); // keeps turning while held
+      btn.setPointerCapture?.(e.pointerId);
+    });
+    ['pointerup', 'pointercancel', 'lostpointercapture'].forEach((t) => btn.addEventListener(t, stop));
+    // Enter or Space on the focused button (a click with no pointer)
+    btn.addEventListener('click', (e) => { if (e.detail === 0) { nav.turn?.(dir); turned(); } });
+  };
+  turnButton($('#turn-left'), 1);
+  turnButton($('#turn-right'), -1);
+  addEventListener('keydown', (e) => {
+    if (yearMode || e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    if (e.target.closest?.('input, select, textarea, [contenteditable], [role="slider"], .leaflet-control, #kcard, #voyager')) return;
+    e.preventDefault();
+    nav.turn?.(e.key === 'ArrowLeft' ? 1 : -1);
+    turned();
+  });
+  addEventListener('pointerdown', (e) => { if (e.target.closest?.('#globe, #flat-map')) turned(); });
   $('#zoom-out').addEventListener('click', () => nav.zoomOut());
 
   // ----- Search -----
-  initSearch({ cities, landmarks, selectCity, selectLandmark });
+  initSearch({ cities, landmarks, selectCity, selectLandmark: openLandmark });
 
   // ----- First-visit welcome -----
   // Someone following a link to a place or year goes straight there, without the welcome.
@@ -379,13 +498,16 @@ async function main() {
   // ----- Deep link (#paris, #vietnam&hue, #vietnam&year=1945) -----
   const delay = reduced || !viewer ? 0 : 1800;
   if (hashPlace && cityById.has(hashPlace)) setTimeout(() => selectCity(hashPlace), delay);
-  else if (hashPlace) setTimeout(() => selectLandmark(hashPlace), delay);
+  else if (hashPlace) setTimeout(() => focusLandmark(hashPlace), delay);
   else if (hashYear && world) setTimeout(() => enterYearMode(Number(hashYear[1])), delay);
 
   // ----- Atlas switch buttons -----
   $('#set-switch').addEventListener('click', (e) => {
     const b = e.target.closest('[data-set]');
-    if (b) setCollection(b.dataset.set);
+    if (!b || b.dataset.set === set) return;
+    nav.clearThreads?.(); // a new atlas starts a new journey
+    ship?.cruise();
+    setCollection(b.dataset.set);
   });
 
   // -------------------------------------------------------------------------
@@ -404,6 +526,8 @@ async function main() {
   function enterYearMode(year) {
     if (!world) return;
     yearMode = true;
+    nav.clearThreads?.();
+    ship?.cruise();
     document.body.classList.add('year-mode');
     yearBtn.setAttribute('aria-pressed', 'true');
     barEl.hidden = false;
@@ -432,7 +556,7 @@ async function main() {
     unbindView?.(); unbindView = null;
     nav.setPulse?.(new Set());
     nav.setCityLabels?.(true);
-    if (!quiet) { renderIntro(); writeHash(); nav.home(); }
+    if (!quiet) { renderIntro(); writeHash(); nav.home(); ship?.cruise(); }
   }
 
   /** Called by the world bar while dragging (final=false) and when a year is settled. */
@@ -643,6 +767,7 @@ async function main() {
     console.error(err ?? kind);
     $('#globe').style.visibility = 'hidden';
     nav = await startFlatMap(kind, err);
+    ship?.bind();
     if (yearMode) { nav.setCityLabels?.(false); bindView(); onYear(bar.year, { final: false }); }
   };
   viewer.canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); fail('lost'); });
@@ -689,28 +814,95 @@ async function main() {
     const id = pickId(c.position);
     if (!id) return;
     const [type, key] = id.split(':');
-    if (type === 'city') { if (yearMode) focusYearCity(key); else selectCity(key); } else selectLandmark(key);
+    if (type === 'city') { if (yearMode) focusYearCity(key); else selectCity(key); } else openLandmark(key);
   }, ScreenSpaceEventType.LEFT_CLICK);
 
   // ----- Camera moves -----
+  /** Seconds for a flight: longer the further round the globe and the more it zooms (2 to 3.6 s). */
+  function flightTime(lon, lat, range) {
+    if (reduced) return 0;
+    const here = camera.positionCartographic;
+    const g = new EllipsoidGeodesic(new Cartographic(here.longitude, here.latitude), Cartographic.fromDegrees(lon, lat));
+    const zoom = Math.abs(Math.log10(Math.max(here.height, 1) / range));
+    return Math.min(3.6, Math.max(2, 1.5 + (g.surfaceDistance / 6_371_000) * 0.7 + zoom * 0.3));
+  }
+  // Flights to a place are run here rather than by Cesium (fifteenth round), in two overlapping parts: first
+  // the globe turns until the place is in the middle of the free part of the screen (the first TRAVEL part of
+  // the time), then the camera comes down and tilts, looking at the place all the way. Cesium's own flight
+  // tilted towards the horizon half-way, with the place out of view. Now the place stays in view, and so does
+  // the ship that flies to it at the same pace.
+  let flightFrame = 0;
+  const endOwnFlight = () => { cancelAnimationFrame(flightFrame); flightFrame = 0; };
+  function stopFlight() { endOwnFlight(); camera.cancelFlight(); }
+  for (const type of ['pointerdown', 'wheel']) scene.canvas.addEventListener(type, endOwnFlight, { passive: true }); // the visitor takes over
+  const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+  const unit = (t) => Math.max(0, Math.min(1, t));
+  const blend = (a, b, t) => a + (b - a) * t;
+  const blendAngle = (a, b, t) => a + (((b - a + Math.PI * 3) % (Math.PI * 2)) - Math.PI) * t;
+
+  /** Looks at a point on the ground from a heading, pitch and distance, then turns the view into the free part of the screen. */
+  function lookFrom(at, heading, pitch, range, { ax, ay }) {
+    camera.lookAt(Cartesian3.fromRadians(at.longitude, at.latitude), new HeadingPitchRange(heading, pitch, range));
+    camera.lookAtTransform(Matrix4.IDENTITY);
+    camera.lookLeft(ax);
+    camera.lookDown(ay);
+  }
+  /** What the camera is looking at now, in the terms of lookFrom; null if that is the sky. */
+  function lookNow({ dx, dy }) {
+    const pixel = new Cartesian2(scene.canvas.clientWidth / 2 + dx, scene.canvas.clientHeight / 2 - dy);
+    const ground = camera.pickEllipsoid(pixel);
+    if (!ground) return null;
+    const toLocal = Matrix4.inverseTransformation(Transforms.eastNorthUpToFixedFrame(ground), new Matrix4());
+    const dir = Matrix4.multiplyByPointAsVector(toLocal, camera.getPickRay(pixel).direction, new Cartesian3());
+    // straight down, the heading is where the top of the view points
+    const flatDir = Math.hypot(dir.x, dir.y) > 0.02 ? dir : Matrix4.multiplyByPointAsVector(toLocal, camera.upWC, new Cartesian3());
+    return {
+      at: Cartographic.fromCartesian(ground), range: Cartesian3.distance(camera.positionWC, ground),
+      heading: Math.atan2(flatDir.x, flatDir.y), pitch: Math.asin(Math.max(-1, Math.min(1, dir.z))),
+    };
+  }
+  /** Flies the camera to look at a point; returns the seconds it will take, so the ship can fly in step. */
   function flyTo(lon, lat, range, pitchDeg, headingDeg = 0) {
-    camera.cancelFlight();
-    camera.flyToBoundingSphere(new BoundingSphere(Cartesian3.fromDegrees(lon, lat), 200), {
-      offset: new HeadingPitchRange(CMath.toRadians(headingDeg), CMath.toRadians(pitchDeg), range),
-      duration: reduced ? 0 : undefined, // Cesium picks a natural duration from the distance
-      maximumHeight: range > 100_000 ? undefined : 3_000_000,
-      complete: composeHome,
-    });
+    stopFlight();
+    const secs = flightTime(lon, lat, range);
+    const compose = composeAngles();
+    const dest = Cartographic.fromDegrees(lon, lat);
+    const heading = CMath.toRadians(headingDeg);
+    const pitch = CMath.toRadians(pitchDeg);
+    const from = secs ? lookNow(compose) : null;
+    if (!from) { // no motion wanted (or the view is on the sky): be there
+      lookFrom(dest, heading, pitch, range, compose);
+      return 0;
+    }
+    const path = new EllipsoidGeodesic(new Cartographic(from.at.longitude, from.at.latitude), dest);
+    const far = path.surfaceDistance;
+    // Between two places that are both seen from close by, the camera first rises until both are in view.
+    const rise = Math.max(0, far * 0.9 - Math.max(from.range, range));
+    const t0 = performance.now();
+    const step = (now) => {
+      const u = unit((now - t0) / (secs * 1000));
+      const turn = easeInOut(Math.min(1, u / TRAVEL)); // the globe turns to the place...
+      const zoom = easeInOut(unit((u - 0.3) / 0.7)); // ...then the camera comes down and tilts
+      const up = Math.sin(Math.PI * easeInOut(u));
+      const at = far > 1 ? path.interpolateUsingFraction(turn) : dest;
+      const r = Math.exp(blend(Math.log(from.range), Math.log(range), zoom)) + up * rise;
+      const p = blend(blend(from.pitch, pitch, zoom), -Math.PI / 2, rise > 0 ? up : 0); // from high up, look straight down
+      lookFrom(at, blendAngle(from.heading, heading, zoom), p, r, compose);
+      flightFrame = u < 1 ? requestAnimationFrame(step) : 0;
+    };
+    flightFrame = requestAnimationFrame(step);
+    return secs;
   }
   function flyHome() {
-    camera.cancelFlight();
+    stopFlight();
     const h = homeOf();
     camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, h.height), orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO }, duration: reduced ? 0 : 2, complete: composeHome });
   }
 
   // Centre the view in the space left free by the card (left) and the landmark strip (bottom),
   // by turning the camera slightly rather than moving it. The turn is eased over a few frames.
-  function composeHome() {
+  /** How far the middle of the free part of the screen is from the middle of the screen: in pixels, and as angles. */
+  function composeAngles() {
     const w = scene.canvas.clientWidth;
     const h = scene.canvas.clientHeight;
     const fov = camera.frustum.fov; // horizontal when the screen is wider than tall
@@ -719,8 +911,10 @@ async function main() {
     const cardOpen = !kcard.classList.contains('collapsed');
     const dx = desktop && cardOpen ? (kcard.offsetWidth + 12) / 2 : 0;
     const dy = desktop ? ($('#voyager').offsetHeight + 40) / 2 : (cardOpen ? kcard.offsetHeight / 2 : 0);
-    const ax = Math.atan(dx / focal);
-    const ay = Math.atan(dy / focal);
+    return { dx, dy, ax: Math.atan(dx / focal), ay: Math.atan(dy / focal) };
+  }
+  function composeHome() {
+    const { ax, ay } = composeAngles();
     if (reduced) { camera.lookLeft(ax); camera.lookDown(ay); return; }
     const frames = 24;
     let n = 0;
@@ -760,8 +954,14 @@ async function main() {
     readout.textContent = `${cursorText ? `${cursorText}   ` : ''}Camera ${cam}`;
   }
   // ----- Label decluttering (like Google Earth): hide names that would overlap pins or other names -----
-  const projectPoint = (lat, lon) => {
-    const p = Cartesian3.fromDegrees(lon, lat);
+  const groundCarto = new Cartographic();
+  const projectPoint = (lat, lon, alt = 0) => {
+    // Close to the ground, heights are measured from the terrain (as the pins are), not from sea level.
+    let base = 0;
+    if (camera.positionCartographic.height < 200_000) {
+      base = scene.globe.getHeight(Cartographic.fromDegrees(lon, lat, 0, groundCarto)) ?? 0;
+    }
+    const p = Cartesian3.fromDegrees(lon, lat, base + alt);
     const toCamera = Cartesian3.subtract(camera.positionWC, p, new Cartesian3());
     const facing = Cartesian3.dot(toCamera, Cartesian3.normalize(p, new Cartesian3())) > 0;
     const win = facing ? SceneTransforms.worldToWindowCoordinates(scene, p) : null;
@@ -806,51 +1006,141 @@ async function main() {
       let side = sides.find((s) => !hits(s.box, placed) && !hits(s.box, others));
       // Big cities are always named, at least where they don't hide another name.
       if (!side && priority(c) >= 2) side = sides.find((s) => !hits(s.box, placed)) ?? sides[0];
-      // The name of the place under the mouse is shown in the chip instead (see showTip).
-      if (c.id === tipId) tipLabelWas = Boolean(side);
-      e.label.show = Boolean(side) && c.id !== tipId;
+      // A name hidden to avoid overlaps is still shown while it is pointed at, where it would go, and without
+      // moving any other name.
+      const onlyWhilePointed = !side && c.id === tipId;
+      if (onlyWhilePointed) side = sides[0];
+      e.label.show = Boolean(side);
       if (!side) continue;
       e.label.horizontalOrigin = side.h;
       e.label.verticalOrigin = side.v;
       e.label.pixelOffset = new Cartesian2(...side.off);
-      placed.push(side.box);
+      if (!onlyWhilePointed) placed.push(side.box);
     }
   }
 
-  // ----- Name chip for the pin under the mouse (or the city row being pointed at in the panel) -----
-  const tip = document.createElement('div');
-  tip.className = 'pin-tip';
-  tip.hidden = true;
-  tip.setAttribute('aria-hidden', 'true'); // the same name is already in the pin's title and the panel
-  document.body.append(tip);
+  // ----- The name of the place under the mouse (or of the city row being pointed at in the panel) -----
+  // Fourteenth round: the name is lit where it is, on a dark chip, and never moves. It used to be hidden and
+  // repeated in a chip above the pin; with the mouse on the name, the name vanished, the hover ended, the name
+  // came back and the hover started again, so the name seemed to jump. The pin and its name now point to the
+  // same city, and nothing moves while the mouse goes from one to the other.
   let tipId = null;
-  let tipLabelWas = false;
-  function placeTip() {
-    const c = tipId && cityById.get(tipId);
-    const p = c && projectPoint(c.lat, c.lon);
-    tip.hidden = !p?.visible;
-    if (p?.visible) tip.style.transform = `translate(${Math.round(p.x)}px, ${Math.round(p.y - 14)}px) translate(-50%, -100%)`;
+  const CHIP = Color.fromCssColorString('rgba(32, 33, 36, .92)');
+  const CHIP_PAD = new Cartesian2(7, 4);
+  function lightLabel(id, on) {
+    const l = viewer.entities.getById(`city:${id}`)?.label;
+    if (!l) return;
+    l.showBackground = on;
+    l.backgroundColor = CHIP;
+    l.backgroundPadding = CHIP_PAD;
+    l.outlineWidth = on ? 0 : 4;
   }
   function showTip(id) {
-    if (id === tipId) return;
-    const label = (cid) => viewer.entities.getById(`city:${cid}`)?.label;
-    if (tipId && label(tipId)) label(tipId).show = tipLabelWas && labelsOn;
-    tipId = id && cityById.has(id) ? id : null;
-    if (!tipId) { tip.hidden = true; return; }
-    const l = label(tipId);
-    tipLabelWas = Boolean(l?.show?.getValue(viewer.clock.currentTime));
-    if (l) l.show = false;
-    tip.textContent = cityById.get(tipId).name;
-    placeTip();
+    const next = id && cityById.has(id) ? id : null;
+    if (next === tipId) return;
+    if (tipId) lightLabel(tipId, false);
+    tipId = next;
+    if (tipId) lightLabel(tipId, true);
+    declutter(); // shows a hidden name while it is pointed at (and hides it again after)
   }
-  scene.postRender.addEventListener(() => { if (tipId) placeTip(); });
   camera.percentageChanged = 0.01;
   camera.changed.addEventListener(() => { updateReadout(); declutter(); });
   camera.moveEnd.addEventListener(declutter);
   updateReadout();
   declutter();
 
+  // ----- Gold threads between places (thirteenth round), now the trail of the Lạc ship (fifteenth round) -----
+  // The ship adds a point to its trail every frame, so the head of the thread is always exactly at the ship.
+  // The last three stay; older ones fade.
+  const GOLD = Color.fromCssColorString('#e8c56a');
+  const threads = [];
+  const glow = (alpha) => new PolylineGlowMaterialProperty({ glowPower: 0.2, taperPower: 1, color: GOLD.withAlpha(alpha) });
+  function trail() {
+    const pts = [];
+    const ent = viewer.entities.add({ polyline: {
+      positions: new CallbackProperty(() => pts, false), show: new CallbackProperty(() => pts.length > 1, false),
+      width: 8, arcType: ArcType.NONE, material: glow(0.95),
+    } });
+    threads.push(ent);
+    while (threads.length > 3) viewer.entities.remove(threads.shift());
+    threads.forEach((x, i) => { x.polyline.material = glow([0.95, 0.6, 0.32][threads.length - 1 - i]); });
+    return {
+      push: (lon, lat, alt) => pts.push(Cartesian3.fromDegrees(lon, lat, Math.max(alt, 500))),
+      end: () => { // stop recomputing
+        if (!viewer.entities.contains(ent)) return;
+        if (pts.length < 2) { viewer.entities.remove(ent); threads.splice(threads.indexOf(ent), 1); return; }
+        ent.polyline.positions = pts.slice();
+        ent.polyline.show = true;
+      },
+    };
+  }
+  function clearThreads() { threads.splice(0).forEach((x) => viewer.entities.remove(x)); }
+
+  // ----- Turning the globe with the buttons or the arrow keys (fourteenth round) -----
+  // About 30° when the whole globe is in view, proportionally less when closer in, eased over 0.6 s.
+  // dir 1 turns the globe's face to the left (the camera moves east), -1 to the right.
+  let turnFrame = 0;
+  function turn(dir) {
+    cancelAnimationFrame(turnFrame);
+    stopFlight();
+    const h = camera.positionCartographic.height;
+    const total = CMath.toRadians(30) * Math.min(1, Math.max(0.002, h / 20_000_000)) * dir;
+    if (reduced) { camera.rotate(Cartesian3.UNIT_Z, total); return; }
+    const t0 = performance.now();
+    let done = 0;
+    const step = (now) => {
+      const k = Math.max(0, Math.min(1, (now - t0) / 600));
+      const e = 1 - (1 - k) ** 3;
+      camera.rotate(Cartesian3.UNIT_Z, (e - done) * total);
+      done = e;
+      if (k < 1) turnFrame = requestAnimationFrame(step);
+    };
+    turnFrame = requestAnimationFrame(step);
+  }
+
+  // ----- The line "Drag or use ← → to turn the globe" sits centred under the globe (fifteenth round) -----
+  // It used to be centred in the free part of the screen, which is not where the globe's centre is.
+  // Close in, when the globe fills the screen, it goes back to the middle of the free part (the CSS default).
+  const hintEl = $('#globe-hint');
+  let hintX = null;
+  scene.postRender.addEventListener(() => {
+    let x = null;
+    if (camera.positionCartographic.height > 3_000_000) {
+      const c = SceneTransforms.worldToWindowCoordinates(scene, Cartesian3.ZERO);
+      if (c) x = Math.round(c.x);
+    }
+    if (x === hintX) return;
+    hintX = x;
+    if (x === null) hintEl.style.removeProperty('--hint-x'); else hintEl.style.setProperty('--hint-x', `${x}px`);
+  });
+
+  // ----- Diving into a place before its page opens (thirteenth round) -----
+  function dive(place, done) {
+    stopFlight();
+    const isCity = cityById.has(place.id);
+    camera.flyToBoundingSphere(new BoundingSphere(Cartesian3.fromDegrees(place.lon, place.lat), 50), {
+      offset: new HeadingPitchRange(camera.heading, CMath.toRadians(isCity ? -58 : -40), isCity ? 2_500 : 350),
+      duration: 0.9,
+      easingFunction: EasingFunction.CUBIC_IN,
+      complete: done,
+      cancel: done,
+    });
+  }
+
   return {
+    turn,
+    dive,
+    trail,
+    clearThreads,
+    /** For the ship: a point on screen → the ground under it; the camera's height; a call after every frame. */
+    pick: (x, y) => {
+      const cart = camera.pickEllipsoid(new Cartesian2(x, y));
+      if (!cart) return null;
+      const g = Cartographic.fromCartesian(cart);
+      return { lon: CMath.toDegrees(g.longitude), lat: CMath.toDegrees(g.latitude) };
+    },
+    viewHeight: () => camera.positionCartographic.height,
+    onFrame: (cb) => scene.postRender.addEventListener(cb),
     city: (c) => flyTo(c.lon, c.lat, 24_000, -42),
     landmark: (lm) => flyTo(lm.lon, lm.lat, 1_600, -28, 15),
     home: flyHome,
@@ -868,7 +1158,7 @@ async function main() {
     // ----- Used by the world timeline -----
     /** Turns the whole globe to face a city, keeping the rest of the world in view. */
     look: (c) => {
-      camera.cancelFlight();
+      stopFlight();
       camera.flyTo({
         destination: Cartesian3.fromDegrees(c.lon, c.lat, colById.get(set)?.lookHeight ?? 9_000_000),
         orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO, roll: 0 },
@@ -972,7 +1262,7 @@ async function main() {
     // Landmark pins appear once zoomed in to city level.
     const lmMarkers = new Map(landmarks.map((lm) => [lm.id, landmarkMarker(lm.lat, lm.lon, lm.name)
       .bindTooltip(esc(lm.name), { permanent: true, direction: 'right', offset: [12, -26], className: 'flat-label' })
-      .on('click', () => selectLandmark(lm.id))]));
+      .on('click', () => openLandmark(lm.id))]));
     const pins = L.layerGroup();
     const fillPins = () => {
       pins.clearLayers();
@@ -999,8 +1289,35 @@ async function main() {
         paddingTopLeft: [left + 16, 80], paddingBottomRight: [72, bottom + 16], animate: !reduced, duration: 1.4,
       });
     };
+    // Gold threads on the flat map: the trail of the Lạc ship, a point added every frame.
+    const flatThreads = [];
+    const flatTrail = () => {
+      const line = L.polyline([], { className: 'gold-thread', weight: 3, interactive: false }).addTo(map);
+      flatThreads.push(line);
+      while (flatThreads.length > 3) flatThreads.shift().remove();
+      flatThreads.forEach((x, i) => x.setStyle({ opacity: [0.95, 0.6, 0.32][flatThreads.length - 1 - i] }));
+      return { push: (lon, lat) => line.addLatLng([lat, lon]), end: () => {} };
+    };
+    const metresPerPixel = (lat) => (40_075_016.686 * Math.cos((lat * Math.PI) / 180)) / (256 * 2 ** map.getZoom());
     const flat = {
-      city: (c) => frame(c.lat, c.lon, 12_000),
+      turn: (dir) => map.panBy([dir * map.getSize().x * 0.25, 0], { animate: !reduced, duration: 0.6 }),
+      trail: flatTrail,
+      clearThreads: () => flatThreads.splice(0).forEach((x) => x.remove()),
+      // For the ship. On a flat map it moves in straight lines, and its height is shown as a lift on screen.
+      linear: true,
+      pick: (x, y) => { const ll = map.containerPointToLatLng([x, y]); return { lon: ll.lng, lat: ll.lat }; },
+      viewHeight: () => metresPerPixel(map.getCenter().lat) * map.getSize().y,
+      onFrame: (cb) => {
+        let id = 0;
+        const loop = () => { cb(); id = requestAnimationFrame(loop); };
+        id = requestAnimationFrame(loop);
+        return () => cancelAnimationFrame(id);
+      },
+      dive: (place, done) => {
+        map.once('moveend', done);
+        map.flyTo([place.lat, place.lon], Math.min(18, Math.max(map.getZoom() + 2, cityById.has(place.id) ? 13 : 16)), { duration: 0.8, easeLinearity: 0.1 });
+      },
+      city: (c) => { frame(c.lat, c.lon, 12_000); return reduced ? 0 : 1.4; },
       landmark: (lm) => frame(lm.lat, lm.lon, 700),
       home: () => {
         const h = homeOf();
@@ -1030,8 +1347,9 @@ async function main() {
       },
       // ----- Used by the world timeline -----
       look: (c) => map.flyTo([c.lat, c.lon], colById.get(set)?.lookZoom ?? 4, { animate: !reduced }),
-      project: (lat, lon) => {
+      project: (lat, lon, alt = 0) => {
         const p = map.latLngToContainerPoint([lat, lon]);
+        p.y -= Math.min(90, alt / metresPerPixel(lat));
         const size = map.getSize();
         return { x: p.x, y: p.y, visible: p.x > -40 && p.y > -40 && p.x < size.x + 40 && p.y < size.y + 40 };
       },
@@ -1163,33 +1481,6 @@ async function main() {
             <span class="grow"><span class="t-title-s">${esc(p.name)}</span><span class="sub">Coming soon</span></span>
           </div></li>`).join('')}
       </ul>`);
-  }
-
-  function renderLandmark(lm) {
-    const c = cityById.get(lm.city);
-    const s = statusOf(lm);
-    const url = (page) => landmarkUrl(lm.id, page);
-    show(`
-      ${heroBlock(lm.hero, { back: `data-action="city" data-id="${esc(c.id)}"`, backLabel: `Back to ${c.name}` })}
-      <div class="kcard-body">
-        <p class="t-label muted mb-1">${esc(c.name)}, ${esc(c.country)}</p>
-        <h2 class="kcard-title mb-0">${esc(lm.name)}</h2>
-        <p class="muted mb-0">${esc(lm.localName ?? '')}</p>
-        <div class="kcard-meta">
-          <span class="status ${s.state}">${esc(s.text)}</span>
-          <span>${icon('location_on')}${formatCoords(lm.lat, lm.lon, 4)}</span>
-        </div>
-        <p class="mt-3 mb-0">${esc(lm.summary)}</p>
-        <div class="kcard-actions">
-          <a class="btn-m btn-filled" href="${url('time')}">${icon('arrow_forward')}Explore</a>
-          ${saveButton(lm)}
-        </div>
-        <div class="kcard-actions mt-2">
-          <a class="chip" href="${url('time')}">${icon('history')}Time travel</a>
-          <a class="chip" href="${url('story')}">${icon('headphones')}Stories</a>
-          <a class="chip" href="${url('guide')}">${icon('directions_walk')}Visit</a>
-        </div>
-      </div>`);
   }
 
   function renderVoyager() {

@@ -14,6 +14,9 @@ export function initTimeline(track, layer, { lm, media, initialEra = 0 }) {
   const eras = lm.eras;
   const last = eras.length - 1;
   const src = (i) => imageSrc(eras[i].image, media);
+  // How old an era is, from 0 (now) to 1 (thousands of years ago): older eras get a heavier film grain.
+  const thisYear = new Date().getFullYear();
+  const ageOf = (era) => Math.min(1, Math.log10(Math.max(1, thisYear - (era.year ?? thisYear)) + 1) / Math.log10(5000));
   let deck = null;
 
   track.insertAdjacentHTML('beforeend', eras.map((e, i) => slide({
@@ -78,6 +81,9 @@ export function initTimeline(track, layer, { lm, media, initialEra = 0 }) {
       <button type="button" class="icon-btn" id="compare-toggle" aria-pressed="false" aria-label="Before and after comparison" title="Before / after">${icon('compare')}</button>
     </div>`;
 
+  // Each era's slide develops its photo when it arrives, with a grain that grows with the era's age (CSS).
+  eras.forEach((e, i) => track.querySelector(`#era-${i}`)?.style.setProperty('--age', ageOf(e).toFixed(2)));
+
   // Preload all era images so dragging is smooth.
   eras.forEach((_, i) => { const im = new Image(); im.src = src(i); });
 
@@ -103,10 +109,51 @@ export function initTimeline(track, layer, { lm, media, initialEra = 0 }) {
     if (nearest !== current) showEra(nearest);
   }
 
+  // ----- Thirteenth round: the photo develops like a print in a darkroom, and the year rolls like a counter -----
+  let devTimer = 0;
+  function develop(era) {
+    if (prefersReducedMotion() || stage.classList.contains('dragging')) return;
+    stage.style.setProperty('--age', ageOf(era).toFixed(2));
+    stage.classList.remove('developing');
+    void stage.offsetWidth; // restart the animation
+    stage.classList.add('developing');
+    clearTimeout(devTimer);
+    devTimer = setTimeout(() => stage.classList.remove('developing'), 1700);
+  }
+  /** Writes the era's label; when both labels are years of the same length, their digits roll from one to the other. */
+  const yearEl = stage.querySelector('.era-year');
+  let shownLabel = '';
+  function setYear(label) {
+    const from = /^(\D*)(\d+)(\D*)$/.exec(shownLabel);
+    const to = /^(\D*)(\d+)(\D*)$/.exec(label);
+    const was = shownLabel;
+    shownLabel = label;
+    if (!was || prefersReducedMotion() || stage.classList.contains('dragging')) { yearEl.textContent = label; return; }
+    if (!from || !to || from[1] !== to[1] || from[3] !== to[3] || from[2].length !== to[2].length) {
+      yearEl.textContent = label;
+      yearEl.classList.remove('year-swap');
+      void yearEl.offsetWidth;
+      yearEl.classList.add('year-swap');
+      return;
+    }
+    const up = label > was; // later years roll upwards
+    const strip = Array.from({ length: 10 }, (_, d) => `<span>${d}</span>`).join('');
+    yearEl.innerHTML = `${esc(to[1])}${[...to[2]].map((d, k) => `<span class="odo"><span class="odo-col" style="--d:${from[2][k]}">${strip}</span></span>`).join('')}${esc(to[3])}`;
+    const cols = $$('.odo-col', yearEl);
+    void yearEl.offsetWidth; // start from the old digits
+    cols.forEach((c, k) => {
+      if (to[2][k] === from[2][k]) return;
+      c.style.transitionDelay = `${(up ? cols.length - 1 - k : k) * 70}ms`;
+      c.style.setProperty('--d', to[2][k]);
+    });
+  }
+
   function showEra(i) {
+    const first = current === -1;
     current = i;
     const e = eras[i];
-    stage.querySelector('.era-year').textContent = e.label;
+    setYear(e.label);
+    if (!first) develop(e);
     stage.querySelector('.era-cap-title').textContent = e.title;
     stage.querySelector('.era-bg').style.backgroundImage = `url("${src(i)}")`;
     range.setAttribute('aria-valuetext', `${e.label}: ${e.title}`);

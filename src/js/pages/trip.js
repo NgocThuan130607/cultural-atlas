@@ -1,7 +1,7 @@
 // My trip page: the landmarks the visitor saved, a day-by-day plan that checks each visit against the
 // opening hours, and a map of every saved place. The plan can be downloaded as a calendar file or printed.
 import {
-  $, $$, esc, icon, loadCities, loadLandmark, loadMedia, imageSrc, showError, landmarkUrl, protoNote,
+  $, $$, esc, icon, loadCities, loadLandmark, loadMedia, imageSrc, showError, landmarkUrl, protoNote, prefersReducedMotion,
 } from '../common.js';
 import { checkVisit, hoursOn } from '../hours.js';
 import { createMap, L } from '../map.js';
@@ -105,6 +105,7 @@ async function main() {
   const pins = L.layerGroup().addTo(map);
   const markers = new Map();
   let shownIds = '';
+  let drawnRoute = ''; // the route last drawn out (its stops, in order)
   let editing = null; // id of the place whose plan form is open
   let message = ''; // short note shown under the action buttons
   let focusAfter = null; // { act, id } of the control to focus once the list is redrawn
@@ -325,9 +326,41 @@ async function main() {
       m.addTo(pins);
       markers.set(lm.id, m);
     }
-    // Dashed line through the planned visits, in order.
+    // A thread of gold through the planned visits, in order (thirteenth round): a gentle curve from each stop
+    // to the next, on a brown casing so it shows on light and dark maps. It draws itself out when the route
+    // changes, not while a visit's note is being edited.
     const route = rows.filter((r) => number.has(r.lm.id)).sort((a, b) => number.get(a.lm.id) - number.get(b.lm.id));
-    if (route.length > 1) L.polyline(route.map((r) => [r.lm.lat, r.lm.lon]), { color: '#0b57d0', weight: 3, dashArray: '6 8', opacity: .8 }).addTo(pins);
+    if (route.length > 1) {
+      const pts = route.flatMap((r, k) => {
+        if (k === 0) return [[r.lm.lat, r.lm.lon]];
+        const a = route[k - 1].lm;
+        const b = r.lm;
+        return Array.from({ length: 24 }, (_, i) => {
+          const t = (i + 1) / 24;
+          const bend = Math.sin(Math.PI * t) * 0.16;
+          return [a.lat + (b.lat - a.lat) * t + (b.lon - a.lon) * bend, a.lon + (b.lon - a.lon) * t - (b.lat - a.lat) * bend];
+        });
+      });
+      L.polyline(pts, { className: 'thread-casing', weight: 6, interactive: false }).addTo(pins);
+      const line = L.polyline(pts, { className: 'gold-thread', weight: 3, interactive: false }).addTo(pins);
+      const key = route.map((r) => r.lm.id).join();
+      if (key !== drawnRoute && !prefersReducedMotion()) {
+        // pathLength="1" measures the dash in fractions of the line, so it stays right while the map zooms to fit
+        const path = line.getElement();
+        if (path) {
+          path.setAttribute('pathLength', '1');
+          path.style.strokeDasharray = '1';
+          path.style.strokeDashoffset = '1';
+          path.getBoundingClientRect();
+          path.style.transition = `stroke-dashoffset ${Math.min(2.4, 0.8 + route.length * 0.3)}s cubic-bezier(.3, .7, .2, 1) .3s`;
+          path.style.strokeDashoffset = '0';
+          path.addEventListener('transitionend', () => {
+            path.style.transition = ''; path.style.strokeDasharray = ''; path.style.strokeDashoffset = ''; path.removeAttribute('pathLength');
+          }, { once: true });
+        }
+      }
+      drawnRoute = key;
+    }
 
     // Fit the map only when the set of places changes, so it doesn't jump while editing a plan.
     const ids = rows.map((r) => r.lm.id).sort().join();

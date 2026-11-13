@@ -5,13 +5,14 @@
 // its own slides. The Time travel / Stories / Visit switcher sits in the app bar (under it on phones).
 import {
   $, esc, icon, param, loadCities, loadLandmark, loadMedia, noteImage, creditsBlock, imageSrc,
-  localTime, formatCoords, showError, LANDMARK_PAGES, landmarkUrl,
+  formatCoords, showError, LANDMARK_PAGES, landmarkUrl,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { saveButton } from '../trip.js';
 import { seasonBadge } from '../season.js';
 import { slide, deckHTML, titleFrame, makeDeck } from '../slides.js';
 import { motifLayer } from '../motifs.js';
+import { applyDaylight, daylightHTML } from '../daylight.js';
 
 /**
  * Builds a landmark page.
@@ -57,8 +58,8 @@ export async function initLandmarkPage(active, init) {
       <div class="s-sand" data-reveal data-drift style="--d:2">
         <p class="lead-text">${esc(lm.summary)}</p>
         <div class="meta-row mb-3">
-          <a class="status ${status.state}" href="${landmarkUrl(lm.id, 'guide')}">${esc(status.text)}</a>
-          <span>${icon('schedule')}<span id="lm-time">${esc(localTime(city.timezone))}</span></span>
+          <a class="status ${status.state}" href="${landmarkUrl(lm.id, 'guide')}#plan" title="See opening hours">${esc(status.text)}</a>
+          <span class="daylight" id="lm-time">${daylightHTML(city.timezone, city.name)}</span>
           <span>${icon('location_on')}${formatCoords(lm.lat, lm.lon, 4)}</span>
         </div>
         <div class="d-flex flex-wrap align-items-center gap-2">${saveButton(lm)}${seasonBadge(lm)}</div>
@@ -74,13 +75,14 @@ export async function initLandmarkPage(active, init) {
   const ctx = { lm, city, media, initialEra: Number.isInteger(era) ? era : 0, note: $('#cover-note') };
   const view = init($('.deck-track'), $('#vp'), ctx);
   $('.deck-after').innerHTML = `<div class="wrap">${creditsBlock(lm.credits)}</div>`;
-  const deck = makeDeck($('#deck'), { onSettle: (i) => view?.onSlide?.(i) });
+  const deck = makeDeck($('#deck'), { onSettle: (i) => view?.onSlide?.(i), mark: lm.motifs?.cover?.[0] });
   view?.onDeck?.(deck);
   view?.onShow?.();
   // Stop narration or autoplay when leaving the page (also covers the back/forward cache).
   addEventListener('pagehide', () => view?.onHide?.());
 
-  setInterval(() => { $('#lm-time').textContent = localTime(city.timezone); }, 30_000);
+  // The page's tint and its clock follow the time of day there (thirteenth round)
+  applyDaylight(city.timezone, { el: $('#lm-time'), place: city.name });
 }
 
 /** Runs a landmark page and shows a friendly message if anything fails. */

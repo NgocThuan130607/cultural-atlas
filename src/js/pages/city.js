@@ -5,7 +5,7 @@
 // 6. good to know: quick facts and local etiquette.
 import {
   $, $$, esc, icon, param, loadCities, loadCity, loadLandmark, loadMedia, imageSrc, creditHTML,
-  creditsBlock, localTime, formatCoords, showError, landmarkUrl, protoNote,
+  creditsBlock, formatCoords, showError, landmarkUrl, protoNote,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createMap, landmarkMarker, L } from '../map.js';
@@ -13,6 +13,7 @@ import { saveButton } from '../trip.js';
 import { seasonBadge } from '../season.js';
 import { slide, deckHTML, photo, titleFrame, bigNumber, makeDeck } from '../slides.js';
 import { motifLayer } from '../motifs.js';
+import { applyDaylight, daylightHTML } from '../daylight.js';
 
 /** A paragraph whose first sentence is set slightly larger, to lead the eye into the text. */
 function leadParagraph(text) {
@@ -75,7 +76,7 @@ async function main() {
       <div class="s-sand" data-reveal data-drift style="--d:2">
         <p class="lead-text">${esc(city.tagline)}.</p>
         <div class="meta-row mb-3">
-          <span>${icon('schedule')}<span id="city-time">${esc(localTime(city.timezone))}</span></span>
+          <span class="daylight" id="city-time">${daylightHTML(city.timezone, city.name)}</span>
           <span>${icon('location_on')}${formatCoords(city.lat, city.lon)}</span>
         </div>
         <div class="d-flex flex-wrap align-items-center gap-2">
@@ -189,8 +190,9 @@ async function main() {
     row.addEventListener('mouseleave', () => m?.getElement()?.firstElementChild?.classList.remove('highlight'));
   });
 
-  makeDeck($('#deck'), { onSettle: (i) => { if (i === 1) map.invalidateSize(); } });
-  setInterval(() => { $('#city-time').textContent = localTime(city.timezone); }, 30_000);
+  makeDeck($('#deck'), { onSettle: (i) => { if (i === 1) map.invalidateSize(); }, mark: detail.motifs?.cover?.[0] });
+  // The page's tint and its clock follow the time of day there (thirteenth round)
+  applyDaylight(city.timezone, { el: $('#city-time'), place: city.name });
 }
 
 main().catch((err) => { console.error(err); showError('Something went wrong while loading this city.'); });

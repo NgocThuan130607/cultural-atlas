@@ -346,6 +346,19 @@ const esc = (t) => String(t).replace(/[&<>"']/g, (c) => ESC[c]);
 export const captionOf = (key) => CAPTIONS[key] ?? ['', ''];
 
 /**
+ * A motif as a large background drawing (fourteenth round, after the pharaonic drawings behind the pages of
+ * egymonuments.gov.eg): every line one even hairline in one colour (currentColor), no fills, no movement.
+ * The page puts it far bigger than the motifs on the slides, and very faint.
+ */
+export function watermark(key) {
+  const m = M[key];
+  if (!m) return '';
+  const art = m.svg.replaceAll('@', 'wm-').replace(/class="[^"]*"/g, '')
+    .replace(/<(path|circle|ellipse|line|polyline|rect)\b/g, '<$1 vector-effect="non-scaling-stroke"');
+  return `<svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">${art}</svg>`;
+}
+
+/**
  * The layer of motifs for one slide: `list` is an array of motif names, the first one shown larger.
  * Each motif is a button named after what it shows, with its caption as the description (for screen readers);
  * clicking it redraws the drawing (src/js/motif-redraw.js).

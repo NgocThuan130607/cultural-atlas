@@ -85,6 +85,7 @@ function cesiumEmbeddedWorkers() {
  *   because browsers block fetch() on file:// pages.
  * - Page scripts are built as classic scripts (IIFE) with `defer`, because browsers block
  *   <script type="module"> on file:// pages.
+ * - A small inline script sets up the moves between pages (view transitions, thirteenth round).
  */
 function openFromDisk() {
   return {
@@ -93,12 +94,19 @@ function openFromDisk() {
       order: 'post',
       handler(html) {
         if (!/type="module"/.test(html)) return html; // the redirect page has no bundle
+        // The slide pages wait for their script before their first paint (blocking="render"), so their cover
+        // photo exists when a view transition from the globe looks for it (src/inline/view-transitions.js).
+        // The home page does not wait: its script is large, and nothing on it takes part in the move.
+        const wait = html.includes('js/index.js') ? '' : ' blocking="render"';
         const out = html
-          .replace(/<script type="module" crossorigin src=/g, '<script defer src=')
+          .replace(/<script type="module" crossorigin src=/g, `<script defer${wait} src=`)
           .replace(/<link rel="stylesheet" crossorigin href=/g, '<link rel="stylesheet" href=');
         return {
           html: out,
-          tags: [{ tag: 'script', attrs: { src: 'data/atlas-data.js' }, injectTo: 'head' }],
+          tags: [
+            { tag: 'script', attrs: { src: 'data/atlas-data.js' }, injectTo: 'head' },
+            { tag: 'script', children: readFileSync(resolve(root, 'src/inline/view-transitions.js'), 'utf8'), injectTo: 'head-prepend' },
+          ],
         };
       },
     },
