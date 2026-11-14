@@ -27,23 +27,46 @@
     if (i >= 0 && b === 'city') return 'surface';
     return 'fade';
   }
-  // The photo that grows from one page into the other
-  function heroOut() {
-    return document.querySelector('[data-vt-hero]') || document.querySelector('#kcard .kcard-hero img');
-  }
-  function heroIn() {
-    return document.querySelector('.deck-track > .slide:first-of-type :is(.s-fill img, .cover-img, #era-img-a)');
-  }
-  function share(el, vt) {
-    if (!el) return;
-    el.style.viewTransitionName = 'place-hero';
-    vt.finished.finally(function () { el.style.viewTransitionName = ''; });
+  // What moves from one page into the other (sixteenth round: "the card becomes the page"). From the globe's
+  // card to a city's page, each piece of the card goes to its own place: the photo becomes the cover, the name
+  // the big title, the line about the city the cover's lead, the local time its clock, the body of the card the
+  // cream panel. The Lạc ship (a copy of it left on the page as it leaves, see ship.js) flies into the cover's
+  // first gold drawing. To a landmark's pages, only the photo and the ship carry over (the card shows its city).
+  var OUT = {
+    'place-hero': '[data-vt-hero], #kcard .kcard-hero img',
+    'place-ship': '[data-vt-ship]',
+    'place-name': '#kcard .kcard-title',
+    'place-lead': '#kcard .kc-lead',
+    'place-clock': '#kcard .kc-clock',
+    'place-card': '#kcard .kcard-body',
+  };
+  var FIRST = '.deck-track > .slide:first-of-type ';
+  var IN = {
+    'place-hero': FIRST + ':is(.s-fill, .cover-img, #era-img-a)', // the city's whole cover, its shading too
+    'place-ship': FIRST + '.motif.hero',
+    'place-name': '#city-title',
+    'place-lead': FIRST + '.lead-text',
+    'place-clock': '#city-time',
+    'place-card': FIRST + '.s-sand',
+  };
+  var CITY_ONLY = ['place-name', 'place-lead', 'place-clock', 'place-card'];
+  function share(map, toCity, vt) {
+    var named = [];
+    Object.keys(map).forEach(function (name) {
+      if (!toCity && CITY_ONLY.indexOf(name) >= 0) return;
+      var el = document.querySelector(map[name]);
+      if (!el || !el.getClientRects().length) return;
+      el.style.viewTransitionName = name;
+      named.push(el);
+    });
+    vt.finished.finally(function () { named.forEach(function (el) { el.style.viewTransitionName = ''; }); });
   }
   addEventListener('pageswap', function (e) {
     if (!e.viewTransition || !e.activation || !e.activation.entry) return;
-    var k = kind(location.href, e.activation.entry.url);
+    var to = e.activation.entry.url;
+    var k = kind(location.href, to);
     e.viewTransition.types.add(k);
-    if (k === 'dive') share(heroOut(), e.viewTransition);
+    if (k === 'dive') share(OUT, page(to) === 'city' && page(location.href) === 'index', e.viewTransition);
   });
   addEventListener('pagereveal', function (e) {
     if (!e.viewTransition) return;
@@ -52,6 +75,6 @@
     var k = kind(from.url, location.href);
     e.viewTransition.types.add(k);
     document.documentElement.dataset.arrived = k; // for tests and debugging
-    if (k === 'dive') share(heroIn(), e.viewTransition);
+    if (k === 'dive') share(IN, page(location.href) === 'city' && page(from.url) === 'index', e.viewTransition);
   });
 })();

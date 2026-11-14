@@ -240,12 +240,12 @@ a.status { text-decoration: none; &:hover { text-decoration: underline; } }
 
 // Featured landmarks strip (bottom)
 .voyager {
-  position: fixed; z-index: 15; bottom: 44px; left: calc(var(--panel-w) + 24px); right: 72px;
+  position: fixed; z-index: 15; bottom: 36px; left: calc(var(--panel-w) + 24px); right: 72px;
   display: flex; gap: 12px; overflow-x: auto; padding: 4px 4px 8px; scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 }
 .vcard {
-  position: relative; flex: 0 0 196px; height: 116px; border-radius: var(--radius-m); overflow: hidden; border: 0; padding: 0;
+  position: relative; flex: 0 0 172px; height: 96px; border-radius: var(--radius-m); overflow: hidden; border: 0; padding: 0;
   background: #222; box-shadow: var(--elev-2); text-align: left; color: #fff; transition: transform .2s var(--ease);
   img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease); }
   span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem .75rem .5rem; background: linear-gradient(transparent, rgba(0, 0, 0, .75)); line-height: 1.25; }
@@ -1235,7 +1235,8 @@ $paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 .deck.sideways .deck-track { position: relative; z-index: 1; }
 .s-fill { position: absolute; inset: 0; z-index: -1; margin: 0; overflow: hidden;
   img { width: 100%; height: 100%; object-fit: cover; scale: 1.12; }
-  &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 9, 8, .82), transparent 24%), linear-gradient(90deg, rgba(10, 9, 8, .88), rgba(10, 9, 8, .66) 40%, rgba(10, 9, 8, .1) 72%); }
+  // Sixteenth round: the photo shows more; the shade is kept to the strip behind the title and the panel
+  &::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10, 9, 8, .7), transparent 20%), linear-gradient(90deg, rgba(10, 9, 8, .8), rgba(10, 9, 8, .52) 38%, rgba(10, 9, 8, 0) 62%); }
   .s-credit { top: 10px; bottom: auto; }
 }
 .s-media, .s-stage, .s-map { position: relative; z-index: 2; min-height: 0; overflow: hidden; background: #0e0f10; }
@@ -1353,7 +1354,7 @@ $paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   .s-stage { height: 56vh; min-height: 300px; order: -1; }
   .s-map { height: 60vh; min-height: 320px; }
   .lay-cover-full .slide-in { min-height: calc(100vh - var(--appbar-h)); justify-content: center; }
-  .s-fill::after { background: rgba(10, 9, 8, .62); }
+  .s-fill::after { background: rgba(10, 9, 8, .55); }
   .strip-head { color: var(--s-ink); .kicker { color: var(--s-kicker); background: none; padding: 0; } .car-nav { background: none; } }
   .deck-stick { padding-bottom: 56px; }
 }
@@ -1748,12 +1749,13 @@ $indigo: linear-gradient(180deg, rgb(40 62 170 / .22), rgb(30 20 90 / .14));
   --dl-dark: linear-gradient(180deg, rgb(8 12 50 / .16), rgb(8 6 36 / .1)); --dl-light: linear-gradient(180deg, rgb(40 50 130 / .05), rgb(40 40 100 / .03));
   .s-motifs { --orn-hi: #fff1c4; } // the gold catches more light against the dark
 }
-// The city's cover photo only darkens (its title sits on the photo): indigo at any hour, deepest at night
+// The city's cover photo only darkens (its title sits on the photo): indigo at any hour, deepest at night.
+// Sixteenth round: lighter, so the photo reads clearly.
 .s-fill::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(180deg, rgb(10 20 70 / .34), rgb(10 8 30 / .26)); }
-[data-daylight="night"] .s-fill::before { background: linear-gradient(180deg, rgb(8 16 62 / .46), rgb(8 6 28 / .36)); }
-[data-daylight="dusk"] .s-fill::before { background: linear-gradient(180deg, rgb(70 30 60 / .34), rgb(10 8 30 / .28)); }
-[data-daylight="dawn"] .s-fill::before { background: linear-gradient(180deg, rgb(60 40 80 / .3), rgb(10 8 30 / .24)); }
+  background: linear-gradient(180deg, rgb(10 20 70 / .16), rgb(10 8 30 / .1)); }
+[data-daylight="night"] .s-fill::before { background: linear-gradient(180deg, rgb(8 16 62 / .3), rgb(8 6 28 / .22)); }
+[data-daylight="dusk"] .s-fill::before { background: linear-gradient(180deg, rgb(70 30 60 / .2), rgb(10 8 30 / .14)); }
+[data-daylight="dawn"] .s-fill::before { background: linear-gradient(180deg, rgb(60 40 80 / .18), rgb(10 8 30 / .12)); }
 // The clock: a sun or moon, the time, and the time of day
 .daylight { display: inline-flex; align-items: center; gap: .3rem; flex-wrap: wrap;
   .dl-word { opacity: .85; } }
@@ -1767,6 +1769,23 @@ $indigo: linear-gradient(180deg, rgb(40 62 170 / .22), rgb(30 20 90 / .14));
 // The place's photo grows from the globe's card into the new page's cover
 ::view-transition-group(place-hero) { animation-duration: .75s; z-index: 2; }
 ::view-transition-old(place-hero), ::view-transition-new(place-hero) { height: 100%; object-fit: cover; overflow: clip; }
+// Sixteenth round: the rest of the card follows, one piece after another, each to its own place on the page
+::view-transition-group(place-name) { animation-duration: .7s; animation-delay: .06s; z-index: 4; }
+::view-transition-group(place-lead) { animation-duration: .7s; animation-delay: .12s; z-index: 4; }
+::view-transition-group(place-clock) { animation-duration: .7s; animation-delay: .16s; z-index: 4; }
+::view-transition-group(place-card) { animation-duration: .72s; animation-delay: .1s; z-index: 3; }
+::view-transition-group(place-ship) { animation-duration: .9s; animation-timing-function: cubic-bezier(.3, .1, .2, 1); z-index: 5; }
+// Text changes size on the way: the old and the new copy cross-fade inside the moving box, without stretching
+:is(::view-transition-old(place-name), ::view-transition-new(place-name), ::view-transition-old(place-lead), ::view-transition-new(place-lead),
+  ::view-transition-old(place-clock), ::view-transition-new(place-clock)) { height: 100%; width: auto; object-fit: none; object-position: left top; }
+::view-transition-old(place-card) { animation: vt-card-out .5s ease both; }
+::view-transition-new(place-card) { animation: vt-card-in .6s ease .15s both; }
+@keyframes vt-card-out { to { opacity: 0; } }
+@keyframes vt-card-in { from { opacity: 0; } }
+// The ship's copy becomes the drawing: it fades out as the drawing (still to draw itself in) takes its place
+::view-transition-old(place-ship) { animation: vt-card-out .7s ease .2s both; }
+::view-transition-new(place-ship) { animation: vt-card-in .4s ease .5s both; }
+
 // The app bar and the landmark tabs stay where they are
 .appbar { view-transition-name: appbar; }
 .lm-tabs-page { view-transition-name: lm-tabs; }
@@ -1825,7 +1844,7 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
 // or turned with the arrow keys (like "Scroll or use the ← → keys" on the slide pages). The line fades once
 // the globe has been turned; the buttons stay. Behaviour: globe.js.
 // ---------------------------------------------------------------------------
-.globe-hint { position: fixed; z-index: 16; left: calc(var(--panel-w) + 24px); right: 72px; bottom: 184px;
+.globe-hint { position: fixed; z-index: 16; left: calc(var(--panel-w) + 24px); right: 72px; bottom: 150px; // just above the landmark strip
   display: flex; align-items: center; justify-content: center; gap: .5rem; pointer-events: none;
   > * { pointer-events: auto; }
   .icon-btn { width: 44px; height: 44px; border-radius: 50%; background: rgb(20 22 26 / .78); color: #fff; backdrop-filter: blur(8px);
@@ -1862,14 +1881,16 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
 // Fifteenth round: the Lạc ship on the home page (src/js/ship.js places and turns it every frame), its shadow
 // on the ground, the rings of light where it lands, and the globe hint centred under the globe.
 // ---------------------------------------------------------------------------
-.ship { position: fixed; left: 0; top: 0; z-index: 11; width: 88px; pointer-events: none; opacity: 0; will-change: transform;
+// Sixteenth round: on the 3D globe the ship is a 3D model (ship3d.js) and this drawing only shows on the 2D map
+// and as the copy that flies into the next page; it is bigger and brighter, with a dark edge and a glow.
+.ship { position: fixed; left: 0; top: 0; z-index: 11; width: 120px; pointer-events: none; opacity: 0; will-change: transform;
   transition: opacity .5s ease;
-  filter: drop-shadow(0 0 5px rgb(240 205 120 / .55)) drop-shadow(0 2px 3px rgb(0 0 0 / .55));
+  filter: drop-shadow(0 0 1px rgb(20 12 6 / .95)) drop-shadow(0 0 9px rgb(246 214 130 / .75)) drop-shadow(0 3px 4px rgb(0 0 0 / .6));
   &.ready.on { opacity: 1; }
-  svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: url(#ship-gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .w2 { stroke-width: 2.3; }
-  .w0 { stroke-width: .9; }
-  .hull path { fill: rgb(24 17 12 / .86); }
+  svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: url(#ship-gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .w2 { stroke-width: 2.8; }
+  .w0 { stroke-width: 1.1; }
+  .hull path { fill: rgb(24 17 12 / .92); }
   .eye { fill: #d2392c; stroke: none; }
   // The engines: three flames that lengthen with the ship's speed (--thrust, 0 to 1) and flicker
   .flames { transform-box: fill-box; transform-origin: 100% 50%; transform: scaleX(var(--thrust, .2)); }
@@ -1877,6 +1898,18 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
   .flames path:nth-child(2) { animation-delay: -.11s; }
 }
 @keyframes ship-flame { from { opacity: .95; } to { opacity: .55; } }
+// The 3D ship's flame (ship3d.js sets its place, angle, length and width --w each frame): a white-hot core in a
+// gold and orange plume, flickering.
+.ship-flame { position: fixed; left: 0; top: calc(var(--w, 12px) / -2); z-index: 10; height: var(--w, 12px); width: 40px;
+  transform-origin: 0 50%; pointer-events: none; opacity: 0; will-change: transform; display: none;
+  &.on { display: block; }
+  i { position: absolute; inset: 0; border-radius: 0 50% 50% 0 / 0 50% 50% 0; }
+  i:nth-child(1) { inset: -55% -10% -55% -4%; background: radial-gradient(60% 50% at 18% 50%, rgb(255 190 90 / .65), rgb(255 140 40 / 0) 70%); filter: blur(4px); }
+  i:nth-child(2) { background: linear-gradient(90deg, #fff6d8, #ffd27a 30%, rgb(255 150 50 / .7) 70%, rgb(255 120 30 / 0)); animation: ship-flicker .16s steps(2) infinite alternate; }
+  i:nth-child(3) { inset: 28% 35% 28% 0; background: linear-gradient(90deg, #fff, rgb(255 250 230 / 0)); }
+}
+@keyframes ship-flicker { from { transform: scaleX(1); opacity: 1; } to { transform: scaleX(.86); opacity: .8; } }
+.diving .ship-flame { display: none; }
 .ship-shadow { position: fixed; left: 0; top: 0; z-index: 10; width: 44px; aspect-ratio: 2.4; border-radius: 50%; pointer-events: none;
   background: rgb(0 0 0 / .9); filter: blur(5px); opacity: 0; transition: opacity .4s ease; will-change: transform; }
 .ship-shadow:not(.on) { opacity: 0 !important; }

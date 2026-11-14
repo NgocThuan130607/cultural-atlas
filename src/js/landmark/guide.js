@@ -57,7 +57,7 @@ export function initGuide(track, layer, { lm, city, media }) {
         <div class="s-card" data-reveal data-drift="1.4" style="--d:3">
           <h3 class="s-card-title">${icon('confirmation_number')}Tickets</h3>
           <p>${esc(g.price)}</p>
-          <a class="btn-m btn-frame" href="${esc(g.officialUrl)}" target="_blank" rel="noopener">${icon('open_in_new')}Official website</a>
+          <a class="btn-m btn-frame" href="${esc(g.officialUrl)}" target="_blank" rel="noopener">${icon('open_in_new')}${/(^|\.)vietnam\.travel$/.test(new URL(g.officialUrl).hostname) ? 'Vietnam Tourism guide' : 'Official website'}</a>
         </div>`,
     }),
     slide({

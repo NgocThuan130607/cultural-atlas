@@ -11,7 +11,8 @@
     "media": "node scripts/resolve-media.mjs",
     "check": "node scripts/check-data.mjs",
     "package": "npm run check && npm run build && node scripts/package.mjs",
-    "sources": "node scripts/image-sources.mjs"
+    "sources": "node scripts/image-sources.mjs",
+    "links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",

@@ -22,6 +22,7 @@ import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js
 import '../trip.js'; // keeps the count on the My trip button up to date
 import { initWelcome } from '../home-ui.js';
 import { createShip, TRAVEL } from '../ship.js';
+import { createShipBody } from '../ship3d.js';
 import { isGoodMonth, thisMonth, MONTHS } from '../season.js';
 
 const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
@@ -333,6 +334,9 @@ async function main() {
   // ----- Diving into a place (thirteenth round) -----
   // A link from the card to a city's or landmark's page first sends the camera down towards the place, then
   // opens the page; the page's photo then grows out of the card's photo (src/inline/view-transitions.js).
+  // The camera's dive is short (sixteenth round): the pieces of the card that carry over into the next page are
+  // the main part of the move.
+  const DIVE = 0.6;
   const PAGE_LINK = /(?:^|\/)(city|timetravel|stories|visit)\.html$/;
   function diveTo(a, e) {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || a.target === '_blank') return false;
@@ -347,18 +351,19 @@ async function main() {
     arrive(id, place);
     if (reduced || !nav.dive) return false; // the page opens at once
     e.preventDefault();
-    ship?.flyTo(place, { duration: 0.9, hoverAlt: cityById.has(id) ? 2_400 : 300, land: false }); // if it isn't there already
+    ship?.flyTo(place, { duration: DIVE, hoverAlt: cityById.has(id) ? 500 : 60, land: false }); // low, so it is still in view below the camera
     document.body.classList.add('diving');
     let gone = false;
-    const go = () => { if (!gone) { gone = true; location.href = a.href; } };
+    const go = () => { if (!gone) { gone = true; ship?.leave(); location.href = a.href; } };
     nav.dive(place, go);
-    setTimeout(go, 1300); // never wait longer than this
+    setTimeout(go, DIVE * 1000 + 400); // never wait longer than this
     return true;
   }
   // Coming back with the Back button (from the browser's page cache): lift the camera out again.
   addEventListener('pageshow', (e) => {
     if (!e.persisted || !document.body.classList.contains('diving')) return;
     document.body.classList.remove('diving');
+    ship?.resume();
     const at = lastPlace && (cityById.get(lastPlace.id) ?? lmById.get(lastPlace.id));
     if (at) (cityById.has(at.id) ? nav.city : nav.landmark)(at);
   });
@@ -378,12 +383,12 @@ async function main() {
     writeHash(c.id); // coming back, the globe shows the landmark's city
     const url = landmarkUrl(id, 'time');
     if (reduced || !nav.dive) { location.href = url; return; }
-    ship?.flyTo(lm, { duration: 0.9, hoverAlt: 300, land: false });
+    ship?.flyTo(lm, { duration: DIVE, hoverAlt: 60, land: false });
     document.body.classList.add('diving');
     let gone = false;
-    const go = () => { if (!gone) { gone = true; location.href = url; } };
+    const go = () => { if (!gone) { gone = true; ship?.leave(); location.href = url; } };
     nav.dive(lm, go);
-    setTimeout(go, 1300); // never wait longer than this
+    setTimeout(go, DIVE * 1000 + 400); // never wait longer than this
   }
   /** A link to a landmark on the globe (index.html#<landmark>): its city's card, the camera over the landmark. */
   function focusLandmark(id) {
@@ -783,7 +788,7 @@ async function main() {
 
   // Opening move: ease in from deep space, then the globe rests. (It used to keep spinning, but in user
   // testing the moving globe pulled first-time visitors' eyes away from the panel that explains the site.)
-  { const h = homeOf(); camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, h.height), duration: reduced ? 0 : 2.2, complete: composeHome }); }
+  { const h = homeOf(); camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, homeHeight(h)), duration: reduced ? 0 : 2.2, complete: composeHome }); }
 
   // ----- Picking -----
   const handler = new ScreenSpaceEventHandler(scene.canvas);
@@ -896,7 +901,7 @@ async function main() {
   function flyHome() {
     stopFlight();
     const h = homeOf();
-    camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, h.height), orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO }, duration: reduced ? 0 : 2, complete: composeHome });
+    camera.flyTo({ destination: Cartesian3.fromDegrees(h.lon, h.lat, homeHeight(h)), orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO }, duration: reduced ? 0 : 2, complete: composeHome });
   }
 
   // Centre the view in the space left free by the card (left) and the landmark strip (bottom),
@@ -910,8 +915,33 @@ async function main() {
     const desktop = matchMedia('(min-width: 768px)').matches;
     const cardOpen = !kcard.classList.contains('collapsed');
     const dx = desktop && cardOpen ? (kcard.offsetWidth + 12) / 2 : 0;
-    const dy = desktop ? ($('#voyager').offsetHeight + 40) / 2 : (cardOpen ? kcard.offsetHeight / 2 : 0);
-    return { dx, dy, ax: Math.atan(dx / focal), ay: Math.atan(dy / focal) };
+    // On a desktop the globe is centred between the row of buttons at the top and the hint above the
+    // landmark strip (sixteenth round), so neither the hint nor the strip covers it.
+    const { top, bottom } = freeBand();
+    const dy = desktop ? h / 2 - (top + bottom) / 2 : (cardOpen ? kcard.offsetHeight / 2 : 0);
+    return { dx, dy, ax: Math.atan(dx / focal), ay: Math.atan(dy / focal), focal };
+  }
+  /** The band of screen the whole globe has to fit in (desktop): below the top buttons, above the hint and strip. */
+  function freeBand() {
+    const h = scene.canvas.clientHeight;
+    const hint = $('#globe-hint');
+    const lowest = hint && getComputedStyle(hint).display !== 'none' ? hint : $('#voyager');
+    return { top: 70, bottom: Math.min(h, lowest?.getBoundingClientRect().top ?? h) - 10 };
+  }
+  /**
+   * Height of the camera over the atlas's home: far enough for the whole globe to fit in the free band
+   * (the disc used to touch the buttons at the top and slip under the hint at the bottom).
+   */
+  function homeHeight(home) {
+    if (home.height < 10_000_000 || !matchMedia('(min-width: 768px)').matches) return home.height;
+    const w = scene.canvas.clientWidth;
+    const h = scene.canvas.clientHeight;
+    const focal = (w >= h ? w : h) / 2 / Math.tan(camera.frustum.fov / 2);
+    const { top, bottom } = freeBand();
+    const radius = Math.max(120, (bottom - top) / 2 - 6); // pixels
+    const R = 6_371_000;
+    const distance = R / Math.sin(Math.atan(radius / focal)); // from the Earth's centre
+    return Math.max(home.height, distance - R);
   }
   function composeHome() {
     const { ax, ay } = composeAngles();
@@ -1101,13 +1131,30 @@ async function main() {
   // ----- The line "Drag or use ← → to turn the globe" sits centred under the globe (fifteenth round) -----
   // It used to be centred in the free part of the screen, which is not where the globe's centre is.
   // Close in, when the globe fills the screen, it goes back to the middle of the free part (the CSS default).
+  // Sixteenth round: centred on the disc as it is seen, not on the projected centre of the Earth. The camera
+  // looks a little to one side (composeHome), and seen at an angle the projected centre is not the middle of
+  // the disc, so the line still sat a little to the left. The disc's left and right edges are found on the row
+  // through its middle (where the ground meets space), and the line goes half-way between them.
   const hintEl = $('#globe-hint');
   let hintX = null;
+  let hintView = '';
+  const onEarth = (x, y) => Boolean(camera.pickEllipsoid(new Cartesian2(x, y)));
+  const edge = (y, inside, outside) => {
+    let a = inside;
+    let b = outside;
+    for (let i = 0; i < 14; i++) { const m = (a + b) / 2; if (onEarth(m, y)) a = m; else b = m; }
+    return (a + b) / 2;
+  };
   scene.postRender.addEventListener(() => {
+    const view = `${camera.positionWC.x.toFixed(0)},${camera.positionWC.y.toFixed(0)},${camera.positionWC.z.toFixed(0)},${camera.directionWC.x.toFixed(4)},${camera.directionWC.y.toFixed(4)},${scene.canvas.clientWidth}`;
+    if (view === hintView) return; // only when the view has changed
+    hintView = view;
     let x = null;
     if (camera.positionCartographic.height > 3_000_000) {
       const c = SceneTransforms.worldToWindowCoordinates(scene, Cartesian3.ZERO);
-      if (c) x = Math.round(c.x);
+      const w = scene.canvas.clientWidth;
+      if (c && onEarth(c.x, c.y) && !onEarth(1, c.y) && !onEarth(w - 1, c.y)) x = Math.round((edge(c.y, c.x, 0) + edge(c.y, c.x, w)) / 2);
+      else if (c) x = Math.round(c.x);
     }
     if (x === hintX) return;
     hintX = x;
@@ -1120,7 +1167,7 @@ async function main() {
     const isCity = cityById.has(place.id);
     camera.flyToBoundingSphere(new BoundingSphere(Cartesian3.fromDegrees(place.lon, place.lat), 50), {
       offset: new HeadingPitchRange(camera.heading, CMath.toRadians(isCity ? -58 : -40), isCity ? 2_500 : 350),
-      duration: 0.9,
+      duration: 0.6,
       easingFunction: EasingFunction.CUBIC_IN,
       complete: done,
       cancel: done,
@@ -1141,6 +1188,8 @@ async function main() {
     },
     viewHeight: () => camera.positionCartographic.height,
     onFrame: (cb) => scene.postRender.addEventListener(cb),
+    /** The Lạc ship in 3D (sixteenth round); ship.js moves it. */
+    shipBody: createShipBody(viewer, { reduced }),
     city: (c) => flyTo(c.lon, c.lat, 24_000, -42),
     landmark: (lm) => flyTo(lm.lon, lm.lat, 1_600, -28, 15),
     home: flyHome,
@@ -1315,7 +1364,7 @@ async function main() {
       },
       dive: (place, done) => {
         map.once('moveend', done);
-        map.flyTo([place.lat, place.lon], Math.min(18, Math.max(map.getZoom() + 2, cityById.has(place.id) ? 13 : 16)), { duration: 0.8, easeLinearity: 0.1 });
+        map.flyTo([place.lat, place.lon], Math.min(18, Math.max(map.getZoom() + 2, cityById.has(place.id) ? 13 : 16)), { duration: 0.6, easeLinearity: 0.1 });
       },
       city: (c) => { frame(c.lat, c.lon, 12_000); return reduced ? 0 : 1.4; },
       landmark: (lm) => frame(lm.lat, lm.lon, 700),
@@ -1348,7 +1397,7 @@ async function main() {
       // ----- Used by the world timeline -----
       look: (c) => map.flyTo([c.lat, c.lon], colById.get(set)?.lookZoom ?? 4, { animate: !reduced }),
       project: (lat, lon, alt = 0) => {
-        const p = map.latLngToContainerPoint([lat, lon]);
+        const p = map.layerPointToContainerPoint(map.project([lat, lon]).subtract(map.getPixelOrigin())); // not rounded to whole pixels, so the ship sits still
         p.y -= Math.min(90, alt / metresPerPixel(lat));
         const size = map.getSize();
         return { x: p.x, y: p.y, visible: p.x > -40 && p.y > -40 && p.x < size.x + 40 && p.y < size.y + 40 };
@@ -1456,10 +1505,10 @@ async function main() {
         <h2 class="kcard-title mb-1">${esc(c.name)}</h2>
         <p class="muted mb-0">${esc(c.country)} · ${esc(c.continent)}</p>
         <div class="kcard-meta">
-          <span>${icon('schedule')}${esc(localTime(c.timezone))}</span>
+          <span class="kc-clock">${icon('schedule')}${esc(localTime(c.timezone))}</span>
           <span>${icon('location_on')}${formatCoords(c.lat, c.lon)}</span>
         </div>
-        <p class="mt-3 mb-0">${esc(c.tagline)}.</p>
+        <p class="kc-lead mt-3 mb-0">${esc(c.tagline)}.</p>
         <div class="kcard-actions">
           <a class="btn-m btn-filled" href="city.html?id=${encodeURIComponent(c.id)}">${icon('menu_book')}City guide</a>
         </div>

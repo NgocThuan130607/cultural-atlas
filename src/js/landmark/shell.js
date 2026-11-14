@@ -58,7 +58,7 @@ export async function initLandmarkPage(active, init) {
       <div class="s-sand" data-reveal data-drift style="--d:2">
         <p class="lead-text">${esc(lm.summary)}</p>
         <div class="meta-row mb-3">
-          <a class="status ${status.state}" href="${landmarkUrl(lm.id, 'guide')}#plan" title="See opening hours">${esc(status.text)}</a>
+          <a class="status ${status.state}" href="${landmarkUrl(lm.id, 'guide', { part: 'plan' })}" title="See opening hours">${esc(status.text)}</a>
           <span class="daylight" id="lm-time">${daylightHTML(city.timezone, city.name)}</span>
           <span>${icon('location_on')}${formatCoords(lm.lat, lm.lon, 4)}</span>
         </div>

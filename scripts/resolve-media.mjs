@@ -2,6 +2,9 @@
 // looks each one up on Commons, and writes public/data/media.json with the image URL,
 // author and licence, so pages can show proper credits.
 // Videos (.webm, .ogv) also get a poster image (`url`), their length and the files to stream (`sources`).
+// Photos shown across the whole screen (a city's or landmark's cover, the pictures of Time travel) are fetched
+// 1920 pixels wide, the rest 1280 (sixteenth round). `original` keeps the width of the file on Commons, so a
+// smaller original is not looked up again.
 //
 // Run: npm run media
 import { readFile, writeFile, readdir } from 'node:fs/promises';
@@ -12,6 +15,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = join(root, 'public', 'data');
 const outFile = join(dataDir, 'media.json');
 const THUMB_WIDTH = 1280;
+const COVER_WIDTH = 1920;
 const UA = { 'User-Agent': 'CulturalAtlasPrototype/0.1 (educational prototype)' };
 
 async function listJson(dir) {
@@ -40,12 +44,12 @@ const norm = (s) => s.replace(/_/g, ' ').trim();
 
 const isVideo = (name) => /\.(webm|ogv)$/i.test(name);
 
-async function query(titles, video) {
+async function query(titles, video, width = THUMB_WIDTH) {
   const url = 'https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({
     action: 'query', format: 'json', formatversion: '2', redirects: '1',
     ...(video
-      ? { prop: 'videoinfo', viprop: 'url|size|extmetadata|derivatives', viurlwidth: String(THUMB_WIDTH) }
-      : { prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(THUMB_WIDTH) }),
+      ? { prop: 'videoinfo', viprop: 'url|size|extmetadata|derivatives', viurlwidth: String(width) }
+      : { prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(width) }),
     titles: titles.map((t) => 'File:' + t).join('|'),
   });
   for (let attempt = 0; attempt < 6; attempt++) {
@@ -58,16 +62,28 @@ async function query(titles, video) {
 }
 
 const files = new Set();
-for (const f of await listJson(dataDir)) collectFiles(JSON.parse(await readFile(f, 'utf8')), files);
+const covers = new Set(); // shown full screen
+for (const f of await listJson(dataDir)) {
+  const data = JSON.parse(await readFile(f, 'utf8'));
+  collectFiles(data, files);
+  if (data.hero?.file) covers.add(norm(data.hero.file));
+  for (const era of data.eras ?? []) if (era.image?.file) covers.add(norm(era.image.file));
+}
+const widthFor = (name) => (covers.has(name) ? COVER_WIDTH : THUMB_WIDTH);
 
 let existing = {};
 try { existing = JSON.parse(await readFile(outFile, 'utf8')); } catch { /* first run */ }
 
+/** Looked up already at the width it is wanted (or the original is smaller than that) */
+const done = (name) => {
+  const e = existing[name];
+  return !!e && (isVideo(name) || e.width >= Math.min(widthFor(name), e.original ?? Infinity));
+};
 const wanted = [...files].map(norm);
-const todo = wanted.filter((f) => !existing[f]);
+const todo = wanted.filter((f) => !done(f));
 console.log(`${wanted.length} images referenced, ${todo.length} to look up`);
 
-const result = Object.fromEntries(wanted.filter((f) => existing[f]).map((f) => [f, existing[f]]));
+const result = Object.fromEntries(wanted.filter((f) => done(f)).map((f) => [f, existing[f]]));
 const missing = [];
 
 /** Files to stream, best first: a 720p or 480p VP9 copy made by Commons (small and widely supported), then the original. */
@@ -79,11 +95,11 @@ function videoSources(info) {
   return list;
 }
 
-for (const video of [false, true]) {
-  const list = todo.filter((f) => isVideo(f) === video);
+for (const [video, width] of [[false, THUMB_WIDTH], [false, COVER_WIDTH], [true, THUMB_WIDTH]]) {
+  const list = todo.filter((f) => isVideo(f) === video && (video || widthFor(f) === width));
   for (let i = 0; i < list.length; i += 40) {
     const batch = list.slice(i, i + 40);
-    const json = await query(batch, video);
+    const json = await query(batch, video, width);
     // Map API-normalised titles back to the names used in our data.
     const back = new Map(batch.map((t) => ['File:' + t, t]));
     for (const n of json.query.normalized ?? []) back.set(n.to, back.get(n.from) ?? n.from);
@@ -97,6 +113,7 @@ for (const video of [false, true]) {
         url: info.thumburl ?? info.url, // for a video: a still frame used as its poster
         width: info.thumbwidth ?? info.width,
         height: info.thumbheight ?? info.height,
+        original: info.width,
         page: info.descriptionurl,
         artist: cleanArtist(stripHtml(meta.Artist?.value)) || 'Unknown author',
         license: stripHtml(meta.LicenseShortName?.value) || 'See source',

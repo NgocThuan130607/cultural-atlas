@@ -355,16 +355,41 @@ export function makeDeck(root, { onSettle, mark = null } = {}) {
 
   refresh();
   layout();
+  // Placed once straight away too, so that a page arriving by a view transition already has its drawings in
+  // place when the browser takes its picture of the new page (the Lạc ship flies into the first one).
+  placeMotifs(root, { stacked: !mode, bottom: mode ? bar.offsetHeight : 0 });
   document.fonts?.ready.then(placeSoon);
   if ($('.s-motifs', track)) motifRedraw(root);
   slides[0].classList.add('seen');
-  // A link to a part of the page (city.html?id=paris#ch-history) opens that slide.
-  const fromHash = slides.findIndex((s) => location.hash && s.id === decodeURIComponent(location.hash.slice(1)));
-  if (fromHash > 0) go(fromHash, false);
-  // ... and so does a link to a part of the page it is already on (e.g. the opening status → #plan on Visit).
+  // A link to a part of the page opens that slide: visit.html?id=…&part=plan (sixteenth round), or the older
+  // city.html?id=paris#ch-history. A "#part" link made the browser itself scroll to that slide's element once
+  // the page had loaded; with the slides side by side in one sticky row, that scroll landed on the wrong slide
+  // (the opening status on Time travel opened Local tips instead of Opening hours). So the part is taken from
+  // the address, the hash is dropped, and the browser is told not to restore or jump the scroll itself.
+  const partOf = (name) => slides.findIndex((s) => name && s.id === name);
+  const wanted = new URLSearchParams(location.search).get('part') ?? decodeURIComponent(location.hash.slice(1));
+  const fromUrl = partOf(wanted);
+  if (fromUrl > 0) {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+    go(fromUrl, false);
+    // the page may still grow while its images load; settle on the slide again once it has
+    addEventListener('load', () => go(fromUrl, false), { once: true });
+  }
+  // ... and so does a link to a part of the page it is already on (e.g. the opening status on Visit).
   addEventListener('hashchange', () => {
-    const i = slides.findIndex((s) => s.id === decodeURIComponent(location.hash.slice(1)));
+    const i = partOf(decodeURIComponent(location.hash.slice(1)));
     if (i >= 0) go(i);
+  });
+  root.addEventListener('click', (e) => {
+    const a = e.target.closest?.('a[href*="part="]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || url.searchParams.get('id') !== new URLSearchParams(location.search).get('id')) return;
+    const i = partOf(url.searchParams.get('part'));
+    if (i < 0) return;
+    e.preventDefault();
+    go(i);
   });
 
   return {
