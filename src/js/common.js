@@ -47,7 +47,7 @@ export const LANDMARK_PAGES = [
   { id: 'guide', file: 'visit.html', label: 'Visit', icon: 'directions_walk' },
 ];
 
-/** URL of one landmark page, e.g. landmarkUrl('eiffel-tower', 'time', { era: 2 }). */
+/** URL of one landmark page, e.g. landmarkUrl('eiffel-tower', 'time', { part: 'era-2' }). */
 export function landmarkUrl(id, page = 'time', extra = {}) {
   const { file } = LANDMARK_PAGES.find((p) => p.id === page) ?? LANDMARK_PAGES[0];
   const q = new URLSearchParams({ id, ...extra });
@@ -71,6 +71,28 @@ export function imageSrc(ref, media) {
   if (ref.src) return ref.src;
   return mediaEntry(ref, media)?.url ?? '';
 }
+
+/**
+ * The part of a photo to keep when it is cropped to fill its box (thirty-second round): an image may say
+ * `"focus": "center 92%"` when what it shows is not in its middle (the 1887 photo of the Eiffel Tower is three
+ * quarters empty sky, with the four legs at the bottom). For a `style` attribute; '' when the middle will do.
+ */
+export const focusStyle = (ref) => (ref?.focus && /^[\w\s.%-]+$/.test(ref.focus) ? `object-position: ${ref.focus}` : '');
+
+// Thirty-second round: a photo that does not load (a slow network, Commons down) shows a sheet of old paper with
+// the drum's star instead of an empty frame or a broken-image sign.
+const PAPER_STAR = (() => {
+  const pts = [];
+  for (let k = 0; k < 28; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 14; const r = k % 2 ? 9 : 26; pts.push(`${(100 + Math.cos(a) * r).toFixed(1)},${(75 + Math.sin(a) * r).toFixed(1)}`); }
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150' preserveAspectRatio='xMidYMid slice'><rect width='200' height='150' fill='#e9dcbc'/><g fill='none' stroke='#9a7433' stroke-opacity='.55'><circle cx='100' cy='75' r='44'/><circle cx='100' cy='75' r='40'/><circle cx='100' cy='75' r='31'/></g><polygon points='${pts.join(' ')}' fill='#b8892f' fill-opacity='.6'/></svg>`;
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+})();
+document.addEventListener('error', (e) => {
+  const img = e.target;
+  if (!(img instanceof HTMLImageElement) || img.dataset.fallback) return;
+  img.dataset.fallback = '1';
+  img.src = PAPER_STAR;
+}, true);
 
 export function creditHTML(ref, media) {
   if (!ref) return '';

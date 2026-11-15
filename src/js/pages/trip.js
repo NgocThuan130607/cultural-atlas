@@ -7,6 +7,7 @@ import { checkVisit, hoursOn } from '../hours.js';
 import { createMap, L } from '../map.js';
 import { tripItems, updateItem, removeLandmark, clearTrip, onTripChange, saveButton, storageWorks } from '../trip.js';
 import { seasonNote } from '../season.js';
+import { panelDrum, lacFlight } from '../motifs.js';
 
 const monthOf = (iso) => Number(iso.slice(5, 7));
 
@@ -133,13 +134,14 @@ async function main() {
     focusAfter = null;
 
     panel.innerHTML = `
-      <header class="panel-section">
+      <header class="panel-section page-head">${panelDrum()}
         <p class="crumb mb-1"><a href="index.html">Globe</a> › My trip</p>
-        <h1 class="t-display mb-1">My trip</h1>
+        <h1 class="t-display mb-1">My trip${lacFlight()}</h1>
         <p class="muted mb-3">${esc(summary)}</p>
         ${storageWorks() ? '' : '<p class="trip-warn">' + icon('warning') + '<span>This browser is blocking saved data, so your trip will be lost when you close the page.</span></p>'}
         ${protoNote('your trip is saved only in this browser on this device. The full version would let you sign in to keep it on every device, share it with travel companions and book tickets.', 'mb-0')}
       </header>
+      <hr class="star-rule">
       ${rows.length ? '' : await emptyState()}
       ${planned.length ? `
         <section class="panel-section px-0" aria-labelledby="plan-title">

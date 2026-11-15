@@ -1,7 +1,7 @@
 // Shared frame for the three landmark pages (Time travel, Stories, Visit), built as a deck of slides
 // (fifth round of feedback, see slides.js). The first slide is the same on every page: the landmark's
 // name in a beige frame, a sand-coloured card with the summary, opening status and Save, and the page's
-// own large picture beside them (the time slider, the story chapters or a photo). Each page then adds
+// own large picture beside them (the landmark's photo). Each page then adds
 // its own slides. The Time travel / Stories / Visit switcher sits in the app bar (under it on phones).
 import {
   $, esc, icon, param, loadCities, loadLandmark, loadMedia, noteImage, creditsBlock, imageSrc,
@@ -71,8 +71,7 @@ export async function initLandmarkPage(active, init) {
 
   $('#panel').innerHTML = tabs('m-tabs lm-tabs-page') + deckHTML([cover]);
 
-  const era = Number(param('era'));
-  const ctx = { lm, city, media, initialEra: Number.isInteger(era) ? era : 0, note: $('#cover-note') };
+  const ctx = { lm, city, media, note: $('#cover-note') };
   const view = init($('.deck-track'), $('#vp'), ctx);
   $('.deck-after').innerHTML = `<div class="wrap">${creditsBlock(lm.credits)}</div>`;
   const deck = makeDeck($('#deck'), { onSettle: (i) => view?.onSlide?.(i), mark: lm.motifs?.cover?.[0] });

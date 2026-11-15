@@ -358,6 +358,32 @@ export function watermark(key) {
   return `<svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">${art}</svg>`;
 }
 
+/** A faint drum face, half hidden past the top right corner of a panel's head, turning slowly (thirty-first round). */
+export const panelDrum = () => `<span class="panel-drum" aria-hidden="true">${watermark('drum')}</span>`;
+/** Two Lạc birds of the drum, flying beside a heading (thirty-first round). */
+/**
+ * The centre of a Đông Sơn bronze drum (thirty-third round), for the city guide's seal: the 14-ray star, slim and
+ * sharp, with hatched triangles between its rays, inside rings of fine ticks and of tangent circles, as cast on the
+ * drums. Drawn in dark bronze on the gold of the seal, the star in pale gold.
+ */
+export const drumCentre = (() => {
+  const P = (r, a) => `${(50 + Math.cos(a) * r).toFixed(2)},${(50 + Math.sin(a) * r).toFixed(2)}`;
+  const N = 14; const step = (Math.PI * 2) / N; const top = -Math.PI / 2;
+  const star = []; for (let k = 0; k < N * 2; k++) star.push(P(k % 2 ? 7.5 : 29, top + (k * step) / 2));
+  const hatch = []; // between two rays: a triangle pointing out, filled with lines across it
+  for (let k = 0; k < N; k++) {
+    const a = top + (k + 0.5) * step; const w = step * 0.3;
+    hatch.push(`<polygon points="${P(12, a)} ${P(28, a - w)} ${P(28, a + w)}"/>`);
+    for (let t = 1; t < 5; t++) { const r = 12 + t * 3.6; const s = (w * (r - 12)) / 16; hatch.push(`<line x1="${P(r, a - s).replace(',', '" y1="')}" x2="${P(r, a + s).replace(',', '" y2="')}"/>`); }
+  }
+  const ticks = []; for (let k = 0; k < 72; k++) { const a = (k / 72) * Math.PI * 2; ticks.push(`<line x1="${P(32, a).replace(',', '" y1="')}" x2="${P(35.5, a).replace(',', '" y2="')}"/>`); }
+  const rings = []; for (let k = 0; k < 20; k++) { const [x, y] = P(40.5, (k / 20) * Math.PI * 2).split(','); rings.push(`<circle cx="${x}" cy="${y}" r="2.9"/><circle cx="${x}" cy="${y}" r=".7" fill="currentColor"/>`); }
+  const outer = []; for (let k = 0; k < 90; k++) { const a = (k / 90) * Math.PI * 2; outer.push(`<line x1="${P(45, a).replace(',', '" y1="')}" x2="${P(47.5, a).replace(',', '" y2="')}"/>`); }
+  const svg = `<svg class="drum-centre" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".7">${hatch.join('')}<circle cx="50" cy="50" r="31"/><circle cx="50" cy="50" r="36.5"/>${ticks.join('')}${rings.join('')}<circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="48.5"/>${outer.join('')}</g><polygon class="dc-star" points="${star.join(' ')}"/><circle cx="50" cy="50" r="4.2" class="dc-star"/></svg>`;
+  return () => svg;
+})();
+export const lacFlight = () => `<span class="lac-flight" aria-hidden="true">${watermark('chim-lac')}${watermark('chim-lac')}</span>`;
+
 /**
  * The layer of motifs for one slide: `list` is an array of motif names, the first one shown larger.
  * Each motif is a button named after what it shows, with its caption as the description (for screen readers);

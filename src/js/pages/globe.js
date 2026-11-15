@@ -15,14 +15,22 @@ import {
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 import {
   $, $$, esc, icon, getJSON, loadCities, loadCollections, collectionsOf, loadCity, loadLandmark, loadMedia,
-  imageSrc, creditHTML, localTime, formatCoords, prefersReducedMotion, landmarkUrl,
+  imageSrc, creditHTML, focusStyle, localTime, formatCoords, prefersReducedMotion, landmarkUrl,
 } from '../common.js';
 import { openStatus } from '../hours.js';
 import { createWorldBar, snapshot, formatYear, periodOf } from '../world-year.js';
 import '../trip.js'; // keeps the count on the My trip button up to date
 import { initWelcome } from '../home-ui.js';
 import { createShip, TRAVEL } from '../ship.js';
-import { createShipBody } from '../ship3d.js';
+import { createDrumHalo } from '../drum-halo.js';
+import { phaseAt } from '../daylight.js';
+import { playTimeTurn } from '../time-turn.js';
+import { openCityBook, closeCityBook } from '../city-book.js';
+import { panelDrum, lacFlight, drumCentre } from '../motifs.js';
+
+// Thirty-first round: the Vietnamese touches of the left panel, drawn as hairlines like the motifs of the slides:
+// the face of a Đông Sơn drum, faint and slowly turning, behind the panel's title; two Lạc birds of the drum in
+// flight beside each section's name.
 import { isGoodMonth, thisMonth, MONTHS } from '../season.js';
 
 const ionToken = import.meta.env.VITE_CESIUM_ION_TOKEN;
@@ -141,36 +149,56 @@ async function addImageryAndTerrain(viewer) {
 }
 
 // ---------------------------------------------------------------------------
-// Markers (drawn on a canvas at 2x so they stay crisp)
+// Markers (drawn on a canvas at 2x so they stay crisp). Twenty-second round: a city is a bronze coin with the
+// 14-ray star from the centre of a Đông Sơn drum in gold; pointed at, or with an event in Through time, the coin
+// turns son red. A landmark is a son red drop with a gold rim and a gold eye.
 // ---------------------------------------------------------------------------
+/** The drum's star: 14 rays round (cx, cy), from radius r to the inner radius. */
+function drumStar(g, cx, cy, r, inner = r * 0.42) {
+  g.beginPath();
+  for (let k = 0; k < 28; k++) {
+    const a = -Math.PI / 2 + (k * Math.PI) / 14;
+    const d = k % 2 ? inner : r;
+    if (k) g.lineTo(cx + Math.cos(a) * d, cy + Math.sin(a) * d); else g.moveTo(cx + Math.cos(a) * d, cy + Math.sin(a) * d);
+  }
+  g.closePath();
+}
 function cityPin(highlight = false) {
   const s = 28; const c = document.createElement('canvas'); c.width = c.height = s * 2;
   const g = c.getContext('2d'); g.scale(2, 2);
-  g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowBlur = 4; g.shadowOffsetY = 1;
-  g.beginPath(); g.arc(s / 2, s / 2, highlight ? 11 : 9, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
+  const m = s / 2; const r = highlight ? 12 : 10;
+  g.shadowColor = 'rgba(0,0,0,.55)'; g.shadowBlur = 4; g.shadowOffsetY = 1;
+  g.beginPath(); g.arc(m, m, r, 0, Math.PI * 2); g.fillStyle = highlight ? '#a8241c' : '#15100c'; g.fill();
   g.shadowColor = 'transparent';
-  g.beginPath(); g.arc(s / 2, s / 2, highlight ? 7.5 : 6, 0, Math.PI * 2); g.fillStyle = highlight ? '#d93025' : '#1a73e8'; g.fill();
+  g.lineWidth = highlight ? 1.6 : 1.3; g.strokeStyle = highlight ? '#f3d27a' : '#c8a24c';
+  g.beginPath(); g.arc(m, m, r - 1, 0, Math.PI * 2); g.stroke();
+  drumStar(g, m, m, r - 2.6); g.fillStyle = highlight ? '#ffe2a0' : '#e6c47c'; g.fill();
+  g.beginPath(); g.arc(m, m, highlight ? 1.9 : 1.6, 0, Math.PI * 2); g.fillStyle = highlight ? '#a8241c' : '#15100c'; g.fill();
   return c;
 }
 function landmarkPin(highlight = false) {
   const w = 30; const h = 40; const c = document.createElement('canvas'); c.width = w * 2; c.height = h * 2;
   const g = c.getContext('2d'); g.scale(2, 2);
-  g.shadowColor = 'rgba(0,0,0,.45)'; g.shadowBlur = 4; g.shadowOffsetY = 1.5;
+  g.shadowColor = 'rgba(0,0,0,.5)'; g.shadowBlur = 4; g.shadowOffsetY = 1.5;
   g.beginPath();
   g.moveTo(w / 2, h - 2);
   g.bezierCurveTo(w / 2 - 2, h - 8, 2, 22, 2, 14);
   g.arc(w / 2, 14, 13, Math.PI, 0);
   g.bezierCurveTo(w - 2, 22, w / 2 + 2, h - 8, w / 2, h - 2);
-  g.fillStyle = highlight ? '#b31412' : '#d93025'; g.fill();
+  g.fillStyle = highlight ? '#7d1a14' : '#a8241c'; g.fill();
   g.shadowColor = 'transparent';
-  g.beginPath(); g.arc(w / 2, 14, 5, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
+  g.lineWidth = 1.4; g.strokeStyle = '#e6c47c'; g.stroke();
+  drumStar(g, w / 2, 14, 7); g.fillStyle = '#ffe2a0'; g.fill();
   return c;
 }
 
-const LABEL_FONT = '500 15px "Roboto Flex", Roboto, sans-serif';
-const SMALL_LABEL_FONT = '500 13px "Roboto Flex", Roboto, sans-serif'; // for the dense map of provinces
+// Names in Be Vietnam Pro, the type of the slides' titles, cream on a lacquer-dark outline (twenty-second round)
+const LABEL_FONT = '600 15px "Be Vietnam Pro", "Roboto Flex", sans-serif';
+const SMALL_LABEL_FONT = '600 13px "Be Vietnam Pro", "Roboto Flex", sans-serif'; // for the dense map of provinces
+const LABEL_INK = Color.fromCssColorString('#f6ecd8');
+const LABEL_EDGE = Color.fromCssColorString('rgba(21,16,12,.85)');
 const label = (text, offsetX, font = LABEL_FONT) => ({
-  text, font, fillColor: Color.WHITE, outlineColor: Color.fromCssColorString('rgba(0,0,0,.75)'), outlineWidth: 4,
+  text, font, fillColor: LABEL_INK, outlineColor: LABEL_EDGE, outlineWidth: 4,
   style: LabelStyle.FILL_AND_OUTLINE, horizontalOrigin: HorizontalOrigin.LEFT, verticalOrigin: VerticalOrigin.CENTER,
   pixelOffset: new Cartesian2(offsetX, 0), heightReference: HeightReference.CLAMP_TO_GROUND, disableDepthTestDistance: 2e6,
 });
@@ -206,7 +234,7 @@ function addMarkers(viewer, cities, landmarks) {
   }
 }
 
-// Cities whose pins pulse red in Through time. A hover must not turn them back to blue.
+// Cities whose pins pulse red in Through time. A hover must not turn them back to gold.
 const pulsingPins = new Set();
 function setHighlight(viewer, entityId, on) {
   const e = entityId && viewer.entities.getById(entityId);
@@ -324,7 +352,7 @@ async function main() {
       bottom: desktop ? innerHeight - ($('#voyager').offsetHeight + 110) : innerHeight - (open ? kcard.offsetHeight + 16 : 24),
     };
   };
-  ship = createShip({ view: () => nav, area: freeArea, avoid: () => (yearMode ? [] : visibleCities()), start: lastPlace });
+  ship = createShip({ view: () => nav, area: freeArea, avoid: () => (yearMode ? [] : visibleCities()), start: lastPlace, paused: () => yearMode });
   function arrive(id, at) {
     const place = { id, lon: at.lon, lat: at.lat };
     lastPlace = place;
@@ -435,11 +463,18 @@ async function main() {
   const rowId = (e) => { const r = e.target.closest?.('.city-row, .world-row'); return r?.dataset.id ?? r?.dataset.city ?? null; };
   kcard.addEventListener('pointerover', (e) => lightRow(rowId(e)));
   kcard.addEventListener('pointerleave', () => lightRow(null));
+  // (Twenty-fourth round: resting the mouse on a stop turned the globe to that place. Taken out in the twenty-fifth:
+  // moving down the list turned the globe again and again and the Lạc bird flew this way and that. Pointing at a
+  // stop only lights its pin; the globe stays as it is until a place is chosen.)
+  // the times on the stops keep up with the clock
+  setInterval(() => $$('.stop-time[data-tz]', kcard).forEach((el) => { if (el.dataset.tz) el.innerHTML = stopTime(el.dataset.tz); }), 30_000);
   kcard.addEventListener('focusin', (e) => lightRow(rowId(e)));
   kcard.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (link && diveTo(link, e)) return;
     // Remember whether "Earlier history" is open, so it stays that way when the year changes.
+    const guide = e.target.closest('.time-guide > summary');
+    if (guide) guideOpen = !guide.parentElement.open;
     const more = e.target.closest('.world-more > summary');
     if (more) earlierOpen = !more.parentElement.open;
     const t = e.target.closest('[data-action]');
@@ -543,8 +578,13 @@ async function main() {
     }
     nav.setCityLabels?.(false);
     bindView();
-    const col = colById.get(set);
-    const start = Number.isFinite(year) ? year : (world.moments.find((m) => m.year === col?.defaultYear)?.year ?? world.range.to);
+    // Twenty-eighth round: Through time starts at the first moment of the timeline (the age of the pyramids for the
+    // World, the Đông Sơn drums for Vietnam), so the story is read from its beginning; a shared link keeps its year.
+    const first = world.moments.reduce((m, n) => (n.year < m.year ? n : m));
+    const start = Number.isFinite(year) ? year : first.year;
+    // Twenty-seventh round: switched on by hand (not by a shared link), an old book's page turns to the year,
+    // written as on the timeline ("c. 500 BCE")
+    if (!Number.isFinite(year)) playTimeTurn({ title: first.label ?? yearText(start) });
     bar.setYear(start, { animate: !Number.isFinite(year) });
     barEl.querySelector('#wb-range')?.focus({ preventScroll: true });
   }
@@ -552,6 +592,7 @@ async function main() {
   function exitYearMode({ quiet = false } = {}) {
     if (!yearMode) return;
     yearMode = false;
+    closeCityBook();
     bar?.stop();
     document.body.classList.remove('year-mode');
     yearBtn.setAttribute('aria-pressed', 'false');
@@ -573,24 +614,40 @@ async function main() {
     nav.setPulse?.(new Set(snap.filter((s) => s.isEvent).map((s) => s.city.id)));
     if (!final) return;
     writeHash(`year=${year}`);
-    // Moments turn the globe towards the place where history is happening.
-    if (moment) {
+    // Moments turn the globe towards the place where history is happening (not on a country's own atlas, where
+    // the whole country is already in view: thirty-first round).
+    if (moment && !globeStays()) {
       const focus = moment.focusCity && cityById.get(moment.focusCity);
       if (focus) nav.look(focus); else nav.home();
     }
   }
 
+  /**
+   * Thirty-first round: in Through time on a country's atlas (Vietnam: its look-at height is a few thousand km,
+   * the whole country is in view) the globe stays still when the year changes; on a small map every move of the
+   * camera was more distracting than useful. On the World atlas it still turns to where history is happening.
+   */
+  function globeStays() { return (colById.get(set)?.lookHeight ?? 9_000_000) < 5_000_000; }
+
   function focusYearCity(id) {
     const c = cityById.get(id);
     if (!c) return;
     bar?.stop();
-    nav.look(c);
+    if (!globeStays()) nav.look(c);
     $$('.world-row', kcard).forEach((r) => r.classList.toggle('focused', r.dataset.city === id));
     // A card on the map can point to a row inside the closed "Earlier history": open it and show the row.
     const row = $$('.world-row', kcard).find((r) => r.dataset.city === id);
     const more = row?.closest('details');
     if (more && !more.open) { more.open = true; earlierOpen = true; }
     row?.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
+    // Thirtieth round: and its book opens, with its whole story period by period. Turning to a period moves the
+    // year bar to its first event and keeps the city in view.
+    openCityBook({
+      city: c, details: cityDetails[id], periods: world.periods, lmById, media, formatYear,
+      onPeriod: (year) => { bar?.stop(); bar?.setYear(year, { animate: !reduced }); if (!globeStays()) nav.look(c); },
+      // back to the city's row (the list may have been redrawn while the book was open)
+      onClose: () => $(`#kcard .world-row[data-city="${id}"] .place-row`)?.focus({ preventScroll: true }),
+    });
   }
 
   /** Re-attaches the floating cards to whichever view is active (the globe can switch to 2D at any time). */
@@ -600,21 +657,39 @@ async function main() {
     layoutYearCards();
   }
 
-  const entryImage = (s) => {
-    if (s.entry?.image) return imageSrc(s.entry.image, media);
-    if (s.entry?.landmark) {
-      const lm = lmById.get(s.entry.landmark);
-      const era = lm?.eras[s.entry.era];
-      if (era) return imageSrc(era.image, media);
-    }
-    return imageSrc(cityDetails[s.city.id]?.hero, media);
+  /** The picture of a moment: its own, else the landmark's at that era, else the city's. */
+  const entryRef = (s) => {
+    if (s.entry?.image) return s.entry.image;
+    const era = s.entry?.landmark ? lmById.get(s.entry.landmark)?.eras[s.entry.era] : null;
+    return era?.image ?? cityDetails[s.city.id]?.hero;
   };
+  const entryImage = (s) => imageSrc(entryRef(s), media);
 
   // ----- Left card: "The world in 1889" -----
   // Round 8 of feedback: one long list of every place, with this year's news mixed in with older entries,
   // was hard to read in busy years. Now this year's events come first, older entries sit in a closed
   // "Earlier history" group, and places with no record are named in a single line.
   const yearText = (y) => formatYear(y, y < -1000);
+  // Twenty-ninth round: how to use Through time, in a small box under the title. Open the first time it is seen
+  // (remembered in the browser), folded to one line after that; it stays as the visitor leaves it while the years change.
+  const GUIDE_KEY = 'atlas-time-guide-seen';
+  let guideOpen = null;
+  function timeGuide() {
+    if (guideOpen === null) {
+      let seen = false;
+      try { seen = localStorage.getItem(GUIDE_KEY) === '1'; localStorage.setItem(GUIDE_KEY, '1'); } catch { /* private window */ }
+      guideOpen = !seen;
+    }
+    return `
+      <details class="time-guide" ${guideOpen ? 'open' : ''}>
+        <summary>${icon('help')}<span>How to travel through time</span>${icon('expand_more', 'tg-chev')}</summary>
+        <ol>
+          <li><strong>Choose a year.</strong> Drag the year bar at the bottom of the screen, or click a year below it.</li>
+          <li><strong>Read what happened.</strong> Red pins and red cards on the globe show what was happening that year.</li>
+          <li><strong>Open a city's book.</strong> Click a city, here or on the globe, to read its whole story, period by period.</li>
+        </ol>
+      </details>`;
+  }
   function renderWorldCard(year, moment) {
     const events = snap.filter((s) => s.isEvent)
       .sort((a, b) => Number(b.city.id === focusId) - Number(a.city.id === focusId) || b.entry.year - a.entry.year);
@@ -633,26 +708,27 @@ async function main() {
     const row = (s, { event }) => `
       <li class="world-row ${event ? 'is-event' : ''} ${s.city.id === focusId ? 'is-focus' : ''}" data-city="${esc(s.city.id)}">
         <button class="place-row" type="button" data-action="year-city" data-id="${esc(s.city.id)}">
-          <img class="thumb" src="${esc(entryImage(s))}" alt="" loading="lazy">
+          <img class="thumb" src="${esc(entryImage(s))}" alt="" loading="lazy" style="${focusStyle(entryRef(s))}">
           <span class="grow">
-            <span class="world-name">${esc(s.city.name)}<span class="world-when">${event ? '' : 'Since '}${esc(formatYear(s.entry.year, s.entry.approx))}</span></span>
+            <span class="world-name">${esc(s.city.name)}${icon('menu_book', 'world-book')}<span class="world-when">${event ? '' : 'Since '}${esc(formatYear(s.entry.year, s.entry.approx))}</span></span>
             <span class="world-text">${esc(s.entry.text)}</span>
           </span>
         </button>
         ${event ? s.landmarks.filter((l) => l.state === 'era').map(({ lm, era, index }) => `
-          <a class="world-lm" href="${esc(landmarkUrl(lm.id, 'time', { era: index }))}">
+          <a class="world-lm" href="${esc(landmarkUrl(lm.id, 'time', { part: `era-${index}` }))}">
             ${icon('history')}<span><strong>${esc(lm.name)}</strong> · ${esc(era.label)}: ${esc(era.title)}</span>${icon('arrow_forward')}
           </a>`).join('') : ''}
       </li>`;
     const places = (n) => `${n} ${n === 1 ? 'place' : 'places'}`;
     show(`
-      <div class="intro-head intro-lead world-head">
+      <div class="intro-head intro-lead world-head">${panelDrum()}
         <div class="d-flex justify-content-between align-items-start gap-2">
           <p class="intro-kicker mb-1">${icon('history_toggle_off')}Through time</p>
           <button class="icon-btn" type="button" data-action="exit-year" aria-label="Leave the world timeline">${icon('close')}</button>
         </div>
         <h2 class="intro-title world-title">${esc(colById.get(set)?.yearTitle ?? 'The world in')} <span data-world-year>${esc(yearText(year))}</span></h2>
         <p class="world-sub mb-0" data-world-sub>${esc(sub)}</p>
+        ${timeGuide()}
       </div>
       <hr class="divider">
       ${events.length ? `
@@ -686,7 +762,7 @@ async function main() {
     cardsEl.innerHTML = `<svg class="ycard-lines" aria-hidden="true"></svg>${shown.map((s) => `
       <button type="button" class="ycard ${s.isEvent ? 'is-event' : ''} ${old.get(s.city.id) && old.get(s.city.id) !== String(s.entry.year) ? 'swap' : ''}"
         data-city="${esc(s.city.id)}" data-entry="${s.entry.year}" tabindex="-1">
-        <img src="${esc(entryImage(s))}" alt="">
+        <img src="${esc(entryImage(s))}" alt="" style="${focusStyle(entryRef(s))}">
         <span><strong>${esc(s.city.name)}</strong><small>${esc(s.entry.text)}</small></span>
       </button>`).join('')}`;
     // Card sizes don't change once drawn, so measure them once here rather than on every frame.
@@ -766,9 +842,11 @@ async function main() {
   async function startGlobe(viewer) {
   // If the graphics stop working later (driver error, phone out of memory), switch to the 2D map.
   let failed = false;
+  let halo = null; // the rings of the drum round the globe (twenty-second round)
   const fail = async (kind, err) => {
     if (failed) return;
     failed = true;
+    halo?.hide();
     console.error(err ?? kind);
     $('#globe').style.visibility = 'hidden';
     nav = await startFlatMap(kind, err);
@@ -782,8 +860,9 @@ async function main() {
     import('cesium').then((m) => { window.__Cesium = m; });
   }
   const labelsLayerPromise = addImageryAndTerrain(viewer);
-  await document.fonts?.load(LABEL_FONT).catch(() => {});
+  await Promise.all([LABEL_FONT, SMALL_LABEL_FONT].map((f) => document.fonts?.load(f))).catch(() => {});
   addMarkers(viewer, cities, landmarks);
+  halo = createDrumHalo(viewer);
   const { camera, scene } = viewer;
 
   // Opening move: ease in from deep space, then the globe rests. (It used to keep spinning, but in user
@@ -840,6 +919,64 @@ async function main() {
   const endOwnFlight = () => { cancelAnimationFrame(flightFrame); flightFrame = 0; };
   function stopFlight() { endOwnFlight(); camera.cancelFlight(); }
   for (const type of ['pointerdown', 'wheel']) scene.canvas.addEventListener(type, endOwnFlight, { passive: true }); // the visitor takes over
+
+  // Thirty-second round: zooming out from a city (seen tilted, 42° from straight down) used to keep the tilt, so the
+  // Earth slid down to the bottom of the screen and out of it, and nothing stopped the camera going out for
+  // billions of kilometres. Now the camera goes no further out than LEVEL_MAX, and while the visitor zooms out
+  // (wheel, pinch, the − button) the view levels out with the height: from LEVEL_FROM up it turns a little
+  // towards looking straight down at each step, and from LEVEL_TO up it looks straight down, north up, with the
+  // Earth in the middle of the free part of the screen, as at home. Zooming out is centred on the place in view
+  // when the zoom began (Cesium's own zoom moves away from the point under the mouse, so the view drifted sideways
+  // to the far side of the Earth).
+  const LEVEL_FROM = 400_000;
+  const LEVEL_TO = 6_000_000;
+  const LEVEL_MAX = 40_000_000;
+  scene.screenSpaceCameraController.maximumZoomDistance = LEVEL_MAX;
+  let zoomingUntil = 0;
+  const visitorZooms = () => { zoomingUntil = performance.now() + 1600; }; // the wheel's zoom goes on for a moment
+  scene.canvas.addEventListener('wheel', visitorZooms, { passive: true });
+  scene.canvas.addEventListener('pointerdown', visitorZooms, { passive: true });
+  scene.canvas.addEventListener('pointermove', (e) => { if (e.buttons) visitorZooms(); }, { passive: true });
+  // Cesium remembers the ground point under the mouse at the start of a zoom and uses it again for the next zoom
+  // that starts at the very same pixel, even after the camera has flown elsewhere: zooming out over Hà Nội with the
+  // mouse where it was when zooming out over Paris pulled the camera back to Paris. Forget it whenever the camera stops.
+  const zoomer = scene.screenSpaceCameraController;
+  camera.moveEnd.addEventListener(() => { if (zoomer._zoomMouseStart) zoomer._zoomMouseStart.x = -1; });
+  let lastHeight = camera.positionCartographic.height;
+  let anchor = null; // the ground in the middle of the free part of the screen when this zoom-out began
+  let anchorSeen = 0;
+  const toAnchor = new Matrix4();
+  scene.preRender.addEventListener(() => {
+    const h = camera.positionCartographic.height;
+    const from = lastHeight;
+    lastHeight = h;
+    const t = performance.now();
+    if (h <= from * 1.0005 || flightFrame || t > zoomingUntil) return;
+    const compose = composeAngles();
+    if (!anchor || t - anchorSeen > 400) {
+      // the middle of the free part of the screen, or, if that is on the sky, the point under the camera
+      const now = lookNow(compose);
+      const c = now?.at ?? camera.positionCartographic;
+      anchor = { carto: new Cartographic(c.longitude, c.latitude, 0), world: Cartesian3.fromRadians(c.longitude, c.latitude) };
+      Matrix4.inverseTransformation(Transforms.eastNorthUpToFixedFrame(anchor.world), toAnchor);
+    }
+    anchorSeen = t;
+    // where the camera is, seen from the anchor: its distance, and the heading and pitch it looks at the anchor with
+    const v = Matrix4.multiplyByPoint(toAnchor, camera.positionWC, new Cartesian3());
+    const range = Cartesian3.magnitude(v);
+    const pitchNow = Math.asin(Math.max(-1, Math.min(1, -v.z / range)));
+    // Seen from nearly straight above (as in Through time), where the camera is says nothing about which way is up
+    // on screen: the heading is the camera's own. (Thirty-third round: it used to come from the camera's tiny
+    // offset from the anchor, a random direction, so zooming out turned Vietnam on its side.) Seen tilted, it is
+    // the direction the camera looks at the anchor from.
+    const flat = Math.hypot(v.x, v.y) / range; // the cosine of the pitch
+    const fromPlace = Math.atan2(-v.x, -v.y);
+    const w = unit((flat - 0.17) / 0.17); // straight down up to ~80°, from the position from ~70°
+    const headingNow = blendAngle(camera.heading, fromPlace, w);
+    // the share of the way, in height (on a log scale), from where the camera was to LEVEL_TO
+    const f = h < LEVEL_FROM ? 0 : from >= LEVEL_TO ? 1 : unit(Math.log(h / from) / Math.log(LEVEL_TO / Math.max(from, LEVEL_FROM)));
+    lookFrom(anchor.carto, blendAngle(headingNow, 0, f), blend(pitchNow, -Math.PI / 2, f), range, compose);
+  });
   const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
   const unit = (t) => Math.max(0, Math.min(1, t));
   const blend = (a, b, t) => a + (b - a) * t;
@@ -925,7 +1062,8 @@ async function main() {
   function freeBand() {
     const h = scene.canvas.clientHeight;
     const hint = $('#globe-hint');
-    const lowest = hint && getComputedStyle(hint).display !== 'none' ? hint : $('#voyager');
+    // in the Through time mode the year bar takes the place of the hint and the strip
+    const lowest = yearMode && !barEl.hidden ? barEl : hint && getComputedStyle(hint).display !== 'none' ? hint : $('#voyager');
     return { top: 70, bottom: Math.min(h, lowest?.getBoundingClientRect().top ?? h) - 10 };
   }
   /**
@@ -1055,7 +1193,7 @@ async function main() {
   // came back and the hover started again, so the name seemed to jump. The pin and its name now point to the
   // same city, and nothing moves while the mouse goes from one to the other.
   let tipId = null;
-  const CHIP = Color.fromCssColorString('rgba(32, 33, 36, .92)');
+  const CHIP = Color.fromCssColorString('rgba(168, 36, 28, .95)'); // son red, like the pin pointed at
   const CHIP_PAD = new Cartesian2(7, 4);
   function lightLabel(id, on) {
     const l = viewer.entities.getById(`city:${id}`)?.label;
@@ -1188,8 +1326,6 @@ async function main() {
     },
     viewHeight: () => camera.positionCartographic.height,
     onFrame: (cb) => scene.postRender.addEventListener(cb),
-    /** The Lạc ship in 3D (sixteenth round); ship.js moves it. */
-    shipBody: createShipBody(viewer, { reduced }),
     city: (c) => flyTo(c.lon, c.lat, 24_000, -42),
     landmark: (lm) => flyTo(lm.lon, lm.lat, 1_600, -28, 15),
     home: flyHome,
@@ -1198,18 +1334,22 @@ async function main() {
       if (on) showTip(id); else if (tipId === id) showTip(null);
     },
     zoomIn: () => { camera.zoomIn(camera.positionCartographic.height * 0.45); },
-    zoomOut: () => { camera.zoomOut(camera.positionCartographic.height * 0.8); },
+    zoomOut: () => { visitorZooms(); camera.zoomOut(Math.max(0, Math.min(camera.positionCartographic.height * 0.8, LEVEL_MAX - camera.positionCartographic.height))); },
     /** Shows or hides the map's own borders and place names (they would repeat our labels on the Vietnam map). */
     setReferenceLabels: (on) => {
       wantReferenceLabels = on;
       if (labelsLayer) labelsLayer.show = on;
     },
     // ----- Used by the world timeline -----
-    /** Turns the whole globe to face a city, keeping the rest of the world in view. */
+    /**
+     * Turns the whole globe to face a city, keeping the rest of the world in view: the camera stays as far out as
+     * at the atlas's home (twenty-first round; it used to come down to lookHeight), so all of the Earth stays
+     * in sight and every event can be followed.
+     */
     look: (c) => {
       stopFlight();
       camera.flyTo({
-        destination: Cartesian3.fromDegrees(c.lon, c.lat, colById.get(set)?.lookHeight ?? 9_000_000),
+        destination: Cartesian3.fromDegrees(c.lon, c.lat, homeHeight(homeOf())),
         orientation: { heading: 0, pitch: -CMath.PI_OVER_TWO, roll: 0 },
         duration: reduced ? 0 : 2.2, complete: composeHome,
       });
@@ -1395,7 +1535,7 @@ async function main() {
         setTimeout(declutterFlat, 0);
       },
       // ----- Used by the world timeline -----
-      look: (c) => map.flyTo([c.lat, c.lon], colById.get(set)?.lookZoom ?? 4, { animate: !reduced }),
+      look: (c) => map.flyTo([c.lat, c.lon], homeOf().zoom ?? colById.get(set)?.lookZoom ?? 4, { animate: !reduced }), // as far out as at home
       project: (lat, lon, alt = 0) => {
         const p = map.layerPointToContainerPoint(map.project([lat, lon]).subtract(map.getPixelOrigin())); // not rounded to whole pixels, so the ship sits still
         p.y -= Math.min(90, alt / metresPerPixel(lat));
@@ -1420,30 +1560,48 @@ async function main() {
   // -------------------------------------------------------------------------
   function show(html) {
     kcard.innerHTML = `<div class="kcard-scroll">${html}</div>`;
+    // whatever was shown before is gone (the world card checks these to update itself in place; left over, coming
+    // back to Through time found no world card to update and failed)
+    delete kcard.dataset.view;
+    delete kcard.dataset.key;
     kcard.classList.remove('collapsed');
     kcard.scrollTop = 0;
   }
 
-  function heroBlock(ref, { back, backLabel }) {
+  /**
+   * The photo at the top of a city's card. Twenty-fourth round: a magazine cover, the photo filling the top of the
+   * card with the city's name large over it (`cover` is the text laid on the photo). Thirty-second round: no close
+   * button (as on the list of places since the twenty-sixth round); the panel always stays open, and the arrow
+   * goes back to the list.
+   */
+  function heroBlock(ref, { back, backLabel, cover = '' }) {
     return `
-      <div class="kcard-hero">
-        <img src="${esc(imageSrc(ref, media))}" alt="${esc(ref?.alt ?? '')}">
+      <div class="kcard-hero${cover ? ' kc-cover' : ''}">
+        <img src="${esc(imageSrc(ref, media))}" alt="${esc(ref?.alt ?? '')}" style="${focusStyle(ref)}">
         <div class="kcard-hero-actions">
           ${back ? `<button class="icon-btn on-image" type="button" ${back} aria-label="${esc(backLabel)}">${icon('arrow_back')}</button>` : '<span></span>'}
-          <button class="icon-btn on-image" type="button" data-action="close" aria-label="Close panel">${icon('close')}</button>
         </div>
+        ${cover}
         <span class="kcard-credit">${creditHTML(ref, media)}</span>
       </div>`;
   }
 
+  /** The time at a place with a sun or moon, short ("☾ 06:37 PM"), for the stops of the list. */
+  function stopTime(tz) {
+    if (!tz) return '';
+    return `${icon(phaseAt(tz).icon)}<span>${esc(new Intl.DateTimeFormat(undefined, { timeZone: tz, hour: '2-digit', minute: '2-digit' }).format(new Date()))}</span>`;
+  }
+
   function renderIntro() {
     const col = colById.get(set) ?? {};
+    // Twenty-fourth round: the places are stops along a gold thread (the thread the Lạc bird pulls on the globe),
+    // each a round photo like a coin, with its name and the time there now.
     const row = (c) => `
-      <li><button class="place-row city-row" type="button" data-action="city" data-id="${esc(c.id)}">
-        <img class="thumb" src="${esc(imageSrc(cityDetails[c.id]?.hero, media))}" alt="" loading="lazy">
+      <li class="stop"><button class="place-row city-row" type="button" data-action="city" data-id="${esc(c.id)}">
+        <span class="stop-coin"><img class="thumb" src="${esc(imageSrc(cityDetails[c.id]?.hero, media))}" alt="" loading="lazy"></span>
         <span class="grow"><span class="city-name">${esc(c.name)}</span>
           <span class="sub">${c.region ? `${esc(c.kind ?? 'Province')} · ${esc(lmById.get(c.landmarks[0])?.name ?? '')}` : `${esc(c.country)} · ${esc(c.continent)}`}</span></span>
-        ${icon('chevron_right', 'muted')}
+        <span class="stop-time" data-tz="${esc(c.timezone ?? '')}" title="Local time">${stopTime(c.timezone)}</span>
       </button></li>`;
     // Every place is listed, under one section per atlas (World, Vietnam), the atlas on screen first. A place
     // in several atlases (Hà Nội) is listed once, under its most local one. Atlases with groups (Vietnam:
@@ -1456,17 +1614,15 @@ async function main() {
       const groups = k.groups
         ? k.groups.map((g) => {
           const inG = items.filter((c) => c.region === g);
-          return inG.length ? `<p class="list-heading mb-0">${esc(g)} · ${inG.length}</p><ul class="place-list">${inG.map(row).join('')}</ul>` : '';
+          return inG.length ? `<p class="list-heading mb-0">${esc(g)} · ${inG.length}</p><ul class="place-list journey">${inG.map(row).join('')}</ul>` : '';
         }).join('')
-        : `<ul class="place-list">${items.map(row).join('')}</ul>`;
-      return `<h2 class="list-section mb-0">${esc(k.label)} · ${items.length}</h2>${groups}`;
+        : `<ul class="place-list journey">${items.map(row).join('')}</ul>`;
+      return `<h2 class="list-section mb-0"><span>${esc(k.label)} · ${items.length}</span>${lacFlight()}</h2>${groups}`;
     }).join('');
     show(`
-      <div class="intro-head intro-lead">
-        <div class="d-flex justify-content-between align-items-start gap-2">
-          <p class="intro-kicker mb-1">Explore before you travel</p>
-          <button class="icon-btn" type="button" data-action="close" aria-label="Close panel">${icon('close')}</button>
-        </div>
+      <div class="intro-head intro-lead">${panelDrum()}
+        <p class="intro-kicker mb-1">Explore before you travel</p>
+        <!-- (twenty-sixth round: no close button here; the list of places always stays open) -->
         <h1 class="intro-title">${esc(col.title ?? 'Atlas of Stories')}</h1>
         <p class="intro-text mb-3">${esc(col.intro ?? 'History, geography and etiquette for famous places, so you understand a place before you visit it. Choose a city to begin.')}</p>
         <a class="btn-m btn-filled" href="discover.html">${icon('explore')}Find a place for my trip</a>
@@ -1499,37 +1655,44 @@ async function main() {
   function renderCity(c) {
     const d = cityDetails[c.id] ?? {};
     const lms = c.landmarks.map((id) => lmById.get(id)).filter(Boolean);
+    // Twenty-fourth round: a magazine cover (the photo fills the top of the card, the name large over it, the time
+    // there with its sun or moon), and the landmarks as photo cards side by side instead of a list.
+    const ph = phaseAt(c.timezone);
+    const planned = d.planned ?? [];
     show(`
-      ${heroBlock(d.hero, { back: 'data-action="intro"', backLabel: 'All cities' })}
+      ${heroBlock(d.hero, { back: 'data-action="intro"', backLabel: 'All cities', cover: `
+        <div class="kc-cover-text">
+          <h2 class="kcard-title mb-0">${esc(c.name)}</h2>
+          <p class="kc-cover-sub mb-0">${esc(c.country)} · ${esc(c.continent)}</p>
+        </div>` })}
       <div class="kcard-body">
-        <h2 class="kcard-title mb-1">${esc(c.name)}</h2>
-        <p class="muted mb-0">${esc(c.country)} · ${esc(c.continent)}</p>
         <div class="kcard-meta">
-          <span class="kc-clock">${icon('schedule')}${esc(localTime(c.timezone))}</span>
+          <span class="kc-clock">${icon(ph.icon)}${esc(localTime(c.timezone))} · ${esc(ph.word)}</span>
           <span>${icon('location_on')}${formatCoords(c.lat, c.lon)}</span>
         </div>
         <p class="kc-lead mt-3 mb-0">${esc(c.tagline)}.</p>
-        <div class="kcard-actions">
-          <a class="btn-m btn-filled" href="city.html?id=${encodeURIComponent(c.id)}">${icon('menu_book')}City guide</a>
-        </div>
+        <!-- Thirty-second round: the city guide is a large card with a gold seal, easy to spot; thirty-third: the seal is the centre of a Đông Sơn drum, and the card says just "City guide" -->
+        <a class="guide-seal" href="city.html?id=${encodeURIComponent(c.id)}">
+          <span class="guide-seal-mark" aria-hidden="true">${drumCentre()}</span>
+          <span class="guide-seal-text"><strong>City Guide</strong><small>History · landmarks · customs</small></span>
+          ${icon('chevron_right', 'guide-seal-go')}
+        </a>
       </div>
-      <hr class="divider">
-      <p class="list-heading mb-0">Landmarks</p>
-      <ul class="place-list">
+      <p class="list-heading lm-heading mb-0">Landmarks · ${lms.length + planned.length}</p>
+      <div class="lm-strip">
         ${lms.map((lm) => { const s = statusOf(lm); return `
-          <li><button class="place-row" type="button" data-action="landmark" data-id="${esc(lm.id)}">
-            <img class="thumb" src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
-            <span class="grow"><span class="t-title-s">${esc(lm.name)}</span>
-              <span class="sub">${esc(lm.localName ?? '')}</span>
-              <span class="sub status ${s.state}">${esc(s.text)}</span></span>
-            ${icon('chevron_right', 'muted')}
-          </button></li>`; }).join('')}
-        ${(d.planned ?? []).map((p) => `
-          <li><div class="place-row planned">
-            <span class="thumb empty">${icon('hourglass_empty')}</span>
-            <span class="grow"><span class="t-title-s">${esc(p.name)}</span><span class="sub">Coming soon</span></span>
-          </div></li>`).join('')}
-      </ul>`);
+          <button class="lm-card" type="button" data-action="landmark" data-id="${esc(lm.id)}">
+            <img src="${esc(imageSrc(lm.hero, media))}" alt="" loading="lazy">
+            <span class="lm-card-text"><strong>${esc(lm.name)}</strong>
+              ${lm.localName ? `<small class="lm-local">${esc(lm.localName)}</small>` : ''}
+              <small class="status ${s.state}">${esc(s.text)}</small></span>
+          </button>`; }).join('')}
+        ${planned.map((p) => `
+          <div class="lm-card planned">
+            <span class="lm-card-empty">${icon('hourglass_empty')}</span>
+            <span class="lm-card-text"><strong>${esc(p.name)}</strong><small>Coming soon</small></span>
+          </div>`).join('')}
+      </div>`);
   }
 
   function renderVoyager() {

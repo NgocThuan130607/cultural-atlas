@@ -1,0 +1,41 @@
+// ===========================================================================
+// Twenty-seventh round: going back in time (src/js/time-turn.js). A page of an old book turns over from right to
+// left, uncovering the globe in Through time, under dust, scratches, grain and a sepia shade like an old film.
+// ===========================================================================
+$film-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .13 0 0 0 0 .06 0 0 0 1.6 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+.time-turn { position: fixed; inset: 0; z-index: 3000; pointer-events: none; overflow: hidden; perspective: 2400px; }
+
+// The page: an old, foxed sheet, the year printed on it, the spine on the left
+.tt-book { position: absolute; inset: 0; animation: tt-in .28s ease-out both; }
+.tt-page { position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d;
+  animation: tt-turn 2.2s cubic-bezier(.45, .05, .35, 1) .8s both; }
+.tt-front, .tt-back { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.tt-front { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; text-align: center; color: #3a2817;
+  background: radial-gradient(ellipse at 50% 45%, rgb(255 250 235 / .55), transparent 70%), radial-gradient(ellipse at center, transparent 55%, rgb(120 82 40 / .35) 100%), $paper-fibre, #e8d9ba;
+  // the drum's star, faint, behind the year
+  &::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(70vh, 70vw); aspect-ratio: 1; translate: -50% -50%; background: #8a6a2c; opacity: .08;
+    -webkit-mask: $drum-star center / contain no-repeat; mask: $drum-star center / contain no-repeat; }
+  // the fold at the spine, and the shade that deepens as the page lifts
+  &::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgb(60 38 16 / .35), transparent 7%, transparent 93%, rgb(60 38 16 / .18)); animation: tt-shade 2.2s ease-in .8s both; }
+}
+.tt-kicker { position: relative; margin: 0; font: 600 1rem/1.3 var(--display); letter-spacing: .02em; color: #8c1c14; }
+// a long label ("c. 2560 BCE") is set smaller, so it always fits the width of the screen (--len: its length)
+.tt-title { position: relative; margin: 0; max-width: 94vw; font: 800 min(clamp(4.5rem, 13vw, 10rem), calc(170vw / var(--len, 4)))/1 var(--display); letter-spacing: -.04em; color: #2c1d10; }
+.tt-line { position: relative; margin: 0; font: 500 1.125rem/1.4 var(--display); color: #5b4630; }
+.tt-back { transform: rotateY(180deg); background: linear-gradient(90deg, #c9b38a, #e1cfab 60%, #d4bf98), $paper-fibre; }
+@keyframes tt-in { from { opacity: 0; } }
+@keyframes tt-turn { from { transform: rotateY(0); } to { transform: rotateY(-180deg); } }
+@keyframes tt-shade { from { box-shadow: inset 0 0 0 9999px rgb(40 24 8 / 0); } to { box-shadow: inset 0 0 0 9999px rgb(40 24 8 / .45); } }
+
+// The film: a sepia shade with dark corners, grain, dust and scratches, that flickers and then settles
+.tt-dust { position: absolute; inset: 0; animation: tt-dust 3.8s ease both;
+  background: radial-gradient(ellipse at center, transparent 50%, rgb(36 22 8 / .55) 100%), rgb(130 86 34 / .18);
+  i { position: absolute; border-radius: 50%; background: #24170b; }
+  b { position: absolute; width: 1px; background: rgb(255 244 222 / .7); box-shadow: 0 0 1px rgb(255 244 222 / .5); }
+}
+.tt-grain { position: absolute; inset: -60px; background: $film-grain; opacity: .55; animation: tt-grain .27s steps(3) infinite; }
+@keyframes tt-dust { 0% { opacity: 0; } 8% { opacity: 1; } 55% { opacity: .9; } 100% { opacity: 0; } }
+@keyframes tt-grain { 33% { transform: translate(-23px, 17px); } 66% { transform: translate(19px, -29px); } 100% { transform: translate(-7px, 31px); } }
+@media (prefers-reduced-motion: reduce) { .time-turn { display: none; } }

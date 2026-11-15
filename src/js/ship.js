@@ -1,18 +1,21 @@
-// The Lạc ship (fifteenth round of user feedback): a small spaceship in the shape of the Lạc bird of the Đông
-// Sơn drums, drawn in the same gold engraving as the motifs. It lives on the home page as the visitor's guide:
+// The guide on the home page: the Lạc bird of the Đông Sơn drums (fifteenth round of user feedback; a 3D model in
+// the sixteenth and seventeenth; since the eighteenth a drawing again, seen from the side as on the drums and in
+// gold-on-bronze engraving, with the cloud scrolls of the motifs as its wake):
 //
 // - cruise: it hovers over the part of the globe in view. Since the sixteenth round it keeps its place on screen
-//   while the globe is turned, so the ground slides beneath it: it turns its nose the way it is "flying",
-//   banks into the turns, and its engines burn brighter the faster the globe spins.
+//   while the globe is turned, so the ground slides beneath it: it faces the way it is flying (turned left or
+//   right, its beak never tipped more than 30°), and beats its wings harder and faster the faster the globe turns
+//   (at rest it glides, the wings barely moving). Gold cloud scrolls stream out behind it (ship-clouds.js).
 // - flying: when a city is chosen it flies there along the great circle while the globe turns to the city,
 //   pulling the gold thread behind it as its trail, then comes down over the city as the camera zooms in.
 // - landed: it hovers low over the city while its card is open; two rings of light spread from the ground.
 //
 // The ship has a real position on the Earth (longitude, latitude, height). Each frame that position is
 // projected to the screen by the view (the 3D globe or the 2D map, see `nav` in pages/globe.js), so the ship
-// stays locked to the ground through every turn, zoom and flight of the camera. On the 3D globe the ship is a
-// real 3D model (ship3d.js, ship-model.js) given by the view as `shipBody`; on the 2D map it is the drawing below.
+// stays locked to the ground through every turn, zoom and flight of the camera, on the 3D globe and the 2D map
+// alike. (The files keep the name "ship" from the fifteenth round.)
 import { prefersReducedMotion } from './common.js';
+import { createClouds } from './ship-clouds.js';
 
 const RAD = Math.PI / 180;
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -36,39 +39,50 @@ const lerpLL = (a, b, t) => toVec(mix(toLL(a).lon, toLL(b).lon, t), mix(toLL(a).
 export const TRAVEL = 0.6;
 const turnTo = (from, to, k) => from + (((to - from + Math.PI * 3) % (Math.PI * 2)) - Math.PI) * k;
 
-// The drawing: nose to the right. Bold outline, finer inner lines, a lacquer-dark body so the gold reads over
-// bright deserts as well as dark seas. The long beak is the nose, the red eye the cockpit, the crest of three
-// plumes and the spread wings are the bird's, the band of tangent circles is from the drums, and the three long
-// tail feathers are the engines.
+// The drawing (eighteenth round): the Lạc bird seen from the side, beak to the right, in bronze (a gradient fill)
+// engraved with gold lines. A long straight beak, a small round head with a big round eye, a flag of a crest
+// with a drum sun, a long curved neck with the drums' chain of tangent circles, a slim body with chevrons, a
+// fan of long tail feathers, thin legs trailing behind; the near wing rises up and back, long striped feathers
+// with a fringe along its edge, and the far wing shows below the body. Each wing turns at its shoulder (--flap,
+// in degrees, set each frame) as it beats. 200 × 100 units; the tail ends at x 6, the beak at x 199.
+const SUN = (x, y) => `<circle cx="${x}" cy="${y}" r="2.6"/><path class="w0" d="${Array.from({ length: 8 }, (_, i) => { const a = (i * Math.PI) / 4; return `M${(x + Math.cos(a) * 3.4).toFixed(1)} ${(y + Math.sin(a) * 3.4).toFixed(1)}L${(x + Math.cos(a) * 5.4).toFixed(1)} ${(y + Math.sin(a) * 5.4).toFixed(1)}`; }).join('')}"/>`;
+const CHAIN = [[145, 43], [140, 48.5], [134, 53], [127, 56.5], [120, 59]].map(([x, y]) => `<circle class="w0" cx="${x}" cy="${y}" r="2.5"/>`).join('');
 const ART = `
-<svg viewBox="-10 0 130 64" focusable="false" aria-hidden="true">
-  <defs><linearGradient id="ship-gold" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="118" y2="60">
-    <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#ebc56a"/><stop offset="1" stop-color="#b8892f"/></linearGradient></defs>
-  <g class="flames">
-    <path d="M18 22.4L18 25.6L-2 23Z"/><path d="M14 30.2L14 33.8L-9 32Z"/><path d="M18 38.4L18 41.6L-2 41Z"/>
+<svg viewBox="0 0 200 100" focusable="false" aria-hidden="true">
+  <defs><linearGradient id="ship-gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="100">
+    <stop offset="0" stop-color="#fff0c2"/><stop offset=".5" stop-color="#ebc56a"/><stop offset="1" stop-color="#c79a3e"/></linearGradient>
+    <linearGradient id="ship-bronze" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="40" y2="100">
+    <stop offset="0" stop-color="#d19a5a"/><stop offset=".5" stop-color="#9a6234"/><stop offset="1" stop-color="#5c331a"/></linearGradient></defs>
+  <g class="wing-far">
+    <path class="bronze dim" d="M106 64C98 74 86 82 72 88C62 92 50 94 38 94C48 90 54 86 58 82C70 78 82 72 92 63Z"/>
+    <path class="w0" d="M98 68L48 91M92 66L58 84M86 66L66 78"/>
   </g>
-  <g class="hull">
-    <path class="w2" d="M56 21.6Q46 10 24 4Q35 14 41 24.4Z"/><path class="w2" d="M56 42.4Q46 54 24 60Q35 50 41 39.6Z"/>
-    <path class="w2" d="M36 32C44 20 66 18 84 24L117 30L84 37C66 43 46 44 36 32Z"/>
+  <path class="bronze" d="M62 56L14 40L6 56L10 70L22 82L64 68Z"/>
+  <path class="w0" d="M60 58L14 42M60 61L8 56M60 64L11 69M61 67L22 80"/><path class="w0" d="M34 47l5 6l-6 4M30 58l6 3l-6 4M32 70l5 3l-6 3"/>
+  <path class="w0" d="M86 71L42 86l-6 1M86 71L42 86l-4 4M93 71L52 91l-6 0M93 71L52 91l-4 4"/>
+  <path class="bronze w2" d="M56 60C68 50 100 49 122 55C125 61 121 68 112 70C92 74 70 72 56 60Z"/>
+  <path class="w0" d="M72 56l6 5.5l-6 5.5M82 55l6 6l-6 6M92 55l6 6l-6 6M102 55.5l5 5.5l-5 5.5"/>
+  <path class="bronze w2" d="M140 35C134 46 126 53 112 55.5L115 66C131 64 143 55 151 39Z"/>${CHAIN}
+  <path class="bronze" d="M141 25L110 13Q115 22 112 31L139 34Z"/>${SUN(125, 25)}
+  <path class="beak" d="M154 26.5L199 12.5L156 33Z"/><path class="w0" d="M156 29.6L196 14"/>
+  <circle class="bronze w2" cx="148" cy="31" r="9"/><circle cx="149.5" cy="29.5" r="4.6"/><circle class="dot" cx="150" cy="29.2" r="2"/>
+  <g class="wing-near">
+    <path class="bronze w2" d="M110 54C106 38 98 26 88 18C70 10 46 6 22 6C28 10 32 13 36 15C32 16 30 18 30 20C38 22 44 23 50 24C46 26 45 28 46 30C56 32 62 33 68 34C64 37 64 40 66 42C74 44 82 48 88 56Z"/>
+    <path class="w0" d="M104 48C90 26 60 12 26 8M100 50C88 32 66 20 34 17M96 51C86 38 72 28 50 24M92 53C84 44 76 38 68 35"/>
+    <path class="w0" d="M88 56l-3 4M80 49l-3.6 3M72 43l-3.8 2.4M62 33l-3 3M54 30l-3.4 2.4M44 24l-3 3M36 20l-3.4 2"/>
   </g>
-  <path class="w0" d="M50 17.5L33 8.6M46 20L31 12.4M50 46.5L33 55.4M46 44L31 51.6"/>
-  <path class="w2" d="M38.5 29L18 24M36 32H14M38.5 35L18 40"/><path d="M18 22V26M14 30V34M18 38V42"/>
-  <path d="M84 24Q88 30.5 84 37"/><path class="w0" d="M88 30.6H112"/>
-  <path d="M60 21.4Q63.4 31 60 41.6M53 22.6Q56.4 31.4 53 41.4"/>
-  <circle class="w0" cx="57" cy="26.6" r="1.5"/><circle class="w0" cx="57.8" cy="31.4" r="1.5"/><circle class="w0" cx="57" cy="36.4" r="1.5"/>
-  <path class="w0" d="M43 37.4l3.4-3.4M47.6 39.4l4-4M65 40.4l4-4M70 39.6l3.6-3.6M75 38.4l3-3"/>
-  <path d="M75 22.2Q71 13 62 10.4q-2.4-.4-2 1.6M71 21.6Q68 15.4 60.4 14.6q-2-.2-1.6 1.4M67.4 21.4Q65 18.6 59.6 18.6"/>
-  <circle class="w2" cx="77" cy="28.6" r="4.2"/><circle class="eye" cx="77" cy="28.6" r="2.3"/>
 </svg>`;
 
 /**
  * Starts the ship. `view()` returns the current view (it can change from the globe to the 2D map), which gives
  * project(lat, lon, alt), pick(x, y), viewHeight(), onFrame(cb), trail() and `linear` (true on the flat map).
  * `area()` is the part of the screen left free by the panel and the controls, `avoid()` the places whose pins the
- * hovering ship keeps clear of. `start` is a place to appear over.
+ * hovering ship keeps clear of. `start` is a place to appear over. While `paused()` is true the bird is put away (its
+ * shadow and clouds too) and stops flying; it comes back hovering over the view (twenty-first round: it is put
+ * away in the Through time mode).
  * Returns { flyTo(place, opts), cruise(), bind(), leave(), resume() }.
  */
-export function createShip({ view, area, avoid = () => [], start = null }) {
+export function createShip({ view, area, avoid = () => [], start = null, paused = () => false }) {
   const reduced = prefersReducedMotion();
   const el = document.createElement('div');
   el.className = 'ship';
@@ -78,7 +92,7 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
   shadow.className = 'ship-shadow';
   shadow.setAttribute('aria-hidden', 'true');
   document.body.append(shadow, el);
-
+  const clouds = reduced ? null : createClouds();
 
   let mode = 'cruise';
   let pos = null; // { v: unit vector, alt: metres }
@@ -86,13 +100,15 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
   let flight = null;
   let angle = -0.14; // the way the nose points on screen: a little up, facing right
   let roll = 0;
-  let thrust = 0.2;
+  let thrust = 0.2; // how hard it flies, 0 to 1: sets the beat of the wings and the clouds
+  let flapPhase = 0;
   let last = performance.now();
   let free = null;
   let scr = null; // where the ship was on screen last frame
   let spotAt = null; // cruise: the ship's place on screen, eased towards the chosen spot
   let under = null; // cruise: the ground that was under that place last frame
   let leaving = false;
+  let away = false; // put away while paused()
   const rings = [];
   const setMode = (m) => { mode = m; el.dataset.state = m; };
   setMode('cruise');
@@ -144,7 +160,11 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
   function frame() {
     const v = view();
     if (!v || leaving) return;
-    const body = v.shipBody ?? null;
+    if (paused()) {
+      if (!away) { away = true; el.classList.remove('on'); shadow.classList.remove('on'); clouds?.clear(); }
+      return;
+    }
+    if (away) { away = false; last = performance.now(); prev = null; spotAt = null; under = null; }
     const now = performance.now();
     const dt = clamp((now - last) / 1000, 0.001, 0.05);
     last = now;
@@ -211,36 +231,37 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
     if (speed > 0.3 && !reduced) angle = turnTo(angle, Math.atan2(dy, dx), 1 - Math.exp(-dt / 0.16));
     const left = Math.cos(angle) < 0;
     if (speed <= 0.3 && !reduced) angle = turnTo(angle, left ? Math.PI + 0.14 : -0.14, 1 - Math.exp(-dt / 0.5)); // settles level, nose a little up
-    // Banks into its turns and comes level again in about 0.4 s
+    // Leans into its turns (a dip of the beak, seen from the side) and comes level again in about 0.4 s
     const turning = (((angle - before + Math.PI * 3) % (Math.PI * 2)) - Math.PI) / dt; // radians a second
     roll = reduced ? 0 : mix(roll, clamp(turning * 0.22, -0.75, 0.75) + clamp(speed / 14, 0, 0.25) * Math.sin(now / 300), 1 - Math.exp(-dt / 0.12));
     thrust = reduced ? 0 : mix(thrust, clamp((mode === 'flying' ? 0.45 : 0.18) + speed / 9, 0.18, 1), 1 - Math.exp(-dt / 0.12));
+    // The wings: a slow, shallow beat while it glides, deeper and faster the harder it flies
+    const effort = clamp((thrust - 0.18) / 0.6, 0, 1);
+    flapPhase += Math.PI * 2 * mix(0.45, 1.8, effort) * dt;
+    const beat = reduced ? 0 : mix(6, 28, effort) * Math.sin(flapPhase); // degrees
 
     const still = 1 - clamp(speed / 3, 0, 1);
-    const bob = reduced ? 0 : Math.sin(now / 520) * 4 * still;
+    const bob = reduced ? 0 : Math.sin(now / 520) * 4 * still - beat * 0.08; // it rises a touch on each down-beat
     const rise = mode === 'cruise' ? 0 : 26 * (flight ? ease(clamp((now - flight.t0) / (flight.dur || 1), 0, 1)) : 1); // clear of the pin and its name
     const shown = p.visible && p.x > -60 && p.y > -60 && p.x < innerWidth + 60 && p.y < innerHeight + 60;
     scr = shown ? { x: p.x, y: p.y - rise + bob } : null;
     const zoom = clamp((Math.log10(Math.max(height, 1)) - 4.5) / 2.8, 0, 1); // 0 over a city, 1 from space
-    const size = Math.round(body ? (innerWidth < 768 ? 70 : 112) + (innerWidth < 768 ? 22 : 34) * zoom : (innerWidth < 768 ? 96 : 112) + 22 * zoom);
+    const size = Math.round(innerWidth < 768 ? 64 + 10 * zoom : 100 + 15 * zoom);
     lastSize = size;
 
-    if (body) {
-      // The 3D ship (ship3d.js), its nose towards the ground a short way along its heading on screen. It is
-      // drawn where it really is (no lift on screen), and breathes by pitching gently while it hovers.
-      el.classList.remove('on');
-      if (shown) scr = { x: p.x, y: p.y };
-      const ahead = v.pick(g.x + Math.cos(angle) * 40, g.y + Math.sin(angle) * 40);
-      const pitch = reduced ? 0 : (mode === 'flying' ? -0.12 : 0.06) - clamp(speed / 16, 0, 0.18) + Math.sin(now / 700) * 0.06 * still;
-      body.update({ at: { ...ll, alt: pos.alt }, ahead: ahead ?? { lon: ll.lon + 0.01, lat: ll.lat }, size, roll, pitch, thrust, visible: shown && !!ahead });
-    } else {
-      el.classList.toggle('on', shown);
-      if (shown) {
-        el.style.width = `${size}px`;
-        el.style.setProperty('--thrust', thrust.toFixed(2));
-        el.style.transform = `translate3d(${scr.x.toFixed(1)}px, ${scr.y.toFixed(1)}px, 0) translate(-50%, -50%) rotate(${angle.toFixed(3)}rad) scaleY(${left ? -1 : 1})`;
-      }
+    // Seen from the side, the bird only turns to face left or right; its beak tips up or down by at most 30°.
+    const facing = pose();
+    el.classList.toggle('on', shown);
+    if (shown) {
+      el.style.width = `${size}px`;
+      el.style.setProperty('--flap', beat.toFixed(2));
+      el.style.transform = place(scr.x, scr.y, facing);
     }
+    // the clouds leave from the end of the tail: the drawing is 200 units wide, its centre at (100, 50)
+    const k = size / 200;
+    const lx = -96 * k; const ly = 10 * k * facing.flip;
+    const from = shown ? { x: scr.x + lx * Math.cos(facing.turn) - ly * Math.sin(facing.turn), y: scr.y + lx * Math.sin(facing.turn) + ly * Math.cos(facing.turn) } : null;
+    clouds?.step(dt, from, facing.turn + Math.PI, thrust, size);
     const gap = g.visible ? Math.hypot(p.x - g.x, p.y - rise - g.y) : 0;
     shadow.classList.toggle('on', shown && g.visible && gap > 18);
     if (g.visible) {
@@ -256,7 +277,14 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
       if (c.visible) { r.el.style.left = `${c.x.toFixed(1)}px`; r.el.style.top = `${c.y.toFixed(1)}px`; }
     }
   }
-  let lastSize = 120;
+  let lastSize = 110;
+  /** How the drawing is turned: facing left or right (flip), the beak tipped by at most 30° and the lean. */
+  function pose() {
+    const left = Math.cos(angle) < 0;
+    const tip = clamp((((angle - (left ? Math.PI : 0) + Math.PI * 3) % (Math.PI * 2)) - Math.PI) + roll * 0.25 * (left ? -1 : 1), -0.52, 0.52);
+    return { flip: left ? -1 : 1, turn: (left ? Math.PI : 0) + tip };
+  }
+  const place = (x, y, { flip, turn }) => `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate(-50%, -50%) rotate(${turn.toFixed(3)}rad) scaleY(${flip})`;
 
   let unbind = null;
   /** (Re)attaches the ship to the current view; called again if the globe gives way to the 2D map. */
@@ -304,19 +332,18 @@ export function createShip({ view, area, avoid = () => [], start = null }) {
       setMode('cruise');
     },
     /**
-     * Just before the page is left for a city's or landmark's page: the 3D ship gives way to its flat drawing at
-     * the same place on screen, named for the page change (src/inline/view-transitions.js), so it can fly into
-     * the gold drawing on the next page's cover.
+     * Just before the page is left for a city's or landmark's page: the bird is pinned where it is on screen and
+     * named for the page change (src/inline/view-transitions.js), so it flies into the gold drawing on the next
+     * page's cover.
      */
     leave() {
       leaving = true;
-      view()?.shipBody?.hide();
-      const left = Math.cos(angle) < 0;
+      clouds?.clear();
       // where it was, kept on screen (the camera may have come down past it)
       const x = clamp(scr?.x ?? innerWidth / 2, lastSize, innerWidth - lastSize);
       const y = clamp(scr?.y ?? innerHeight / 2, lastSize * 0.6, innerHeight - lastSize * 0.6);
       el.style.width = `${lastSize}px`;
-      el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) translate(-50%, -50%) rotate(${angle.toFixed(3)}rad) scaleY(${left ? -1 : 1})`;
+      el.style.transform = place(x, y, pose());
       el.style.transition = 'none';
       el.classList.add('ready', 'on');
       el.setAttribute('data-vt-ship', '');

@@ -130,7 +130,7 @@ async function main() {
       <div class="s-card" data-reveal data-drift style="--d:2">${leadParagraph(s.text)}</div>
       ${bigNumber(num(i + 3))}
       </div>
-      ${photo(esc(imageSrc(imageOf(s), media)), esc(imageOf(s).alt ?? ''), creditHTML(imageOf(s), media))}`,
+      ${photo(esc(imageSrc(imageOf(s), media)), esc(imageOf(s).alt ?? ''), creditHTML(imageOf(s), media), '', imageOf(s))}`,
   }));
 
   // ---------- 6. Good to know ----------
@@ -155,7 +155,7 @@ async function main() {
         ${facts.map(([ic, k, v], i) => `<li data-reveal style="--d:${i + 1}">${ic}<span><small>${k}</small>${esc(v)}</span></li>`).join('')}
       </ul>
       </div>
-      ${photo(esc(imageSrc(extra, media)), esc(extra.alt ?? ''), creditHTML(extra, media))}
+      ${photo(esc(imageSrc(extra, media)), esc(extra.alt ?? ''), creditHTML(extra, media), '', extra)}
       <div class="s-card" data-reveal data-drift style="--d:3">
         <h3 class="s-card-title">Local etiquette</h3>
         <ul class="check-list">

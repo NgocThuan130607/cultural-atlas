@@ -5,7 +5,7 @@
 // the player's ◀ ▶ buttons and "auto-continue" move along the slides.
 // Narration uses a chapter's own "audio", "video" or "youtube" when the data provides one,
 // otherwise the browser's built-in text-to-speech, one sentence at a time.
-import { $, $$, esc, icon, imageSrc, creditHTML, protoNote } from '../common.js';
+import { $, $$, esc, icon, imageSrc, creditHTML, protoNote, focusStyle } from '../common.js';
 import { slide, titleFrame, bigNumber, carousel, carNav } from '../slides.js';
 import { motifLayer } from '../motifs.js';
 
@@ -91,7 +91,7 @@ export function initStory(track, layer, { lm, media, note }) {
           <p class="credit-line mt-3 mb-0">${film ? icon('movie') : icon('photo_camera')}<span>${film ? film.credit : creditHTML(c.image, media)}</span></p>
         </div>
         </div>
-        <div class="s-stage" data-reveal style="--d:1"><div class="story-stage"><img src="${esc(still(c))}" alt="${esc(c.image?.alt ?? '')}"></div></div>
+        <div class="s-stage" data-reveal style="--d:1"><div class="story-stage"><img src="${esc(still(c))}" alt="${esc(c.image?.alt ?? '')}" style="${filmOf(c, media) ? '' : focusStyle(c.image)}"></div></div>
         ${bigNumber(String(i + 1).padStart(2, '0'))}`,
     });
   }).join(''));
@@ -132,7 +132,7 @@ export function initStory(track, layer, { lm, media, note }) {
     // The chapter left behind goes back to its still picture.
     if (index >= 0 && index !== i) {
       const old = chapters[index];
-      $('.story-stage', slideOf(index)).innerHTML = `<img src="${esc(still(old))}" alt="${esc(old.image?.alt ?? '')}">`;
+      $('.story-stage', slideOf(index)).innerHTML = `<img src="${esc(still(old))}" alt="${esc(old.image?.alt ?? '')}" style="${filmOf(old, media) ? '' : focusStyle(old.image)}">`;
       $$('.sentence', slideOf(index)).forEach((s) => s.classList.remove('current', 'spoken'));
     }
     index = i;

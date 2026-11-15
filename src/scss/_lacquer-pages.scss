@@ -1,0 +1,123 @@
+// ===========================================================================
+// Thirty-second round: the other pages in the colours of the home page
+// ---------------------------------------------------------------------------
+// The home page has been in the colours of Vietnamese lacquer since the twenty-second round; the city and landmark
+// pages, Discover and My trip kept Google's blue, its pills and its round corners in their frame (the app bar, the
+// buttons and chips, the cards, the maps), round slides that were already lacquer. Now every page shares the home
+// page's tokens (_lacquer-ui.scss sets them on body, no longer only on the home page's) and its shapes: flat tablets
+// with corners barely rounded, son red for the main actions and what is switched on, gold for focus and for what is
+// chosen, titles in Be Vietnam Pro. And a few Vietnamese touches, light as in the home page's panel: the drum's star
+// before the site's name in the app bar and a gold line under the bar; a faint drum face turning behind the heads
+// of Discover and My trip, two Lạc birds beside their titles, and a line with the drum's star between their parts.
+// ===========================================================================
+
+// ---------- Bootstrap's own colours follow the tokens ----------
+body {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--on-surface);
+  --bs-border-color: var(--outline-variant);
+  --bs-secondary-color: var(--on-surface-variant);
+  --bs-secondary-bg: var(--surface-1);
+  --bs-tertiary-bg: var(--surface-1);
+  --bs-emphasis-color: var(--on-surface);
+}
+.form-select, .form-control { border-radius: 3px; background-color: var(--panel); color: var(--on-surface); border-color: var(--outline); }
+.chip[aria-pressed="true"], .chip.selected { background: var(--son); border-color: transparent; color: var(--son-ink); }
+.trip-count { border-radius: 3px; background: var(--son); color: var(--son-ink); }
+.save-btn[aria-pressed="true"] .ms { color: var(--son); }
+[data-bs-theme="dark"] .save-btn[aria-pressed="true"] .ms { color: #ef9a8f; }
+.proto-note { border-radius: 3px; }
+
+// ---------- The app bar: a flat tablet, the drum's star before the name, a gold line along the bottom ----------
+.appbar { background: var(--panel); border-bottom: 1px solid var(--outline-variant); box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--frame) 75%, transparent);
+  .brand { font-family: var(--display); font-weight: 700; letter-spacing: -.015em;
+    &::before { content: ""; flex: none; width: 20px; height: 20px; background: var(--primary);
+      -webkit-mask: $drum-star center / contain no-repeat; mask: $drum-star center / contain no-repeat; } }
+  .home-link { border-radius: 3px; font-family: var(--display); }
+  .btn-m, .lm-tabs .m-tab { border-radius: 3px; }
+  .lm-tabs .m-tab { font-family: var(--display); }
+  .discover-link[aria-current="page"], .lm-tabs .m-tab.active, .trip-link[aria-current="page"] { background: var(--son); color: var(--son-ink);
+    &:hover { background: color-mix(in srgb, var(--son) 86%, #000); color: var(--son-ink); } }
+  .icon-btn:focus-visible, .btn-m:focus-visible, .home-link:focus-visible, .m-tab:focus-visible { outline: 2px solid var(--frame); outline-offset: 2px; }
+  .dropdown-menu { border-radius: 4px; border-top: 2px solid var(--frame); background: var(--panel); }
+  .dropdown-item { &:hover, &:focus { background: var(--surface-1); color: var(--primary); } }
+}
+.lm-tabs-page { background: color-mix(in srgb, var(--panel) 94%, transparent); }
+
+// ---------- The heads of Discover and My trip: a faint drum, Lạc birds by the title ----------
+.page-head { position: relative; overflow: hidden;
+  > :not(.panel-drum) { position: relative; z-index: 1; }
+  h1 { display: flex; align-items: center; gap: 1rem; font-family: var(--display); font-weight: 800; letter-spacing: -.03em; }
+  .panel-drum { right: -90px; top: -150px; }
+}
+.discover-head { padding-top: .5rem; }
+// a rule with the drum's star in the middle, between the parts of a page
+.star-rule { height: 14px; margin: 0 0 2rem; border: 0; opacity: 1;
+  background: linear-gradient(90deg, transparent, var(--outline-variant) 10%, var(--outline-variant) 47%, transparent 47%, transparent 53%, var(--outline-variant) 53%, var(--outline-variant) 90%, transparent) center / 100% 1px no-repeat,
+    $drum-star-gold center / 13px 13px no-repeat; }
+.panel .star-rule { margin: .25rem 1.5rem 0; }
+:is(.discover-section, .panel-section) h2, .discover-card h2 { font-family: var(--display); font-weight: 700; letter-spacing: -.015em; }
+
+// ---------- Discover ----------
+.discover-card { border-radius: 4px; background: var(--panel); border-top: 2px solid var(--frame);
+  h2 .ms { color: var(--primary); } }
+.chip-option {
+  > span { border-radius: 3px; background: transparent; border-color: var(--outline-variant); color: var(--on-surface); }
+  input:checked + span { background: var(--son); border-color: transparent; color: var(--son-ink); }
+  input:focus-visible + span { outline: 2px solid var(--frame); }
+}
+.browse-bar { background: var(--bg); }
+.place-card { border-radius: 4px; background: var(--panel); transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgb(0 0 0 / .16); }
+  h3 { font-family: var(--display); font-weight: 700; }
+  .pick-badge { border-radius: 2px; background: rgb(21 16 12 / .82); font-family: var(--display); .ms { color: #e6c47c; } }
+  .tags .tag { border-radius: 2px; }
+}
+.reasons .ms { color: var(--open); }
+.empty-note { border-radius: 4px; }
+.season-badge { border-radius: 3px; }
+.tag { border-radius: 2px; }
+.glance li { border-radius: 3px; }
+
+// ---------- My trip ----------
+.split .panel { background: var(--panel); }
+.trip-card { border-radius: 4px; background: var(--panel);
+  &.editing { border-color: var(--frame); box-shadow: 0 0 0 1px var(--frame); }
+  h3 { font-family: var(--display); font-weight: 700; } }
+.trip-thumb img { border-radius: 3px; }
+.trip-num { background: var(--son); color: var(--son-ink); box-shadow: 0 0 0 2px var(--panel); font-family: var(--display); }
+.trip-day-title { font-family: var(--display); }
+.past-badge, .trip-warn { border-radius: 3px; }
+// numbered pins for the planned visits on the map: son red; saved, not planned: lacquer with the gold heart
+.trip-pin { border-color: #f3e6c8; background: #a8241c; font-family: var(--display);
+  &.saved { background: #15100c; color: #e6c47c; border-color: #e6c47c; } }
+.trip-toast { border-radius: 3px; background: #1f1610; color: #f1e7d6; border-top: 2px solid #c8a24c;
+  .ms { color: #e6c47c; } a, button { color: #e6c47c; } }
+
+// ---------- Maps (Leaflet): flat tablets in the page's colours ----------
+.leaflet-bar { border-radius: 3px !important; }
+.leaflet-bar a { background: var(--panel) !important; color: var(--on-surface) !important; border-bottom-color: var(--outline-variant) !important;
+  &:hover { background: var(--surface-1) !important; } }
+.leaflet-popup-content-wrapper { border-radius: 4px; border-top: 2px solid #c8a24c; }
+.map-switch { border-radius: 3px; background: var(--panel);
+  button[aria-pressed="true"] { background: var(--son); color: var(--son-ink); } }
+
+// ---------- The slides: the last blues ----------
+// cards on the slides used Google's blue for their links and icons: gold on dark cards, son on light ones
+.slide .s-card:not(.s-list) { --primary: #e6c47c; }
+:root:not([data-bs-theme="dark"]) { .s-sand, .slide.tone-dark .s-card:not(.s-list) { --primary: #8c1c14; } }
+[data-bs-theme="dark"] .s-sand { --primary: #e6c47c; }
+// the story player: lacquer with a gold play button
+.playerbar { border-radius: 4px; background: rgb(21 16 12 / .86); color: #f1e7d6;
+  .icon-btn { color: #f1e7d6; &[aria-pressed="true"] { background: rgb(230 196 124 / .2); color: #e6c47c; } }
+  .play { background: #e6c47c; color: #1a120d; &:hover { background: #f3dca6; } }
+  .bar div { background: #e6c47c; }
+  select { border-radius: 3px; background: #2a1d15; color: #f1e7d6; } }
+// the kinds of story: history in son (gold on dark), legends in plum, culture in bronze
+.type-history { color: #8c1c14; } .type-culture { color: #7a5612; }
+[data-bs-theme="dark"] { .type-history { color: #e6c47c; } .type-culture { color: #e2b77a; } }
+.slide.tone-dark { .type-history { color: #e6c47c; } .type-culture { color: #e2b77a; } }
+:root:not([data-bs-theme="dark"]) .slide.tone-dark .chapter-card { .type-history { color: #8c1c14; } .type-culture { color: #7a5612; } }
+.vcard:focus-visible { outline-color: #e6c47c; }
+// the blurred photo behind the slides tinted them navy or violet under a blue sky: it is warmed to the lacquer's brown
+.s-bg, .deck-bg > i { filter: blur(26px) saturate(.4) sepia(.5); }

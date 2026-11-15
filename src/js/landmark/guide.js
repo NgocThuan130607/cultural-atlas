@@ -53,7 +53,7 @@ export function initGuide(track, layer, { lm, city, media }) {
           ${hours.notes ? `<p class="t-body-s muted mt-3 mb-0">${esc(hours.notes)}</p>` : ''}
         </div>
         </div>
-        ${photo(esc(imageSrc(second, media)), esc(second.alt ?? ''), creditHTML(second, media))}
+        ${photo(esc(imageSrc(second, media)), esc(second.alt ?? ''), creditHTML(second, media), '', second)}
         <div class="s-card" data-reveal data-drift="1.4" style="--d:3">
           <h3 class="s-card-title">${icon('confirmation_number')}Tickets</h3>
           <p>${esc(g.price)}</p>
@@ -85,7 +85,7 @@ export function initGuide(track, layer, { lm, city, media }) {
         ${titleFrame(`
           <p class="kicker">Be a good guest</p>
           <h2 id="etq-title" class="s-title-m mb-0">Etiquette</h2>`)}
-        ${photo(esc(imageSrc(third, media)), esc(third.alt ?? ''), creditHTML(third, media))}
+        ${photo(esc(imageSrc(third, media)), esc(third.alt ?? ''), creditHTML(third, media), '', third)}
         <div class="s-card etq-panel" data-reveal data-drift style="--d:2">
           <div>
             <h3 class="s-card-title">Do</h3>

@@ -1,0 +1,343 @@
+// ===========================================================================
+// The home page in the colours of Vietnamese lacquer (twenty-second round, made plainer in the twenty-third)
+// ---------------------------------------------------------------------------
+// The slides of the city and landmark pages speak the language of lacquer (sơn mài) and the Đông Sơn bronze
+// drums. The home page's own frame (search, the panel, the buttons, the landmark strip, Through time) looked like
+// any map site, in Google's blue and round pills; this layer gives it the same colours, and keeps the ornament to
+// two places, on and round the globe:
+// - colours: flat giấy dó cream panels in the light theme, flat lacquer black in the dark one; son red for the
+//   main actions and what is switched on, gold for what is chosen, for focus and for the line along the top of
+//   the panel; titles in Be Vietnam Pro, the type of the slides;
+// - shapes: flat tablets with corners barely rounded; no inlaid lines, frames or corner pieces (they made the
+//   page busy and the panel look machine-made, twenty-third round);
+// - ornaments: the drum's 14-ray star on the city pins (globe.js) and as the brand mark, and two faint rings of
+//   the drum round the globe (drum-halo.js).
+// It was scoped to the home page (body.earth) at first; since the thirty-second round its colours and buttons are
+// every page's (body), with the other pages' own parts in _lacquer-pages.scss.
+// ===========================================================================
+
+// ---------- Tokens ----------
+body {
+  --bg: #f3ecdd;
+  --surface: #fbf6ec;
+  --surface-1: #f2e8d5;
+  --surface-2: #e8dcc5;
+  --on-surface: #1f1710;
+  --on-surface-variant: #5b4e40;
+  --outline: #8a7a62;
+  --outline-variant: #dccdb2;
+  --primary: #8c1c14;            // son red: accents, links, icons
+  --on-primary: #fbf3e4;
+  --primary-container: #efdcae;  // gold leaf, pale: what is chosen
+  --on-primary-container: #3d2a0c;
+  --frame: #b8892f;              // gold: focus, and the line along the top of the panel
+  --panel: #fbf6ec;
+  --bs-link-color: #8c1c14;
+  --bs-link-color-rgb: 140, 28, 20;
+  --bs-link-hover-color: #6d150f;
+  --bs-link-hover-color-rgb: 109, 21, 15;
+}
+[data-bs-theme="dark"] body {
+  --bg: #0f0b08;
+  --surface: #1a130e;
+  --surface-1: #251b14;
+  --surface-2: #2f231a;
+  --on-surface: #f1e7d6;
+  --on-surface-variant: #cdbfa8;
+  --outline: #8f7d63;
+  --outline-variant: #3a2c20;
+  --son: #b3302a;                // a deeper son than on the slides, so cream text on it stays clear (5.6:1)
+  --primary: #e6c47c;            // gold: accents, links, icons
+  --on-primary: #1a120d;
+  --primary-container: #c8a24c;
+  --on-primary-container: #15100c;
+  --frame: #e6c47c;
+  --panel: #1a130e;
+  --bs-link-color: #e6c47c;
+  --bs-link-color-rgb: 230, 196, 124;
+  --bs-link-hover-color: #f3dca6;
+  --bs-link-hover-color-rgb: 243, 220, 166;
+}
+
+// The drum's star, in the colour of the element (a mask)
+@mixin star { -webkit-mask: $drum-star center / contain no-repeat; mask: $drum-star center / contain no-repeat; }
+// A round button on a photo or over the globe: plain lacquer
+@mixin dark-round {
+  border-radius: 50%; background: rgb(21 16 12 / .72); color: #f3e6c8; backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgb(0 0 0 / .35);
+  &:hover { background: rgb(21 16 12 / .9); color: #fff; }
+}
+
+body {
+  // ---------- Buttons ----------
+  .btn-m { border-radius: 3px; }
+  .btn-filled { background: var(--son); color: var(--son-ink); border-color: transparent;
+    &:hover { background: color-mix(in srgb, var(--son) 86%, #000); color: var(--son-ink); box-shadow: 0 2px 6px rgb(0 0 0 / .25); } }
+  .btn-tonal { background: var(--primary-container); color: var(--on-primary-container);
+    &:hover { color: var(--on-primary-container); background: color-mix(in srgb, var(--primary-container) 90%, #000); } }
+  .btn-outlined { border-color: var(--outline); color: var(--primary);
+    &:hover { background: color-mix(in srgb, var(--frame) 12%, transparent); color: var(--primary); } }
+  .btn-text { color: var(--primary); &:hover { color: var(--primary); } }
+  :is(.btn-m, .icon-btn, .chip, .vcard, .place-row, .set-switch button):focus-visible { outline: 2px solid var(--frame); outline-offset: 2px; }
+  .chip { border-radius: 3px; background: transparent; border-color: var(--outline-variant); color: var(--on-surface);
+    &:hover { background: var(--surface-1); } }
+}
+
+body.earth {
+
+  // ---------- Panels: flat, like a sheet of paper or a lacquered board ----------
+  .floating { background: var(--panel); color: var(--on-surface); }
+  .searchbar { border-radius: 4px;
+    .brand-mark { flex: none; width: 20px; height: 20px; margin: 0 .25rem 0 .125rem; background: var(--primary); @include star; } }
+  .search-results { border-radius: 4px;
+    li[aria-selected="true"], li:hover { background: var(--surface-1); }
+    .ms { color: var(--primary); } }
+
+  // The panel on the left: one fine gold line along its top, and nothing else
+  .kcard { border-top: 2px solid var(--frame); border-radius: 4px; }
+  .intro-kicker { color: var(--primary); font-weight: 600; font-size: .9375rem; letter-spacing: 0; }
+  .intro-title, .kcard-title { font-family: var(--display); font-weight: 800; letter-spacing: -.025em; }
+  .list-section, .city-row .city-name { font-family: var(--display); font-weight: 700; letter-spacing: -.015em; }
+  .list-heading { color: var(--primary); font-weight: 600; }
+  .kcard .t-label .ms, .kcard-meta .ms { color: var(--primary); }
+  .kc-lead { font-family: var(--display); font-weight: 500; font-size: 1.125rem; line-height: 1.5; }
+  .place-row {
+    .thumb { border-radius: 3px; }
+    .t-title-s { font-family: var(--display); font-weight: 600; font-size: 1rem; }
+    &:hover, &:focus-visible { background: var(--surface-1); }
+  }
+  .city-row::before { border-radius: 0; background: var(--primary); }
+  .icon-btn.on-image { @include dark-round; }
+  .kcard-scroll { scrollbar-width: thin; scrollbar-color: var(--outline-variant) transparent; }
+
+  // ---------- Buttons over the globe ----------
+  .set-switch { border-radius: 3px;
+    button { color: var(--on-surface-variant); &:hover { background: var(--surface-1); }
+      &[aria-pressed="true"] { background: var(--son); color: var(--son-ink); }
+      & + button { border-left: 1px solid var(--outline-variant); } } }
+  .year-btn { border-radius: 3px; background: var(--panel);
+    .ms { color: var(--primary); }
+    &:hover { background: var(--surface-1); }
+    &[aria-pressed="true"] { background: var(--son); color: var(--son-ink); .ms { color: inherit; } } }
+  .trip-count { min-width: 18px; height: 18px; padding: 0 5px; border-radius: 3px; line-height: 18px; background: var(--son); color: var(--son-ink); }
+  .icon-btn.solo { background: var(--panel); color: var(--on-surface); &:hover { background: var(--surface-1); } }
+  .earth-controls .group { border-radius: 3px;
+    .icon-btn + .icon-btn { border-top: 1px solid var(--outline-variant); } }
+  .globe-hint {
+    .icon-btn { @include dark-round; }
+    .hint-text { border-radius: 3px; background: rgb(21 16 12 / .72); color: #f3eadb; }
+  }
+
+  // ---------- The landmark strip: the name on a lacquer-dark shade ----------
+  .vcard { border-radius: 3px; background: #15100c;
+    span { background: linear-gradient(rgb(21 16 12 / 0), rgb(21 16 12 / .72) 1.4rem, rgb(21 16 12 / .9)); } // dark from the first line of a two-line name
+    strong { font-family: var(--display); font-weight: 600; font-size: .875rem; letter-spacing: -.005em; }
+    small { color: #e8d9bd; opacity: 1; }
+    &:focus-visible { outline: 2px solid #e6c47c; outline-offset: 2px; } }
+
+  // ---------- Through time ----------
+  .worldbar { border-radius: 4px; }
+  .wb-num { font-family: var(--display); font-weight: 800; letter-spacing: -.03em; }
+  .wb-title { font-family: var(--display); font-weight: 600; }
+  .wb-play { background: var(--son); color: var(--son-ink); &:hover { background: color-mix(in srgb, var(--son) 86%, #000); } }
+  .ycard { border-radius: 4px; background: rgb(21 16 12 / .82);
+    img { border-radius: 2px; }
+    strong { font-family: var(--display); }
+    &.is-event { background: color-mix(in srgb, #a8241c 94%, transparent); box-shadow: 0 4px 14px rgb(0 0 0 / .4); } }
+  .ycard-lines line { stroke: rgb(230 196 124 / .65); }
+
+  // ---------- The welcome dialog ----------
+  .welcome { border-radius: 6px; background: var(--panel); color: var(--on-surface); border-top: 2px solid var(--frame);
+    .welcome-mark { display: inline-block; width: 40px; height: 40px; background: var(--primary); @include star; }
+    h2 { font-family: var(--display); font-weight: 700; letter-spacing: -.02em; }
+  }
+  .welcome-steps li { border-radius: 3px; background: var(--surface-1);
+    strong { font-family: var(--display); } .ms { color: var(--primary); } }
+  .welcome-time { border: 1px solid var(--outline-variant); border-radius: 3px; background: var(--surface-1);
+    h3 { font-family: var(--display); } .welcome-time-icon { color: var(--primary); } }
+
+  // ---------- The 2D map (when the globe can't run): the same star pins ----------
+  .flat-city { font: 600 15px/1 var(--display); color: #f6ecd8;
+    text-shadow: 0 0 3px #15100c, 0 0 3px #15100c, 0 0 6px rgb(21 16 12 / .85);
+    i { width: 20px; height: 20px; border: 0; background: $drum-star-gold center / 15px 15px no-repeat, #15100c;
+      box-shadow: 0 0 0 1.5px #c8a24c, 0 1px 4px rgb(0 0 0 / .6); }
+    &:hover i, &.hover i, &.pulse i { background: $drum-star-son center / 15px 15px no-repeat, #a8241c; box-shadow: 0 0 0 1.5px #f3d27a, 0 1px 4px rgb(0 0 0 / .6); }
+  }
+  .flat-city:hover > span, .flat-city.hover > span { background: rgb(168 36 28 / .95); box-shadow: 0 0 0 5px rgb(168 36 28 / .95); }
+  .leaflet-tooltip.flat-label { font-family: var(--display); }
+}
+// The shade over the left of the globe, in lacquer brown rather than plain black
+@media (min-width: 768px) {
+  body.earth::before { background: linear-gradient(90deg, rgb(15 10 6 / .62) 0, rgb(15 10 6 / .38) calc(var(--panel-w) + 24px), transparent calc(var(--panel-w) + 340px)); }
+}
+
+// ---------- The rings of the drum round the globe (src/js/drum-halo.js) ----------
+.drum-halo { position: fixed; left: 0; top: 0; z-index: 4; pointer-events: none; visibility: hidden; color: #c8a24c;
+  transform-origin: 50% 50%; will-change: transform, opacity;
+  .halo-in { position: absolute; inset: 0; opacity: .22; }
+  .ring { position: absolute; inset: 0; }
+  svg { display: block; width: 100%; height: 100%; overflow: visible; fill: none; stroke: currentColor; }
+  .turn { animation: halo-turn 360s linear infinite; }
+}
+@keyframes halo-turn { to { transform: rotate(360deg); } }
+.flat-mode .drum-halo, .diving .drum-halo { display: none; }
+@media (max-width: 767.98px) {
+  // the hint used to sit behind the row of buttons at the top of a phone's screen: it goes under them
+  body.earth .globe-hint { top: 124px; }
+  .drum-halo .halo-in { opacity: .16; }
+}
+
+// ===========================================================================
+// Twenty-fourth round: a left panel less like a standard list
+// ---------------------------------------------------------------------------
+// - The places are stops along a gold thread (the thread the Lạc bird pulls across the globe): each a round photo
+//   like a coin, its name large, and the time there now with a sun or moon. Resting the mouse on a stop turns the
+//   globe to it (globe.js).
+// - A city's card is a magazine cover: the photo fills the top, the name is set large over it, and the landmarks
+//   follow as photo cards side by side.
+// ===========================================================================
+body.earth { --thread: color-mix(in srgb, #c8a24c 80%, transparent); }
+[data-bs-theme="dark"] body.earth { --thread: color-mix(in srgb, #e6c47c 55%, transparent); }
+
+body.earth .journey { position: relative; padding: .5rem 0 1rem;
+  .stop { position: relative; }
+  // the thread runs through the coins' centres, from the first stop to the last
+  .stop::before { content: ""; position: absolute; left: calc(1.75rem + 31px); top: 0; bottom: 0; width: 2px; background: var(--thread); }
+  .stop:first-child::before { top: 50%; }
+  .stop:last-child::before { bottom: 50%; }
+  .stop:only-child::before { display: none; }
+  .city-row { gap: 1.125rem; padding: .625rem 1.75rem; background: none;
+    &::before { display: none; }
+    .stop-coin { position: relative; z-index: 1; flex: none; width: 64px; height: 64px; padding: 3px; border-radius: 50%;
+      background: var(--panel); box-shadow: 0 0 0 1.5px var(--thread); transition: transform .25s var(--ease), box-shadow .25s; }
+    .thumb { display: block; width: 100%; height: 100%; border-radius: 50%; }
+    .city-name { font-size: 1.375rem; transition: color .2s; }
+    .stop-time { display: inline-flex; align-items: center; gap: .25rem; flex: none; font-size: .8125rem; color: var(--on-surface-variant);
+      font-variant-numeric: tabular-nums; white-space: nowrap; .ms { font-size: 1rem; color: var(--primary); } }
+    &:hover, &:focus-visible { background: none;
+      .stop-coin { transform: scale(1.08); box-shadow: 0 0 0 2px var(--son), 0 4px 14px rgb(0 0 0 / .22); }
+      .city-name { color: var(--primary); } }
+  }
+}
+
+// A city's card as a magazine cover
+body.earth .kc-cover { aspect-ratio: 1.5;
+  &::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgb(15 10 6 / .4) 0, transparent 24%, transparent 42%, rgb(15 10 6 / .88) 100%); }
+  .kcard-hero-actions, .kcard-credit { z-index: 2; }
+  .kc-cover-text { position: absolute; left: 1.75rem; right: 1.75rem; bottom: 1.75rem; z-index: 2; }
+  .kcard-title { color: #fff; font-size: clamp(2.75rem, 4vw, 3.75rem); line-height: 1; text-shadow: 0 2px 18px rgb(0 0 0 / .35); }
+  .kc-cover-sub { margin-top: .5rem; font-family: var(--display); font-weight: 500; font-size: 1.0625rem; color: #f1e6d0; }
+}
+body.earth .kc-cover + .kcard-body { padding-top: 1.125rem;
+  .kcard-meta { margin-top: 0; } }
+body.earth .lm-heading { padding: 1rem 1.75rem .625rem; border-top: 1px solid var(--outline-variant); }
+body.earth .lm-strip { display: flex; gap: .875rem; overflow-x: auto; padding: .25rem 1.75rem 1.5rem; scroll-snap-type: x mandatory; scrollbar-width: thin;
+  scrollbar-color: var(--outline-variant) transparent; }
+body.earth .lm-card { flex: 0 0 min(220px, 72%); scroll-snap-align: start; display: flex; flex-direction: column; padding: 0; border: 0;
+  background: none; color: inherit; text-align: left;
+  img, .lm-card-empty { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; background: var(--surface-2);
+    transition: transform .3s var(--ease), box-shadow .3s; }
+  .lm-card-empty { display: grid; place-items: center; background: transparent; border: 1px dashed var(--outline); color: var(--on-surface-variant);
+    .ms { font-size: 1.75rem; } }
+  .lm-card-text { display: block; padding: .625rem .125rem 0; }
+  strong { display: block; font-family: var(--display); font-weight: 600; font-size: 1rem; line-height: 1.3; transition: color .2s; }
+  small { display: block; margin-top: .125rem; font-size: .8125rem; color: var(--on-surface-variant); }
+  .status { display: flex; }
+  &:hover:not(.planned) { img { transform: translateY(-3px); box-shadow: 0 8px 18px rgb(0 0 0 / .22); } strong { color: var(--primary); } }
+  &:focus-visible { outline: 2px solid var(--frame); outline-offset: 3px; }
+  &.planned { opacity: .72; cursor: default; }
+}
+@media (max-width: 767.98px) {
+  body.earth .kc-cover { aspect-ratio: 16 / 10; .kcard-title { font-size: 2.25rem; } .kc-cover-text { bottom: 1.25rem; } }
+  body.earth .journey .stop-coin { width: 52px; height: 52px; }
+  body.earth .journey .stop::before { left: calc(1.75rem + 25px); }
+}
+
+// Twenty-ninth round: how to use Through time, a small box under the title of the world card (globe.js)
+body.earth .time-guide { margin-top: 1rem; border: 1px solid var(--outline-variant); border-radius: 4px; background: var(--surface-1);
+  summary { display: flex; align-items: center; gap: .5rem; padding: .625rem .875rem; cursor: pointer; list-style: none;
+    font-family: var(--display); font-weight: 600; font-size: .9375rem; color: var(--primary);
+    &::-webkit-details-marker { display: none; }
+    .ms { font-size: 1.125rem; }
+    .tg-chev { margin-left: auto; transition: transform .2s var(--ease); }
+    &:focus-visible { outline: 2px solid var(--frame); outline-offset: 2px; } }
+  &[open] .tg-chev { transform: rotate(180deg); }
+  ol { display: grid; gap: .5rem; margin: 0; padding: 0 .875rem .875rem 2.25rem; font-size: .9375rem; line-height: 1.5; color: var(--on-surface); }
+  li::marker { color: var(--primary); font-family: var(--display); font-weight: 700; }
+  strong { font-family: var(--display); font-weight: 600; }
+}
+
+// Thirtieth round: a small book by each city in the Through time list (clicking opens its book)
+body.earth .world-name .world-book { align-self: center; font-size: 1rem; color: var(--primary); opacity: .8; }
+
+// ---------------------------------------------------------------------------
+// Thirty-first round: Vietnamese touches in the left panel, light enough not to crowd it:
+// - the face of a Đông Sơn drum in hairlines, faint, half hidden past the top right corner, turning very slowly;
+// - two Lạc birds of the drum flying beside each section's name (World · 5, Vietnam · 34);
+// - between the panel's head and its list, a line with the drum's star in the middle instead of a plain rule.
+// ---------------------------------------------------------------------------
+.intro-lead { position: relative; overflow: hidden;
+  > :not(.panel-drum) { position: relative; z-index: 1; } }
+.panel-drum { position: absolute; z-index: 0; right: -120px; top: -118px; width: 340px; aspect-ratio: 1; color: var(--primary); opacity: .1;
+  pointer-events: none; animation: halo-turn 300s linear infinite;
+  svg { display: block; width: 100%; height: 100%; } }
+[data-bs-theme="dark"] .panel-drum { opacity: .13; }
+body.earth .list-section { display: flex; align-items: center; gap: .875rem; }
+.lac-flight { display: inline-flex; align-items: center; gap: .125rem; color: var(--primary); opacity: .6;
+  svg { width: 34px; height: 34px; }
+  svg + svg { width: 24px; height: 24px; margin-top: -12px; } }
+body.earth .kcard .divider { height: 14px; margin: .5rem 1.75rem; border: 0; opacity: 1;
+  background: linear-gradient(90deg, transparent, var(--outline-variant) 12%, var(--outline-variant) 45%, transparent 45%, transparent 55%, var(--outline-variant) 55%, var(--outline-variant) 88%, transparent) center / 100% 1px no-repeat,
+    $drum-star-gold center / 13px 13px no-repeat; }
+
+// ---------------------------------------------------------------------------
+// Thirty-second round: the city guide, a large card easy to spot (it was a small red button): a gold frame, a
+// round gold seal with the drum's star on the left, the name and what is inside, and a chevron. The mouse makes
+// the frame glow, the seal turn half way round and the chevron step forward.
+// ---------------------------------------------------------------------------
+body.earth .guide-seal { position: relative; display: flex; align-items: center; gap: 1rem; margin-top: 1.25rem; padding: .875rem 1rem .875rem .875rem;
+  border: 1.5px solid var(--frame); border-radius: 4px; background: color-mix(in srgb, var(--frame) 9%, var(--panel)); color: var(--on-surface);
+  text-decoration: none; overflow: hidden; transition: box-shadow .3s var(--ease), transform .3s var(--ease), background-color .3s;
+  // a soft gold sheen that crosses the card on hover
+  &::after { content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; pointer-events: none; opacity: 0;
+    background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--frame) 30%, transparent), transparent); transform: skewX(-18deg); }
+  .guide-seal-mark { position: relative; flex: none; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #e9c983, #b88d3e 55%, #8a6426); color: #4a2f10;
+    box-shadow: inset 0 0 0 2px rgb(255 240 200 / .35), 0 0 0 3px var(--panel), 0 0 0 4px color-mix(in srgb, var(--frame) 70%, transparent), 0 3px 8px rgb(0 0 0 / .25);
+    transition: transform .6s var(--ease);
+    .drum-centre { display: block; width: 100%; height: 100%; } // the centre of a Đông Sơn drum (motifs.js, thirty-third round)
+    .dc-star { fill: #f8e9c2; stroke: #4a2f10; stroke-width: .6; } }
+  .guide-seal-text { flex: 1; min-width: 0; display: grid; gap: .125rem; }
+  strong { font-family: var(--display); font-weight: 700; font-size: 1.1875rem; letter-spacing: -.01em; color: var(--primary); line-height: 1.25; }
+  small { font-size: .875rem; color: var(--on-surface-variant); }
+  .guide-seal-go { font-size: 1.75rem; color: var(--primary); transition: transform .3s var(--ease); }
+  &:hover, &:focus-visible { color: var(--on-surface); transform: translateY(-2px); background: color-mix(in srgb, var(--frame) 15%, var(--panel));
+    box-shadow: 0 0 0 1px var(--frame), 0 0 18px color-mix(in srgb, var(--frame) 45%, transparent), 0 8px 18px rgb(0 0 0 / .18);
+    &::after { animation: seal-sheen .9s var(--ease) both; }
+    .guide-seal-mark { transform: rotate(180deg); }
+    .guide-seal-go { transform: translateX(4px); } }
+  &:focus-visible { outline: 2px solid var(--frame); outline-offset: 3px; }
+  &:active { transform: translateY(0); }
+}
+@keyframes seal-sheen { 0% { left: -40%; opacity: 1; } 100% { left: 120%; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  body.earth .guide-seal { &, .guide-seal-mark, .guide-seal-go { transition: none; }
+    &:hover, &:focus-visible { transform: none; &::after { animation: none; } .guide-seal-mark { transform: none; } } }
+}
+
+// Thirty-second round: the welcome shrinks into the "?" button (home-ui.js); the shade behind it fades as it goes,
+// and the button glows gold twice so the eye follows it there.
+body.earth .welcome { transform-origin: 50% 50%;
+  &::backdrop { transition: opacity .55s ease; }
+  &.closing::backdrop { opacity: 0; } }
+body.earth .help-btn.help-glow { animation: help-glow 1.5s var(--ease) 2; }
+@keyframes help-glow {
+  0% { box-shadow: 0 0 0 0 rgb(230 196 124 / .85); color: var(--primary); }
+  60% { box-shadow: 0 0 0 12px rgb(230 196 124 / 0); color: var(--primary); }
+  100% { box-shadow: 0 0 0 0 rgb(230 196 124 / 0); }
+}
+
+// Thirty-third round: the landmark strip sat against the panel with all the spare room on its right; the cards are
+// now centred in the space between the panel and the zoom buttons, the same gap on both sides. When there are more
+// cards than fit (Vietnam), the strip starts at the left and scrolls, as before ("safe").
+body.earth .voyager { justify-content: safe center; }

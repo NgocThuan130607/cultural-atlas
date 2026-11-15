@@ -67,7 +67,7 @@ export function createMap(el, { lat, lon, zoom = 15, style = 'street', zoomButto
   return map;
 }
 
-const PIN_SVG = '<svg viewBox="0 0 36 46" aria-hidden="true"><path d="M18 0C8.06 0 0 8.06 0 18c0 12.6 15.3 26.2 16 26.8a3 3 0 0 0 4 0c.7-.6 16-14.2 16-26.8C36 8.06 27.94 0 18 0z" fill="#d93025"/><path d="M18 1.5C8.9 1.5 1.5 8.9 1.5 18" stroke="rgba(255,255,255,.25)" fill="none"/></svg>';
+const PIN_SVG = '<svg viewBox="0 0 36 46" aria-hidden="true"><path d="M18 0C8.06 0 0 8.06 0 18c0 12.6 15.3 26.2 16 26.8a3 3 0 0 0 4 0c.7-.6 16-14.2 16-26.8C36 8.06 27.94 0 18 0z" fill="#a8241c"/><path d="M18 1.5C8.9 1.5 1.5 8.9 1.5 18" stroke="rgba(255,255,255,.25)" fill="none"/></svg>';
 
 export function landmarkMarker(lat, lon, name) {
   return L.marker([lat, lon], {

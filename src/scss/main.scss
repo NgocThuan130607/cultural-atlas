@@ -3,7 +3,7 @@
 // Layout idea borrowed from Google Earth: a content panel beside a large viewport.
 // ---------------------------------------------------------------------------
 
-$primary:   #0b57d0;
+$primary:   #8c1c14; // son red (thirty-second round; it was Google's blue)
 $secondary: #444746;
 $success:   #146c2e;
 $danger:    #b3261e;
@@ -13,14 +13,16 @@ $headings-font-family: $font-family-sans-serif;
 $headings-font-weight: 500;
 $body-bg: #ffffff;
 $body-color: #1f1f1f;
-$border-radius: .5rem;
-$border-radius-lg: 1rem;
+$border-radius: 3px;    // corners barely rounded, as lacquer tablets (thirty-second round)
+$border-radius-lg: 4px;
+$border-radius-sm: 2px;
 $link-decoration: none;
 $enable-shadows: false;
 $btn-font-weight: 500;
 $input-btn-focus-width: .1875rem;
 
 @import "bootstrap/scss/bootstrap";
+@import "ornaments"; // the drum band, the drum star, the seal's wear, the paper's fibres
 
 // ---------- Tokens ----------
 :root:not([data-bs-theme="dark"]) {
@@ -72,10 +74,10 @@ $input-btn-focus-width: .1875rem;
   --elev-1: 0 1px 2px rgba(0, 0, 0, .3), 0 1px 3px 1px rgba(0, 0, 0, .15);
   --elev-2: 0 1px 2px rgba(0, 0, 0, .3), 0 2px 6px 2px rgba(0, 0, 0, .15);
   --elev-3: 0 4px 8px 3px rgba(0, 0, 0, .15), 0 1px 3px rgba(0, 0, 0, .3);
-  --radius-s: 8px;
-  --radius-m: 12px;
-  --radius-l: 16px;
-  --radius-xl: 28px;
+  --radius-s: 3px;  // (thirty-second round: 8, 12, 16 and 28px before)
+  --radius-m: 4px;
+  --radius-l: 4px;
+  --radius-xl: 6px;
   --panel-w: 440px;
   --appbar-h: 64px;
   --ease: cubic-bezier(.2, 0, 0, 1);
@@ -399,37 +401,7 @@ a.status { text-decoration: none; &:hover { text-decoration: underline; } }
 @media (max-width: 991.98px) { .m-tabs { top: var(--appbar-h); } }
 
 // ---------- Time travel ----------
-.era-stage { position: absolute; inset: 0; overflow: hidden;
-  .era-bg { position: absolute; inset: -40px; background: center / cover no-repeat; filter: blur(30px) brightness(.45) saturate(.8); }
-  .era-img { position: absolute; inset: 0 0 96px; width: 100%; height: calc(100% - 96px); object-fit: contain; transition: opacity .45s ease; }
-  .era-year { position: absolute; left: 24px; top: 20px; color: #fff; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 300; letter-spacing: -.02em; text-shadow: 0 2px 16px rgba(0, 0, 0, .5); font-variant-numeric: tabular-nums; }
-}
-.era-stage.dragging .era-img { transition: none; }
-.timebar {
-  position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 3; display: flex; align-items: center; gap: .25rem;
-  background: rgba(32, 33, 36, .82); backdrop-filter: blur(12px); color: #e3e3e3; border-radius: var(--radius-l); padding: .5rem .75rem;
-  .icon-btn { color: #e3e3e3; &:hover { background: rgba(255, 255, 255, .1); } &[aria-pressed="true"] { background: #a8c7fa; color: #062e6f; } }
-  .track { position: relative; flex: 1; padding: 0 .75rem; min-width: 0; }
-  input[type=range] { width: 100%; accent-color: #a8c7fa; height: 24px; cursor: grab; display: block; }
-  .ticks { position: relative; height: 18px; margin: 0 .5rem; }
-  .tick { position: absolute; transform: translateX(-50%); border: 0; background: none; padding: 0 .25rem; color: #9aa0a6; font-size: .6875rem; white-space: nowrap; font-variant-numeric: tabular-nums;
-    &.active { color: #fff; font-weight: 600; }
-    &:hover { color: #fff; }
-  }
-  .compare-selects { display: flex; gap: .5rem; flex: 1; align-items: center; select { background: #3c4043; color: #e3e3e3; border: 0; border-radius: 8px; height: 36px; padding: 0 .5rem; min-width: 0; flex: 1; } }
-}
-@media (max-width: 575.98px) { .timebar .tick:not(.active) { display: none; } } // too narrow for more than the current year
 .viewport-credit { position: absolute; right: 12px; top: 10px; z-index: 3; font-size: .6875rem; color: rgba(255, 255, 255, .75); max-width: 60%; text-align: right; a { color: inherit; text-decoration: underline; } }
-
-.compare { position: absolute; inset: 0 0 96px; --pos: 50%; user-select: none;
-  img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-  .cmp-b { clip-path: inset(0 0 0 var(--pos)); }
-  .cmp-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: #fff; transform: translateX(-50%); pointer-events: none; }
-  .cmp-handle .ms { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; color: #1f1f1f; display: grid; place-items: center; box-shadow: var(--elev-2); font-size: 1.25rem; }
-  .cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
-  .cmp-label { position: absolute; top: 16px; padding: .25rem .625rem; border-radius: var(--radius-s); background: rgba(32, 33, 36, .75); color: #fff; font-size: .8125rem; font-weight: 500; }
-  .cmp-label.left { left: 16px; } .cmp-label.right { right: 16px; }
-}
 
 .era-detail .year { font-size: 2.5rem; font-weight: 300; line-height: 1.1; letter-spacing: -.02em; color: var(--primary); font-variant-numeric: tabular-nums; }
 .era-detail.swap { animation: fade-up .35s var(--ease) both; }
@@ -1019,15 +991,6 @@ $reading-col: calc(640px + 4.5rem);
   a { color: inherit; text-decoration: underline; }
 }
 
-// Time travel: a caption on the big photo, so the picture says which era it is
-.era-caption {
-  position: absolute; left: 20px; top: 16px; z-index: 2; display: flex; flex-direction: column; gap: 2px;
-  max-width: min(60%, 440px); padding: .5rem 1rem .625rem; border-radius: var(--radius-m);
-  background: rgba(20, 22, 26, .55); backdrop-filter: blur(10px); color: #fff;
-  .era-year { position: static; font-size: clamp(1.75rem, 3vw, 2.5rem); line-height: 1.05; text-shadow: none; }
-  .era-cap-title { font-size: .9375rem; font-weight: 500; line-height: 1.35; color: rgba(255, 255, 255, .92); }
-}
-
 // Stories: the chapter heading and transcript sit on the chapter's photo colours
 .story-ambient .transcript .sentence:hover { background: color-mix(in srgb, var(--on-surface) 6%, transparent); }
 
@@ -1144,13 +1107,7 @@ html.slides-snap { scroll-snap-type: y mandatory; }
 // - the band of tangent circles with a dot, from the rings of the Đông Sơn bronze drums;
 // - the 14-ray star from the centre of the drum's face (the timeline marker);
 // - a red seal (con dấu) beside each title, holding the slide's number.
-$drum-band: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M0 .5H14M0 13.5H14M0 7L4.4 4.6M9.6 9.4L14 7'/%3E%3Ccircle cx='7' cy='7' r='3.1'/%3E%3Ccircle cx='7' cy='7' r='1' fill='black' stroke='none'/%3E%3C/svg%3E");
-$drum-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='12,0.4 13.02,7.52 17.03,1.55 14.87,8.4 21.07,4.77 16.14,10 23.31,9.42 16.6,12 23.31,14.58 16.14,14 21.07,19.23 14.87,15.6 17.03,22.45 13.02,16.48 12,23.6 10.98,16.48 6.97,22.45 9.13,15.6 2.93,19.23 7.86,14 0.69,14.58 7.4,12 0.69,9.42 7.86,10 2.93,4.77 9.13,8.4 6.97,1.55 10.98,7.52'/%3E%3Ccircle cx='12' cy='12' r='2.6' fill='white'/%3E%3C/svg%3E");
-$drum-band-v: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='black' stroke-width='1'%3E%3Cpath d='M.5 0V14M13.5 0V14M7 0L4.6 4.4M9.4 9.6L7 14'/%3E%3Ccircle cx='7' cy='7' r='3.1'/%3E%3Ccircle cx='7' cy='7' r='1' fill='black' stroke='none'/%3E%3C/svg%3E");
-// A stamp is never perfectly inked: a fine speckle wears the seal's colour a little.
-$seal-wear: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2.6 2.3'/%3E%3C/filter%3E%3Crect width='60' height='60' filter='url(%23w)'/%3E%3C/svg%3E");
-// The faint fibres of giấy dó behind light slides
-$paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .32' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .12 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23f)'/%3E%3C/svg%3E");
+// (The images themselves are in _ornaments.scss.)
 
 .drum-band { display: block; height: 14px; background: var(--s-orn, var(--gold)); -webkit-mask: $drum-band repeat-x left center / 14px 14px; mask: $drum-band repeat-x left center / 14px 14px; }
 
@@ -1242,7 +1199,6 @@ $paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 .s-media, .s-stage, .s-map { position: relative; z-index: 2; min-height: 0; overflow: hidden; background: #0e0f10; }
 .cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; scale: 1.14; }
 .s-stage .story-stage video, .s-stage .story-stage iframe { height: calc(100% - 88px); }
-.s-media .era-caption { left: 16px; top: 14px; }
 .s-media .s-credit { top: 10px; bottom: auto; }
 .slide .transcript { font-size: 1rem; line-height: 1.7; }
 .slide.tone-dark { .type-history { color: #a8c7fa; } .type-legend { color: #d7aefb; } .type-culture { color: #f2b8b5; } }
@@ -1687,28 +1643,11 @@ html.motif-pointer, html.motif-pointer * { cursor: pointer !important; }
 
 $drum-wm: url("data:image/svg+xml,%3Csvg viewBox=%270 0 100 100%27 xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 stroke=%27black%27 stroke-width=%271%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2750%27 r=%2748%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2750%27 r=%2745.5%27/%3E%0A    %3Ccircle vector-effect=%27non-scaling-stroke%27 cx=%2750%27 cy=%2750%27 r=%2738%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2750%27 r=%2736%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27 cx=%2750%27 cy=%2750%27 r=%2722%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2750%27 r=%2720%27/%3E%0A    %3Cpath vector-effect=%27non-scaling-stroke%27  d=%27M91.8 50L90.4 60.8M90.4 60.8L86.2 70.9M86.2 70.9L79.6 79.6M79.6 79.6L70.9 86.2M70.9 86.2L60.8 90.4M60.8 90.4L50 91.8M50 91.8L39.2 90.4M39.2 90.4L29.1 86.2M29.1 86.2L20.4 79.6M20.4 79.6L13.8 70.9M13.8 70.9L9.6 60.8M9.6 60.8L8.2 50M8.2 50L9.6 39.2M9.6 39.2L13.8 29.1M13.8 29.1L20.4 20.4M20.4 20.4L29.1 13.8M29.1 13.8L39.2 9.6M39.2 9.6L50 8.2M50 8.2L60.8 9.6M60.8 9.6L70.9 13.8M70.9 13.8L79.6 20.4M79.6 20.4L86.2 29.1M86.2 29.1L90.4 39.2M90.4 39.2L91.8 50%27/%3E%0A    %3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2791.8%27 cy=%2750%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2791.8%27 cy=%2750%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2790.4%27 cy=%2760.8%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2790.4%27 cy=%2760.8%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2786.2%27 cy=%2770.9%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2786.2%27 cy=%2770.9%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2779.6%27 cy=%2779.6%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2779.6%27 cy=%2779.6%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2770.9%27 cy=%2786.2%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2770.9%27 cy=%2786.2%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2760.8%27 cy=%2790.4%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2760.8%27 cy=%2790.4%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2791.8%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2791.8%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2739.2%27 cy=%2790.4%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2739.2%27 cy=%2790.4%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2729.1%27 cy=%2786.2%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2729.1%27 cy=%2786.2%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2720.4%27 cy=%2779.6%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2720.4%27 cy=%2779.6%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2713.8%27 cy=%2770.9%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2713.8%27 cy=%2770.9%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%279.6%27 cy=%2760.8%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%279.6%27 cy=%2760.8%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%278.2%27 cy=%2750%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%278.2%27 cy=%2750%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%279.6%27 cy=%2739.2%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%279.6%27 cy=%2739.2%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2713.8%27 cy=%2729.1%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2713.8%27 cy=%2729.1%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2720.4%27 cy=%2720.4%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2720.4%27 cy=%2720.4%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2729.1%27 cy=%2713.8%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2729.1%27 cy=%2713.8%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2739.2%27 cy=%279.6%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2739.2%27 cy=%279.6%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%278.2%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%278.2%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2760.8%27 cy=%279.6%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2760.8%27 cy=%279.6%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2770.9%27 cy=%2713.8%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2770.9%27 cy=%2713.8%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2779.6%27 cy=%2720.4%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2779.6%27 cy=%2720.4%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2786.2%27 cy=%2729.1%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2786.2%27 cy=%2729.1%27 r=%27.7%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2790.4%27 cy=%2739.2%27 r=%272.3%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2790.4%27 cy=%2739.2%27 r=%27.7%27/%3E%0A    %3Cpath vector-effect=%27non-scaling-stroke%27  d=%27M70 50L72 50M69.9 52.2L71.9 52.5M69.5 54.5L71.4 54.9M68.9 56.6L70.8 57.3M68 58.7L69.8 59.5M66.9 60.6L68.6 61.7M65.6 62.5L67.2 63.7M64.1 64.1L65.6 65.6M62.5 65.6L63.7 67.2M60.6 66.9L61.7 68.6M58.7 68L59.5 69.8M56.6 68.9L57.3 70.8M54.5 69.5L54.9 71.4M52.2 69.9L52.5 71.9M50 70L50 72M47.8 69.9L47.5 71.9M45.5 69.5L45.1 71.4M43.4 68.9L42.7 70.8M41.3 68L40.5 69.8M39.4 66.9L38.3 68.6M37.5 65.6L36.3 67.2M35.9 64.1L34.4 65.6M34.4 62.5L32.8 63.7M33.1 60.6L31.4 61.7M32 58.7L30.2 59.5M31.1 56.6L29.2 57.3M30.5 54.5L28.6 54.9M30.1 52.2L28.1 52.5M30 50L28 50M30.1 47.8L28.1 47.5M30.5 45.5L28.6 45.1M31.1 43.4L29.2 42.7M32 41.3L30.2 40.5M33.1 39.4L31.4 38.3M34.4 37.5L32.8 36.3M35.9 35.9L34.4 34.4M37.5 34.4L36.3 32.8M39.4 33.1L38.3 31.4M41.3 32L40.5 30.2M43.4 31.1L42.7 29.2M45.5 30.5L45.1 28.6M47.8 30.1L47.5 28.1M50 30L50 28M52.2 30.1L52.5 28.1M54.5 30.5L54.9 28.6M56.6 31.1L57.3 29.2M58.7 32L59.5 30.2M60.6 33.1L61.7 31.4M62.5 34.4L63.7 32.8M64.1 35.9L65.6 34.4M65.6 37.5L67.2 36.3M66.9 39.4L68.6 38.3M68 41.3L69.8 40.5M68.9 43.4L70.8 42.7M69.5 45.5L71.4 45.1M69.9 47.8L71.9 47.5%27/%3E%0A    %3Cg %3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(90 79 50)%27 d=%27M73 50l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(150 64.5 75.1)%27 d=%27M58.5 75.1l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(210 35.5 75.1)%27 d=%27M29.5 75.1l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(270 21 50)%27 d=%27M15 50l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(330 35.5 24.9)%27 d=%27M29.5 24.9l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3Cpath vector-effect=%27non-scaling-stroke%27 transform=%27rotate(390 64.5 24.9)%27 d=%27M58.5 24.9l3 -1.6l3 1q2 -3 5 -4l-1 3l3 .6l-3 1.4%27 /%3E%3C/g%3E%0A    %3Cpath vector-effect=%27non-scaling-stroke%27  d=%27M50 32L51.3 44.2L57.8 33.8L53.7 45.3L64.1 38.8L55.4 47.4L67.5 46L56 50L67.5 54L55.4 52.6L64.1 61.2L53.7 54.7L57.8 66.2L51.3 55.8L50 68L48.7 55.8L42.2 66.2L46.3 54.7L35.9 61.2L44.6 52.6L32.5 54L44 50L32.5 46L44.6 47.4L35.9 38.8L46.3 45.3L42.2 33.8L48.7 44.2L50 32Z%27/%3E%0A    %3Ccircle vector-effect=%27non-scaling-stroke%27  cx=%2750%27 cy=%2750%27 r=%276%27/%3E%3Ccircle vector-effect=%27non-scaling-stroke%27 cx=%2750%27 cy=%2750%27 r=%273%27/%3E%3C/svg%3E");
 // ---------------------------------------------------------------------------
-// Thirteenth round (2): Time travel photos develop like prints in a darkroom. A new era's photo comes up
-// from a washed-out, sepia, slightly soft print to its true colours, under a film grain that is heavier the
-// older the era (--age, 0 to 1, set by timeline.js). The year rolls like a mechanical counter.
+// Thirteenth round (2): Time travel photos develop like prints in a darkroom. An era's photo comes up from a
+// washed-out, sepia, slightly soft print to its true colours, under a film grain that is heavier the older the
+// era (--age, 0 to 1, set by timeline.js).
 // ---------------------------------------------------------------------------
 $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1.7 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-@keyframes era-develop {
-  0% { filter: brightness(2.1) contrast(.35) sepia(.9) blur(3px); }
-  40% { filter: brightness(1.35) contrast(.75) sepia(.6) blur(1px); }
-  100% { filter: brightness(1) contrast(1) sepia(0) blur(0); }
-}
-@keyframes era-grain {
-  0% { opacity: calc(.3 + var(--age, .5) * .5); }
-  70% { opacity: calc(.12 + var(--age, .5) * .25); }
-  100% { opacity: 0; }
-}
-@keyframes era-grain-shift { 0% { background-position: 0 0; } 25% { background-position: -37px 21px; } 50% { background-position: 23px -41px; } 75% { background-position: -11px -17px; } 100% { background-position: 31px 9px; } }
-.era-stage::after { content: ""; position: absolute; inset: 0 0 96px; z-index: 1; pointer-events: none; opacity: 0;
-  background: $grain; mix-blend-mode: soft-light; }
-.era-stage.developing {
-  .era-img { animation: era-develop 1.6s cubic-bezier(.3, .6, .2, 1) both; }
-  &::after { animation: era-grain 1.6s ease-out both, era-grain-shift .4s steps(4) infinite; }
-}
 // An era's slide develops its photo once, as it arrives
 .era-slide .s-photo::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
   background: $grain; mix-blend-mode: soft-light; transition: opacity 1.8s ease-out .2s; }
@@ -1716,18 +1655,6 @@ $grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width=
 .motion .era-slide:not(.seen) {
   .s-photo img { filter: brightness(2.1) contrast(.35) sepia(.9) blur(3px); }
   .s-photo::before { opacity: calc(.3 + var(--age, .5) * .5); transition: none; }
-}
-
-// The year as a counter: each digit is a column of 0–9 that slides to its new value
-.era-year .odo { display: inline-block; height: 1.05em; overflow: hidden; vertical-align: top; }
-.era-year .odo-col { display: flex; flex-direction: column; transform: translateY(calc(var(--d) * -1.05em));
-  transition: transform .75s cubic-bezier(.2, .8, .2, 1); span { height: 1.05em; line-height: 1.05; } }
-@keyframes year-swap { from { opacity: 0; transform: translateY(.35em); } }
-.era-year.year-swap { animation: year-swap .5s cubic-bezier(.2, .8, .2, 1); }
-@media (prefers-reduced-motion: reduce) {
-  .era-stage.developing .era-img, .era-stage.developing::after { animation: none; }
-  .era-year .odo-col { transition: none; }
-  .era-year.year-swap { animation: none; }
 }
 
 // ---------------------------------------------------------------------------
@@ -1881,35 +1808,28 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
 // Fifteenth round: the Lạc ship on the home page (src/js/ship.js places and turns it every frame), its shadow
 // on the ground, the rings of light where it lands, and the globe hint centred under the globe.
 // ---------------------------------------------------------------------------
-// Sixteenth round: on the 3D globe the ship is a 3D model (ship3d.js) and this drawing only shows on the 2D map
-// and as the copy that flies into the next page; it is bigger and brighter, with a dark edge and a glow.
-.ship { position: fixed; left: 0; top: 0; z-index: 11; width: 120px; pointer-events: none; opacity: 0; will-change: transform;
+// Eighteenth round: the Lạc bird seen from the side, in bronze engraved with gold, with a dark edge and a glow so
+// it reads over bright deserts as well as dark seas. Each wing turns at its shoulder as it beats (--flap, degrees).
+.ship { position: fixed; left: 0; top: 0; z-index: 11; width: 110px; pointer-events: none; opacity: 0; will-change: transform;
   transition: opacity .5s ease;
-  filter: drop-shadow(0 0 1px rgb(20 12 6 / .95)) drop-shadow(0 0 9px rgb(246 214 130 / .75)) drop-shadow(0 3px 4px rgb(0 0 0 / .6));
+  filter: drop-shadow(0 0 1px rgb(20 12 6 / .95)) drop-shadow(0 0 7px rgb(246 214 130 / .7)) drop-shadow(0 3px 4px rgb(0 0 0 / .55));
   &.ready.on { opacity: 1; }
-  svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: url(#ship-gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .w2 { stroke-width: 2.8; }
-  .w0 { stroke-width: 1.1; }
-  .hull path { fill: rgb(24 17 12 / .92); }
-  .eye { fill: #d2392c; stroke: none; }
-  // The engines: three flames that lengthen with the ship's speed (--thrust, 0 to 1) and flicker
-  .flames { transform-box: fill-box; transform-origin: 100% 50%; transform: scaleX(var(--thrust, .2)); }
-  .flames path { fill: #ffe7a3; stroke: #ffb84a; stroke-width: .6; animation: ship-flame .22s steps(2) infinite alternate; }
-  .flames path:nth-child(2) { animation-delay: -.11s; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: url(#ship-gold); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .w2 { stroke-width: 3; }
+  .w0 { stroke-width: 1.5; }
+  .bronze { fill: url(#ship-bronze); }
+  .bronze.dim { fill: #5c331a; }
+  .beak, .dot { fill: url(#ship-gold); stroke: none; }
+  .wing-near { transform-box: view-box; transform-origin: 104px 54px; transform: rotate(calc(var(--flap, 0) * 1deg)); }
+  .wing-far { transform-box: view-box; transform-origin: 100px 64px; transform: rotate(calc(var(--flap, 0) * -.45deg)); }
 }
-@keyframes ship-flame { from { opacity: .95; } to { opacity: .55; } }
-// The 3D ship's flame (ship3d.js sets its place, angle, length and width --w each frame): a white-hot core in a
-// gold and orange plume, flickering.
-.ship-flame { position: fixed; left: 0; top: calc(var(--w, 12px) / -2); z-index: 10; height: var(--w, 12px); width: 40px;
-  transform-origin: 0 50%; pointer-events: none; opacity: 0; will-change: transform; display: none;
-  &.on { display: block; }
-  i { position: absolute; inset: 0; border-radius: 0 50% 50% 0 / 0 50% 50% 0; }
-  i:nth-child(1) { inset: -55% -10% -55% -4%; background: radial-gradient(60% 50% at 18% 50%, rgb(255 190 90 / .65), rgb(255 140 40 / 0) 70%); filter: blur(4px); }
-  i:nth-child(2) { background: linear-gradient(90deg, #fff6d8, #ffd27a 30%, rgb(255 150 50 / .7) 70%, rgb(255 120 30 / 0)); animation: ship-flicker .16s steps(2) infinite alternate; }
-  i:nth-child(3) { inset: 28% 35% 28% 0; background: linear-gradient(90deg, #fff, rgb(255 250 230 / 0)); }
+// The bird's wake: gold cloud scrolls (ship-clouds.js sets each one's place, size and opacity every frame).
+.ship-clouds { position: fixed; inset: 0; z-index: 10; pointer-events: none; overflow: hidden;
+  i { position: absolute; left: 0; top: 0; width: 32px; opacity: 0; will-change: transform, opacity; filter: drop-shadow(0 0 3px rgb(246 214 130 / .6)); }
+  svg { display: block; width: 100%; height: auto; overflow: visible; fill: none; stroke: #f3d27a; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .w2 { stroke-width: 2; }
 }
-@keyframes ship-flicker { from { transform: scaleX(1); opacity: 1; } to { transform: scaleX(.86); opacity: .8; } }
-.diving .ship-flame { display: none; }
+.diving .ship-clouds { display: none; }
 .ship-shadow { position: fixed; left: 0; top: 0; z-index: 10; width: 44px; aspect-ratio: 2.4; border-radius: 50%; pointer-events: none;
   background: rgb(0 0 0 / .9); filter: blur(5px); opacity: 0; transition: opacity .4s ease; will-change: transform; }
 .ship-shadow:not(.on) { opacity: 0 !important; }
@@ -1919,7 +1839,8 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
 @keyframes ship-ring { from { opacity: .95; transform: scale(.12); } to { opacity: 0; transform: scale(1); } }
 .year-mode .ship-ring { display: none; }
 @media (prefers-reduced-motion: reduce) {
-  .ship { transition: none; .flames { display: none; } }
+  .ship { transition: none; }
+  .ship-clouds { display: none; }
   .ship-ring { display: none; }
 }
 
@@ -1929,3 +1850,15 @@ body.diving::after { content: ""; position: fixed; inset: 0; z-index: 2000; poin
   .globe-hint { left: clamp(250px, var(--hint-x, calc(50vw + (var(--panel-w) + 12px) / 2)), calc(100vw - 310px)); right: auto;
     width: max-content; translate: -50% 0; }
 }
+
+// Twenty-second round: lacquer and drum for the home page; since the thirty-second round its colours are every page's
+@import "lacquer-ui";
+
+// Twenty-seventh round: the page turn into Through time
+@import "time-turn";
+
+// Thirtieth round: a city's book in Through time
+@import "city-book";
+
+// Thirty-second round: the other pages in the colours of the home page
+@import "lacquer-pages";

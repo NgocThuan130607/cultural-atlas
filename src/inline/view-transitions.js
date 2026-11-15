@@ -42,7 +42,7 @@
   };
   var FIRST = '.deck-track > .slide:first-of-type ';
   var IN = {
-    'place-hero': FIRST + ':is(.s-fill, .cover-img, #era-img-a)', // the city's whole cover, its shading too
+    'place-hero': FIRST + ':is(.s-fill, .cover-img)', // the city's whole cover, its shading too
     'place-ship': FIRST + '.motif.hero',
     'place-name': '#city-title',
     'place-lead': FIRST + '.lead-text',

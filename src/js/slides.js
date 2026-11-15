@@ -8,7 +8,7 @@
 // follows the visitor's own scrolling. Snap points (CSS scroll-snap) make each gesture settle on a whole slide.
 // On narrow or short screens, and when the visitor prefers reduced motion, the slides stack one under
 // another instead, and the timeline stays as a compact bar along the bottom.
-import { $, $$, esc, icon, prefersReducedMotion } from './common.js';
+import { $, $$, esc, icon, prefersReducedMotion, focusStyle } from './common.js';
 import { placeMotifs, watermark } from './motifs.js';
 import { motifRedraw } from './motif-redraw.js';
 
@@ -48,10 +48,13 @@ export const deckHTML = (slides, after = '') => `
   </div>
   <div class="deck-after">${after}</div>`;
 
-/** A photo that fills its box and drifts slightly as the slides move. */
-export const photo = (src, alt = '', credit = '', cls = '') => `
+/**
+ * A photo that fills its box and drifts slightly as the slides move. `ref` is the image's reference, for the part of
+ * the photo to keep when it is cropped (its `focus`, thirty-second round).
+ */
+export const photo = (src, alt = '', credit = '', cls = '', ref = null) => `
   <figure class="s-photo ${cls}" data-reveal style="--d:1">
-    <img data-parallax src="${src}" alt="${alt}" loading="lazy">
+    <img data-parallax src="${src}" alt="${alt}" loading="lazy" style="${focusStyle(ref)}">
     ${credit ? `<figcaption class="s-credit">${credit}</figcaption>` : ''}
   </figure>`;
 

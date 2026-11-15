@@ -31,7 +31,7 @@
       "image": {
         "file": "Eiffel Tower 1887-10-08.jpg",
         "alt": "The four legs of the Eiffel Tower under construction in October 1887",
-        "focus": "center 92%"
+        "focus": "center 98%"
       },
       "motifs": [
         "eiffel",
@@ -168,7 +168,8 @@
       "title": "The man who sold the Eiffel Tower",
       "image": {
         "file": "Eiffel Tower 1888-12-26.jpg",
-        "alt": "The Eiffel Tower under construction"
+        "alt": "The Eiffel Tower under construction",
+        "focus": "center 80%"
       },
       "narration": "In 1925, a newspaper story said the tower was rusting and expensive to repair. A con man named Victor Lustig read it and saw an opportunity. Posing as a government official, he invited scrap-metal dealers to a secret meeting in a smart hotel and told them the city had decided to sell the tower for scrap. One dealer paid him a large sum, and a bribe on top. Lustig fled with the money. The dealer was too embarrassed to go to the police. According to the legend, Lustig came back and tried the same trick a second time.",
       "motifs": [
