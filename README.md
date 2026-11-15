@@ -6,7 +6,7 @@ An interactive cultural guide for travellers. Start on a 3D globe, pick a city, 
 - **Stories** (`stories.html`): short narrated chapters on history, legends and culture, with a highlighted transcript. Nine landmarks also have a **film** chapter: a real video streamed from Wikimedia Commons, such as the Lumière company's 1897 film of the Sphinx.
 - **Visit** (`visit.html`): opening hours with a live "Open now" badge (in the landmark's own time zone), etiquette dos and don'ts, local tips, and a filterable map.
 
-Not sure where to go? **Discover** (`discover.html`) asks three quick questions (when, what you enjoy, where) and suggests three places with reasons. It also lists places at their best in any month, editor's picks, and places by interest. First-time visitors to the globe get a short welcome that explains the site in three steps (the **?** button opens it again).
+Not sure where to go? **Discover** (`discover.html`) asks three quick questions (when, what you enjoy, and anywhere or Vietnam) and suggests three places with reasons. It also lists places at their best in any month, editor's picks, and places by interest. First-time visitors to the globe get a short welcome that explains the site in three steps (the **?** button opens it again).
 
 Press **Save** (♡) on any landmark to add it to **My trip** (`trip.html`). There you choose a day, an arrival time and how long to stay, and the atlas checks the plan against that day's opening hours. It also warns when two visits overlap or are too far apart for one day, shows the route on a map, and exports the plan as a calendar file (`.ics`) or prints it. The trip is kept in the browser's `localStorage`, so it needs no account or server.
 

@@ -75,9 +75,10 @@ async function main() {
           </div>
         </fieldset>
         <fieldset class="quiz-q">
+          <!-- (thirty-fourth round: no "Somewhere else" choice) -->
           <legend class="quiz-label">3. Where would you like to go?</legend>
           <div class="chip-options">
-            ${[['all', 'Anywhere'], ['vietnam', 'Vietnam'], ['world', 'Somewhere else']].map(([v, label], i) => `
+            ${[['all', 'Anywhere'], ['vietnam', 'Vietnam']].map(([v, label], i) => `
               <label class="chip-option"><input type="radio" name="region" value="${v}" ${i === 0 ? 'checked' : ''}><span>${esc(label)}</span></label>`).join('')}
           </div>
         </fieldset>
