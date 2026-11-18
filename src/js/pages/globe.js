@@ -27,7 +27,7 @@ import { phaseAt } from '../daylight.js';
 import { playTimeTurn } from '../time-turn.js';
 import { openCityBook, closeCityBook } from '../city-book.js';
 import { drumCentre } from '../motifs.js';
-import { touchpadGestures } from '../touchpad.js';
+import { touchpadGestures, wheelSorter } from '../touchpad.js';
 
 // Thirty-first round: the Vietnamese touches of the left panel, drawn as hairlines like the motifs of the slides:
 // the face of a Đông Sơn drum, faint and slowly turning, behind the panel's title; two Lạc birds of the drum in
@@ -916,7 +916,7 @@ async function main() {
   // tilted towards the horizon half-way, with the place out of view. Now the place stays in view, and so does
   // the ship that flies to it at the same pace.
   let flightFrame = 0;
-  const endOwnFlight = () => { cancelAnimationFrame(flightFrame); flightFrame = 0; };
+  const endOwnFlight = () => { cancelAnimationFrame(flightFrame); flightFrame = 0; endZoomOut(); };
   function stopFlight() { endOwnFlight(); camera.cancelFlight(); }
   for (const type of ['pointerdown', 'wheel']) scene.canvas.addEventListener(type, endOwnFlight, { passive: true }); // the visitor takes over
 
@@ -951,7 +951,7 @@ async function main() {
     const from = lastHeight;
     lastHeight = h;
     const t = performance.now();
-    if (h <= from * 1.0005 || flightFrame || t > zoomingUntil) return;
+    if (h <= from * 1.0005 || flightFrame || zoomOut || t > zoomingUntil) return;
     const compose = composeAngles();
     if (!anchor || t - anchorSeen > 400) {
       // the middle of the free part of the screen, or, if that is on the sky, the point under the camera
@@ -982,13 +982,77 @@ async function main() {
   const blend = (a, b, t) => a + (b - a) * t;
   const blendAngle = (a, b, t) => a + (((b - a + Math.PI * 3) % (Math.PI * 2)) - Math.PI) * t;
 
+  // Fortieth round: zooming out is the atlas's own, not Cesium's. Cesium's zoom moved the camera towards or away
+  // from the point under the mouse (and went on doing so for a moment after), while the levelling above turned
+  // the view back towards the place each frame: the two pulled against each other and the globe swung about
+  // on its way out from a city, on the World and the Vietnam atlas alike. Now the mouse wheel, a pinch and the
+  // − button only set how far out the camera should be; each frame the camera eases out along the line it looks
+  // at the place with, the place staying in the middle of the free part of the screen, and turns, smoothly and
+  // only by the height, to look straight down with north up, until the whole Earth is in view. Zooming in is
+  // still Cesium's own.
+  let zoomOut = null; // { at, heading, pitch, r0, r, target, last, frame }
+  function endZoomOut() {
+    if (!zoomOut) return;
+    cancelAnimationFrame(zoomOut.frame);
+    zoomOut = null;
+  }
+  /** Zooms out by a factor (above 1) about the place in the middle of the free part of the screen. */
+  function zoomOutBy(factor) {
+    cancelAnimationFrame(flightFrame);
+    flightFrame = 0;
+    camera.cancelFlight();
+    if (!zoomOut) {
+      const now = lookNow(composeAngles());
+      const c = camera.positionCartographic;
+      // (the middle on the sky: the ground under the camera, seen from straight above)
+      zoomOut = now
+        ? { at: now.at, heading: now.heading, pitch: now.pitch, r0: now.range }
+        : { at: new Cartographic(c.longitude, c.latitude), heading: camera.heading, pitch: -Math.PI / 2, r0: c.height };
+      zoomOut.r = zoomOut.target = zoomOut.r0;
+      zoomOut.last = performance.now();
+      zoomOut.frame = requestAnimationFrame(stepZoomOut);
+    }
+    zoomOut.target = Math.max(zoomOut.r, Math.min(LEVEL_MAX, zoomOut.target * factor));
+  }
+  function stepZoomOut(now) {
+    const z = zoomOut;
+    const dt = Math.min(0.05, Math.max(0, (now - z.last) / 1000));
+    z.last = now;
+    const k = reduced ? 1 : 1 - Math.exp(-dt / 0.14);
+    z.r = Math.exp(blend(Math.log(z.r), Math.log(z.target), k));
+    // how far the view has levelled out: from looking as it did at the start (up to LEVEL_FROM) to straight down
+    // with north up (from LEVEL_TO, or three times as far out as at the start when that is already above it)
+    const base = Math.max(z.r0, LEVEL_FROM);
+    const top = Math.max(LEVEL_TO, base * 3);
+    const f = easeInOut(unit(Math.log(z.r / base) / Math.log(top / base)));
+    lookFrom(z.at, blendAngle(z.heading, 0, f), blend(z.pitch, -Math.PI / 2, f), z.r, composeAngles());
+    // done once it has got there; the next step starts again from the view as it is then
+    if (Math.abs(Math.log(z.target / z.r)) < 0.001) { zoomOut = null; return; }
+    z.frame = requestAnimationFrame(stepZoomOut);
+  }
+  // The mouse wheel over the globe: away from you zooms out here; towards you is left to Cesium.
+  {
+    const sort = wheelSorter();
+    scene.canvas.parentElement.addEventListener('wheel', (e) => {
+      if (e.target !== scene.canvas || sort(e) !== 'mouse') return; // a touchpad's pinch and slide: touchpad.js
+      if (e.deltaY <= 0) { endZoomOut(); return; }
+      e.preventDefault();
+      e.stopPropagation(); // not on to Cesium
+      const k = e.deltaMode === 1 ? 33 : e.deltaMode === 2 ? 400 : 1;
+      zoomOutBy(Math.exp(Math.min(300, e.deltaY * k) * 0.003)); // one notch: about 1.35 times as far out
+    }, { capture: true, passive: false });
+  }
+
   // Thirty-fifth round: a touchpad (touchpad.js). A pinch zoomed the whole page (Cesium does nothing with a wheel
   // event that comes with the Ctrl key, which is what a pinch is), and a two-finger slide zoomed the globe. Now
   // a pinch zooms smoothly about the point between the fingers, and a two-finger slide turns the globe under
   // them as dragging does, north staying up. The mouse wheel is still Cesium's own zoom.
   touchpadGestures(scene.canvas.parentElement, {
     accept: (e) => e.type !== 'wheel' || e.target === scene.canvas,
-    zoom(factor, x, y) { endOwnFlight(); visitorZooms(); zoomAbout(new Cartesian2(x, y), factor); },
+    zoom(factor, x, y) {
+      if (factor > 1) { zoomOutBy(factor); return; } // (fortieth round) out: about the place in the middle
+      endOwnFlight(); visitorZooms(); zoomAbout(new Cartesian2(x, y), factor);
+    },
     pan(dx, dy, x, y) { endOwnFlight(); slideGlobe(new Cartesian2(x, y), dx, dy); },
   });
   /** The ground at a pixel, or at the middle of the free part of the screen if that pixel is on the sky. */
@@ -1380,7 +1444,7 @@ async function main() {
       if (on) showTip(id); else if (tipId === id) showTip(null);
     },
     zoomIn: () => { camera.zoomIn(camera.positionCartographic.height * 0.45); },
-    zoomOut: () => { visitorZooms(); camera.zoomOut(Math.max(0, Math.min(camera.positionCartographic.height * 0.8, LEVEL_MAX - camera.positionCartographic.height))); },
+    zoomOut: () => zoomOutBy(1.8),
     /** Shows or hides the map's own borders and place names (they would repeat our labels on the Vietnam map). */
     setReferenceLabels: (on) => {
       wantReferenceLabels = on;
