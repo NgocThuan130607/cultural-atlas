@@ -76,13 +76,12 @@ const ART = `
 /**
  * Starts the ship. `view()` returns the current view (it can change from the globe to the 2D map), which gives
  * project(lat, lon, alt), pick(x, y), viewHeight(), onFrame(cb), trail() and `linear` (true on the flat map).
- * `area()` is the part of the screen left free by the panel and the controls, `avoid()` the places whose pins the
- * hovering ship keeps clear of. `start` is a place to appear over. While `paused()` is true the bird is put away (its
+ * `area()` is the part of the screen left free by the panel and the controls. `start` is a place to appear over. While `paused()` is true the bird is put away (its
  * shadow and clouds too) and stops flying; it comes back hovering over the view (twenty-first round: it is put
  * away in the Through time mode).
  * Returns { flyTo(place, opts), cruise(), bind(), leave(), resume() }.
  */
-export function createShip({ view, area, avoid = () => [], start = null, paused = () => false }) {
+export function createShip({ view, area, start = null, paused = () => false }) {
   const reduced = prefersReducedMotion();
   const el = document.createElement('div');
   el.className = 'ship';
@@ -115,12 +114,12 @@ export function createShip({ view, area, avoid = () => [], start = null, paused 
 
   const move = (v) => (v.linear ? lerpLL : slerp);
 
-  // Places on screen where the ship may hover, as fractions of the free area. Twice a second it looks for the
-  // one furthest from the city pins (so it never sits on a city or its name), and only moves for a clearly
-  // better one.
-  // Thirty-sixth round: the spots are gathered round the middle of the globe (they used to reach out to the
-  // edges of the free area, so the bird wandered off towards the corners), and the nearer the middle the better.
-  const SPOTS = [[0.5, 0.42], [0.62, 0.36], [0.38, 0.36], [0.62, 0.5], [0.38, 0.5], [0.5, 0.3], [0.5, 0.56], [0.66, 0.6], [0.34, 0.6]];
+  // Places on screen where the ship may hover, as fractions of the free area.
+  // Thirty-ninth round: the bird hovers at the middle of the globe and may fly over a city's pin or name (it
+  // used to step aside from them, which took it off towards the sides). The other spots, a short way round the
+  // middle, are only used when the middle is off the globe; twice a second it takes the one on the globe that
+  // is nearest the middle.
+  const SPOTS = [[0.5, 0.44], [0.5, 0.36], [0.5, 0.52], [0.58, 0.44], [0.42, 0.44], [0.57, 0.36], [0.43, 0.36], [0.57, 0.52], [0.43, 0.52]];
   let spot = 0;
   let chosenAt = -1e9;
   function chooseSpot(v, now) {
@@ -129,28 +128,9 @@ export function createShip({ view, area, avoid = () => [], start = null, paused 
     free = area();
     const w = free.right - free.left;
     const h = free.bottom - free.top;
-    const pins = avoid().map((c) => v.project(c.lat, c.lon, 0)).filter((p) => p.visible);
-    // Thirty-sixth round: as near the middle of the globe as it can be without covering a city's pin or name;
-    // covering one rules a spot out (the pull to the middle used to win over a name now and then).
-    const room = (i) => {
-      const x = free.left + w * SPOTS[i][0];
-      const y = free.top + h * SPOTS[i][1];
-      if (!v.pick(x, y)) return -1; // off the globe
-      // Thirty-fifth round: the room between the bird with the gold clouds streaming out behind it and each pin
-      // with its name to its right (it used to be measured from the pin alone, so a cloud could brush a name).
-      const bird = { l: x - 150, r: x + 70, t: y - 40, b: y + 35 };
-      return Math.min(220, ...pins.map((p) => Math.hypot(Math.max(0, bird.l - (p.x + 105), p.x - 12 - bird.r),
-        Math.max(0, bird.t - (p.y + 14), p.y - 14 - bird.b))));
-    };
-    const score = (i) => {
-      const r = room(i);
-      if (r < 0) return -1000;
-      return (r < 8 ? -300 : r * 0.5) - Math.hypot((SPOTS[i][0] - 0.5) * w, (SPOTS[i][1] - 0.46) * h) * 0.35;
-    };
-    let best = spot;
-    let bestScore = score(spot) + (room(spot) >= 8 ? 30 : 0); // stay unless another is clearly better
-    SPOTS.forEach((_, i) => { if (i === spot) return; const s = score(i); if (s > bestScore) { best = i; bestScore = s; } });
-    spot = best;
+    const onGlobe = (i) => !!v.pick(free.left + w * SPOTS[i][0], free.top + h * SPOTS[i][1]);
+    const i = SPOTS.findIndex((_, k) => onGlobe(k));
+    spot = i < 0 ? 0 : i; // the spots go from the middle outwards
   }
 
   function land(now) {
@@ -199,7 +179,7 @@ export function createShip({ view, area, avoid = () => [], start = null, paused 
     } else if (mode === 'cruise') {
       // Sixteenth round, "the ship leads, the ground slides beneath": the ship keeps its place on screen and is
       // put over whatever ground is there each frame, so a turn of the globe reads as the ship flying over it.
-      // Its place only moves (smoothly) when another spot is chosen, away from the city pins.
+      // Its place only moves (smoothly) when another spot is chosen (only when the middle is off the globe).
       chooseSpot(v, now);
       if (free) {
         const tx = free.left + (free.right - free.left) * SPOTS[spot][0];

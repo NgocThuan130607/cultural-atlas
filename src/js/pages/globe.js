@@ -353,7 +353,7 @@ async function main() {
       bottom: desktop ? innerHeight - ($('#voyager').offsetHeight + 110) : innerHeight - (open ? kcard.offsetHeight + 16 : 24),
     };
   };
-  ship = createShip({ view: () => nav, area: freeArea, avoid: () => (yearMode ? [] : visibleCities()), start: lastPlace, paused: () => yearMode });
+  ship = createShip({ view: () => nav, area: freeArea, start: lastPlace, paused: () => yearMode });
   function arrive(id, at) {
     const place = { id, lon: at.lon, lat: at.lat };
     lastPlace = place;
