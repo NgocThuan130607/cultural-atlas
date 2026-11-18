@@ -74,7 +74,7 @@ export async function initLandmarkPage(active, init) {
   const ctx = { lm, city, media, note: $('#cover-note') };
   const view = init($('.deck-track'), $('#vp'), ctx);
   $('.deck-after').innerHTML = `<div class="wrap">${creditsBlock(lm.credits)}</div>`;
-  const deck = makeDeck($('#deck'), { onSettle: (i) => view?.onSlide?.(i), mark: lm.motifs?.cover?.[0] });
+  const deck = makeDeck($('#deck'), { onSettle: (i) => view?.onSlide?.(i) });
   view?.onDeck?.(deck);
   view?.onShow?.();
   // Stop narration or autoplay when leaving the page (also covers the back/forward cache).

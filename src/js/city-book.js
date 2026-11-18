@@ -2,8 +2,9 @@
 // cover with the city's name in gold opens by itself; the first spread has the city's photo and a title page that
 // says what the book is and how to read it; then each period of history (the atlas's own periods: Ancient,
 // Medieval… or, for Vietnam, Early kingdoms, Chinese rule…) is a page: its name on top, the city's changes in that
-// period as a timeline below. Tabs on the book's left edge jump to a period. Turning to a period moves the year bar
-// and the globe to its first event (`onPeriod`), so closing the book leaves the visitor in the time they read.
+// period as a timeline below. Tabs on the book's left edge jump to a period.
+// Thirty-seventh round: turning the pages (wheel, arrow keys, a click on a page, the tabs) turns only the book; the
+// year bar and the globe behind it stay where they were (before, each period moved the year bar to its first event).
 //
 // The book is a <dialog> (Esc closes it, focus stays inside, and goes back where it was). On a wide screen it is a
 // spread of two pages whose leaves turn round the spine in 3D; on a phone it shows one page at a time and slides.
@@ -16,6 +17,7 @@
 // and the leaves turning in that space; the tabs are bookmarks sticking out of its left edge. Specks of dust float
 // in the light over it. The mouse wheel turns the pages too.
 import { esc, icon, imageSrc, focusStyle, landmarkUrl, prefersReducedMotion } from './common.js';
+import { wheelSorter } from './touchpad.js';
 
 const PER_PAGE = 6; // events on one page at most (fewer where they would not fit, see fitPages)
 const NARROW = '(max-width: 767.98px)';
@@ -27,10 +29,9 @@ export function closeCityBook() { current?.close(); }
 
 /**
  * Opens the book of `city`. `details` has its timeline, hero and tagline; `periods` are the atlas's periods;
- * `formatYear(year, approx)` writes a year as the timeline does; `onPeriod(year)` is called when a period is reached,
- * `onClose()` when the book has been closed.
+ * `formatYear(year, approx)` writes a year as the timeline does; `onClose()` is called when the book has been closed.
  */
-export function openCityBook({ city, details, periods, lmById, media, formatYear, onPeriod = () => {}, onClose = () => {} }) {
+export function openCityBook({ city, details, periods, lmById, media, formatYear, onClose = () => {} }) {
   current?.close(true);
   const timeline = [...(details?.timeline ?? [])].sort((a, b) => a.year - b.year);
   if (!timeline.length) return null;
@@ -71,7 +72,7 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
         <h2 class="cb-title" id="cb-title">${esc(city.name)} through time</h2>
         ${city.tagline ? `<p class="cb-lead">${esc(city.tagline)}.</p>` : ''}
         <div class="cb-note">${icon('help')}<p>Turn the pages with the arrows, the ← → keys or the mouse wheel, or jump to a period with the tabs on the left.
-          The globe and the year bar follow the page you are reading. Gold links open a landmark at that moment.</p></div>
+          Gold links open a landmark at that moment.</p></div>
         <p class="cb-contents-head">${chapters.length} ${chapters.length === 1 ? 'period' : 'periods'} · ${timeline.length} changes</p>
         <ol class="cb-contents">${chapters.map((c) => `
           <li><button type="button" data-go-chapter="${c.i}"><span>${esc(c.p.label)}</span><small>${esc(span(c.p))} · ${c.events.length}</small></button></li>`).join('')}
@@ -157,16 +158,40 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
   /** Lays the pages out again with fewer events wherever a page overflows (wide screens; a phone's pages scroll). */
   function fitPages() {
     for (let round = 0; round < 4; round++) {
-      if (matchMedia(NARROW).matches) return;
+      if (matchMedia(NARROW).matches) break;
       const over = new Set([...book.querySelectorAll('.cb-chapter')].filter((el) => el.scrollHeight > el.clientHeight + 1).map((el) => Number(el.dataset.chapter)));
       // the title page: a little smaller, then without the line about the city, then the contents in two columns
       const intro = book.querySelector('.cb-intro');
       for (const cls of ['tight', 'short', 'many']) if (intro && intro.scrollHeight > intro.clientHeight + 1) intro.classList.add(cls);
       let changed = false;
       for (const i of over) if (room.get(i) > 1) { room.set(i, room.get(i) - 1); changed = true; }
-      if (!changed) return;
+      if (!changed) break;
       renderBook();
       paint();
+    }
+    clearOrnaments();
+  }
+  /** Leaves the faint drum off each page whose words or pictures reach the place it is printed in. */
+  function clearOrnaments() {
+    const R = 136; // the half drum on the outer edge (CSS: 260px across, its middle on the edge, 176px above the bottom)
+    for (const face of book.querySelectorAll('.cb-face')) {
+      const W = face.clientWidth;
+      const H = face.clientHeight;
+      const back = face.classList.contains('cb-back');
+      const scrolls = [face, ...face.children].some((el) => el.scrollHeight > el.clientHeight + 1);
+      const hit = scrolls || [...face.querySelectorAll('h2, h3, p, li, figure, a, button, img, .cb-note')].some((el) => {
+        if (el.closest('.cb-no') || !el.offsetParent) return false;
+        let x = 0;
+        let y = 0;
+        for (let e = el; e && e !== face; e = e.offsetParent) { x += e.offsetLeft; y += e.offsetTop; }
+        // how far the box is from the drum's middle
+        const cx = back ? 0 : W;
+        const cy = H - 176;
+        const dx = Math.max(x - cx, 0, cx - (x + el.offsetWidth));
+        const dy = Math.max(y - cy, 0, cy - (y + el.offsetHeight));
+        return Math.hypot(dx, dy) < R;
+      });
+      face.classList.toggle('no-orn', hit);
     }
   }
 
@@ -174,9 +199,7 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
   // Wide: `spread` leaves are turned (0: closed, L: all turned). Narrow: `page` is the page shown (from 1, the photo).
   let spread = 0;
   let page = 1;
-  let lastChapter = null;
   let wanted = null; // a period chosen with a tab: it is the one marked while its page is in view
-  let periodTimer = 0;
 
   /** The pages in view: [left, right] on a wide screen, [page] on a narrow one. */
   const inView = () => (narrow() ? [page] : [spread * 2 - 1, spread * 2].filter((k) => k >= 0 && k < pages.length));
@@ -185,6 +208,7 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
       leafEls.forEach((el) => { el.classList.remove('turned', 'moving'); el.style.zIndex = ''; });
       book.querySelectorAll('.cb-face').forEach((f, k) => f.classList.toggle('shown', k === page));
       book.classList.remove('closed');
+      clearOrnaments(); // (a phone's page is laid out once it is shown)
     } else {
       book.querySelectorAll('.cb-face.shown').forEach((f) => f.classList.remove('shown'));
       leafEls.forEach((el, i) => {
@@ -199,8 +223,14 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
       volume.style.setProperty('--right', (1 - spread / L).toFixed(3));
     }
     const seen = inView();
-    dialog.querySelector('.cb-prev').disabled = narrow() ? page <= 1 : spread <= 1;
-    dialog.querySelector('.cb-next').disabled = narrow() ? page >= pages.length - 1 : spread >= L;
+    const prev = dialog.querySelector('.cb-prev');
+    const next = dialog.querySelector('.cb-next');
+    prev.disabled = narrow() ? page <= 1 : spread <= 1;
+    next.disabled = narrow() ? page >= pages.length - 1 : spread >= L;
+    // Thirty-seventh round: an arrow button that has just been switched off (on the last or the first page) drops
+    // the focus out of the book, and the ← → keys stopped turning its pages; the focus goes to the other arrow.
+    const lost = document.activeElement;
+    if (dialog.open && (!lost || lost === document.body || (lost.disabled && dialog.contains(lost)))) (prev.disabled ? next : prev).focus({ preventScroll: true });
     // The period in view: the one chosen with a tab if its page is here; else the first one that begins on these
     // pages; else the one going on.
     const vis = seen.map((k) => pages[k]).filter((pg) => pg?.chapter);
@@ -215,13 +245,6 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
     // pages are numbered from the title page (the cover and the photo have no number)
     const nums = seen.filter((k) => k >= 2).map((k) => k - 1);
     dialog.querySelector('.cb-pages').textContent = nums.length > 1 ? `Pages ${nums[0]}–${nums[1]} of ${pages.length - 2}` : `Page ${nums[0] ?? 1} of ${pages.length - 2}`;
-    if (ch && ch !== lastChapter) {
-      // after the pages stop turning (several can turn one after another), the year bar goes to the period
-      const year = (pick.part ? ch.events[0] : pick.first).year;
-      clearTimeout(periodTimer);
-      periodTimer = setTimeout(() => onPeriod(year), 250);
-    }
-    lastChapter = ch;
   }
   /** Turns to spread `s`; several leaves turn one after another. */
   function goSpread(s) {
@@ -262,25 +285,39 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
     }
   });
   dialog.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); step(1); }
-    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); step(-1); }
+    const dir = { ArrowRight: 1, PageDown: 1, ArrowLeft: -1, PageUp: -1 }[e.key];
+    if (!dir) return;
+    e.preventDefault();
+    e.stopPropagation(); // the page's own arrow keys (turning the globe, the year bar) are for when the book is shut
+    step(dir);
   });
   // Thirty-second round: the mouse wheel (or a touchpad) turns the pages too, one turn per flick. On a phone, a
   // page that scrolls is scrolled first, and the page turns at its end.
+  // Thirty-fifth round: a touchpad goes on sending small wheel events for a second or more after the fingers
+  // leave it, so one flick turned two or three pages; now a touchpad turns one page a flick, the next flick
+  // counting once its glide has stopped. A pinch is left to the browser.
+  const sortWheel = wheelSorter();
   let wheelSum = 0;
   let wheelLast = 0;
   let wheelLock = 0;
+  let padDone = false;
   dialog.addEventListener('wheel', (e) => {
+    e.stopPropagation(); // nothing behind the book reacts to it
+    const kind = sortWheel(e);
+    if (kind === 'pinch') return;
     const page = narrow() ? e.target.closest?.('.cb-intro, .cb-chapter') : null;
     if (page && (e.deltaY > 0 ? page.scrollTop + page.clientHeight < page.scrollHeight - 1 : page.scrollTop > 0)) return;
     e.preventDefault();
     const now = performance.now();
-    if (now - wheelLast > 220) wheelSum = 0;
+    const quiet = now - wheelLast > 220;
     wheelLast = now;
+    if (quiet) { wheelSum = 0; padDone = false; }
+    if (kind === 'pad' && padDone) return;
     wheelSum += (Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * (e.deltaMode === 1 ? 16 : 1);
     if (now < wheelLock || Math.abs(wheelSum) < 40) return;
     step(wheelSum > 0 ? 1 : -1);
     wheelSum = 0;
+    padDone = kind === 'pad';
     wheelLock = now + (reduced ? 250 : 600);
   }, { passive: false });
   // swipe on a phone (or a touch screen)
@@ -291,14 +328,13 @@ export function openCityBook({ city, details, periods, lmById, media, formatYear
     const dx = e.clientX - x0; x0 = null;
     if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
   });
-  const onResize = () => { if (narrow()) page = Math.max(1, Math.min(pages.length - 1, inView()[0] ?? 1)); paint(); };
+  const onResize = () => { if (narrow()) page = Math.max(1, Math.min(pages.length - 1, inView()[0] ?? 1)); paint(); clearOrnaments(); };
   addEventListener('resize', onResize);
 
   function close(now = false) {
     if (!dialog.isConnected) return;
     removeEventListener('resize', onResize);
     if (current === api) current = null;
-    clearTimeout(periodTimer);
     const done = () => { if (dialog.open) dialog.close(); dialog.remove(); if (!now) onClose(); };
     if (now || reduced) { done(); return; }
     dialog.classList.add('closing');

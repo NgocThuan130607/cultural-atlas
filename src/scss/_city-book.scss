@@ -176,7 +176,7 @@ $cb-stains: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wi
       repeating-linear-gradient(180deg, rgb(140 98 38 / .7) 0 10px, transparent 10px 24px) left 9px top 14px / 2px calc(100% - 28px) no-repeat, // the stitching
       radial-gradient(ellipse at 50% 50%, transparent 52%, rgb(110 70 24 / .34) 100%),
       $cb-specks 0 0 / 600px 600px, $cb-stains 0 0 / 1000px 1000px,
-      $cb-drum right -90px bottom -90px / 330px 330px no-repeat; }
+      var(--cb-orn, #{$cb-drum}) right -130px bottom 46px / 260px 260px no-repeat; }
   > * { position: relative; z-index: 1; }
   > .cb-no { position: absolute; }
 }
@@ -189,9 +189,14 @@ $cb-stains: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' wi
     radial-gradient(ellipse 9% 7% at 7% 91%, rgb(84 56 24 / .14), transparent),
     repeating-linear-gradient(180deg, rgb(140 98 38 / .7) 0 10px, transparent 10px 24px) right 9px top 14px / 2px calc(100% - 28px) no-repeat,
     radial-gradient(ellipse at 50% 50%, transparent 52%, rgb(110 70 24 / .34) 100%),
-    $cb-specks 300px 200px / 600px 600px, $cb-stains 500px 300px / 1000px 1000px,
-    $cb-drum left -90px bottom -90px / 330px 330px no-repeat;
+    $cb-specks 300px 200px / 600px 600px, $cb-stains -300px -200px / 1000px 1000px,
+    var(--cb-orn, #{$cb-drum}) left -130px bottom 46px / 260px 260px no-repeat;
 }
+// Thirty-fifth round: the stains of a left-hand page were offset by half a tile, so the edge of the tile ran
+// across the page as a lighter rectangle with straight sides; now the whole page is inside one tile. The drum is
+// half a drum on the outer edge, above the page number (which sat on it), and it is left off a page whose words
+// reach it (city-book.js), so it never lies under them or the timeline.
+.cb-face.no-orn { --cb-orn: none; }
 // the photo, too, is an old print pasted in the book
 .cb-photo img { filter: sepia(.28) saturate(.85) contrast(.96); }
 .cb-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: $cb-crumple; background-size: 1000px 1000px; mix-blend-mode: soft-light; opacity: .7; }

@@ -26,7 +26,8 @@ import { createDrumHalo } from '../drum-halo.js';
 import { phaseAt } from '../daylight.js';
 import { playTimeTurn } from '../time-turn.js';
 import { openCityBook, closeCityBook } from '../city-book.js';
-import { panelDrum, lacFlight, drumCentre } from '../motifs.js';
+import { drumCentre } from '../motifs.js';
+import { touchpadGestures } from '../touchpad.js';
 
 // Thirty-first round: the Vietnamese touches of the left panel, drawn as hairlines like the motifs of the slides:
 // the face of a Đông Sơn drum, faint and slowly turning, behind the panel's title; two Lạc birds of the drum in
@@ -640,11 +641,10 @@ async function main() {
     const more = row?.closest('details');
     if (more && !more.open) { more.open = true; earlierOpen = true; }
     row?.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' });
-    // Thirtieth round: and its book opens, with its whole story period by period. Turning to a period moves the
-    // year bar to its first event and keeps the city in view.
+    // Thirtieth round: and its book opens, with its whole story period by period. (Thirty-seventh round: turning its
+    // pages no longer moves the year bar or the globe.)
     openCityBook({
       city: c, details: cityDetails[id], periods: world.periods, lmById, media, formatYear,
-      onPeriod: (year) => { bar?.stop(); bar?.setYear(year, { animate: !reduced }); if (!globeStays()) nav.look(c); },
       // back to the city's row (the list may have been redrawn while the book was open)
       onClose: () => $(`#kcard .world-row[data-city="${id}"] .place-row`)?.focus({ preventScroll: true }),
     });
@@ -721,7 +721,7 @@ async function main() {
       </li>`;
     const places = (n) => `${n} ${n === 1 ? 'place' : 'places'}`;
     show(`
-      <div class="intro-head intro-lead world-head">${panelDrum()}
+      <div class="intro-head intro-lead world-head">
         <div class="d-flex justify-content-between align-items-start gap-2">
           <p class="intro-kicker mb-1">${icon('history_toggle_off')}Through time</p>
           <button class="icon-btn" type="button" data-action="exit-year" aria-label="Leave the world timeline">${icon('close')}</button>
@@ -981,6 +981,52 @@ async function main() {
   const unit = (t) => Math.max(0, Math.min(1, t));
   const blend = (a, b, t) => a + (b - a) * t;
   const blendAngle = (a, b, t) => a + (((b - a + Math.PI * 3) % (Math.PI * 2)) - Math.PI) * t;
+
+  // Thirty-fifth round: a touchpad (touchpad.js). A pinch zoomed the whole page (Cesium does nothing with a wheel
+  // event that comes with the Ctrl key, which is what a pinch is), and a two-finger slide zoomed the globe. Now
+  // a pinch zooms smoothly about the point between the fingers, and a two-finger slide turns the globe under
+  // them as dragging does, north staying up. The mouse wheel is still Cesium's own zoom.
+  touchpadGestures(scene.canvas.parentElement, {
+    accept: (e) => e.type !== 'wheel' || e.target === scene.canvas,
+    zoom(factor, x, y) { endOwnFlight(); visitorZooms(); zoomAbout(new Cartesian2(x, y), factor); },
+    pan(dx, dy, x, y) { endOwnFlight(); slideGlobe(new Cartesian2(x, y), dx, dy); },
+  });
+  /** The ground at a pixel, or at the middle of the free part of the screen if that pixel is on the sky. */
+  function groundAt(pixel) {
+    const c = composeAngles();
+    const middle = new Cartesian2(scene.canvas.clientWidth / 2 + c.dx, scene.canvas.clientHeight / 2 - c.dy);
+    const at = camera.pickEllipsoid(pixel);
+    return at ? { at, pixel } : (camera.pickEllipsoid(middle) && { at: camera.pickEllipsoid(middle), pixel: middle });
+  }
+  /** Moves the camera towards (factor below 1) or away from the ground under a pixel, within the zoom limits. */
+  function zoomAbout(pixel, factor) {
+    camera.lookAtTransform(Matrix4.IDENTITY);
+    const h = camera.positionCartographic.height;
+    const ctrl = scene.screenSpaceCameraController;
+    const f = Math.max(ctrl.minimumZoomDistance / h, Math.min(ctrl.maximumZoomDistance / h, factor));
+    const g = groundAt(pixel);
+    if (!g) { camera.moveBackward(h * (f - 1)); return; }
+    // the camera slides along the line from that ground point, so the point stays under the fingers
+    const away = Cartesian3.subtract(camera.positionWC, g.at, new Cartesian3());
+    Cartesian3.add(g.at, Cartesian3.multiplyByScalar(away, f, away), camera.position);
+  }
+  /** Turns the globe so the ground at (pixel + dx, dy) comes to the pixel: east and west round the axis, then north and south. */
+  function slideGlobe(pixel, dx, dy) {
+    camera.lookAtTransform(Matrix4.IDENTITY);
+    const g = groundAt(pixel);
+    const b = g && camera.pickEllipsoid(new Cartesian2(g.pixel.x + dx, g.pixel.y + dy));
+    if (!b) return;
+    const ca = Cartographic.fromCartesian(g.at);
+    const cb = Cartographic.fromCartesian(b);
+    const most = 0.25; // radians a frame: near the horizon a pixel covers a great deal of ground
+    const clampTo = (v) => Math.max(-most, Math.min(most, v));
+    const dLon = clampTo(((cb.longitude - ca.longitude + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+    camera.rotate(Cartesian3.UNIT_Z, -dLon); // (Camera.rotate turns the other way round)
+    const lat = camera.positionCartographic.latitude;
+    const dLat = Math.max(-1.5 - lat, Math.min(1.5 - lat, clampTo(cb.latitude - ca.latitude))); // not over a pole
+    // round the axis through the Earth that points west from the meridian of the ground being moved
+    camera.rotate(new Cartesian3(Math.sin(cb.longitude), -Math.cos(cb.longitude), 0), -dLat);
+  }
 
   /** Looks at a point on the ground from a heading, pitch and distance, then turns the view into the free part of the screen. */
   function lookFrom(at, heading, pitch, range, { ax, ay }) {
@@ -1617,10 +1663,10 @@ async function main() {
           return inG.length ? `<p class="list-heading mb-0">${esc(g)} · ${inG.length}</p><ul class="place-list journey">${inG.map(row).join('')}</ul>` : '';
         }).join('')
         : `<ul class="place-list journey">${items.map(row).join('')}</ul>`;
-      return `<h2 class="list-section mb-0"><span>${esc(k.label)} · ${items.length}</span>${lacFlight()}</h2>${groups}`;
+      return `<h2 class="list-section mb-0"><span>${esc(k.label)} · ${items.length}</span></h2>${groups}`;
     }).join('');
     show(`
-      <div class="intro-head intro-lead">${panelDrum()}
+      <div class="intro-head intro-lead">
         <p class="intro-kicker mb-1">Explore before you travel</p>
         <!-- (twenty-sixth round: no close button here; the list of places always stays open) -->
         <h1 class="intro-title">${esc(col.title ?? 'Atlas of Stories')}</h1>

@@ -44,12 +44,16 @@ body {
 }
 .lm-tabs-page { background: color-mix(in srgb, var(--panel) 94%, transparent); }
 
-// ---------- The heads of Discover and My trip: a faint drum, Lạc birds by the title ----------
-.page-head { position: relative; overflow: hidden;
-  > :not(.panel-drum) { position: relative; z-index: 1; }
+// ---------- The heads of Discover and My trip: Lạc birds by the title, a faint drum at the end of its line ----------
+// (Thirty-fifth round: the drum was a large disc behind the corner of the head, cut off by the head's edges and
+// lying under the end of the line below the title and the prototype note. Now it is a small whole drum on the
+// title's line, at the right, where nothing else is.)
+.page-head { position: relative;
   h1 { display: flex; align-items: center; gap: 1rem; font-family: var(--display); font-weight: 800; letter-spacing: -.03em; }
-  .panel-drum { right: -90px; top: -150px; }
+  h1 .panel-drum { position: relative; inset: auto; flex: none; width: 84px; margin: -22px 0 -22px auto; opacity: .16; }
 }
+[data-bs-theme="dark"] .page-head h1 .panel-drum { opacity: .2; }
+@media (max-width: 575.98px) { .page-head h1 .panel-drum { width: 52px; margin-block: -6px; } }
 .discover-head { padding-top: .5rem; }
 // a rule with the drum's star in the middle, between the parts of a page
 .star-rule { height: 14px; margin: 0 0 2rem; border: 0; opacity: 1;

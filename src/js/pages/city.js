@@ -190,7 +190,7 @@ async function main() {
     row.addEventListener('mouseleave', () => m?.getElement()?.firstElementChild?.classList.remove('highlight'));
   });
 
-  makeDeck($('#deck'), { onSettle: (i) => { if (i === 1) map.invalidateSize(); }, mark: detail.motifs?.cover?.[0] });
+  makeDeck($('#deck'), { onSettle: (i) => { if (i === 1) map.invalidateSize(); } });
   // The page's tint and its clock follow the time of day there (thirteenth round)
   applyDaylight(city.timezone, { el: $('#city-time'), place: city.name });
 }

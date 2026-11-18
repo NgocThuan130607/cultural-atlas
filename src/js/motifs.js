@@ -358,9 +358,8 @@ export function watermark(key) {
   return `<svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">${art}</svg>`;
 }
 
-/** A faint drum face, half hidden past the top right corner of a panel's head, turning slowly (thirty-first round). */
+/** A small faint drum face at the end of a page title (Discover, My trip), turning slowly (thirty-first round). */
 export const panelDrum = () => `<span class="panel-drum" aria-hidden="true">${watermark('drum')}</span>`;
-/** Two Lạc birds of the drum, flying beside a heading (thirty-first round). */
 /**
  * The centre of a Đông Sơn bronze drum (thirty-third round), for the city guide's seal: the 14-ray star, slim and
  * sharp, with hatched triangles between its rays, inside rings of fine ticks and of tangent circles, as cast on the
@@ -382,7 +381,6 @@ export const drumCentre = (() => {
   const svg = `<svg class="drum-centre" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".7">${hatch.join('')}<circle cx="50" cy="50" r="31"/><circle cx="50" cy="50" r="36.5"/>${ticks.join('')}${rings.join('')}<circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="48.5"/>${outer.join('')}</g><polygon class="dc-star" points="${star.join(' ')}"/><circle cx="50" cy="50" r="4.2" class="dc-star"/></svg>`;
   return () => svg;
 })();
-export const lacFlight = () => `<span class="lac-flight" aria-hidden="true">${watermark('chim-lac')}${watermark('chim-lac')}</span>`;
 
 /**
  * The layer of motifs for one slide: `list` is an array of motif names, the first one shown larger.
@@ -407,10 +405,14 @@ export function motifLayer(list) {
 
 // ---------- Placement ----------
 // Motifs go into the empty parts of each slide. Each one tries positions across the slide and takes the one
-// furthest from the text, the buttons, the timeline and the other motifs. It may tuck a little behind a photo or
-// a panel (they sit above it), but most of it stays in view. If no place is free it is drawn smaller, or left out.
+// furthest from the text, the buttons, the timeline and the other motifs. If no place is free it is drawn
+// smaller, or left out.
+// Thirty-fifth round: a motif no longer tucks part of itself behind a photo or a panel (a palace cut in half by a
+// photo's edge, a bird's wing under a card): it keeps a little way off them. On a city's cover, where the photo
+// fills the slide, the motifs keep to the shaded side with the title, off the place in the photo (a gold bird
+// used to sit on Hanoi's Turtle Tower). The photo credits are kept clear too.
 
-export const HARD = '.s-frame > *, .s-actions, .strip-head, .car-nav, .chip, button, a.btn-m, .meta-row, .playerbar';
+export const HARD = '.s-frame > *, .s-actions, .strip-head, .car-nav, .chip, button, a.btn-m, .meta-row, .playerbar, .s-credit';
 export const SOFT = '.s-card, .s-sand, .s-paper, .s-photo, .s-media, .s-stage, .s-map, .s-strip, .glance, .tip-row';
 
 function textBox(el) {
@@ -420,11 +422,81 @@ function textBox(el) {
   if (!rs.length) return el.getBoundingClientRect();
   return { left: Math.min(...rs.map((r) => r.left)), right: Math.max(...rs.map((r) => r.right)), top: Math.min(...rs.map((r) => r.top)), bottom: Math.max(...rs.map((r) => r.bottom)) };
 }
-const area = (r) => Math.max(0, r.right - r.left) * Math.max(0, r.bottom - r.top);
 const overlap = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left)) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top));
 const gap = (a, b) => Math.hypot(Math.max(0, a.left - b.right, b.left - a.right), Math.max(0, a.top - b.bottom, b.top - a.bottom));
 
-/** Places the motifs of every slide inside `root`. `stacked` limits phones and short windows to 2 small ones. */
+// Thirty-sixth round: on a city's cover the photo fills the slide, and a motif drawn over what the photo shows
+// (the domes and minarets of Cairo's citadel, Hanoi's Turtle Tower) hides it. The photo is looked at once, small:
+// where it has strong shapes and edges (buildings, towers, the line of a roof against the sky) the motifs keep
+// away, and they go to the calm parts (sky, water, the dark of the trees). The photos come from Wikimedia Commons,
+// which allows this; if a photo cannot be read the motifs are placed as before.
+const calm = new WeakMap(); // slide → { w, h, cols, rows, busy } or { failed }
+function busyMap(slide, w, h) {
+  const img = slide.querySelector('.s-fill img');
+  if (!img) return null;
+  const got = calm.get(slide);
+  if (got?.failed || got?.pending) return null;
+  if (got && got.w === w && got.h === h) return got;
+  calm.set(slide, { pending: true });
+  const pic = new Image();
+  pic.crossOrigin = 'anonymous';
+  pic.onerror = () => calm.set(slide, { failed: true });
+  pic.onload = () => {
+    try {
+      const cols = 64;
+      const rows = Math.max(8, Math.round((cols * h) / w));
+      const cv = document.createElement('canvas');
+      cv.width = cols;
+      cv.height = rows;
+      const g = cv.getContext('2d', { willReadFrequently: true });
+      // the crop the page shows: object-fit cover, centred, and the photo's own scale of 1.12
+      const k = Math.max(w / pic.naturalWidth, h / pic.naturalHeight) * 1.12;
+      const dw = (pic.naturalWidth * k * cols) / w;
+      const dh = (pic.naturalHeight * k * rows) / h;
+      g.drawImage(pic, (cols - dw) / 2, (rows - dh) / 2, dw, dh);
+      const d = g.getImageData(0, 0, cols, rows).data;
+      const lum = (x, y) => { const i = (y * cols + x) * 4; return d[i] * 0.3 + d[i + 1] * 0.59 + d[i + 2] * 0.11; };
+      const edge = new Float32Array(cols * rows);
+      for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+        const l = lum(x, y);
+        edge[y * cols + x] = Math.max(x + 1 < cols ? Math.abs(l - lum(x + 1, y)) : 0, y + 1 < rows ? Math.abs(l - lum(x, y + 1)) : 0);
+      }
+      // a shape's edges mark the shape round them too
+      const busy = new Float32Array(cols * rows);
+      for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+        let m = 0;
+        for (let j = -1; j <= 1; j++) for (let i = -1; i <= 1; i++) {
+          const xx = x + i, yy = y + j;
+          if (xx >= 0 && yy >= 0 && xx < cols && yy < rows) m = Math.max(m, edge[yy * cols + xx]);
+        }
+        busy[y * cols + x] = Math.min(1, m / 36);
+      }
+      // what is ordinary for this photo: a photo full of leaves is busy all over, and then only what stands out counts
+      const base = [...busy].sort((a, c) => a - c)[Math.floor(busy.length / 2)];
+      calm.set(slide, { w, h, cols, rows, busy, base });
+      dispatchEvent(new Event('resize')); // lay the motifs out again with it
+    } catch { calm.set(slide, { failed: true }); } // the photo could not be read
+  };
+  pic.src = img.currentSrc || img.src;
+  return null;
+}
+/** How much a box (in the slide) lies over strong shapes in the photo, 0 to 1: even a thin minaret counts. */
+function busyIn(map, box) {
+  const x0 = Math.max(0, Math.floor((box.left / map.w) * map.cols)), x1 = Math.min(map.cols - 1, Math.floor((box.right / map.w) * map.cols));
+  const y0 = Math.max(0, Math.floor((box.top / map.h) * map.rows)), y1 = Math.min(map.rows - 1, Math.floor((box.bottom / map.h) * map.rows));
+  const v = [];
+  for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) v.push(map.busy[y * map.cols + x]);
+  if (!v.length) return 0;
+  v.sort((a, c) => a - c);
+  const mean = v.reduce((t, x) => t + x, 0) / v.length;
+  return mean * 0.4 + v[Math.floor(v.length * 0.93)] * 0.6; // the strongest parts count most
+}
+
+/**
+ * Places the motifs of every slide inside `root`. Thirty-eighth round: at most two on a slide (the first, larger
+ * one is the slide's own), and one small one on a phone or a short window (`stacked`), so that with the drum
+ * band under the title a slide has no more than three gold ornaments and nothing busy beside the words.
+ */
 export function placeMotifs(root, { stacked = false, bottom = 0 } = {}) {
   for (const slide of root.querySelectorAll('.slide')) {
     const layer = slide.querySelector('.s-motifs');
@@ -442,8 +514,23 @@ export function placeMotifs(root, { stacked = false, bottom = 0 } = {}) {
       return { left: r.left - S.left - dx - pad, right: r.right - S.left - dx + pad, top: r.top - S.top - dy - pad, bottom: r.bottom - S.top - dy + pad };
     };
     const hard = [...slide.querySelectorAll(HARD)].filter((e) => !e.closest('.s-motifs') && e.offsetParent).map((e) => rel(e, e.matches('.s-frame > *') ? textBox(e) : e.getBoundingClientRect(), 18));
+    // the red seal before the title and the drum band under it are drawn by the frame itself (::before, ::after)
+    for (const fr of slide.querySelectorAll('.s-frame')) {
+      if (!fr.offsetParent) continue;
+      const r = fr.getBoundingClientRect();
+      hard.push(rel(fr, { left: r.left, right: r.left + 52, top: r.top, bottom: r.top + 52 }, 18));
+      hard.push(rel(fr, { left: r.left, right: r.left + Math.min(280, r.width), top: r.bottom - 14, bottom: r.bottom }, 18));
+    }
     const soft = [...slide.querySelectorAll(SOFT)].filter((e) => e.offsetParent).map((e) => rel(e, e.getBoundingClientRect()));
     const W = S.width, H = S.height - bottom;
+    // a photo filling the slide: only the side shaded for the title (the shade fades out from 38% to 62% across)
+    const col = slide.querySelector('.s-fill') && slide.querySelector('.s-col');
+    // Thirty-sixth round: the motifs are spread evenly round the title (above, below and on both sides of it)
+    // instead of all gathering at the left edge.
+    const maxRight = col ? Math.min(rel(col, col.getBoundingClientRect()).right + 24, W * 0.4) : W;
+    const photo = col ? busyMap(slide, S.width, S.height) : null;
+    const frame = col && slide.querySelector('.s-col .s-frame');
+    const axis = frame ? (() => { const r = rel(frame, frame.getBoundingClientRect()); return { x: (r.left + r.right) / 2, y: (r.top + r.bottom) / 2 + 60 }; })() : null;
     // The motifs gather around the slide's own pieces rather than drifting off to the far edges of a wide screen.
     const all = [...hard, ...soft].filter((r) => r.top < H);
     const near = all.length ? { left: Math.min(...all.map((r) => r.left)) - 60, right: Math.max(...all.map((r) => r.right)) + 60,
@@ -452,7 +539,7 @@ export function placeMotifs(root, { stacked = false, bottom = 0 } = {}) {
     const placed = [];
     let shown = 0;
     for (const [i, m] of motifs.entries()) {
-      if (stacked && shown >= 2) break;
+      if (shown >= (stacked ? 1 : 2)) break;
       let best = null;
       for (const shrink of [1, 0.8, 0.64, 0.5]) {
         const size = Math.round((i === 0 ? 205 : 145) * scale * shrink);
@@ -461,12 +548,21 @@ export function placeMotifs(root, { stacked = false, bottom = 0 } = {}) {
           for (let x = 16; x + size <= W - 16; x += step) {
             // the drawing fills the middle of its box, so test a slightly smaller box
             const box = { left: x + size * 0.08, right: x + size * 0.92, top: y + size * 0.08, bottom: y + size * 0.92 };
+            if (box.right > maxRight) continue;
             if (hard.some((h) => overlap(box, h) > 0)) continue;
             if (placed.some((p) => gap(box, p) < 14)) continue;
-            const hidden = soft.reduce((s, r) => s + overlap(box, r), 0) / area(box);
-            if (hidden > 0.3) continue;
+            if (soft.some((r) => gap(box, r) < 10)) continue;
+            const busy = photo ? Math.max(0, busyIn(photo, box) - photo.base) : 0;
+            if (busy > 0.3) continue; // over a building, a tower, a roof: somewhere else, smaller, or not at all
             const clear = Math.min(140, ...hard.map((h) => gap(box, h)), ...placed.map((p) => gap(box, p) * 0.9));
-            const score = clear - hidden * 120 - gap(box, near) * 0.6 + (placed.length ? Math.min(...placed.map((p) => gap(box, p))) * 0.15 : 0);
+            let score = clear - gap(box, near) * 0.6 + (placed.length ? Math.min(...placed.map((p) => gap(box, p))) * 0.15 : 0);
+            if (axis) { // the middle of all the motifs so far, this one included, should sit on the title's middle
+              const pts = [...placed, box].map((p) => [(p.left + p.right) / 2, (p.top + p.bottom) / 2]);
+              const cx = pts.reduce((t, p) => t + p[0], 0) / pts.length;
+              const cy = pts.reduce((t, p) => t + p[1], 0) / pts.length;
+              score -= Math.abs(cx - axis.x) * 0.6 + Math.abs(cy - axis.y) * 0.3;
+            }
+            score -= busy * 300;
             if (!best || score > best.score) best = { x, y, size, box, score };
           }
         }

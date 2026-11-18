@@ -118,7 +118,9 @@ export function createShip({ view, area, avoid = () => [], start = null, paused 
   // Places on screen where the ship may hover, as fractions of the free area. Twice a second it looks for the
   // one furthest from the city pins (so it never sits on a city or its name), and only moves for a clearly
   // better one.
-  const SPOTS = [[0.5, 0.2], [0.74, 0.27], [0.28, 0.25], [0.82, 0.52], [0.62, 0.42], [0.5, 0.5]];
+  // Thirty-sixth round: the spots are gathered round the middle of the globe (they used to reach out to the
+  // edges of the free area, so the bird wandered off towards the corners), and the nearer the middle the better.
+  const SPOTS = [[0.5, 0.42], [0.62, 0.36], [0.38, 0.36], [0.62, 0.5], [0.38, 0.5], [0.5, 0.3], [0.5, 0.56], [0.66, 0.6], [0.34, 0.6]];
   let spot = 0;
   let chosenAt = -1e9;
   function chooseSpot(v, now) {
@@ -128,16 +130,26 @@ export function createShip({ view, area, avoid = () => [], start = null, paused 
     const w = free.right - free.left;
     const h = free.bottom - free.top;
     const pins = avoid().map((c) => v.project(c.lat, c.lon, 0)).filter((p) => p.visible);
-    const score = (i) => {
+    // Thirty-sixth round: as near the middle of the globe as it can be without covering a city's pin or name;
+    // covering one rules a spot out (the pull to the middle used to win over a name now and then).
+    const room = (i) => {
       const x = free.left + w * SPOTS[i][0];
       const y = free.top + h * SPOTS[i][1];
       if (!v.pick(x, y)) return -1; // off the globe
-      // the ship is wider than tall, so sideways distance counts for less
-      return Math.min(260, ...pins.map((p) => Math.hypot((p.x - x) * 0.7, p.y - y))) - i * 4;
+      // Thirty-fifth round: the room between the bird with the gold clouds streaming out behind it and each pin
+      // with its name to its right (it used to be measured from the pin alone, so a cloud could brush a name).
+      const bird = { l: x - 150, r: x + 70, t: y - 40, b: y + 35 };
+      return Math.min(220, ...pins.map((p) => Math.hypot(Math.max(0, bird.l - (p.x + 105), p.x - 12 - bird.r),
+        Math.max(0, bird.t - (p.y + 14), p.y - 14 - bird.b))));
+    };
+    const score = (i) => {
+      const r = room(i);
+      if (r < 0) return -1000;
+      return (r < 8 ? -300 : r * 0.5) - Math.hypot((SPOTS[i][0] - 0.5) * w, (SPOTS[i][1] - 0.46) * h) * 0.35;
     };
     let best = spot;
-    let bestScore = score(spot) + 45; // stay unless another is clearly better
-    SPOTS.forEach((_, i) => { const s = i === spot ? -2 : score(i); if (s > bestScore) { best = i; bestScore = s; } });
+    let bestScore = score(spot) + (room(spot) >= 8 ? 30 : 0); // stay unless another is clearly better
+    SPOTS.forEach((_, i) => { if (i === spot) return; const s = score(i); if (s > bestScore) { best = i; bestScore = s; } });
     spot = best;
   }
 

@@ -3,6 +3,7 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { esc, icon, currentTheme } from './common.js';
+import { touchpadGestures } from './touchpad.js';
 
 export const CATEGORIES = {
   entrance: { label: 'Entrances', icon: 'door_open' },
@@ -60,6 +61,23 @@ export function createMap(el, { lat, lon, zoom = 15, style = 'street', zoomButto
     },
   });
   const switcher = new Switch({ position: 'topright' }).addTo(map).getContainer();
+
+  // Thirty-fifth round: a touchpad (touchpad.js). A pinch zoomed the whole page, or the map in jumps; now it zooms
+  // smoothly about the fingers, and settles on a whole zoom level (sharp tiles) when the fingers stop. A
+  // two-finger slide moves the map as dragging does, except on the slides, where it moves the slides as the
+  // mouse wheel does there.
+  let settle = 0;
+  touchpadGestures(el, {
+    slides: () => map.scrollWheelZoom.enabled(),
+    zoom(factor, x, y) {
+      const at = L.point(x, y);
+      map.options.zoomSnap = 0;
+      map.setZoomAround(at, map.getZoom() - Math.log2(factor), { animate: false });
+      clearTimeout(settle);
+      settle = setTimeout(() => { map.options.zoomSnap = 1; map.setZoomAround(at, Math.round(map.getZoom())); }, 220);
+    },
+    pan(dx, dy) { map.panBy([dx, dy], { animate: false }); },
+  });
 
   // Street style follows the light/dark theme.
   new MutationObserver(() => { if (current === 'street') setStyle('street'); })

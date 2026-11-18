@@ -6,7 +6,7 @@ import {
   $, $$, esc, icon, loadCities, loadLandmark, loadMedia, imageSrc, landmarkUrl, protoNote, showError, collectionsOf,
 } from '../common.js';
 import { saveButton } from '../trip.js';
-import { panelDrum, lacFlight } from '../motifs.js';
+import { panelDrum } from '../motifs.js';
 import { MONTHS, TAGS, monthRanges, isGoodMonth, thisMonth, tagChips } from '../season.js';
 
 const REGIONS = [['all', 'All places'], ['vietnam', 'Vietnam'], ['world', 'Rest of the world']];
@@ -52,9 +52,9 @@ async function main() {
 
   // ---------- Layout ----------
   $('#discover').innerHTML = `
-    <header class="discover-head page-head">${panelDrum()}
+    <header class="discover-head page-head">
       <p class="crumb mb-1"><a href="index.html">Globe</a> › Discover</p>
-      <h1 class="t-display mb-2">Discover${lacFlight()}</h1>
+      <h1 class="t-display mb-2">Discover${panelDrum()}</h1>
       <p class="lead-text mb-0">Not sure where to go? Answer three quick questions, or browse places by season and by what you enjoy.</p>
     </header>
 

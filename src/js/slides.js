@@ -9,7 +9,7 @@
 // On narrow or short screens, and when the visitor prefers reduced motion, the slides stack one under
 // another instead, and the timeline stays as a compact bar along the bottom.
 import { $, $$, esc, icon, prefersReducedMotion, focusStyle } from './common.js';
-import { placeMotifs, watermark } from './motifs.js';
+import { placeMotifs } from './motifs.js';
 import { motifRedraw } from './motif-redraw.js';
 
 const wideScreen = matchMedia('(min-width: 900px) and (min-height: 560px)');
@@ -68,11 +68,10 @@ export const bigNumber = (text) => `<span class="s-num" aria-hidden="true" data-
 
 /**
  * Starts the deck inside `root` (the element made by deckHTML).
- * `onSettle(i)` runs when the visitor has stopped on slide i. `mark` names the motif drawn large and faint
- * behind the slides (the place's own drawing; fourteenth round).
+ * `onSettle(i)` runs when the visitor has stopped on slide i.
  * Returns { go(i), next(), prev(), index, count, refresh() }.
  */
-export function makeDeck(root, { onSettle, mark = null } = {}) {
+export function makeDeck(root, { onSettle } = {}) {
   const stick = $('.deck-stick', root);
   const track = $('.deck-track', root);
   const bar = $('.deck-bar', root);
@@ -110,11 +109,8 @@ export function makeDeck(root, { onSettle, mark = null } = {}) {
   bgs.forEach((url, i) => { const own = $('.s-bg', slides[i]); if (own) setBg(own, url); });
   stick.insertAdjacentHTML('afterbegin', `<div class="deck-bg" aria-hidden="true">${slides.map((s) => `<i class="tone-${s.dataset.tone}"></i>`).join('')}</div>`);
   const layers = $$('.deck-bg > i', stick);
-  // The place's own drawing, very large and faint, behind the slides and in front of their blurred photos.
-  // It drifts a little as the slides move. Only when the slides move sideways: stacked, each slide has its own
-  // opaque background.
-  if (mark) $('.deck-bg', stick).insertAdjacentHTML('afterend', `<div class="deck-wm" aria-hidden="true">${watermark(mark)}</div>`);
-  const wm = $('.deck-wm', stick);
+  // (Thirty-eighth round: the place's own drawing, very large and faint behind the slides, is gone: two gold
+  // drawings and the drum band under the title are all the gold a slide has, so nothing gold sits behind the words.)
   layers.forEach((el, i) => setBg(el, bgs[i] || bgs[0]));
   const inners = slides.map((s) => $('.slide-in', s));
 
@@ -170,7 +166,6 @@ export function makeDeck(root, { onSettle, mark = null } = {}) {
     if (mode) {
       p = clamp((appbar - root.getBoundingClientRect().top) / step, 0, n - 1);
       track.style.transform = `translate3d(${(-p * 100).toFixed(3)}%, 0, 0)`;
-      if (wm) wm.style.translate = `${(-p * 1.6).toFixed(2)}vw 0`;
       slides.forEach((s, i) => {
         const d = i - p;
         const far = Math.abs(d);

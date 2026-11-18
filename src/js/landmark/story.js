@@ -60,6 +60,14 @@ export function initStory(track, layer, { lm, media, note }) {
       </div>
     </div>`);
   carousel(layer.parentElement.querySelector('.s-strip'));
+  // Thirty-fifth round: the photo's gold line closes just above the chapters laid over its lower edge, instead of
+  // running on under them.
+  const strip = layer.parentElement.querySelector('.s-strip');
+  const fitFrame = () => {
+    const under = layer.offsetTop + layer.offsetHeight - strip.offsetTop;
+    layer.style.setProperty('--frame-bottom', `${Math.max(9, under + 9)}px`);
+  };
+  new ResizeObserver(fitFrame).observe(layer);
   if (chapters.some((c) => !c.audio && !c.video && !c.youtube)) {
     note.innerHTML = protoNote('narration is read aloud by your browser’s built-in voice (text-to-speech). The full version would use recorded narration by local guides and historians; the player already supports audio and video files.', 'mt-3 mb-0');
   }
